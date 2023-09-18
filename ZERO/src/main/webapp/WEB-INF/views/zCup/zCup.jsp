@@ -27,85 +27,10 @@
    <!-- googleFont -->
 </head>
 <body>
-    <header>
-      <div class="headerBar">
-        <h1 class="logo"><a href="../index.html">zero futsal</a></h1>
-
-        <nav class="webNav">
-          <ul class="leftMenu">
-            <li id="point">
-              <a>지점<span class="nav-bar hover-bar"></span></a>
-            </li>
-            <li id="reservation">
-              <a>예약<span class="nav-bar hover-bar"></span></a>
-            </li>
-            <li id="zCup">
-              <a>Z-CUP<span class="nav-bar hover-bar"></span></a>
-            </li>
-            <li id="customer">
-              <a>고객센터<span class="nav-bar hover-bar"></span></a>
-            </li>
-          </ul>
-
-          <ul class="rightMenu">
-            <li>
-              <a href="" class="sns facebook">
-                <i class="fa-brands fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a href="" class="sns instagram">
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-            </li>
-            <li class="loginMenu">
-              <a href="../login/login.html">
-                memberLogin
-                <i class="fa-solid fa-user"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <input type="checkbox" name="" id="toggleMenu" />
-        <label for="toggleMenu" class="toggleMenu">
-          <i class="fa-solid fa-bars" style="color: #ffffff"></i>
-        </label>
-        <nav class="slideMenu">
-          <button type="button" class="memberLogin">
-            MEMBER LOGIN
-            <i class="fa-solid fa-user"></i>
-          </button>
-          <ul class="navMenu">
-            <li id="point">
-              <a>지점<span class="nav-bar hover-bar"></span></a>
-            </li>
-            <li id="reservation">
-              <a>예약<span class="nav-bar hover-bar"></span></a>
-            </li>
-            <li id="zCup">
-              <a>Z-CUP<span class="nav-bar hover-bar"></span></a>
-            </li>
-            <li id="customer">
-              <a>고객센터<span class="nav-bar hover-bar"></span></a>
-            </li>
-          </ul>
-          <ul class="snsMenu">
-            <li>
-              <a href="" class="sns facebook">
-                <i class="fa-brands fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a href="" class="sns instagram">
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main>
+  <!-- header include -->
+  <jsp:include page="../include/header.jsp" />
+  
+	    <main>
       <div class="topVideo">
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
@@ -295,6 +220,7 @@
         <input type="radio" name="menuBtn" id="zCupInfo" />
         <input type="radio" name="menuBtn" id="teamAdd" />
         <input type="radio" name="menuBtn" id="teamList" />
+        <input type="radio" name="menuBtn" id="zCupAllView" checked />
         <ul class="menuBtn">
           <li>
             <label for="zCupInfo" id="zCupInfo">
@@ -302,6 +228,14 @@
               Z-CUP소개
             </label>
           </li>
+
+          <li>
+            <label for="zCupAllView" id="zCupAllView">
+              <i class="fa-solid fa-futbol"></i>
+              Z-CUP 전체현황
+            </label>
+          </li>
+
           <li>
             <label for="teamAdd" id="teamAdd">
               <i class="fa-solid fa-people-group"></i>
@@ -314,6 +248,7 @@
               팀리스트
             </label>
           </li>
+          
         </ul>
 
         <section id="zCupInfo">
@@ -424,49 +359,48 @@
           <input type="radio" name="addLeague" id="addPlayer" />
 
           <section class="addTeam">
-            <form:form modelAttribute = "NewTeam" method="post" action="/controller/Cup/zCup/cupTeam">
+            <form action="">
               <h3 class="formTitle"><span></span>팀 등록</h3>
               <div class="formDiv">
                 <div class="bothSide">
                   <div>
                     <label>지점명</label>
                     <select name="" >
-                      <option value="" label="지점선택" />
-                      <option value="" label="서울" />
-                      <option value="" label="경기" />
+                      <option value="">지점선택</option>
+                      <option value="">초등부</option>
+                      <option value="">성인부</option>
                     </select>
                   </div>
                   <div>
                     <label>팀명</label>
-                    <form:input path="teamName" name="" />
+                    <input type="text" name=""  />
                   </div>
                 </div>
 
                 <div class="bothSide">
                   <div>
                     <label>팀관리자</label>
-                    <form:input type="text" path="teamLeader" name="" />
+                    <input type="text" name=""  />
                   </div>
                   <div>
                     <label>연락처</label>
                     <div class="phone">
-                      <form:input type="text" path="teamPhone" name=""  /> -
-                      <input type="text"  name=""  /> -
-                      <input type="text"  name=""  />
+                      <input type="text" name=""  /> -
+                      <input type="text" name=""  /> -
+                      <input type="text" name=""  />
                     </div>
                   </div>
                 </div>
                 <div>
                   <label>이메일</label>
-                  <form:input type="text" path="teamMail" />
+                  <input type="text" />
                 </div>
                 <div class="bothSide">
                   <div>
                     <label>유니폼(홈)</label>
                     <div class="harlfInput">
-                      <form:input
+                      <input
                         type="text"
-                        path="teamUniformHome"
                         name=""
                         
                         placeholder="유니폼 색"
@@ -476,9 +410,8 @@
                   <div>
                     <label>유니폼(어웨이)</label>
                     <div class="harlfInput">
-                      <form:input
+                      <input
                         type="text"
-                        path="teamUniformAway"
                         name=""
                         
                         placeholder="유니폼 색"
@@ -489,62 +422,62 @@
                 <div>
                   <label>팀엠블럼</label>
                   <div class="search">
-                    <form:input type="text" path="teamEmblem"/>
-                    <button type="button">찾아보기</button>
+                    <input type="text" />
+                    <button>찾아보기</button>
                   </div>
                 </div>
                 <div class="bothSide">
                   <div>
                     <label>팀비밀번호</label>
-                    <form:input type="new-password" path="teamPassWord" placeholder="5자 이상으로 입력해주세요."/>
+                    <input type="new-password" id="pwd1" placeholder="5자 이상으로 입력해주세요."/>
                   </div>
                   <div>
                     <label>팀비밀번호 확인</label>
-                    <form:input type="new-password" path="teamPassWordCheck"  />
+                    <input type="new-password" id="pwd2" />
                   </div>
                 </div>
               </div>
               <div class="buttons">
-                <button type="submit" class="registrationBtn">등록하기</button>
+                <button type="button" class="registrationBtn">등록하기</button>
                 <button type="button" class="resetBtn">취소하기</button>
               </div>
-            </form:form>
+            </form>
           </section>
           <section class="addPlayer">
-            <form:form modelAttribute = "NewPlayer" method="post" action="">
+            <form action="">
               <h3 class="formTitle"><span></span>선수 등록</h3>
               <div class="formDiv">
                 <div class="bothSide">
                   <div>
                     <label>팀코드 입력</label>
                     <div class="inpuBtn">
-                      <form:input type="text" path="playerTeamCode" name=""/>
+                      <input type="text" />
                       <button type="button">코드확인</button>
                     </div>
                   </div>
                   <div>
                     <label>팀비밀번호</label>
-                    <form:input type="text" path="playerTeamPassWord" name=""/>
+                    <input type="text" />
                   </div>
                 </div>
                 <div class="bothSide">
                   <div>
-                    <label>팀명</label>
-                    <form:input type="text" path="playerTeamName" name="" readonly="true"/>
+                    <label">팀명</label>
+                    <input type="text" name=""  readonly />
                   </div>
                   <div>
                     <label>지점명</label>
-                    <form:input type="text" path="playerbranchNo" name="" readonly="true"/>
+                    <input type="text" name=""  readonly />
                   </div>
                 </div>
                 <div>
                   <label>선수명</label>
-                  <form:input type="text" path="playerName" name="" readonly="true"/>
+                  <input type="text" name=""  readonly />
                 </div>
                 <div>
                   <label>선수사진</label>
                   <div class="search">
-                    <form:input type="text" path="playerPhoto" name="" />
+                    <input type="text" />
                     <button>찾아보기</button>
                   </div>
                 </div>
@@ -553,7 +486,7 @@
                 <button type="button" class="registrationBtn">등록하기</button>
                 <button type="button" class="resetBtn">취소하기</button>
               </div>
-            </form:form>
+            </form>
           </section>
         </section>
         <section id="teamList">
@@ -887,14 +820,8 @@
         </article>
       </div>
     </main>
-
-    <footer>
-      <ul>
-        <li><a href="">개인정보처리방침</a></li>
-        <li><a href="">이용약관</a></li>
-        <li><a href="">이메일무단수집거부</a></li>
-      </ul>
-      <p>copyright&copy;zero.allright reserved</p>
-    </footer>
+	
+    <!-- footer include -->
+    <jsp:include page="../include/footer.jsp" />
 </body>
 </html>

@@ -18,9 +18,13 @@ section#teamList {
   display: none;
 }
 
-/* ÎåÄÌöå ÏÜåÍ∞ú ÏÑ†ÌÉù */
+/* ¥Î»∏ º“∞≥ º±≈√ */
 input[id="zCupInfo"]:checked ~ section#zCupInfo {
   display: block;
+}
+
+input[id="zCupInfo"]:checked ~ ul.menuBtn li label#zCupInfo {
+  border: 5px solid var(--pointColor);
 }
 
 input[id="zCupInfo"]:checked ~ article {
@@ -31,22 +35,43 @@ input[id="zCupInfo"]:checked ~ h1#zCupTitle {
   display: none;
 }
 
-/* ÌåÄÎì±Î°ù ÏÑ†ÌÉù */
+/* ¿¸√º«ˆ»≤ º±≈√ */
+input[id="zCupAllView"]:checked ~ article.zCupAll {
+  display: block;
+}
+
+input[id="zCupAllView"]:checked ~ ul.menuBtn li label#zCupAllView {
+  border: 5px solid var(--pointColor);
+}
+
+input[id="zCupAllView"]:checked ~ article {
+  display: none;
+}
+
+input[id="zCupAllView"]:checked ~ h1#zCupTitle {
+  display: none;
+}
+
+/* ∆¿µÓ∑œ º±≈√ */
 input[id="teamAdd"]:checked ~ section#teamAdd {
   display: block;
 }
 
-/* input[id="teamAdd"]:checked ~ ul.menuBtn {
-  display: none;
-} */
+input[id="teamAdd"]:checked ~ ul.menuBtn li label#teamAdd {
+  border: 5px solid var(--pointColor);
+}
 
 input[id="teamAdd"]:checked ~ article {
   display: none;
 }
 
-/* ÌåÄÎ¶¨Ïä§Ìä∏ ÏÑ†ÌÉù */
+/* ∆¿∏ÆΩ∫∆Æ º±≈√ */
 input[id="teamList"]:checked ~ section#teamList {
   display: block;
+}
+
+input[id="teamList"]:checked ~ ul.menuBtn li label#teamList {
+  border: 5px solid var(--pointColor);
 }
 
 input[id="teamList"]:checked ~ article {
@@ -62,19 +87,28 @@ main .container .menuBtn {
 }
 
 main .container .menuBtn li {
-  width: 33%;
+  width: 24.5%;
   text-align: center;
-  padding: 35px 0;
 
   background-color: #f2f2f2;
   border: 1px solid #2c3c573b;
 }
 
 main .container .menuBtn li label {
-  font-size: 2.2rem;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 35px 0;
+  border: 5px solid transparent;
+
+  font-size: 1.8rem;
   font-weight: 600;
   color: var(--pointColor);
   cursor: pointer;
+}
+
+main .container .menuBtn li:hover label {
+  border: 5px solid var(--pointColor);
 }
 
 @media screen and (max-width: 1190px) {
@@ -83,20 +117,17 @@ main .container .menuBtn li label {
   }
 }
 
-@media screen and (max-width: 1000px) {
-  main .container .menuBtn li {
-    margin: 0 0 10px 0;
-  }
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1100px) {
   main .container .menuBtn {
     flex-wrap: wrap;
   }
   main .container .menuBtn li {
-    width: 100%;
+    width: 49.5%;
+    margin-bottom: 10px;
   }
+}
 
+@media screen and (max-width: 800px) {
   main .container .menuBtn li label {
     font-size: 1.5rem;
   }
@@ -915,7 +946,7 @@ section table tr {
 }
 
 .zCupSchedule .zCup ul li label span::before {
-  content: "‚ñ∂";
+  content: "¢∫";
   font-size: 0.2em;
   position: absolute;
   top: 50%;

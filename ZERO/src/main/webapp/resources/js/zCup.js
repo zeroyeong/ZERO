@@ -14,6 +14,7 @@ const zCupTitle = document.getElementById("zCupTitle");
 const playBtn = document.querySelector("label#zCupInfo");
 const addBtn = document.querySelector("label#teamAdd");
 const listbtn = document.querySelector("label#teamList");
+const allBtn = document.querySelector("label#zCupAllView");
 
 playBtn.addEventListener("click", function () {
   zCupTitle.innerText = "Z-CUP 소개";
@@ -25,6 +26,10 @@ addBtn.addEventListener("click", function () {
 
 listbtn.addEventListener("click", function () {
   zCupTitle.innerText = "팀리스트";
+});
+
+allBtn.addEventListener("click", function () {
+  zCupTitle.innerText = "Z-CUP 전체 현황";
 });
 
 // TEAM LIST pagination
