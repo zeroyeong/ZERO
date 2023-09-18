@@ -62,7 +62,7 @@ article.tournament section {
   position: absolute;
   top: 85px;
 
-  z-index: 100;
+  z-index: 10;
 }
 
 article.tournament > section > div {
