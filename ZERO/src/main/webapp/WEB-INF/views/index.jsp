@@ -20,14 +20,13 @@
 </head>
 
 <body id="indexBody">
-
+  	<!-- header include -->
 	<jsp:include page="include/header.jsp" />
 
 	<main>
 		<div class="mainVideo">
 			<video id="video1" autoplay playsinline loop muted>
-				<source src="<c:url value='/resources/videos/banner.mp4'/>"
-					type="video/mp4" />
+				<source src="<c:url value='/resources/videos/banner.mp4'/>" type="video/mp4" />
 			</video>
 		</div>
 	</main>
