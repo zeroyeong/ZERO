@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZERO FUTSAL</title>
+
+    <!-- css 연결-->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/reservation.css">
+
+    <!-- js 연결-->
+    <script src="../js/common.js" defer></script>
+    <script src="../js/resInfo.js" defer></script>
+
+
+    <!--아이콘-->
+    <script src="https://kit.fontawesome.com/a923b8b28f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="headerBar">
+            <h1 class="logo"><a href="../index.html">zero futsal</a></h1>
+
+            <nav class="webNav">
+                <ul class="leftMenu">
+                    <li id="point">
+                        <a>지점<span class="nav-bar hover-bar"></span></a>
+                    </li>
+                    <li id="reservation">
+                        <a>예약<span class="nav-bar hover-bar"></span></a>
+                    </li>
+                    <li id="zCup">
+                        <a>Z-CUP<span class="nav-bar hover-bar"></span></a>
+                    </li>
+                    <li id="customer">
+                        <a>고객센터<span class="nav-bar hover-bar"></span></a>
+                    </li>
+                    <li id="manager">
+                        <a>Manager<span class="nav-bar hover-bar"></span></a>
+                    </li>
+                </ul>
+
+                <ul class="rightMenu">
+                    <li>
+                        <a href="" class="sns facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="sns instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="loginMenu">
+                        <a href="../login/login.html">
+                            memberLogin
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <input type="checkbox" name="" id="toggleMenu" />
+            <label for="toggleMenu" class="toggleMenu">
+                <i class="fa-solid fa-bars" style="color: #ffffff"></i>
+            </label>
+            <nav class="slideMenu">
+                <button type="button" class="memberLogin">
+                    MEMBER LOGIN
+                    <i class="fa-solid fa-user"></i>
+                </button>
+                <ul class="navMenu">
+                    <li id="point">
+                        <a>지점<span class="nav-bar hover-bar"></span></a>
+                    </li>
+                    <li id="reservation">
+                        <a>예약<span class="nav-bar hover-bar"></span></a>
+                    </li>
+                    <li id="zCup">
+                        <a>Z-CUP<span class="nav-bar hover-bar"></span></a>
+                    </li>
+                    <li id="customer">
+                        <a>고객센터<span class="nav-bar hover-bar"></span></a>
+                    </li>
+                    <li id="manager">
+                        <a>Manager<span class="nav-bar hover-bar"></span></a>
+                    </li>
+                </ul>
+                <ul class="snsMenu">
+                    <li>
+                        <a href="" class="sns facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="sns instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="topVideo">
+            <h2>예약</h2>
+            <video id="video2" autoplay playsinline loop muted>
+                <source src="../videos/point.mp4" type="video/mp4" />
+            </video>
+        </div>
+
+        <input type="radio" id="reser" checked />
+        <ul class="harlfButton">
+            <li><label for="reser">예약</label></li>
+            <li><label><a href="reservation.html">예약확인</a></label></li>
+        </ul>
+        <div class="container">
+            <h1>예약</h1>
+            <div class="reserWrap">
+                <div class="conLeft">
+                    <div class="leftImg">
+                        <span class="img">
+                            <img src="../images/전주완산점.png" alt="" width="584px">
+                        </span>
+                        <p class="name">전주 완산점</p>
+                    </div>
+                    <div class="leftInfo">
+                        <p class="tit">유의사항</p>
+                        <ul>
+                            <li><span class="red-bg">전주완산점 잔디 전면교체 완료</span></li>
+                            <li><span class="yellow-bg">풋살공, 팀조끼 무료 대여, 풋살화 유료 대여</span></li>
+                            <li><span class="blue-bg">"월정기대관" 신청시 1회 10% 할인 적용</span></li>
+                        </ul>
+                        <ol type="1">
+                            <li>1. 예약신청 후 2시간 내에 입금되지 않을 시 자동 취소</li>
+                            <p>* 당일예약은 예약 후 바로 입금 필수</p>
+                            <p>* 예약자와 입금자 이름이 다를 경우 전화문의 필수</p>
+                            <p>- 입금 계좌 : 국민은행 318037-04-005799 예금주 : 더피치전주완산</p>
+                            <p>- 입금 확인 전화 : 010-5420-0222 (가능시간 : 10:00 ~ 18:00)</p>
+                            <li>2. 문의 전화 : 010-6804-0220 / 010-5420-0222</li>
+                            <li>3. 행사 목적 대관 신청 사전 문의 필수</li>
+                            <li>4. 전 구역 금연 <small>(흡연구역 준수, 경기장내 흡연 적발 시 대관 취소 및 환불 불가)</small></li>
+                            <li>5. 경기장 내 음료 및 음식물 반입 금지</li>
+                            <li>6. 주차는 옥상층 주차장을 이용</li>
+                            * 주차등록 필수, 미등록시 발생한 주차요금은 책임지지 않음
+                            <li>7. 현금영수증 발행 가능 (예약후 문의전화)</li>
+                            <li>8. 상시 CCTV 촬영 중</li>
+                            <li>9. 분실물은 본인 책임</li>
+                            <li>10. 야간 대관 이용 시 소음 관련 민원이 발생 할 수 있음, 고성, 욕설 금지</li>
+                            <li>11. 부상 발생시 치료는 본인 개인 부담</li>
+                        </ol>
+
+                        <p class="tit">환불규정</p>
+                        <ol type="1">
+                            <li>1. 대관 예약 취소 및 변경은 아래의 규정에 따라 가능합니다.</li>
+                            <li>2. 대관 당일에는 취소 및 변경이 불가합니다.</li>
+                            <li>3. 대관 예약 취소 규정</li>
+                            <p>- 5일 전 : 100% 환불</p>
+                            <p>- 4일 전 : 70% 환불</p>
+                            <p>- 3일 전 : 50% 환불</p>
+                            <p>- 2일 전 ~ 당일 : 환불 불가</p>
+                            <li>4. 대관 예약 날짜변경은 3일 전까지 가능합니다.</li>
+                            <li>5. 당일 취소 및 변경은 천재지변으로 인한 경우에만 100% 환불 및 날짜변경이 가능합니다.</li>
+                            <p>(호우주의보/경보, 대설주의보/경보, 태풍주의보/경보만 해당)</p>
+                            <li>6. 대관 날짜, 시간 변경 및 취소는 1회에 한해 가능합니다.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="conRight">
+                    <!--달력-->
+                    <div class="calenderWrap">
+                        <table class="calendar">
+                            <thead>
+                                <tr>
+                                    <td onClick="prevCalendar();" style="cursor: pointer;">&#60;</td>
+                                    <td colspan="5"><span id="calYear"></span>년 <span id="calMonth"></span>월</td>
+                                    <td onClick="nextCalendar();" style="cursor: pointer;">&#62;</td>
+                                </tr>
+                                <tr>
+                                    <td class="sundayRed">일</td>
+                                    <td>월</td>
+                                    <td>화</td>
+                                    <td>수</td>
+                                    <td>목</td>
+                                    <td>금</td>
+                                    <td>토</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="rightInfo">
+                        <div class="infoDiv">
+                            <span class="tit">날짜 선택</span>
+                            <span class="date"></span>
+                        </div>
+                        <div class="infoDiv">
+                            <span class="tit">구장 선택</span>
+                            <span class="subTit">* 구장을 선택해야 시간이 표출됩니다.</span>
+                            <span class="select">
+                                <label for="selectStadium">구장을 선택해주세요</label>
+                                <i class="fa-solid fa-caret-down"></i>
+                                <select name="" id="selectStadium">
+                                    <option value>구장 선택</option>
+                                    <option value>A구장 (크기:40X20)</option>
+                                    <option value>B구장 (크기:40X20)</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="infoDiv">
+                            <span class="tit">시간 선택</span>
+                            <span class="subTit">* 다중 선택이 가능 합니다.</span>
+                            <div class="timeTable">
+                                <ul>
+                                    <li>
+                                        <button onclick="setTime(this);">10:00 ~ 12:00
+                                            <br>
+                                            80,000원
+                                            <input type="hidden" id="restime" value="10:00 ~ 12:00">
+                                        </button>
+                                        <input type="checkbox" name="" style="display: none;" value="1" alt="80000"
+                                            class="time_check">
+                                    </li>
+                                    <li>
+                                        <button onclick="setTime(this);">12:00 ~ 14:00
+                                            <br>
+                                            80,000원
+                                            <input type="hidden" id="restime" value="12:00 ~ 14:00">
+                                        </button>
+                                        <input type="checkbox" name="" style="display: none;" value="2" alt="80000"
+                                            class="time_check">
+                                    </li>
+                                    <li>
+                                        <button onclick="setTime(this);">14:00 ~ 16:00
+                                            <br>
+                                            80,000원
+                                            <input type="hidden" id="restime" value="14:00 ~ 16:00">
+                                        </button>
+                                        <input type="checkbox" name="" style="display: none;" value="3" alt="80000"
+                                            class="time_check">
+                                    </li>
+                                    <li>
+                                        <button onclick="setTime(this);">16:00 ~ 18:00
+                                            <br>
+                                            80,000원
+                                            <input type="hidden" id="restime" value="16:00 ~ 18:00">
+                                        </button>
+                                        <input type="checkbox" name="" style="display: none;" value="4" alt="80000"
+                                            class="time_check">
+                                    </li>
+                                    <li>
+                                        <button onclick="setTime(this);">18:00 ~ 20:00
+                                            <br>
+                                            80,000원
+                                            <input type="hidden" id="restime" value="18:00 ~ 20:00">
+                                        </button>
+                                        <input type="checkbox" name="" style="display: none;" value="5" alt="80000"
+                                            class="time_check">
+                                    </li>
+                                    <li>
+                                        <button onclick="setTime(this);">20:00 ~ 22:00
+                                            <br>
+                                            80,000원
+                                            <input type="hidden" id="restime" value="20:00 ~ 22:00">
+                                        </button>
+                                        <input type="checkbox" name="" style="display: none;" value="6" alt="80000"
+                                            class="time_check">
+                                    </li>
+                                    <li>
+                                        <button onclick="setTime(this);">22:00 ~ 24:00
+                                            <br>
+                                            80,000원
+                                            <input type="hidden" id="restime" value="22:00 ~ 24:00">
+                                        </button>
+                                        <input type="checkbox" name="" style="display: none;" value="6" alt="80000"
+                                            class="time_check">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="infoDiv">
+                            <span class="tit">합계</span>
+                            <span class="total"><b><span id="totalPrice">0</span>원</b></span>
+                        </div>
+                        <div class="infoDiv">
+                            <input type="checkbox" class="matchCheck">
+                            <span class="tit">매치 등록하기</span>
+                            <span class="subTit">* 매치를 등록하면 경기를 희망하는 팀의 연락을 받을 수 있습니다.</span>
+                            <div id="matchForm" class="matchList">
+                                <ul>
+                                    <li>
+                                        <span class="select">
+                                            <label for="mat01">매치형태 선택</label>
+                                            <select name="mat01" id="mat01">
+                                                <option value>매치형태 선택</option>
+                                                <option value="5vs5">5 vs 5</option>
+                                                <option value="6vs6">6 vs 6</option>
+                                            </select>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="select">
+                                            <label for="mat02">신청 가능 팀 선택</label>
+                                            <select name="mat02" id="mat02">
+                                                <option value>신청 가능 팀 선택</option>
+                                                <option value="1">1팀</option>
+                                                <option value="2">2팀</option>
+                                            </select>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="select">
+                                            <label for="mat03">매치형태 선택</label>
+                                            <select name="mat03" id="mat03">
+                                                <option value>팀수준선택</option>
+                                                <option value="1">상</option>
+                                                <option value="2">중상</option>
+                                                <option value="3">중</option>
+                                                <option value="4">중하</option>
+                                                <option value="5">하</option>
+                                            </select>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <div class="uniColor">
+                                            <span>유니폼 색상</span>
+                                            <input type="text" title name="uniColorTop" placeholder="상의색">
+                                            <span></span>
+                                            <input type="text" title name="uniColorTop" placeholder="하의색">
+                                            <span></span>
+                                            <input type="text" title name="uniColorTop" placeholder="스타킹색">
+                                            <span></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <input type="text" name="" id="" placeholder="원하는 매칭시간 / 개인 연락처 / 팀 소개등 메모">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="resUserInfo">
+                            <p class="name">대관 예약자 정보 입력</p>
+                            <table>
+                                <colgroup>
+                                    <col style="width: 25%;" />
+                                    <col />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">신청자</th>
+                                        <td>
+                                            <input type="text" name="cm_name" placeholder="이름을 입력하세요"
+                                                style="width:100%">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">연락처</th>
+                                        <td>
+                                            <div class="phone">
+                                                <input type="text" maxlength=3 />
+                                                <span>-</span>
+                                                <input type="text" maxlength=4 />
+                                                <span>-</span>
+                                                <input type="text" maxlength=4 />
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">비밀번호</th>
+                                        <td><input type="password" name="cm_pwd" placeholder="예약확인시 필요합니다."
+                                                style="width:100%"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row" id="reservationDateHeader">예약일자</th>
+                                        <td id="reservationDateCell"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" id="stadium">선택구장</th>
+                                        <td id="stadiumSelect"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">예약시간</th>
+                                        <td id="time">예약시간 선택 없음</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" id="total">총 결제금액</th>
+                                        <td><span class="price" id="totalPay">0</span>원</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">메모</th>
+                                        <td>
+                                            <input class="infoMemo" type="text"
+                                                placeholder="원하는 매칭시간 / 개인 연락처 / 팀 소개등 메모">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <span class="check">
+                                <input type="checkbox" id="chk01" required>
+                                <label for="chk01">예약자 정보 및 환불규정/주의사항을 모두 확인 했습니다.</label>
+                            </span>
+
+                            <div class="reserInfoBtnBox">
+                                <button type="button" class="reserInfoBtn" onClick="">
+                                    <span>대관예약하기</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="">개인정보처리방침</a></li>
+            <li><a href="">이용약관</a></li>
+            <li><a href="">이메일무단수집거부</a></li>
+        </ul>
+        <p>copyright&copy;zero.allright reserved</p>
+    </footer>
+
+</body>
+
+</html>
