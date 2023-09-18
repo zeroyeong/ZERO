@@ -1,0 +1,1094 @@
+:root {
+  --imgMaxWidth: 840px;
+  --pointColor: #2c3c57;
+  --titleFontColor: #403d3f;
+  --backgroundColor: #f2f2f2;
+  --tournamentBorder: 1px solid #fff;
+}
+
+/* INPUT RADIO */
+.container input[type="radio"] {
+  display: none;
+}
+
+section#zCupInfo,
+section#teamAdd,
+section#playerAdd,
+section#teamList {
+  display: none;
+}
+
+/* 대회 소개 선택 */
+input[id="zCupInfo"]:checked ~ section#zCupInfo {
+  display: block;
+}
+
+input[id="zCupInfo"]:checked ~ article {
+  display: none;
+}
+
+input[id="zCupInfo"]:checked ~ h1#zCupTitle {
+  display: none;
+}
+
+/* 팀등록 선택 */
+input[id="teamAdd"]:checked ~ section#teamAdd {
+  display: block;
+}
+
+/* input[id="teamAdd"]:checked ~ ul.menuBtn {
+  display: none;
+} */
+
+input[id="teamAdd"]:checked ~ article {
+  display: none;
+}
+
+/* 팀리스트 선택 */
+input[id="teamList"]:checked ~ section#teamList {
+  display: block;
+}
+
+input[id="teamList"]:checked ~ article {
+  display: none;
+}
+
+/* CONTAINER - BUTTON */
+main .container .menuBtn {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+main .container .menuBtn li {
+  width: 33%;
+  text-align: center;
+  padding: 35px 0;
+
+  background-color: #f2f2f2;
+  border: 1px solid #2c3c573b;
+}
+
+main .container .menuBtn li label {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--pointColor);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1190px) {
+  main .container .menuBtn {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  main .container .menuBtn li {
+    margin: 0 0 10px 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  main .container .menuBtn {
+    flex-wrap: wrap;
+  }
+  main .container .menuBtn li {
+    width: 100%;
+  }
+
+  main .container .menuBtn li label {
+    font-size: 1.5rem;
+  }
+}
+
+/* CONTAINER MAIN SECTION */
+.container > section {
+  width: 100%;
+  padding: 30px 0;
+}
+
+.container > section img {
+  display: block;
+  max-width: 75%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container section p {
+  margin: 30px 0;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.container section p span.highright {
+  background-color: #ff6600;
+  color: #fff;
+  font-weight: bold;
+}
+
+.container section p span.hotPink {
+  color: hotpink;
+  font-weight: bold;
+  border-bottom: 2px solid hotpink;
+}
+
+.container section p span.bold {
+  font-weight: bold;
+}
+
+.container section .download div {
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+  text-align: center;
+}
+
+.container section .download div p,
+.container section .download div span {
+  font-size: 1.1rem;
+}
+
+.container section .download div span.highright {
+  display: inline-block;
+  background-color: #3333cc;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+/* SECTION.ADD TEAM */
+section#teamAdd .addButton {
+  display: flex;
+  justify-content: space-between;
+
+  border: 1px solid #2c3c57;
+}
+
+section#teamAdd .addButton li {
+  width: 50%;
+}
+
+section#teamAdd .addButton li label {
+  display: inline-block;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  cursor: pointer;
+
+  color: var(--pointColor);
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+section#teamAdd .addButton li:hover label {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+section#teamAdd .addButton li label.active {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+section#teamAdd section {
+  width: 80%;
+  margin: 50px auto;
+}
+
+section#teamAdd section form {
+  width: 100%;
+}
+
+section#teamAdd section form h3 {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: left;
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: var(--pointColor);
+  border-bottom: 1px solid var(--pointColor);
+}
+
+section#teamAdd section form h3 span {
+  position: relative;
+}
+
+section#teamAdd section form h3 span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  height: 30px;
+  width: 5px;
+  background-color: var(--pointColor);
+}
+
+section#teamAdd section form h3 span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: -20px;
+  height: 5px;
+  width: 5px;
+  background-color: #aec8f4;
+}
+
+section#teamAdd section form .formDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid var(--pointColor);
+  padding: 30px 0;
+}
+
+section#teamAdd section form .formDiv > div {
+  width: 100%;
+  padding: 10px 0;
+}
+
+section#teamAdd section form .formDiv label {
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #383838;
+  margin-bottom: 7px;
+}
+
+section#teamAdd section form .formDiv input[type="text"],
+section#teamAdd section form .formDiv input[type="new-password"],
+section#teamAdd section form .formDiv input[type="new-password"],
+section#teamAdd section form .formDiv select {
+  width: 100%;
+  padding: 10px 5px;
+  border: #dbdbdb 1px solid;
+  outline: none;
+  font-size: 1rem;
+}
+
+section#teamAdd section form .formDiv input[type="text"]:focus,
+section#teamAdd section form .formDiv input[type="text"]:active,
+section#teamAdd section form .formDiv input[type="password"]:focus,
+section#teamAdd section form .formDiv input[type="password"]:active,
+section#teamAdd section form .formDiv select:hover {
+  border: 1px solid rgb(170, 185, 255);
+}
+
+section#teamAdd section form .bothSide {
+  display: flex;
+  justify-content: space-between;
+}
+
+section#teamAdd section form .bothSide > div {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
+
+section#teamAdd section form .formDiv .bothSide .phone {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section#teamAdd section form .formDiv .bothSide .phone input {
+  width: 32%;
+}
+
+section#teamAdd section form .formDiv div .search {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+}
+
+section#teamAdd section form .formDiv div .search button {
+  width: 150px;
+  background-color: #2389d8;
+  color: #fff;
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+section#teamAdd section form .formDiv div .inpuBtn {
+  display: flex;
+}
+
+section#teamAdd section form .formDiv div .inpuBtn input {
+  width: 60%;
+}
+
+section#teamAdd section form .formDiv div .inpuBtn button {
+  width: 40%;
+  background-color: #2389d8;
+  color: #fff;
+  font-size: 1em;
+}
+
+section#teamAdd section form .buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 50px;
+}
+
+section#teamAdd section form .buttons button {
+  width: 49%;
+  padding: 25px;
+  font-size: 1.1em;
+  color: #fff;
+  transition: 0.3s;
+}
+
+section#teamAdd section form .buttons button.registrationBtn {
+  background-color: var(--pointColor);
+}
+
+section#teamAdd section form .buttons button.resetBtn {
+  background-color: gray;
+}
+
+section#teamAdd section form .buttons button:hover {
+  background-color: #003f96;
+}
+
+/* SECTION - TEAM LIST */
+section#teamList form {
+  width: 100%;
+  padding: 15px 15px 15px 5rem;
+  position: relative;
+
+  background-color: var(--pointColor);
+  display: flex;
+
+  margin: 15px 0;
+}
+
+section#teamList form > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: #192336;
+  padding: 15px 10px;
+}
+
+section#teamList form > span i {
+  color: #fff;
+  font-size: 3rem;
+}
+
+section#teamList form .searchBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section#teamList form .searchBox input,
+section#teamList form .searchBox select,
+section#teamList form .searchBox button {
+  padding: 3px 9px;
+  border: none;
+  font-size: 1em;
+  height: 48px;
+}
+
+section#teamList form .searchBox .selectBox {
+  width: 60%;
+}
+
+section#teamList form .searchBox .selectBox .leagueType {
+  width: 30%;
+  margin-right: 5px;
+}
+
+section#teamList form .searchBox .selectBox .areaList {
+  width: 65%;
+}
+
+section#teamList form .searchBox .searchInputBox {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+section#teamList form .searchBox .searchInputBox button {
+  width: 120px;
+  background-color: #4c89cd;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #fff;
+}
+
+section#teamList form .searchBox .searchInputBox button span {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 900px) {
+  section#teamList form > span {
+    display: none;
+  }
+
+  section#teamList form {
+    padding: 15px;
+  }
+
+  section#teamList form .searchBox {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  section#teamList form .searchBox .selectBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  section#teamList form .searchBox .selectBox .leagueType {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  section#teamList form .searchBox .selectBox .areaList {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  section#teamList form .searchBox .searchInputBox {
+    width: 100%;
+  }
+
+  section#teamList form .searchBox .searchInputBox input {
+    width: 70%;
+  }
+
+  section#teamList form .searchBox .searchInputBox button {
+    width: 30%;
+  }
+}
+
+/* section#teamList - TABLE */
+section#teamList table {
+  width: 100%;
+}
+
+section#teamList table .col1 {
+  width: 7%;
+}
+
+section#teamList table .col2 {
+  width: 12%;
+}
+
+section#teamList table .col3 {
+  width: 7%;
+}
+
+section#teamList table .col5 {
+  width: 10%;
+}
+
+section#teamList table .col6 {
+  width: 11%;
+}
+
+section#teamList table .col7 {
+  width: 100px;
+}
+
+section#teamList table thead {
+  border-top: 2px solid var(--pointColor);
+  border-bottom: 2px solid var(--pointColor);
+}
+
+section#teamList table thead th {
+  padding: 21px 0;
+  height: 22px;
+}
+
+section#teamList table tbody td {
+  padding: 10px 0;
+  border: 1px solid #dcdcdc;
+  text-align: center;
+}
+
+section#teamList table tbody tr:nth-child(odd) {
+  background-color: #f0f1f3;
+}
+
+section#teamList table tbody td:first-child,
+section#teamList table tbody td:last-child {
+  border-right: none;
+  border-left: none;
+}
+
+section#teamList table tbody td .teamName {
+  display: flex;
+  align-items: center;
+}
+
+section#teamList table tbody td .teamName .teamImage {
+  width: 50px;
+  height: 50px;
+  margin: 0 20px;
+}
+
+section#teamList table tbody td .teamName .teamImage img {
+  max-width: 50px;
+  max-height: 50px;
+  width: 100%;
+  height: 100%;
+}
+
+section#teamList table tbody td .teamName .teamTitle a {
+  font-weight: bold;
+  color: #000;
+}
+
+section#teamList table tbody td .teamName .teamTitle a:hover {
+  text-decoration: underline;
+}
+
+section#teamList table tbody td a.teamBtn {
+  background-color: #4c89cd;
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+@media screen and (max-width: 960px) {
+  section#teamList table thead th:first-child,
+  section#teamList table tbody td:first-child {
+    display: none;
+  }
+
+  section#teamList table th,
+  section#teamList table td {
+    font-size: 0.9em;
+  }
+}
+
+/* section#teamList - PAGINATION */
+section#teamList .pagination {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+section#teamList .pagination li {
+  cursor: pointer;
+  width: 45px;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 5px;
+  border: 1px solid #dcdcdc;
+}
+
+section#teamList .pagination li.active {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+section#teamList .pagination li:hover {
+  border-color: var(--pointColor);
+}
+
+/* CONTAINER INPUT[RADIO] */
+section#teamAdd input[type="radio"] {
+  display: none;
+}
+
+/* input[id="addTeam"]:checked + .addButton li label[for="addTeam"] {
+  background-color: var(--pointColor);
+  color: #fff;
+} */
+
+section.addTeam,
+section.addPlayer {
+  display: none;
+}
+
+input[id="addTeam"]:checked ~ section.addTeam {
+  display: block;
+}
+
+input[id="addPlayer"]:checked ~ section.addPlayer {
+  display: block;
+}
+
+/* CONTAINER - ARTICLE */
+.container .zCupAll {
+  width: 100%;
+  /* margin-top: 30px; */
+  background-color: var(--backgroundColor);
+  border: 1px solid #c2c7cf;
+}
+
+.container .zCupAll section {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.container .zCupAll section h3 {
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 30px;
+  color: var(--pointColor);
+  margin-bottom: 15px;
+  padding-left: 26px;
+  font-weight: lighter;
+
+  padding-top: 50px;
+}
+
+.container .zCupAll section h3 span {
+  font-weight: bold;
+  position: relative;
+}
+
+.container .zCupAll section h3 span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: -26px;
+  height: 30px;
+  width: 5px;
+  background-color: var(--pointColor);
+}
+
+.container .zCupAll section h3 span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: -26px;
+  height: 5px;
+  width: 5px;
+  background-color: #aec8f4;
+}
+
+/* CONTAINER - ARTICLE - TOURNAMENT */
+
+.container div.tonerment {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+
+  border: 1px solid #d7d7d7;
+  border-top: 2px solid var(--pointColor);
+  padding: 15px;
+}
+
+.teamGroup {
+  width: 30%;
+}
+
+.teamGroup .teamGroup1 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #d7d7d7;
+}
+
+.teamGroup .teamGroup1 img {
+  width: 70px;
+  height: 70px;
+}
+.teamGroup .teamGroup1 a {
+  font-size: 1rem;
+  color: #383838;
+  margin: 0 5px;
+}
+
+.teamGroup .group2,
+.teamGroup .group4 {
+  margin-top: 5px;
+}
+
+.teamGroup .group3 {
+  margin-top: 15px;
+}
+
+.lineGroup .line {
+  height: 75px;
+  width: 50px;
+  position: relative;
+}
+
+.lineGroup .line1 span,
+.lineGroup .line3 span {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+
+  border: 2px solid #868686;
+}
+
+.lineGroup .line3 {
+  margin-top: 15px;
+}
+
+.bigLine {
+  position: relative;
+  width: 50px;
+  height: 305px;
+}
+
+.bigLine span {
+  display: inline-block;
+  width: 100%;
+  height: 50%;
+  border: 2px solid #868686;
+
+  position: absolute;
+  top: 25%;
+}
+
+.logo {
+  font-size: 2rem;
+  margin: 30px;
+  text-align: center;
+}
+
+.lineGroup1 .line1 span,
+.lineGroup1 .line3 span,
+.bigLine1 span {
+  border-left: none;
+}
+
+.lineGroup2 .line1 span,
+.lineGroup2 .line3 span,
+.bigLine2 span {
+  border-right: none;
+}
+
+/* CONTAINER - ARTICLE - SCHEDULE */
+main .container article section {
+  background-color: #f2f2f2;
+  padding: 0 17px 20px;
+}
+
+section table {
+  width: 100%;
+  background-color: #fff;
+}
+
+section table td {
+  text-align: center;
+}
+
+section caption {
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 30px;
+  color: var(--pointColor);
+  margin-bottom: 15px;
+  margin-top: 50px;
+  padding-left: 26px;
+}
+
+section caption span {
+  font-weight: 600;
+  position: relative;
+}
+
+section caption span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: -26px;
+  height: 30px;
+  width: 5px;
+  background-color: var(--pointColor);
+}
+
+section caption span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: -26px;
+  height: 5px;
+  width: 5px;
+  background-color: #aec8f4;
+}
+
+section table tr {
+  border: 1px solid #d7d7d7;
+}
+
+/* SCHEDULE */
+.zCupSchedule {
+  width: 100%;
+  background-color: #fff;
+}
+
+.zCupSchedule .zCup ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 1px solid #d7d7d7;
+  background-color: #fff;
+}
+
+.zCupSchedule .zCup ul:first-child {
+  border-top: 2px solid var(--pointColor);
+}
+
+.zCupSchedule .zCup ul li {
+  width: 100%;
+  height: 100px;
+  padding: 17px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zCupSchedule .zCup ul li.place {
+  width: 10%;
+}
+
+.zCupSchedule .zCup ul li.playInfo {
+  width: 20%;
+  flex-direction: column;
+}
+
+.zCupSchedule .zCup ul li.playInfo div {
+  color: var(--pointColor);
+}
+.zCupSchedule .zCup ul li.playInfo div span {
+  font-size: 1.5rem;
+}
+
+.zCupSchedule .zCup ul li.team {
+  width: 25%;
+}
+
+.zCupSchedule .zCup ul li.score {
+  width: 10%;
+  font-size: 2rem;
+  color: var(--pointColor);
+}
+
+.zCupSchedule .zCup ul li.button {
+  width: 12%;
+}
+
+.zCupSchedule .zCup ul li.team img {
+  width: 50px;
+  height: 50px;
+}
+
+.zCupSchedule .zCup ul li.leftTeam {
+  justify-content: flex-end;
+}
+
+.zCupSchedule .zCup ul li.rightTeam {
+  justify-content: flex-start;
+}
+
+.zCupSchedule .zCup ul li label {
+  font-size: 0.8em;
+  color: #fff;
+  font-weight: 600;
+  background-color: #428ace;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.zCupSchedule .zCup ul li label span {
+  position: relative;
+  padding-left: 10px;
+}
+
+.zCupSchedule .zCup ul li label span::before {
+  content: "▶";
+  font-size: 0.2em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.zCupSchedule .zCup .cover {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.767);
+  z-index: 100000;
+}
+
+.zCupSchedule .zCup > section.playInfo {
+  max-width: 800px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 0 22px 48px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000000;
+}
+
+.zCupSchedule .zCup section.playInfo table th {
+  padding: 21px 0;
+  background-color: var(--backgroundColor);
+  border: 1px solid #d7d7d7;
+}
+
+.zCupSchedule .zCup section.playInfo table:first-child td {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.zCupSchedule .zCup section.playInfo label.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 20px;
+
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+label.cover {
+  display: none;
+}
+
+section.playInfo {
+  display: none;
+}
+
+.zCupSchedule .zCup input[type="checkbox"] {
+  display: none;
+}
+
+input[id="play1"]:checked ~ label.cover {
+  display: block;
+}
+
+input[id="play1"]:checked ~ section.playInfo {
+  display: block;
+}
+
+/* PLAYER RAKING TABLE */
+.playerRanking colgroup .col1 {
+  width: 5%;
+}
+
+.playerRanking colgroup .col2,
+.playerRanking colgroup .col3 {
+  min-width: 130px;
+  width: 20%;
+}
+
+.playerRanking colgroup .col4,
+.playerRanking colgroup .col5,
+.playerRanking colgroup .col6,
+.playerRanking colgroup .col7 {
+  width: calc(55% / 4);
+}
+
+.playerRanking thead th {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-top: 2px solid var(--pointColor);
+  border-bottom: 2px solid var(--pointColor);
+
+  padding: 21px 0;
+}
+
+.playerRanking tbody td {
+  border: 1px solid #dcdcdc;
+}
+
+.playerRanking tbody tr td:first-child {
+  border-left: 1px solid #fff;
+}
+
+.playerRanking tbody tr td:last-child {
+  border-right: 1px solid #fff;
+}
+
+.playerRanking td .rank {
+  display: inline-block;
+  background-color: #717171;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  color: #fff;
+}
+
+.playerRanking tr:first-child .rank {
+  background-color: var(--pointColor);
+}
+
+.playerRanking td .player {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.playerRanking td .player .img {
+  width: 70px;
+  text-align: left;
+}
+
+.playerRanking td .player .img img {
+  max-width: 55px;
+  width: 100%;
+}
+
+.playerRanking {
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1100px) {
+  /* SCHEDULE TABLE */
+  .zCupSchedule li.place {
+    display: none;
+    appearance: none;
+  }
+
+  /* SCHEDULE TABLE - PLAYINFO */
+  .zCupSchedule li.playInfo {
+    width: 33%;
+    padding-left: 20px;
+    text-align: center;
+  }
+
+  .zCupSchedule li.playInfo > span {
+    display: none;
+  }
+
+  /* SCHEDULE TABLE - LEFT&RIGHT TEAM */
+  .zCupSchedule li.leftTeam,
+  .zCupSchedule li.rightTeam {
+    width: 22.5%;
+  }
+
+  /* SCHEDULE TABLE - SCORE */
+  .zCupSchedule li.score {
+    width: 10%;
+  }
+
+  /* SCHEDULE TABLE - BUTTON */
+  .zCupSchedule li.button {
+    width: fit-content;
+  }
+}

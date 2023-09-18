@@ -1,0 +1,153 @@
+:root {
+  --pointColor: #2c3c57;
+  --beforeColor: #bfc4cc;
+  --infoColor: #c2c0c5;
+}
+
+/* INPUT : RADIO */
+input[type="radio"] {
+  display: none;
+}
+
+input[id="notice"]:checked ~ .harlfButton label[for="notice"] {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+input[id="notice"]:checked ~ .container h1.faq {
+  display: none;
+}
+
+input[id="notice"]:checked ~ .container section.faq {
+  display: none;
+}
+
+input[id="faq"]:checked ~ .harlfButton label[for="faq"] {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+input[id="faq"]:checked ~ .container h1.notice {
+  display: none;
+}
+
+input[id="notice"]:checked ~ .container section.faq {
+  display: none;
+}
+
+/* MAIN - CONTAINER */
+main .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 0 110px;
+}
+
+/* CONTAINER TITLE */
+main .container h1 {
+  text-align: center;
+  padding-bottom: 24px;
+  margin-bottom: 45px;
+  font-size: 3em;
+  font-weight: lighter;
+  position: relative;
+}
+
+main .container h1::after {
+  content: "";
+  display: inline-block;
+  width: 6rem;
+  border: 1px solid #bfc4cc;
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* CONTAINER - TABLE */
+main .container table {
+  width: 100%;
+}
+
+main .container table th,
+main .container table td {
+  padding: 13px 7px;
+}
+
+/* CONTAINER - TABLE - post */
+main .container table.post thead {
+  border-top: 1px solid var(--pointColor);
+  color: var(--pointColor);
+}
+
+main .container table.post thead th {
+  text-align: left;
+}
+
+main .container table.post thead .date {
+  width: 7%;
+}
+
+main .container table.post thead .dateInput {
+  width: 10%;
+  color: var(--infoColor);
+  font-weight: 100;
+}
+
+main .container table.post thead .show {
+  width: 5%;
+}
+
+main .container table.post thead .showInput {
+  color: var(--infoColor);
+  font-weight: 100;
+}
+
+main .container table.post tbody td {
+  border-top: 1px solid var(--beforeColor);
+  border-bottom: 1px solid var(--beforeColor);
+  padding: 50px 30px;
+}
+
+/* CONTAINER - TABLE - postGo */
+main .container .postGo td {
+  padding: 0 0;
+  height: 70px;
+  border-top: 1px solid var(--beforeColor);
+  border-bottom: 1px solid var(--beforeColor);
+
+  text-align: center;
+  color: var(--pointColor);
+}
+
+.postGo td:first-child {
+  background-color: #eee;
+  width: 120px;
+}
+
+.postGo td:last-child {
+  text-align: left;
+}
+
+.postGo td span {
+  margin: 10px;
+}
+
+/* CONTAINER - BUTTONS */
+main .container .buttons {
+  position: relative;
+  height: 70px;
+  margin: 15px 0 20px;
+}
+
+main .container .buttons .beforePage {
+  width: 170px;
+  background-color: var(--pointColor);
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 15px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}

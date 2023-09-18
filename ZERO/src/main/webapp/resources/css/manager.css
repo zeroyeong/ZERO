@@ -1,0 +1,325 @@
+:root {
+    --pointColor: #2c3c57;
+    --beforeColor: #bfc4cc;
+}
+
+/* INPUT RADIO */
+input[type="radio"] {
+    display: none;
+}
+
+.mgrPage {
+    display: none;
+}
+
+input[id="mgrReserRadio"]:checked~.harlfButton label[for="mgrReserRadio"],
+input[id="mgrTeamRadio"]:checked~.harlfButton label[for="mgrTeamRadio"],
+input[id="mgrSchRadio"]:checked~.harlfButton label[for="mgrSchRadio"],
+input[id="mgrUserRadio"]:checked~.harlfButton label[for="mgrUserRadio"] {
+    background-color: var(--pointColor);
+    color: #fff;
+}
+
+input[id="mgrReserRadio"]:checked~.container #mgrReser,
+input[id="mgrTeamRadio"]:checked~.container #mgrTeam,
+input[id="mgrSchRadio"]:checked~.container #mgrSch,
+input[id="mgrUserRadio"]:checked~.container #mgrUser {
+    display: block;
+}
+
+/* addButton */
+
+/* 메인,헤더 */
+main {
+    position: relative;
+    top: 85px;
+    min-height: 89.4vh;
+}
+
+header .headerBar {
+    top: 0;
+}
+
+/* CONTAINER - SECTION */
+main .container section {
+    width: 100%;
+    padding: 0 15px;
+}
+
+/* CONTAINER - SECTION - TABLE */
+main .container section table {
+    width: 100%;
+}
+
+main .container section table th,
+main .container section table td {
+    padding: 13px;
+}
+
+main .container section table td a {
+    color: #424242;
+}
+
+main .container section table thead {
+    border-top: 1px solid var(--pointColor);
+    color: var(--pointColor);
+}
+
+main .container section table thead .no {
+    width: 15%;
+}
+
+main .container section table thead .date {
+    width: 15%;
+}
+
+main .container section table thead .state {
+    width: 15%;
+}
+
+main .container section table tbody tr:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+main .container section table tbody td {
+    border-top: 1px solid var(--beforeColor);
+    text-align: center;
+}
+
+main .container section table tbody tr:last-child {
+    border-bottom: 1px solid var(--pointColor);
+}
+
+main .container section table tbody td:nth-child(2) {
+    text-align: left;
+}
+
+/* CONTAINER - SECTION - FORM */
+main .container section form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin: 50px 0;
+}
+
+main .container section form select {
+    width: 80px;
+    height: 100%;
+    padding: 7px;
+    outline: none;
+    border: 1px solid var(--beforeColor);
+    border-right: none;
+    font-size: 1rem;
+    color: #424242;
+}
+
+main .container section form input {
+    height: 100%;
+    width: 250px;
+    padding: 7px;
+    outline: none;
+    border: 1px solid var(--beforeColor);
+    border-left: none;
+    border-right: none;
+    font-size: 1rem;
+    color: #424242;
+}
+
+main .container section form .searchButton {
+    display: inline-block;
+    height: 100%;
+    width: 70px;
+    background-color: var(--pointColor);
+    position: relative;
+}
+
+main .container section form .searchButton i {
+    color: #fff;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* CONTAINER - SECTION - PAGINATION */
+.container .pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.container .pagination li {
+    cursor: pointer;
+    width: 45px;
+    padding: 10px 15px;
+    text-align: center;
+    margin: 5px;
+    border: 1px solid var(--beforeColor);
+    color: var(--beforeColor);
+}
+
+.container .pagination li.active {
+    background-color: var(--pointColor);
+    color: #fff;
+}
+
+.container .pagination li:hover {
+    border-color: var(--pointColor);
+    color: var(--pointColor);
+}
+
+
+/*mgrReserPop*/
+.reserPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 1000;
+    background-color: #eee;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 3);
+}
+
+.reservationInfo {
+    background-color: #ffff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.reservationInfo h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.okReser,
+.cancelReser {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #192336 !important;
+    color: #ffff;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.closeBtn:hover {
+    color: #424242;
+}
+
+.okReser:hover,
+.cancelReser:hover {
+    background-color: #424242 !important;
+}
+
+/*mgrReserInfo*/
+.reserPopup .reservationInfo .mgrReserInfo {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.reserPopup .reservationInfo .mgrReserInfo tr {
+    line-height: 50px;
+}
+
+@media screen and (max-width:1100px) {
+    main .harlfButton li label {
+        font-size: 17px;
+    }
+}
+
+/*addButton*/
+section#mgrTeam .addButton {
+    display: flex;
+    justify-content: space-between;
+
+    border: 1px solid #2c3c57;
+}
+
+section#mgrTeam .addButton li {
+    width: 50%;
+}
+
+section#mgrTeam .addButton li label {
+    display: inline-block;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    cursor: pointer;
+
+    color: var(--pointColor);
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+section#mgrTeam .addButton li:hover label {
+    background-color: var(--pointColor);
+    color: #fff;
+}
+
+section#mgrTeam .addButton li label.active {
+    background-color: var(--pointColor);
+    color: #fff;
+}
+
+section#mgrTeam section {
+    width: 80%;
+    margin: 50px auto;
+}
+
+section#mgrTeam section form {
+    width: 100%;
+}
+
+section#mgrTeam section form h3 {
+    width: 100%;
+    padding: 10px 20px;
+    text-align: left;
+    font-size: 1.8rem;
+    font-weight: normal;
+    color: var(--pointColor);
+    border-bottom: 1px solid var(--pointColor);
+}
+
+section#mgrTeam section form h3 span {
+    position: relative;
+}
+
+section#mgrTeam section form h3 span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    height: 30px;
+    width: 5px;
+    background-color: var(--pointColor);
+}
+
+section#mgrTeam section form h3 span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: -20px;
+    height: 5px;
+    width: 5px;
+    background-color: #aec8f4;
+}

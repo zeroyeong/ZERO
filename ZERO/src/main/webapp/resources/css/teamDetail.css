@@ -1,0 +1,455 @@
+:root {
+  --pointColor: #2c3c57;
+  --thBackColor: #f0f1f3;
+  --tableBorder: 1px solid #d7d7d7;
+  --buttonColor: #428ace;
+  --fontColor: #4d4d4d;
+  --imgMaxWidth: 840px;
+  --pointColor: #2c3c57;
+  --titleFontColor: #403d3f;
+  --backgroundColor: #f2f2f2;
+  --tournamentBorder: 1px solid #fff;
+}
+
+/* TABLE + CAPTION */
+.container table {
+  width: 100%;
+}
+
+.container table caption {
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 30px;
+  color: var(--pointColor);
+  margin-bottom: 15px;
+  margin-top: 50px;
+  padding-left: 26px;
+}
+
+.container table caption span {
+  font-weight: 600;
+  position: relative;
+}
+
+.container table caption span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: -26px;
+  height: 30px;
+  width: 5px;
+  background-color: var(--pointColor);
+}
+
+.container table caption span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: -26px;
+  height: 5px;
+  width: 5px;
+  background-color: #aec8f4;
+}
+
+.container table tr,
+.container table th {
+  border: var(--tableBorder);
+}
+
+.container table th {
+  background-color: var(--thBackColor);
+  color: var(--pointColor);
+  /* width: 25%; */
+}
+
+.container table th,
+.container table td {
+  padding: 10px;
+}
+
+/* TABLE - DETAIL */
+table.detail caption {
+  margin-top: 0px;
+}
+
+table.detail td,
+table.detail th {
+  padding: 10px;
+}
+
+table.detail th {
+  width: 25%;
+}
+
+table.detail td.teamImg {
+  width: 260px;
+  text-align: center;
+}
+
+table.detail td.teamImg img {
+  max-width: 240px;
+  max-height: 240px;
+  width: 100%;
+  height: 100%;
+}
+
+/* UL - LABEL */
+main .container > ul {
+  width: 100%;
+  margin: 70px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .container > ul li {
+  width: calc(100% / 3);
+}
+
+main .container > ul li label {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: var(--pointColor);
+  font-size: 1.2rem;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+main .container > ul {
+  border: 1px solid var(--pointColor);
+}
+
+main .container > ul li:nth-child(2) label {
+  border-left: 1px solid var(--pointColor);
+  border-right: 1px solid var(--pointColor);
+}
+
+main .container > ul li label:hover {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+main .container > ul li label.active {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+/* INPUT:RADIO */
+input[type="radio"] {
+  display: none;
+}
+
+input[id="shcedule"]:checked + * label[for="shcedule"] {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+input[id="shcedule"]:checked ~ section.shcedule {
+  display: block;
+}
+
+input[id="ranking"]:checked ~ section.ranking {
+  display: block;
+}
+
+input[id="player"]:checked ~ section.player {
+  display: block;
+}
+
+/* SECTION */
+.container > section {
+  width: 100%;
+  /* display: flex;
+  flex-direction: column; */
+  display: none;
+}
+
+/* .container > section select {
+  width: 200px;
+  padding: 5px;
+  outline: none;
+  border: var(--tableBorder);
+  font-size: 1rem;
+  margin-bottom: 15px;
+} */
+
+/* SECTION SCHEDULE */
+section.shcedule > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.shcedule ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: var(--tableBorder);
+  background-color: #fff;
+}
+
+section.shcedule ul:first-child {
+  border-top: 2px solid var(--pointColor);
+}
+
+section.shcedule ul li {
+  width: 100%;
+  height: 80px;
+  padding: 17px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.shcedule ul li.playName {
+  width: 10%;
+}
+
+section.shcedule ul li.playInfo {
+  width: 20%;
+  flex-direction: column;
+}
+
+section.shcedule ul li.playInfo div {
+  color: var(--pointColor);
+}
+section.shcedule ul li.playInfo div span {
+  font-size: 1.5rem;
+}
+
+section.shcedule ul li.team {
+  width: 25%;
+}
+
+section.shcedule ul li.score {
+  width: 10%;
+  font-size: 2rem;
+  color: var(--pointColor);
+}
+
+section.shcedule ul li.button {
+  width: 12%;
+}
+
+section.shcedule ul li.team img {
+  width: 50px;
+  height: 50px;
+}
+
+section.shcedule ul li.leftTeam {
+  justify-content: flex-end;
+}
+
+section.shcedule ul li.rightTeam {
+  justify-content: flex-start;
+}
+
+section.shcedule ul li label {
+  font-size: 0.8em;
+  color: #fff;
+  font-weight: 600;
+  background-color: var(--buttonColor);
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+section.shcedule ul li label span {
+  position: relative;
+  padding-left: 10px;
+}
+
+section.shcedule ul li label span::before {
+  content: "▶";
+  font-size: 0.2em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* SECTION.SCHEDULE - SECTION */
+section.shcedule label.cover {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.815);
+  z-index: 1000;
+  display: none;
+}
+
+section.shcedule section {
+  max-width: 800px;
+  width: 100%;
+
+  z-index: 10000;
+
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 0 22px 48px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: none;
+}
+
+section.shcedule section label.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 20px;
+
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+/* SECTION.SCHEDULE - INPUT:RADIO */
+section.shcedule input[type="checkbox"] {
+  display: none;
+}
+
+input[id="play1"]:checked ~ label.cover {
+  display: block;
+}
+
+input[id="play1"]:checked ~ section.playInfo {
+  display: block;
+}
+
+section.shcedule table.record td {
+  text-align: center;
+}
+
+/* SECTION.PLAYER RANKING */
+.playerRanking colgroup .col1 {
+  width: 5%;
+}
+
+.playerRanking colgroup .col2 {
+  max-width: 475px;
+  width: 39%;
+}
+
+.playerRanking colgroup .col3,
+.playerRanking colgroup .col4,
+.playerRanking colgroup .col5,
+.playerRanking colgroup .col6,
+.playerRanking colgroup .col7,
+.playerRanking colgroup .col8,
+.playerRanking colgroup .col9 {
+  width: 8%;
+}
+
+section.ranking table thead tr {
+  border-top: 1px solid var(--pointColor);
+  border-bottom: 1px solid var(--pointColor);
+}
+
+section.ranking table td {
+  border: var(--tableBorder);
+  text-align: center;
+}
+
+section.ranking table th {
+  border-top: 1px solid var(--pointColor);
+  border-bottom: 1px solid var(--pointColor);
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  color: var(--fontColor);
+  background-color: #fff;
+}
+
+section.ranking table tr td:first-child {
+  border-left: 1px solid transparent;
+}
+
+section.ranking table tr th:last-child,
+section.ranking table tr td:last-child {
+  border-right: 1px solid transparent;
+}
+
+section.ranking table td > span {
+  display: inline-block;
+  background-color: #717171;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  color: #fff;
+}
+
+section.ranking table tr:first-child td > span {
+  background-color: var(--pointColor);
+}
+
+section.ranking tbody tr:nth-child(odd) {
+  background-color: #f0f1f3;
+}
+
+.playerRanking th span {
+  font-size: 0.5rem;
+}
+
+/* SECTION.PLAYER */
+table.player .col1 {
+  width: 10%;
+}
+
+table.player .col2 {
+  width: 50%;
+}
+
+table.player .col3,
+table.player .col4,
+table.player .col5,
+table.player .col6 {
+  width: 10%;
+}
+
+table.player td {
+  border: var(--tableBorder);
+  text-align: center;
+}
+
+table.player tr td:first-child {
+  border-left: 1px solid transparent;
+}
+
+table.player tr td:last-child {
+  border-right: 1px solid transparent;
+}
+
+table.player th {
+  border-top: 1px solid var(--pointColor);
+  border-bottom: 1px solid var(--pointColor);
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  color: var(--fontColor);
+  background-color: #fff;
+}
+
+table.player td div.player {
+  display: flex;
+  align-items: center;
+}
+
+table.player td img {
+  width: 55px;
+  height: 71px;
+  margin-right: 5px;
+}
+
+table.player tbody tr:nth-child(odd) {
+  background-color: #f0f1f3;
+}

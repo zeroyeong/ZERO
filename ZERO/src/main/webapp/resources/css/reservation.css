@@ -1,0 +1,607 @@
+:root {
+  --pointColor: #2c3c57;
+  --beforeColor: #bfc4cc;
+}
+
+/* INPUT : RADIO */
+input[type="radio"] {
+  display: none;
+}
+
+input[id="reser"]:checked~.harlfButton label[for="reser"],
+input[id="reserCheck"]:checked~.harlfButton label[for="reserCheck"] {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+input[id="reser"]:checked~.container h1.reserCheck {
+  display: none;
+}
+
+input[id="reser"]:checked~.container section.reserCheck {
+  display: none;
+}
+
+input[id="reserCheck"]:checked~.container h1.reser {
+  display: none;
+}
+
+input[id="reserCheck"]:checked~.container section.reser {
+  display: none;
+}
+
+.reserFrameBox {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.reserFrameBox p {
+  position: relative;
+  padding-left: 113px;
+  background: #2c3c57;
+  color: #fff;
+  font-size: 28px;
+  line-height: 113px;
+  text-align: center;
+  border-radius: 15px 15px 0 0;
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+
+.reserFrameBox p .fa-location-dot {
+  position: absolute;
+  font-size: 4.5rem;
+  left: 45px;
+  top: 20px;
+}
+
+.reserBody {
+  padding: 93px 0 87px 0;
+  border: 2px solid #bfc4cc;
+  border-top: 0;
+  background: #f2f2f2;
+  border-radius: 0 0 15px 15px;
+}
+
+.reserContent {
+  margin: 0 auto;
+  width: 390px;
+}
+
+.select {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  height: 47px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.select:hover {
+  border: 1px solid #2c3c57;
+}
+
+.select label {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  bottom: 0;
+  left: 10px;
+  color: #404040;
+  font-size: 16px;
+  line-height: 45px;
+  text-align: left;
+}
+
+.select select {
+  position: relative;
+  z-index: 1;
+  padding: 0 4px;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  vertical-align: top;
+  opacity: 0;
+}
+
+.select .fa-caret-down {
+  position: absolute;
+  right: 10px;
+  top: 30%;
+}
+
+.reserBtnBox {
+  margin-top: 34px;
+  text-align: center;
+  font-size: 0;
+  line-height: 0;
+}
+
+.reserBtn {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+  background: #2c3c57;
+  color: #fff;
+  font-size: 23px;
+  line-height: 80px;
+  text-align: center;
+}
+
+.reserBody {
+  padding: 93px 0 87px 0;
+  border: 2px solid #bfc4cc;
+  border-top: 0;
+  background: #f2f2f2;
+  border-radius: 0 0 15px 15px;
+}
+
+.reserContent {
+  margin: 0 auto;
+  width: 390px;
+}
+
+.reserInfoTable {
+  margin-top: 15px;
+}
+
+.reserInfoTable table {
+  border: 1px solid #636363;
+  border-top: 0;
+  border-left: 0;
+  width: 100%;
+  border: 0 none;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reserInfoTable table tbody tr th {
+  background: #f0f1f3;
+  color: #2c3c57;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+}
+
+.reserInfoTable table th,
+.reserInfoTable table td {
+  border: 1px solid #636363;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.reserInfoTable table tbody tr td.infoLeft {
+  padding-left: 20px;
+  text-align: left;
+}
+
+.reserInfoTable table tbody tr td {
+  padding: 18px 0;
+  height: 20px;
+  color: #2a2a2a;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  word-break: keep-all;
+}
+
+input[type='text'],
+input[type='password'] {
+  height: 45px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #383838;
+  font-size: 16px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+input[type='text']:hover,
+input[type='password']:hover {
+  border: 2px solid #ddd;
+}
+
+.btnWrap {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0;
+  line-height: 0;
+}
+
+.btnCancel {
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+  width: 333px;
+  background: #868686 !important;
+  color: #fff;
+  font-size: 23px;
+  line-height: 80px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.btnWrap .btnCancel:hover {
+  background-color: #2c3c57 !important;
+}
+
+ol[type="1"] {
+  list-style-type: decimal;
+}
+
+/*conLeft*/
+.conLeft {
+  width: 584px;
+  float: left;
+}
+
+.leftImg {
+  position: relative;
+}
+
+.img {
+  display: block;
+  font-size: 0;
+  line-height: 0;
+}
+
+.leftInfo {
+  padding: 0 16px 16px 16px;
+  border: 1px solid #bfc4cc;
+  font-size: 17px;
+  color: #555;
+  border-top: 0;
+}
+
+.leftInfo ul li {
+  line-height: 30px;
+
+}
+
+.leftInfo ol li {
+  line-height: 32px;
+}
+
+.tit {
+  padding: 20px 0 18px 0;
+  color: #383838;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+p.name {
+  background: #2c3c57;
+  color: #fff;
+  font-size: 30px;
+  line-height: 76px;
+  text-align: center;
+}
+
+.red-bg {
+  background-color: red;
+  color: #fff;
+}
+
+.yellow-bg {
+  background-color: orange;
+  color: #fff;
+}
+
+.blue-bg {
+  background-color: blue;
+  color: #fff;
+}
+
+/*conRight*/
+.conRight {
+  width: 584px;
+  float: right;
+}
+
+/*달력*/
+.calenderWrap {
+  padding: 45px 15px 70px 15px;
+  border: 1px solid #bfc4cc;
+  background: #f2f2f2;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.calendar>tbody td {
+  border: 1px solid #ccc;
+  width: 25px;
+  height: 60px;
+}
+
+.calendar>thead>tr:first-child>td {
+  font-size: 2rem;
+}
+
+.calendar thead tr:nth-child(2) {
+  font-size: 1rem;
+}
+
+.calendar>tbody>tr>td>p {
+  height: 45px;
+  width: 45px;
+  border-radius: 45px;
+  line-height: 45px;
+  margin: 2.5px;
+  display: block;
+  text-align: center;
+}
+
+.pastDay {
+  color: lightgray;
+}
+
+.futureDay {
+  cursor: pointer;
+}
+
+.futureDay:hover {
+  background: #eee;
+}
+
+.futureDay.choiceDay,
+.choiceDay {
+  background: #2c3c57;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* rightInfo*/
+.rightInfo {
+  padding: 0 17px;
+  margin-bottom: 20px;
+  border-right: 1px solid #bfc4cc;
+  border-left: 1px solid #bfc4cc;
+  border-bottom: 1px solid #bfc4cc;
+}
+
+.rightInfo span {
+  display: inline-block;
+  line-height: 46px;
+}
+
+.infoDiv {
+  position: relative;
+  padding: 10px 0;
+  border-bottom: 1px solid #bfc4cc;
+}
+
+.infoDiv .date {
+  font-weight: 700;
+}
+
+.infoDiv .subTit {
+  color: red;
+  font-size: 16px;
+}
+
+/*시간선택*/
+.timeTable ul li {
+  margin-top: 9px;
+  margin-left: 4px;
+  width: 175px;
+  float: left;
+}
+
+.timeTable ul {
+  margin-top: -15px;
+}
+
+.timeTable ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.timeTable ul li button {
+  display: block;
+  padding: 10px 0;
+  width: 100%;
+  background: #989898;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+}
+
+/*합계*/
+.infoDiv .total {
+  font-size: 20px;
+  display: inline-block;
+  font-weight: 700;
+  width: 85%;
+  text-align: right;
+}
+
+/*유니폼색상*/
+
+.uniColor span {
+  display: inline-block;
+  width: 2%;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.uniColor span:first-child {
+  width: 14%;
+}
+
+.uniColor input {
+  width: 20%;
+}
+
+/*매치 등록*/
+.matchList ul li {
+  padding: 17px 0;
+  border-top: 1px solid #dbdde0;
+}
+
+.matchList {
+  display: none;
+}
+
+.matchList.active {
+  display: block;
+}
+
+.infoMemo {
+  margin-top: 0 !important;
+}
+
+/*예약자 정보*/
+.resUserInfo {
+  margin-top: 15px;
+}
+
+.tableWrap {
+  margin: 0;
+}
+
+.resUserInfo table {
+  border: 1px solid #c4c4c4;
+  border-top: 0;
+  width: 100%;
+}
+
+.resUserInfo table tbody tr:first-child {
+  padding-top: 25px;
+}
+
+.resUserInfo table tbody td:first-child {
+  padding-top: 16px;
+}
+
+.resUserInfo table tbody tr th {
+  padding: 0 20px;
+  border: 0;
+  font-size: 16px;
+  text-align: left;
+  vertical-align: top;
+  background: #f0f1f3;
+  color: #2c3c57;
+  font-weight: 700;
+  line-height: 50px;
+}
+
+.resUserInfo table tbody tr td {
+  padding: 0px 15px;
+  height: 50px;
+  font-size: 16px;
+}
+
+.resUserInfo table tbody .phone {
+  font-size: 0;
+  line-height: 0;
+}
+
+.resUserInfo table tbody .phone span {
+  display: inline-block;
+  width: 3%;
+  font-size: 11px;
+  text-align: center;
+}
+
+.check label {
+  color: #383838;
+}
+
+.resUserInfo table tbody .phone input {
+  width: 31.333333%;
+}
+
+.reserInfoBtn {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: #959595 !important;
+  color: #fff;
+  font-size: 23px;
+  line-height: 80px;
+  text-align: center;
+  margin: 15px 0px;
+}
+
+.reserInfoBtn:hover {
+  transition: ease-out 0.5s;
+  background: #003f96 !important;
+}
+
+/*media*/
+@media screen and (max-width: 1250px) {
+  main .topVideo h2 {
+    margin-left: 0;
+    left: 20px;
+  }
+}
+
+@media screen and (max-width:1217px) {
+  .container .reserWrap {
+    padding: 0 10px !important;
+  }
+
+  .container .reserWrap .conLeft {
+    float: none;
+    width: 100%;
+  }
+
+  .container .reserWrap .conLeft .leftImg img {
+    width: 100%;
+  }
+
+  .container .reserWrap .conRight {
+    float: none;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .resUserInfo p.name {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  main .topVideo h2 {
+    bottom: 10px;
+    left: 10px;
+    font-size: 40px;
+    line-height: 45px;
+  }
+
+  main .container h1 {
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .reserFrameBox {
+    padding: 10px 10px;
+  }
+
+  .reserFrameBox p {
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 80px;
+  }
+
+  .reserFrameBox p .fa-location-dot {
+    font-size: 3rem;
+  }
+}

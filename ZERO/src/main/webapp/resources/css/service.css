@@ -1,0 +1,166 @@
+:root {
+  --pointColor: #2c3c57;
+  --beforeColor: #bfc4cc;
+}
+
+/* INPUT : RADIO */
+input[type="radio"] {
+  display: none;
+}
+
+input[id="notice"]:checked ~ .harlfButton label[for="notice"] {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+input[id="notice"]:checked ~ .container h1.faq {
+  display: none;
+}
+
+input[id="notice"]:checked ~ .container section.faq {
+  display: none;
+}
+
+input[id="faq"]:checked ~ .harlfButton label[for="faq"] {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+input[id="faq"]:checked ~ .container h1.notice {
+  display: none;
+}
+
+input[id="notice"]:checked ~ .container section.faq {
+  display: none;
+}
+
+input[id="faq"]:checked ~ .container section.notice {
+  display: none;
+}
+
+/* CONTAINER - SECTION */
+main .container section {
+  width: 100%;
+  padding: 0 15px;
+}
+
+/* CONTAINER - SECTION - TABLE */
+main .container section table {
+  width: 100%;
+}
+
+main .container section table th,
+main .container section table td {
+  padding: 13px;
+}
+
+main .container section table td a {
+  color: #424242;
+}
+
+main .container section table thead {
+  border-top: 1px solid var(--pointColor);
+  color: var(--pointColor);
+}
+
+main .container section table thead .no {
+  width: 10%;
+}
+
+main .container section table thead .date {
+  width: 15%;
+}
+
+main .container section table thead .show {
+  width: 13%;
+}
+
+main .container section table tbody tr:hover {
+  background-color: #eee;
+}
+
+main .container section table tbody td {
+  border-top: 1px solid var(--beforeColor);
+  border-bottom: 1px solid var(--beforeColor);
+  text-align: center;
+}
+
+main .container section table tbody td:nth-child(2) {
+  text-align: left;
+}
+
+/* CONTAINER - SECTION - FORM */
+main .container section form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50px;
+  margin: 50px 0;
+}
+
+main .container section form select {
+  width: 80px;
+  height: 100%;
+  padding: 7px;
+  outline: none;
+  border: 1px solid var(--beforeColor);
+  border-right: none;
+  font-size: 1rem;
+  color: #424242;
+}
+
+main .container section form input {
+  height: 100%;
+  width: 250px;
+  padding: 7px;
+  outline: none;
+  border: 1px solid var(--beforeColor);
+  border-left: none;
+  border-right: none;
+  font-size: 1rem;
+  color: #424242;
+}
+
+main .container section form .searchButton {
+  display: inline-block;
+  height: 100%;
+  width: 70px;
+  background-color: var(--pointColor);
+  position: relative;
+}
+
+main .container section form .searchButton i {
+  color: #fff;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* CONTAINER - SECTION - PAGINATION */
+.container .pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.container .pagination li {
+  cursor: pointer;
+  width: 45px;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 5px;
+  border: 1px solid var(--beforeColor);
+  color: var(--beforeColor);
+}
+
+.container .pagination li.active {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+.container .pagination li:hover {
+  border-color: var(--pointColor);
+  color: var(--pointColor);
+}

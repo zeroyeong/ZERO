@@ -1,0 +1,283 @@
+:root {
+  --mainColor: #2c3c57;
+  --pointColor: #192336;
+  --buttonColor: #428ace;
+  --tournamentBorder: 1px solid #fff;
+  --tableBorder: 1px solid #dcdcdc;
+}
+
+article.tournament {
+  width: 100%;
+  height: 85px;
+  background-color: var(--mainColor);
+  position: relative;
+}
+
+article.tournament input[type="checkbox"] {
+  appearance: none;
+}
+
+article.tournament label {
+  width: 470px;
+  height: 100%;
+  background-color: var(--pointColor);
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-600px);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1100px) {
+  article.tournament label {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+
+    justify-content: center;
+  }
+
+  article.tournament label i {
+    margin-left: 20px;
+  }
+}
+
+article.tournament label span {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+article.tournament section {
+  width: 100%;
+  background-color: var(--pointColor);
+
+  position: absolute;
+  top: 85px;
+
+  z-index: 100;
+}
+
+article.tournament > section > div {
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+article.tournament .title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+article.tournament .title h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+article.tournament .title button {
+  background-color: var(--buttonColor);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+/* match */
+article.tournament div.match div.tournament {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.tournament h1.logo {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+div.tournament ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+div.tournament ul img {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+}
+
+div.tournament ul.round3 li {
+  width: 100%;
+}
+
+div.tournament ul.round3 li ul {
+  justify-content: center;
+}
+
+div.tournament ul.round3 li ul li {
+  width: 25%;
+  height: 25px;
+  border-top: var(--tournamentBorder);
+}
+
+div.tournament ul.round3 li ul li:first-child {
+  border-left: var(--tournamentBorder);
+}
+
+div.tournament ul.round3 li ul li:last-child {
+  border-right: var(--tournamentBorder);
+}
+
+div.tournament ul.round2 li {
+  width: 50%;
+}
+
+div.tournament ul.round2 li ul {
+  justify-content: center;
+}
+
+div.tournament ul.round2 li ul li {
+  width: 25%;
+  height: 25px;
+  border-top: var(--tournamentBorder);
+}
+
+div.tournament ul.round2 li ul li:first-child {
+  border-left: var(--tournamentBorder);
+}
+
+div.tournament ul.round2 li ul li:last-child {
+  border-right: var(--tournamentBorder);
+}
+
+div.tournament ul.round1 {
+  justify-content: space-around;
+}
+
+div.tournament ul.round1 li {
+  width: 25%;
+}
+
+div.tournament ul.round1 li ul {
+  justify-content: center;
+}
+
+div.tournament ul.round1 li ul li {
+  display: inline-block;
+  width: 25%;
+  height: 25px;
+  border-top: var(--tournamentBorder);
+}
+
+div.tournament ul.round1 li ul li:first-child {
+  border-left: var(--tournamentBorder);
+}
+
+div.tournament ul.round1 li ul li:last-child {
+  border-right: var(--tournamentBorder);
+}
+
+div.tournament ul.teamList {
+  width: 100%;
+  justify-content: space-between;
+}
+
+div.tournament ul.teamList li {
+  width: calc(100% / 8);
+
+  display: flex;
+  align-items: center;
+
+  background-color: #fff;
+}
+
+div.tournament ul.teamList li:nth-child(even) {
+  margin: 0 5px;
+}
+
+/* ranking */
+article.tournament div.ranking table {
+  width: 100%;
+  background-color: #fff;
+}
+
+article.tournament div.ranking .col1 {
+  width: 5%;
+}
+
+article.tournament div.ranking .col2,
+article.tournament div.ranking .col3 {
+  width: 22.5%;
+}
+
+article.tournament div.ranking .col4,
+article.tournament div.ranking .col5,
+article.tournament div.ranking .col6,
+article.tournament div.ranking .col7 {
+  width: 10%;
+}
+
+article.tournament div.ranking th,
+article.tournament div.ranking td {
+  padding: 7px;
+}
+
+article.tournament div.ranking th {
+  padding: 15px 7px;
+}
+
+article.tournament div.ranking thead {
+  border-top: 2px solid var(--mainColor);
+  border-bottom: 2px solid var(--mainColor);
+}
+
+article.tournament div.ranking tbody td {
+  border: var(--tableBorder);
+  text-align: center;
+}
+
+article.tournament div.ranking span.rank {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: #717171;
+  color: #fff;
+}
+
+article.tournament div.ranking tbody tr:first-child span.rank {
+  background-color: var(--mainColor);
+}
+
+article.tournament div.ranking .player {
+  display: flex;
+  align-items: center;
+}
+
+article.tournament div.ranking img {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+}
+
+section.matchNranking {
+  height: 0px;
+  overflow: hidden;
+}
+
+article.tournament input[id="checkBox"]:checked ~ section.matchNranking {
+  height: fit-content;
+}

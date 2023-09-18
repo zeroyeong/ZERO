@@ -1,0 +1,484 @@
+:root {
+  --pointColor: #2c3c57;
+  --deepColor: #192336;
+  --buttonColor: #428ace;
+  --tableBorder: 1px solid #dcdcdc;
+  --tournamentBorder: 2px solid #dcdcdc;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[id="teamList"]:checked ~ .harlfButton label[for="teamList"] {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+input[id="playschedule"]:checked ~ .harlfButton label[for="playschedule"] {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+/* SECTION */
+section table {
+  width: 100%;
+}
+
+section h3 {
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 30px;
+  color: var(--pointColor);
+  margin-bottom: 15px;
+  /* margin-top: 50px; */
+  padding-left: 26px;
+}
+
+section h3 span {
+  font-weight: 600;
+  position: relative;
+}
+
+section h3 span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: -26px;
+  height: 30px;
+  width: 5px;
+  background-color: var(--pointColor);
+}
+
+section h3 span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: -26px;
+  height: 5px;
+  width: 5px;
+  background-color: #aec8f4;
+}
+
+thead th {
+  border-top: 2px solid var(--pointColor);
+  border-bottom: 2px solid var(--pointColor);
+}
+
+th {
+  padding: 10px;
+}
+
+td {
+  padding: 7px;
+  text-align: center;
+}
+
+td img {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+}
+
+td div.teamName {
+  display: flex;
+  align-items: center;
+}
+
+tbody tr {
+  border-bottom: var(--tableBorder);
+}
+
+table.teamList .col1 {
+  width: 20%;
+}
+
+table.teamList .col2 {
+  width: 50%;
+}
+
+table.teamList .col3,
+table.teamList .col4 {
+  width: 15%;
+}
+
+table.teamList tbody td:nth-child(2),
+table.teamList tbody td:nth-child(3) {
+  border: var(--tableBorder);
+}
+
+td button.detailBtn {
+  background-color: var(--buttonColor);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.tournamentTitle {
+  margin-top: 50px;
+}
+
+div.tournament {
+  background-color: #f2f2f2;
+  padding: 30px 10px;
+}
+
+div.tournament h1.logo {
+  color: var(--deepColor);
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+div.tournament h1.logo::after {
+  display: none;
+  margin: 0;
+  padding: o;
+}
+
+div.tournament ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+div.tournament ul img {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+}
+
+div.tournament ul.round3 li {
+  width: 100%;
+}
+
+div.tournament ul.round3 li ul {
+  justify-content: center;
+}
+
+div.tournament ul.round3 li ul li {
+  width: 25%;
+  height: 25px;
+  border: var(--tournamentBorder);
+}
+
+div.tournament ul.round3 li ul li:first-child {
+  border-right: none;
+  border-bottom: none;
+}
+
+div.tournament ul.round3 li ul li:last-child {
+  border-left: none;
+  border-bottom: none;
+}
+
+div.tournament ul.round2 li {
+  width: 50%;
+}
+
+div.tournament ul.round2 li ul {
+  justify-content: center;
+}
+
+div.tournament ul.round2 li ul li {
+  width: 25%;
+  height: 25px;
+  border: var(--tournamentBorder);
+}
+
+div.tournament ul.round2 li ul li:first-child {
+  border-right: none;
+  border-bottom: none;
+}
+
+div.tournament ul.round2 li ul li:last-child {
+  border-left: none;
+  border-bottom: none;
+}
+
+div.tournament ul.round1 {
+  justify-content: space-around;
+}
+
+div.tournament ul.round1 li {
+  width: 25%;
+}
+
+div.tournament ul.round1 li ul {
+  justify-content: center;
+}
+
+div.tournament ul.round1 li ul li {
+  display: inline-block;
+  width: 25%;
+  height: 25px;
+  border: var(--tournamentBorder);
+}
+
+div.tournament ul.round1 li ul li:first-child {
+  border-right: none;
+  border-bottom: none;
+}
+
+div.tournament ul.round1 li ul li:last-child {
+  border-left: none;
+  border-bottom: none;
+}
+
+div.tournament ul.teamList {
+  width: 100%;
+  justify-content: space-between;
+}
+
+div.tournament ul.teamList li {
+  width: calc(100% / 8);
+
+  display: flex;
+  align-items: center;
+
+  background-color: #fff;
+}
+
+div.tournament ul.teamList li:nth-child(even) {
+  margin: 0 5px;
+}
+
+div.tournament ul li ul li.active {
+  border-color: blueviolet;
+}
+
+div.scheduleBox {
+  border-top: 2px solid var(--pointColor);
+  border-bottom: 2px solid var(--pointColor);
+}
+
+/* SECTION ZCUP SHCEDULE */
+section.zCupSchedule {
+  width: 100%;
+  background-color: #fff;
+}
+
+/* section.zCupSchedule ul */
+section.zCupSchedule ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 1px solid #d7d7d7;
+  /* border-bottom: none; */
+  background-color: #fff;
+}
+
+section.zCupSchedule ul li {
+  width: 100%;
+  height: 100px;
+  padding: 17px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.zCupSchedule ul li.place {
+  width: 10%;
+}
+
+section.zCupSchedule ul li.playInfo {
+  width: 20%;
+  flex-direction: column;
+}
+section.zCupSchedule ul li.playInfo div {
+  color: var(--pointColor);
+}
+section.zCupSchedule ul li.playInfo div span {
+  font-size: 1.5rem;
+}
+
+section.zCupSchedule ul li.team {
+  width: 25%;
+}
+
+section.zCupSchedule ul li.score {
+  width: 10%;
+  font-size: 2rem;
+  color: var(--pointColor);
+}
+
+section.zCupSchedule ul li.button {
+  width: 12%;
+}
+section.zCupSchedule ul li.button label.playButton {
+  font-size: 0.8em;
+  color: #fff;
+  font-weight: 600;
+  background-color: #428ace;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+section.zCupSchedule ul li.button label.playButton span {
+  position: relative;
+  padding-left: 10px;
+}
+section.zCupSchedule ul li.button label.playButton span::before {
+  content: "▶";
+  font-size: 0.2em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+section.zCupSchedule ul li.leftTeam {
+  justify-content: flex-end;
+}
+
+section.zCupSchedule ul li.rightTeam {
+  justify-content: flex-start;
+}
+
+section.zCupSchedule ul li img {
+  width: 50px;
+  height: 50px;
+}
+
+/* section.zCupSchedule input[type="checkbox"] */
+section.zCupSchedule input[type="checkbox"] {
+  display: none;
+}
+section.zCupSchedule input[id="play1"]:checked ~ label.cover {
+  display: block;
+}
+
+section.zCupSchedule input[id="play1"]:checked ~ section.playInfo {
+  display: block;
+}
+
+/* section.zCupSchedule label.cover */
+section.zCupSchedule label.cover {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.767);
+  z-index: 100000;
+  display: none;
+}
+
+/* section.zCupSchedule section.playInfo */
+section.zCupSchedule section.playInfo {
+  max-width: 800px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 0 22px 48px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000000;
+  display: none;
+}
+
+section.zCupSchedule section.playInfo label.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 20px;
+
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+section.zCupSchedule section.playInfo table {
+  width: 100%;
+}
+
+section.playInfo table caption {
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 30px;
+  color: var(--pointColor);
+  margin-bottom: 15px;
+  margin-top: 50px;
+  padding-left: 26px;
+}
+section.playInfo table caption span {
+  font-weight: 600;
+  position: relative;
+}
+section.playInfo table caption span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: -26px;
+  height: 30px;
+  width: 5px;
+  background-color: var(--pointColor);
+}
+section.playInfo table caption span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: -26px;
+  height: 5px;
+  width: 5px;
+  background-color: #aec8f4;
+}
+
+section.playInfo table td,
+section.playInfo table th {
+  border: var(--tableBorder);
+  padding: 21px 0;
+}
+section.playInfo table th {
+  background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 1100px) {
+  /* SCHEDULE TABLE */
+  .zCupSchedule li.place {
+    display: none;
+    appearance: none;
+  }
+
+  /* SCHEDULE TABLE - PLAYINFO */
+  .zCupSchedule li.playInfo {
+    width: 33%;
+    padding-left: 20px;
+    text-align: center;
+  }
+
+  .zCupSchedule li.playInfo > span {
+    display: none;
+  }
+
+  /* SCHEDULE TABLE - LEFT&RIGHT TEAM */
+  .zCupSchedule li.leftTeam,
+  .zCupSchedule li.rightTeam {
+    width: 22.5%;
+  }
+
+  /* SCHEDULE TABLE - SCORE */
+  .zCupSchedule li.score {
+    width: 10%;
+  }
+
+  /* SCHEDULE TABLE - BUTTON */
+  .zCupSchedule li.button {
+    width: fit-content;
+  }
+}
+
+input[id="teamList"]:checked ~ .container section.playschedule {
+  display: none;
+}
+
+input[id="playschedule"]:checked ~ .container section.teamList {
+  display: none;
+}
