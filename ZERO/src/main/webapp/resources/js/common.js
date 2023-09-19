@@ -6,31 +6,31 @@ const manager = document.querySelectorAll("#manager");
 
 point.forEach((t) => {
   t.addEventListener("click", function () {
-    location.href = "../controller/point";
+    location.href = "../zero/point";
   });
 });
 
 reservation.forEach((t) => {
   t.addEventListener("click", function () {
-    location.href = "../controller/reservation";
+    location.href = "../zero/reservation";
   });
 });
 
 zCup.forEach((t) => {
   t.addEventListener("click", function () {
-    location.href = "../controller/zCup";
+    location.href = "../zero/zCup";
   })
 });
 
 customer.forEach((t) => {
   t.addEventListener("click", function () {
-    location.href = "../controller/customer";
+    location.href = "../zero/customer";
   });
 });
 
 manager.forEach((t) => {
   t.addEventListener("click", function () {
-    location.href = "../controller/manager";
+    location.href = "../zero/manager";
   });
 });
 
