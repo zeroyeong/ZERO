@@ -20,16 +20,14 @@ input[id="mgrUserRadio"]:checked~.harlfButton label[for="mgrUserRadio"] {
     color: #fff;
 }
 
-input[id="mgrReserRadio"]:checked~.container #mgrReser,
-input[id="mgrTeamRadio"]:checked~.container #mgrTeam,
-input[id="mgrSchRadio"]:checked~.container #mgrSch,
-input[id="mgrUserRadio"]:checked~.container #mgrUser {
+input[id="mgrReserRadio"]:checked~.container #mgrReserContent,
+input[id="mgrTeamRadio"]:checked~.container #mgrTeamContent,
+input[id="mgrSchRadio"]:checked~.container #mgrSchContent,
+input[id="mgrUserRadio"]:checked~.container #mgrUserContent {
     display: block;
 }
 
-/* addButton */
-
-/* Î©îÏù∏,Ìó§Îçî */
+/* ∏ﬁ¿Œ,«Ï¥ı */
 main {
     position: relative;
     top: 85px;
@@ -229,14 +227,53 @@ main .container section form .searchButton i {
     background-color: #424242 !important;
 }
 
-/*mgrReserInfo*/
-.reserPopup .reservationInfo .mgrReserInfo {
-    width: 100%;
-    margin-top: 20px;
+/*mgrTeamContent add*/
+section#mgrTeamContent .addButton {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #2c3c57;
 }
 
-.reserPopup .reservationInfo .mgrReserInfo tr {
-    line-height: 50px;
+section#mgrTeamContent .addButton li {
+    width: 50%;
+}
+
+section#mgrTeamContent .addButton li label {
+    display: inline-block;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    cursor: pointer;
+    color: var(--pointColor);
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+section#mgrTeamContent .addButton li:hover label {
+    background-color: #192336;
+    color: #fff;
+}
+
+section#mgrTeamContent section {
+    width: 100%;
+    margin: 50px auto;
+}
+
+
+section#addTeamContent,
+section#addPlayerContent {
+    display: none;
+}
+
+input[id="detailTeamRadio"]:checked~#addTeamContent,
+input[id="detailPlayerRadio"]:checked~#addPlayerContent {
+    display: block;
+}
+
+input[id="detailTeamRadio"]:checked~.addButton label[for="detailTeamRadio"],
+input[id="detailPlayerRadio"]:checked~.addButton label[for="detailPlayerRadio"] {
+    background-color: #192336;
+    color: #fff !important;
 }
 
 @media screen and (max-width:1100px) {
@@ -245,81 +282,96 @@ main .container section form .searchButton i {
     }
 }
 
-/*addButton*/
-section#mgrTeam .addButton {
-    display: flex;
-    justify-content: space-between;
-
-    border: 1px solid #2c3c57;
-}
-
-section#mgrTeam .addButton li {
-    width: 50%;
-}
-
-section#mgrTeam .addButton li label {
-    display: inline-block;
+/*addTeamContent*/
+section#addTeamContent table {
     width: 100%;
-    padding: 20px 0;
+}
+
+section#addTeamContent table .col1 {
+    width: 7%;
+}
+
+section#addTeamContent table .col2 {
+    width: 12%;
+}
+
+section#addTeamContent table .col4 {
+    width: 14%;
+}
+
+section#addTeamContent table .col5 {
+    width: 11%;
+}
+
+section#addTeamContent table .col6 {
+    width: 100px;
+}
+
+section#addTeamContent table thead {
+    border-top: 2px solid var(--pointColor);
+    border-bottom: 2px solid var(--pointColor);
+}
+
+section#addTeamContent table thead th {
+    padding: 21px 0;
+    height: 22px;
+}
+
+section#addTeamContent table tbody td {
+    padding: 10px 0;
+    border: 1px solid #dcdcdc;
     text-align: center;
-    cursor: pointer;
-
-    color: var(--pointColor);
-    font-size: 1.3em;
-    font-weight: 700;
 }
 
-section#mgrTeam .addButton li:hover label {
-    background-color: var(--pointColor);
-    color: #fff;
+section#addTeamContent table tbody td:first-child,
+section#addTeamContent table tbody td:last-child {
+    border-right: none;
+    border-left: none;
 }
 
-section#mgrTeam .addButton li label.active {
-    background-color: var(--pointColor);
-    color: #fff;
+section#addTeamContent table tbody td .teamName {
+    display: flex;
+    align-items: center;
 }
 
-section#mgrTeam section {
-    width: 80%;
-    margin: 50px auto;
+section#addTeamContent table tbody td .teamName .teamImage {
+    width: 50px;
+    height: 50px;
+    margin: 0 20px;
 }
 
-section#mgrTeam section form {
+section#addTeamContent table tbody td .teamName .teamImage img {
+    max-width: 50px;
+    max-height: 50px;
     width: 100%;
+    height: 100%;
 }
 
-section#mgrTeam section form h3 {
-    width: 100%;
+section#addTeamContent table tbody td .teamName .teamTitle a {
+    font-weight: bold;
+    color: #000;
+}
+
+section#addTeamContent table tbody td .teamName .teamTitle a:hover {
+    text-decoration: underline;
+}
+
+section#addTeamContent table tbody td a.teamBtn {
+    background-color: #4c89cd;
+    color: #fff;
+    font-size: 1rem;
     padding: 10px 20px;
-    text-align: left;
-    font-size: 1.8rem;
-    font-weight: normal;
-    color: var(--pointColor);
-    border-bottom: 1px solid var(--pointColor);
 }
 
-section#mgrTeam section form h3 span {
-    position: relative;
-}
+@media screen and (max-width: 960px) {
 
-section#mgrTeam section form h3 span::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 10px;
-    left: -20px;
-    height: 30px;
-    width: 5px;
-    background-color: var(--pointColor);
-}
+    section#addTeamContent table thead th:first-child,
+    section#addTeamContent table tbody td:first-child {
+        display: none;
+    }
 
-section#mgrTeam section form h3 span::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 5px;
-    left: -20px;
-    height: 5px;
-    width: 5px;
-    background-color: #aec8f4;
+    section#addTeamContent table th,
+    section#addTeamContent table td {
+        font-size: 0.9em;
+    }
 }

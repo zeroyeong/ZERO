@@ -72,11 +72,11 @@
 				</li>
 			</ul>
 			<ul class="snsMenu">
-				<li><a href="" class="sns facebook"> <i
-						class="fa-brands fa-facebook"></i>
+				<li><a href="" class="sns facebook"> 
+					<i class="fa-brands fa-facebook"></i>
 				</a></li>
-				<li><a href="" class="sns instagram"> <i
-						class="fa-brands fa-instagram"></i>
+				<li><a href="" class="sns instagram">
+					 <i class="fa-brands fa-instagram"></i>
 				</a></li>
 			</ul>
 		</nav>
