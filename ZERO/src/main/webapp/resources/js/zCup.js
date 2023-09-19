@@ -102,3 +102,37 @@ function isImage(file) {
 function changeVal(class_name, change_name) {
   class_name.value = change_name;
 }
+
+
+//pjy
+
+function refreshSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.innerHTML = section.innerHTML; // 섹션 내용을 갱신
+}
+
+function okReser(id) {
+    let message;
+
+    switch (id) {
+        case 'test1':
+            message = "팀 새로고침.";
+            refreshSection('addTeam');
+            break;
+        case 'test2':
+            message = "선수 정보 새로고침" ;
+            refreshSection('addPlayer');
+            var teamCodeInput = document.getElementById("teamCodeInput");
+            teamCodeInput.value = "동그라미";
+            break;
+            }
+     alert(message);
+}
+           
+function teamAdd(){
+	var teamForm = document.getElementById("teamForm");
+	
+	teamForm.submit();
+	
+	alert("정상적으로 팀등록이 완료 되었습니다.");
+}

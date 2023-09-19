@@ -9,8 +9,8 @@
 
     <typeAliases>
         <typeAlias type="com.zero.domain.Sample" alias="Sample"></typeAlias>
-       <!--  <typeAlias type="com.zero.domain.CupTeam" alias="CupTeam"></typeAlias>
-        <typeAlias type="com.zero.domain.CupPlayer" alias="CupPlayer"></typeAlias>  -->
+        <typeAlias type="com.zero.domain.CupTeam" alias="CupTeam"></typeAlias>
+       <!--   <typeAlias type="com.zero.domain.CupPlayer" alias="CupPlayer"></typeAlias>  -->
     </typeAliases>
 </configuration>
 

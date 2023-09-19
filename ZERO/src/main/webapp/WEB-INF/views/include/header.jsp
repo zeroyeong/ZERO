@@ -31,7 +31,7 @@
 				</li>
 				<li id="reservation"><a>예약<span class="nav-bar hover-bar"></span></a>
 				</li>
-				<li id="zCup"><a>Z-CUP<span class="nav-bar hover-bar"></span></a>
+				<li id="zCup"><a href="<c:url value="/zCup" />">Z-CUP<span class="nav-bar hover-bar"></span></a>
 				</li>
 				<li id="customer"><a>고객센터<span class="nav-bar hover-bar"></span></a>
 				</li>

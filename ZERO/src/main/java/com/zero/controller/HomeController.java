@@ -46,10 +46,10 @@ public class HomeController {
 		return "pointReservation/reservation";
 	}
 
-	@RequestMapping("/zCup")
-	public String zCup() {
-		return "zCup/zCup";
-	}
+//	@RequestMapping("/zCup")
+//	public String zCup() {
+//		return "zCup/zCup";
+//	}
 
 	@RequestMapping("/customer")
 	public String customer() {

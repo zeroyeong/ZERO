@@ -17,7 +17,7 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/zCup.js" />" defer></script>
+   <script src="<c:url value="/resources/js/zCup.js?sasddsd" />" defer></script>
    <%-- <script src="<c:url value="/resources/js/tournament.js" />" defer></script> --%>
 
    <!-- Font Awesome -->
@@ -171,6 +171,13 @@
           </div>
         </section>
         <section id="teamAdd">
+       		<c:forEach items="${cupTeamList}" var="cupTeam"> 
+			<p>teamNo = ${cupTeam.teamNo}</p>
+			<p>teamName = ${cupTeam.teamName}</p>
+			<p>teamPassWord = ${cupTeam.teamPassWord}</p>
+		   	<p>teamCode = ${cupTeam.teamCode}</p>
+			<p>teambranch =  ???<p>
+			</c:forEach>	
           <ul class="addButton">
             <li>
               <label for="addTeam" id="selectMenuBtn" class="addTeam active">
@@ -187,7 +194,7 @@
           <input type="radio" name="addLeague" id="addPlayer" />
 
           <section class="addTeam">
-            <form action="">
+              <form:form id="teamForm" modelAttribute = "NewTeam" method="post" action="zCup/cupTeam">
               <h3 class="formTitle"><span></span>팀 등록</h3>
               <div class="formDiv">
                 <div class="bothSide">
@@ -195,52 +202,48 @@
                     <label>지점명</label>
                     <select name="" >
                       <option value="">지점선택</option>
-                      <option value="">초등부</option>
-                      <option value="">성인부</option>
+                      <option value="">서울</option>
+                      <option value="">경기</option>
                     </select>
                   </div>
                   <div>
                     <label>팀명</label>
-                    <input type="text" name=""  />
+                    <form:input path="teamName"/>
                   </div>
                 </div>
 
                 <div class="bothSide">
                   <div>
                     <label>팀관리자</label>
-                    <input type="text" name=""  />
+                    <form:input type="text" path="teamLeader"/>
                   </div>
                   <div>
                     <label>연락처</label>
-                    <div class="phone">
-                      <input type="text" name=""  /> -
-                      <input type="text" name=""  /> -
-                      <input type="text" name=""  />
-                    </div>
+                      <form:input type="text" path="teamPhone"/>
                   </div>
                 </div>
                 <div>
                   <label>이메일</label>
-                  <input type="text" />
+                  <form:input type="text" path="teamMail" />
                 </div>
                 <div class="bothSide">
                   <div>
                     <label>유니폼(홈)</label>
                     <div class="harlfInput">
-                      <input type="text" name="" placeholder="유니폼 색" />
+                      <form:input type="text" path="teamUniformHome" placeholder="유니폼 색" />
                     </div>
                   </div>
                   <div>
                     <label>유니폼(어웨이)</label>
                     <div class="harlfInput">
-                      <input type="text" name="" placeholder="유니폼 색" />
+                      <form:input type="text" path="teamUniformAway" placeholder="유니폼 색" />
                     </div>
                   </div>
                 </div>
                 <div>
                   <label>팀엠블럼</label>
                   <div class="search">
-                    <input type="text" class="fileName" value="이미지를 업로드 하세요">
+                    <form:input type="text" class="fileName" path="teamEmblem" value="이미지를 업로드 하세요"/>
                     <input type="file" id="fileInput">
                     <label for="fileInput">찾아보기</label>
                   </div>
@@ -248,19 +251,19 @@
                 <div class="bothSide">
                   <div>
                     <label>팀비밀번호</label>
-                    <input type="new-password" id="pwd1" placeholder="5자 이상으로 입력해주세요."/>
+                    <form:input type="new-password" id="pwd1" path="teamPassWord" placeholder="5자 이상으로 입력해주세요."/>
                   </div>
                   <div>
                     <label>팀비밀번호 확인</label>
-                    <input type="new-password" id="pwd2" />
+                    <form:input type="new-password" id="pwd2" path="teamPassWordCheck" />
                   </div>
                 </div>
               </div>
               <div class="buttons">
-                <button type="button" class="registrationBtn">등록하기</button>
+                <button type="button" class="registrationBtn" onclick="teamAdd()">등록하기</button>
                 <button type="button" class="resetBtn">취소하기</button>
               </div>
-            </form>
+            </form:form>
           </section>
           <section class="addPlayer">
             <form action="">
@@ -270,8 +273,8 @@
                   <div>
                     <label>팀코드 입력</label>
                     <div class="inpuBtn">
-                      <input type="text" />
-                      <button type="button">코드확인</button>
+                      <input type="text" id="teamCodeInput"/>
+                      <button type="button" onclick="okReser('test2')">코드확인</button>
                     </div>
                   </div>
                   <div>
@@ -281,7 +284,7 @@
                 </div>
                 <div class="bothSide">
                   <div>
-                    <label">팀명</label>
+                    <label>팀명</label>
                     <input type="text" name=""  readonly />
                   </div>
                   <div>

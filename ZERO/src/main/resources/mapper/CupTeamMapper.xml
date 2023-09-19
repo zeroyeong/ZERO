@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CupTeam">
+    <insert id="insert" parameterType="CupTeam">
+        insert into CupTeam(TEAM_NAME, TEAM_LEADER, TEAM_PHONE, TEAM_MAIL, TEAM_UNIFORM_HOME, TEAM_UNIFORM_AWAY, TEAM_EMBLEM, TEAM_PASSWORD, TEAM_CODE)
+        values(#{teamName}, #{teamLeader}, #{teamPhone}, #{teamMail}, #{teamUniformHome}, #{teamUniformAway}, #{teamEmblem}, #{teamPassWord}, #{teamCode})
+    </insert>
+     <select id="select" resultType="CupTeam">
+        select * from CUPTEAM
+    </select>
+</mapper>
+
+
