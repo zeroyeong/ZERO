@@ -24,7 +24,7 @@ zCup.forEach((t) => {
 
 customer.forEach((t) => {
   t.addEventListener("click", function () {
-    location.href = "../controller/service";
+    location.href = "../controller/customer";
   });
 });
 
