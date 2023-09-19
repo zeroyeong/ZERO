@@ -24,7 +24,9 @@ public class CupController {
 	public String zCupAllList(@ModelAttribute("NewTeam") CupTeam cupTeam, @ModelAttribute("NewPlayer") CupPlayer cupPlayer, Model model) {
 		
 		List<CupTeam> cupTeamList = cupService.getCupTeamList();
+		List<CupPlayer> cupPlayerList = cupService.getCupPlayerList();
 		model.addAttribute("cupTeamList", cupTeamList);
+		model.addAttribute("cupPlayerList", cupPlayerList);
 		return "zCup/zCup";
 	}
 	
@@ -36,6 +38,15 @@ public class CupController {
 		return "redirect:/zCup";
 	}
 	
+	@PostMapping("/zCup/cupPlayer")
+	public String setCupPlayer(@ModelAttribute("NewPlayer") CupPlayer CupPlayer, Model model) {
+
+		System.out.println("newplayer = " + CupPlayer);
+
+		cupService.setNewCupPlayer(CupPlayer);
+		
+		return "redirect:/zCup";
+	}
 	
 //	@GetMapping("/zCup/cupTeam")
 //	public String getCupTeam(@ModelAttribute("NewTeam") CupTeam cupTeam) {

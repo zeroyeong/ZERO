@@ -17,7 +17,7 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/zCup.js?sasddsd" />" defer></script>
+   <script src="<c:url value="/resources/js/zCup.js?ssd" />" defer></script>
    <%-- <script src="<c:url value="/resources/js/tournament.js" />" defer></script> --%>
 
    <!-- Font Awesome -->
@@ -178,6 +178,19 @@
 		   	<p>teamCode = ${cupTeam.teamCode}</p>
 			<p>teambranch =  ???<p>
 			</c:forEach>	
+			 
+			<p>player!!!!</p>
+			
+			
+			<c:forEach items="${cupPlayerList}" var="cupPlayer"> 
+			<p>playerNo = ${cupPlayer.playerNo}</p>
+			<p>playerName = ${cupPlayer.playerName}</p>
+			<p>playerPhoto = ${cupPlayer.playerPhoto}</p>
+		   	<p>playerGoal = ${cupPlayer.playerGoal}</p>
+   			<p>playerYellowCard = ${cupPlayer.playerYellowCard}</p>
+  	 	   	<p>playerRedCard = ${cupPlayer.playerRedCard}</p>
+			</c:forEach>	
+			
           <ul class="addButton">
             <li>
               <label for="addTeam" id="selectMenuBtn" class="addTeam active">
@@ -266,7 +279,7 @@
             </form:form>
           </section>
           <section class="addPlayer">
-            <form action="">
+            <form:form id="playerForm" modelAttribute = "NewPlayer" method="post" action="zCup/cupPlayer">
               <h3 class="formTitle"><span></span>선수 등록</h3>
               <div class="formDiv">
                 <div class="bothSide">
@@ -294,22 +307,22 @@
                 </div>
                 <div>
                   <label>선수명</label>
-                  <input type="text" name=""  readonly />
+                  <form:input type="text" path="playerName" readonly="true"/>
                 </div>
                 <div>
                   <label>선수사진</label>
                   <div class="search">
-                    <input type="text" class="fileName2" value="이미지를 업로드 하세요">
+                    <form:input type="text" class="fileName2" path="playerPhoto" value="이미지를 업로드 하세요" />
                     <input type="file" id="fileInput2">
                     <label for="fileInput2">찾아보기</label>
                   </div>
                 </div>
               </div>
               <div class="buttons">
-                <button type="button" class="registrationBtn">등록하기</button>
+                <button type="button" class="registrationBtn" onclick="playerAdd()">등록하기</button>
                 <button type="button" class="resetBtn">취소하기</button>
               </div>
-            </form>
+            </form:form>
           </section>
         </section>
         <section id="teamList">

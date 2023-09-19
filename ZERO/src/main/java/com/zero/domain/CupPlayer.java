@@ -7,8 +7,80 @@ public class CupPlayer {
 	private String playerPhoto;
 	private String playerGoal;
 	private String playerYellowCard;
-	private String playerRedCard;
+	private String playerRedCard;	
+	private int teamNo;			//fk
 	
-	private String teamNo;			//fk
+	public CupPlayer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CupPlayer(int playerNo, String playerName, String playerPhoto, String playerGoal, String playerYellowCard,
+			String playerRedCard, int teamNo) {
+		super();
+		this.playerNo = playerNo;
+		this.playerName = playerName;
+		this.playerPhoto = playerPhoto;
+		this.playerGoal = playerGoal;
+		this.playerYellowCard = playerYellowCard;
+		this.playerRedCard = playerRedCard;
+		this.teamNo = teamNo;
+	}
+
+	public int getPlayerNo() {
+		return playerNo;
+	}
+
+	public void setPlayerNo(int playerNo) {
+		this.playerNo = playerNo;
+	}
+
+	public String getPlayerName() {
+		return playerName;
+	}
+
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+
+	public String getPlayerPhoto() {
+		return playerPhoto;
+	}
+
+	public void setPlayerPhoto(String playerPhoto) {
+		this.playerPhoto = playerPhoto;
+	}
+
+	public String getPlayerGoal() {
+		return playerGoal;
+	}
+
+	public void setPlayerGoal(String playerGoal) {
+		this.playerGoal = playerGoal;
+	}
+
+	public String getPlayerYellowCard() {
+		return playerYellowCard;
+	}
+
+	public void setPlayerYellowCard(String playerYellowCard) {
+		this.playerYellowCard = playerYellowCard;
+	}
+
+	public String getPlayerRedCard() {
+		return playerRedCard;
+	}
+
+	public void setPlayerRedCard(String playerRedCard) {
+		this.playerRedCard = playerRedCard;
+	}
+
+	public int getTeamNo() {
+		return teamNo;
+	}
+
+	public void setTeamNo(int teamNo) {
+		this.teamNo = teamNo;
+	}	
 	
 }

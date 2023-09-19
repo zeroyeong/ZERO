@@ -134,5 +134,14 @@ function teamAdd(){
 	
 	teamForm.submit();
 	
-	alert("정상적으로 팀등록이 완료 되었습니다.");
+	alert("정상적으로 팀 등록이 완료 되었습니다.");
+}
+
+
+function playerAdd(){
+	var playerForm = document.getElementById("playerForm");
+	
+	playerForm.submit();
+	
+	alert("정상적으로 선수 등록이 완료 되었습니다.");
 }
