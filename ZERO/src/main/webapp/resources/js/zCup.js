@@ -74,3 +74,31 @@ function displayTr(idx) {
 }
 
 displayTr(0);
+
+const upload_file = document.querySelector("#fileInput");
+const upload_name = document.querySelector(".fileName");
+
+upload_file.addEventListener("input", () => {
+  if (isImage(upload_file.files[0])) {
+    changeVal(upload_name, upload_file.files[0].name);
+  }
+});
+
+const upload_file2 = document.querySelector("#fileInput2");
+const upload_name2 = document.querySelector(".fileName2");
+
+upload_file2.addEventListener("input", () => {
+  if (isImage(upload_file2.files[0])) {
+    changeVal(upload_name2, upload_file2.files[0].name);
+  }
+});
+
+// 변수 file의 type이 image(png, jpg 등)인지 구분한다.
+function isImage(file) {
+  return file.type.indexOf("image") >= 0;
+}
+
+// input(text)의 value 속성 값 변경
+function changeVal(class_name, change_name) {
+  class_name.value = change_name;
+}

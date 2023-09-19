@@ -330,15 +330,32 @@ section#teamAdd section form .formDiv .bothSide .phone input {
 section#teamAdd section form .formDiv div .search {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 7px;
 }
 
-section#teamAdd section form .formDiv div .search button {
+section#teamAdd section form .formDiv div .search label {
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+
   width: 150px;
+  padding: 10px;
+  text-align: center;
   background-color: #2389d8;
   color: #fff;
   font-size: 1em;
-  margin-left: 10px;
+
+  border-radius: 5px;
+}
+
+section#teamAdd section form .formDiv div .search input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
 }
 
 section#teamAdd section form .formDiv div .inpuBtn {

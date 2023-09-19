@@ -1,6 +1,6 @@
 :root {
   --mainColor: #2c3c57;
-  --pointColor: #192336;
+  --labelColor: #192336;
   --buttonColor: #428ace;
   --tournamentBorder: 1px solid #fff;
   --tableBorder: 1px solid #dcdcdc;
@@ -20,7 +20,7 @@ article.tournament input[type="checkbox"] {
 article.tournament label {
   width: 470px;
   height: 100%;
-  background-color: var(--pointColor);
+  background-color: var(--labelColor);
 
   position: absolute;
   top: 0;
@@ -57,7 +57,7 @@ article.tournament label span {
 
 article.tournament section {
   width: 100%;
-  background-color: var(--pointColor);
+  background-color: var(--labelColor);
 
   position: absolute;
   top: 85px;

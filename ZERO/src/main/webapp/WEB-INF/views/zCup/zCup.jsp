@@ -17,9 +17,8 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
-<%--    <script src="<c:url value="../resources/js/common.js" />" defer></script> --%>
-   <script src="<c:url value="../resources/js/zCup.js" />" defer></script>
-   <%-- <script src="<c:url value="../resources/js/tournament.js" />" defer></script> --%>
+   <script src="<c:url value="/resources/js/zCup.js" />" defer></script>
+   <%-- <script src="<c:url value="/resources/js/tournament.js" />" defer></script> --%>
 
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
@@ -33,14 +32,13 @@
   <!-- header include -->
   <jsp:include page="../include/header.jsp" />
   
-	    <main>
+    <main>
       <div class="topVideo">
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
           <source src="../videos/point.mp4" type="video/mp4" />
         </video>
       </div>
-      
       <!-- subMenu include -->
  	  <jsp:include page="../include/zCupScheduleList.jsp" />
       
@@ -229,31 +227,22 @@
                   <div>
                     <label>유니폼(홈)</label>
                     <div class="harlfInput">
-                      <input
-                        type="text"
-                        name=""
-                        
-                        placeholder="유니폼 색"
-                      />
+                      <input type="text" name="" placeholder="유니폼 색" />
                     </div>
                   </div>
                   <div>
                     <label>유니폼(어웨이)</label>
                     <div class="harlfInput">
-                      <input
-                        type="text"
-                        name=""
-                        
-                        placeholder="유니폼 색"
-                      />
+                      <input type="text" name="" placeholder="유니폼 색" />
                     </div>
                   </div>
                 </div>
                 <div>
                   <label>팀엠블럼</label>
                   <div class="search">
-                    <input type="text" />
-                    <button>찾아보기</button>
+                    <input type="text" class="fileName" value="이미지를 업로드 하세요">
+                    <input type="file" id="fileInput">
+                    <label for="fileInput">찾아보기</label>
                   </div>
                 </div>
                 <div class="bothSide">
@@ -307,8 +296,9 @@
                 <div>
                   <label>선수사진</label>
                   <div class="search">
-                    <input type="text" />
-                    <button>찾아보기</button>
+                    <input type="text" class="fileName2" value="이미지를 업로드 하세요">
+                    <input type="file" id="fileInput2">
+                    <label for="fileInput2">찾아보기</label>
                   </div>
                 </div>
               </div>
