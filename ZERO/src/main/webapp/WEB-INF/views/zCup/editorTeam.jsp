@@ -239,6 +239,10 @@
               </td>
             </tr>
             <tr>
+              <th>팀 코드</th>
+              <td>abc12</td>
+            </tr>
+            <tr>
               <th>지점</th>
               <td>
                 <input type="checkbox" id="branch" class="checkBotInput">
