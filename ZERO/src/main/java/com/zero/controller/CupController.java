@@ -48,6 +48,18 @@ public class CupController {
 		return "redirect:/zCup";
 	}
 	
+//	@GetMapping("/zCup/player")
+//	public String zCupAllList(Model model) {
+//	
+//		List<CupPlayer> playerList = cupService.getPlayerWithTeamList();
+//		model.addAttribute("playerList", playerList);
+//		
+//		return "home";
+//	}
+	
+	
+	
+	
 //	@GetMapping("/zCup/cupTeam")
 //	public String getCupTeam(@ModelAttribute("NewTeam") CupTeam cupTeam) {
 //		

@@ -49,4 +49,9 @@ public class CupRepositoryImpl implements CupRepository {
 		cupPlayer.setPlayerRedCard("0");
 		sql.insert("Cup.insertPlayer", cupPlayer);
 	}
+	
+	@Override
+	public List<CupPlayer> getPlayerWithTeamList() {
+		return sql.selectList("Cup.selectCupTeamAndPlayers");
+	}
 }

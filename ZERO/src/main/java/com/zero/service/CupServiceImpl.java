@@ -35,5 +35,10 @@ public class CupServiceImpl implements CupService {
 	public void setNewCupPlayer(CupPlayer cupPlayer) {
 		cupRepository.setNewCupPlayer(cupPlayer);
 	}
+	
+	@Override
+	public List<CupPlayer> getPlayerWithTeamList() {
+		return cupRepository.getPlayerWithTeamList();
+	}
 }
  

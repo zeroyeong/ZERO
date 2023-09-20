@@ -12,8 +12,7 @@
      <select id="selectTeam" resultType="CupTeam">
         select * from CUPTEAM
     </select>
-    
-    
+     
     <insert id="insertPlayer" parameterType="CupPlayer">
         insert into CupPlayer(PLAYER_NAME, PLAYER_PHOTO, PLAYER_GOAL, PLAYER_YELLOW_CARD, PLAYER_RED_CARD)
         values(#{playerName}, #{playerPhoto}, #{playerGoal}, #{playerYellowCard}, #{playerRedCard})
@@ -21,6 +20,51 @@
      <select id="selectPlayer" resultType="CupPlayer">
         select * from CupPlayer
     </select>
+  
+ <!--       
+    <resultMap id="CupTeamResultMap" type="com.zero.domain.CupTeam">
+ 
+        <id property="teamNo" column="team_no"/>
+        <result property="teamName" column="team_name"/>
+        <result property="teamLeader" column="team_leader"/>
+        <result property="teamPhone" column="team_phone"/>
+        <result property="teamMail" column="team_mail"/>
+        <result property="teamUniformHome" column="team_uniform_home"/>
+        <result property="teamUniformAway" column="team_uniform_away"/>
+        <result property="teamEmblem" column="team_emblem"/>
+        <result property="teamPassWord" column="team_password"/>
+        <result property="teamPassWordCheck" column="team_password_check"/>
+        <result property="teamCode" column="team_code"/>
+        <result property="teamMemberCnt" column="team_member_cnt"/>
+        <result property="teamRegYear" column="team_reg_year"/>
+        <result property="branchNo" column="branch_no"/>
+        <result property="playerNo" column="player_no"/>
+        <result property="scoreNo" column="score_no"/>
+    </resultMap>
+
+    <resultMap id="CupPlayerResultMap" type="com.zero.domain.CupPlayer">
+    
+        <id property="playerNo" column="player_no"/>
+        <result property="playerName" column="player_name"/>
+        <result property="playerPhoto" column="player_photo"/>
+        <result property="playerGoal" column="player_goal"/>
+        <result property="playerYellowCard" column="player_yellow_card"/>
+        <result property="playerRedCard" column="player_red_card"/>
+        <result property="teamNo" column="team_no"/>
+    </resultMap>
+
+  
+	<select id="selectCupTeamAndPlayers" resultMap="CupPlayerResultMap">
+	    SELECT
+	        p.*, t.*
+	    FROM
+	        CupPlayer p
+	    JOIN
+	        CupTeam t
+	    ON
+	        p.teamNo = t.teamNo
+	</select>
+ -->
 </mapper>
 
 
