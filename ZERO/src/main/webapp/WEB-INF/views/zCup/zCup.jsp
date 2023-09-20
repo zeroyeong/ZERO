@@ -18,7 +18,7 @@
 
    <!-- js 연결 -->
    <script src="<c:url value="/resources/js/zCup.js?ssd" />" defer></script>
-   <%-- <script src="<c:url value="/resources/js/tournament.js" />" defer></script> --%>
+   <script src="<c:url value="/resources/js/tournament.js?ad" />" defer></script>
 
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
@@ -170,15 +170,7 @@
             </div>
           </div>
         </section>
-        <section id="teamAdd">
-       		<c:forEach items="${cupTeamList}" var="cupTeam"> 
-			<p>teamNo = ${cupTeam.teamNo}</p>
-			<p>teamName = ${cupTeam.teamName}</p>
-			<p>teamPassWord = ${cupTeam.teamPassWord}</p>
-		   	<p>teamCode = ${cupTeam.teamCode}</p>
-			<p>teambranch =  ???<p>
-			</c:forEach>	
-			 
+        <section id="teamAdd">		 
 			<p>player!!!!</p>
 			
 			
@@ -379,7 +371,8 @@
                 <td>2023.09.08</td>
                 <td><a href="teamSetting.html" class="teamBtn">팀관리</a></td>
               </tr>
-
+              
+       		<c:forEach items="${cupTeamList}" var="cupTeam"> 
               <tr>
                 <td>1</td>
                 <td>더피치 평택점</td>
@@ -389,14 +382,15 @@
                       <img src="../images/팀2.jpg" alt="" />
                     </div>
                     <div class="teamTitle">
-                      <a href="">팀 1</a>
+                      <a href="">${cupTeam.teamName}</a>
                     </div>
                   </div>
                 </td>
-                <td><span>0</span> 명</td>
-                <td>2023.09.08</td>
+                <td><span>${cupTeam.teamMemberCnt}</span> 명</td>
+                <td>${cupTeam.teamRegYear}</td>
                 <td><a href="teamSetting.html" class="teamBtn">팀관리</a></td>
               </tr>
+              </c:forEach>
             </tbody>
           </table>
           <ul class="pagination"></ul>

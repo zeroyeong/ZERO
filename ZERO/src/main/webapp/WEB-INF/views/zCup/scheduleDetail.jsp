@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html> 
 <html lang="ko">
   <head>
@@ -6,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>스케줄 디테일</title>
 
-    <!-- css 연결 -->
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/scheduleDetail.css" />
-    <!-- <link rel="stylesheet" href="../css/zCup.css" /> -->
+     <!-- css 연결 -->
+    <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/scheduleDetail.css" />" />
+    <!--  <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css" />" /> -->
 
     <!-- js 연결 -->
-    <script src="../js/common.js" defer></script>
+    <script src="<c:url value="/resources/js/common.js" />" defer></script>
     <!-- <script src="../js/detail.js" defer></script> -->
 
     <!-- Font Awesome -->
@@ -28,7 +31,7 @@
 
         <nav class="webNav">
           <ul class="leftMenu">
-            <li id="point">
+ 			<li id="point">
               <a>지점<span class="nav-bar hover-bar"></span></a>
             </li>
             <li id="reservation">
@@ -117,7 +120,7 @@
         <section class="teamList">
           <h3>
             <span></span>
-            출전 팀 List
+         	 출전 팀 List
           </h3>
           <table class="teamList">
             <colgroup>
@@ -129,7 +132,7 @@
 
             <thead>
               <tr>
-                <th>지점명</th>
+       			<th>지점명</th>
                 <th>팀명</th>
                 <th>등록선수</th>
                 <th>상세정보</th>
@@ -137,10 +140,23 @@
             </thead>
             <tbody>
               <tr>
-                <td>OO점</td>
+                <td>OO 점</td>
                 <td>
                   <div class="teamName">
-                    <img src="../images/팀2.jpg" alt="" />
+                    <img src="../images/í2.jpg" alt="" />
+                    <span class="teamName">팀 이름</span>
+                  </div>
+                </td>
+                <td>O 명</td>
+                <td>
+                  <button type="button" class="detailBtn">상세정보</button>
+                </td>
+              </tr>
+              <tr>
+                <td>OO 점</td>
+                <td>
+                  <div class="teamName">
+                    <img src="../images/í2.jpg" alt="" />
                     <span class="teamName">팀 이름</span>
                   </div>
                 </td>
@@ -150,10 +166,10 @@
                 </td>
               </tr>
               <tr>
-                <td>OO점</td>
+                <td>OO 점</td>
                 <td>
                   <div class="teamName">
-                    <img src="../images/팀2.jpg" alt="" />
+                    <img src="../images/í2.jpg" alt="" />
                     <span class="teamName">팀 이름</span>
                   </div>
                 </td>
@@ -163,10 +179,10 @@
                 </td>
               </tr>
               <tr>
-                <td>OO점</td>
+                <td>OO 점</td>
                 <td>
                   <div class="teamName">
-                    <img src="../images/팀2.jpg" alt="" />
+                    <img src="../images/í2.jpg" alt="" />
                     <span class="teamName">팀 이름</span>
                   </div>
                 </td>
@@ -176,10 +192,10 @@
                 </td>
               </tr>
               <tr>
-                <td>OO점</td>
+                <td>OO 점</td>
                 <td>
                   <div class="teamName">
-                    <img src="../images/팀2.jpg" alt="" />
+                    <img src="../images/í2.jpg" alt="" />
                     <span class="teamName">팀 이름</span>
                   </div>
                 </td>
@@ -189,10 +205,10 @@
                 </td>
               </tr>
               <tr>
-                <td>OO점</td>
+                <td>OO 점</td>
                 <td>
                   <div class="teamName">
-                    <img src="../images/팀2.jpg" alt="" />
+                    <img src="../images/í2.jpg" alt="" />
                     <span class="teamName">팀 이름</span>
                   </div>
                 </td>
@@ -202,10 +218,10 @@
                 </td>
               </tr>
               <tr>
-                <td>OO점</td>
+                <td>OO 점</td>
                 <td>
                   <div class="teamName">
-                    <img src="../images/팀2.jpg" alt="" />
+                    <img src="../images/í2.jpg" alt="" />
                     <span class="teamName">팀 이름</span>
                   </div>
                 </td>
@@ -214,38 +230,29 @@
                   <button type="button" class="detailBtn">상세정보</button>
                 </td>
               </tr>
-              <tr>
-                <td>OO점</td>
-                <td>
-                  <div class="teamName">
-                    <img src="../images/팀2.jpg" alt="" />
-                    <span class="teamName">팀 이름</span>
-                  </div>
-                </td>
-                <td>O 명</td>
-                <td>
-                  <button type="button" class="detailBtn">상세정보</button>
-                </td>
-              </tr>
-              <tr>
-                <td>OO점</td>
-                <td>
-                  <div class="teamName">
-                    <img src="../images/팀2.jpg" alt="" />
-                    <span class="teamName">팀 이름</span>
-                  </div>
-                </td>
-                <td>O 명</td>
-                <td>
-                  <button type="button" class="detailBtn">상세정보</button>
-                </td>
-              </tr>
+              
+              <c:forEach items="${cupTeamList}" var="cupTeam"> 
+	              <tr>
+	                <td>OO 점</td>
+	                <td>
+	                  <div class="teamName">
+	                    <img src="../images/í2.jpg" alt="" />
+	                    <span class="teamName">${cupTeam.teamName}</span>
+	                  </div>
+	                </td>
+	                <td>${cupTeam.teamMemberCnt} 명</td>
+	                <td>
+	                  <button type="button" class="detailBtn">상세정보</button>
+	                </td>
+	              </tr>
+              </c:forEach>
+              
             </tbody>
           </table>
 
           <h3 class="tournamentTitle">
             <span></span>
-            경기 대진표
+            경기 대진표
           </h3>
           <div class="tournament">
             <h1 class="logo">zero futsal</h1>
@@ -299,35 +306,35 @@
             </ul>
             <ul class="teamList">
               <li>
-                <img src="images/팀2.jpg" alt="" />
+                <img src="images/í2.jpg" alt="" />
                 <span class="teamName">팀 이름 1</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
+                <img src="images/í2.jpg" alt="" />
                 <span class="teamName">팀 이름 2</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
+                <img src="images/í2.jpg" alt="" />
                 <span class="teamName">팀 이름 3</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
+                <img src="images/í2.jpg" alt="" />
                 <span class="teamName">팀 이름 4</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
+                <img src="images/í2.jpg" alt="" />
                 <span class="teamName">팀 이름 5</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
+                <img src="images/í2.jpg" alt="" />
                 <span class="teamName">팀 이름 6</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
+                <img src="images/í2.jpg" alt="" />
                 <span class="teamName">팀 이름 7</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
+                <img src="images/í2.jpg" alt="" />
                 <span class="teamName">팀 이름 8</span>
               </li>
             </ul>
@@ -335,7 +342,7 @@
         </section>
 
         <section class="playschedule">
-          <!-- 데이터 추가할 때 section.zCupSchedule 자체를 등록해주시면 됩니다. -->
+          <!-- ë°ì´í° ì¶ê°í  ë section.zCupSchedule ìì²´ë¥¼ ë±ë¡í´ì£¼ìë©´ ë©ëë¤. -->
           <h3><span>z-cup</span> Schedule</h3>
           <div class="scheduleBox">
             <section class="zCupSchedule">
@@ -489,7 +496,7 @@
                     </tr>
                   </table>
 
-                  <table>
+				  <table>
                     <caption>
                       <span></span>
                       경기기록
@@ -527,9 +534,9 @@
             <section class="zCupSchedule">
               <div class="zCup">
                 <ul>
-                  <li class="place">시흥점</li>
+                  <li class="place">ìí¥ì </li>
                   <li class="playInfo">
-                    <div>
+					<div>
                       <span>04.26(월)</span>
                       21:30
                     </div>

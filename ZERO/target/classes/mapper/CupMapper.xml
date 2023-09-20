@@ -21,50 +21,44 @@
         select * from CupPlayer
     </select>
   
- <!--       
-    <resultMap id="CupTeamResultMap" type="com.zero.domain.CupTeam">
- 
-        <id property="teamNo" column="team_no"/>
-        <result property="teamName" column="team_name"/>
-        <result property="teamLeader" column="team_leader"/>
-        <result property="teamPhone" column="team_phone"/>
-        <result property="teamMail" column="team_mail"/>
-        <result property="teamUniformHome" column="team_uniform_home"/>
-        <result property="teamUniformAway" column="team_uniform_away"/>
-        <result property="teamEmblem" column="team_emblem"/>
-        <result property="teamPassWord" column="team_password"/>
-        <result property="teamPassWordCheck" column="team_password_check"/>
-        <result property="teamCode" column="team_code"/>
-        <result property="teamMemberCnt" column="team_member_cnt"/>
-        <result property="teamRegYear" column="team_reg_year"/>
-        <result property="branchNo" column="branch_no"/>
-        <result property="playerNo" column="player_no"/>
-        <result property="scoreNo" column="score_no"/>
+    <resultMap id="CupPlayerResultMap" type="com.zero.domain.CupPlayer">  
+        <id property="playerNo" column="PLAYER_NO"/>
+        <result property="playerName" column="PLAYER_NAME"/>
+        <result property="playerPhoto" column="PLAYER_PHOTO"/>
+        <result property="playerGoal" column="PLAYER_GOAL"/>
+        <result property="playerYellowCard" column="PLAYER_YELLOW_CARD"/>
+        <result property="playerRedCard" column="PLAYER_RED_CARD"/>
+        <collection property="cupTeam" resultMap="CupTeamResultMap"/>
     </resultMap>
-
-    <resultMap id="CupPlayerResultMap" type="com.zero.domain.CupPlayer">
     
-        <id property="playerNo" column="player_no"/>
-        <result property="playerName" column="player_name"/>
-        <result property="playerPhoto" column="player_photo"/>
-        <result property="playerGoal" column="player_goal"/>
-        <result property="playerYellowCard" column="player_yellow_card"/>
-        <result property="playerRedCard" column="player_red_card"/>
-        <result property="teamNo" column="team_no"/>
+    <resultMap id="CupTeamResultMap" type="com.zero.domain.CupTeam">
+        <id property="teamNo" column="TEAM_NO"/>
+        <result property="teamName" column="TEAM_NAME"/>
+        <result property="teamLeader" column="TEAM_LEADER"/>
+        <result property="teamPhone" column="TEAM_PHONE"/>
+        <result property="teamMail" column="TEAM_MAIL"/>
+        <result property="teamUniformHome" column="TEAM_UNIFORM_HOME"/>
+        <result property="teamUniformAway" column="TEAM_UNIFORM_AWAY"/>
+        <result property="teamEmblem" column="TEAM_EMBLEM"/>
+        <result property="teamPassWord" column="TEAM_PASSWORD"/>
+        <result property="teamCode" column="TEAM_CODE"/>
+        <result property="teamMemberCnt" column="TEAM_MEMBER_CNT"/>
+        <result property="teamRegYear" column="TEAM_REGYEAR"/>
+        <result property="branchNo" column="BRANCH_NO"/>
+        <result property="scoreNo" column="SCORE_NO"/>
     </resultMap>
-
   
 	<select id="selectCupTeamAndPlayers" resultMap="CupPlayerResultMap">
 	    SELECT
-	        p.*, t.*
+	         p.*, t.*
 	    FROM
 	        CupPlayer p
 	    JOIN
 	        CupTeam t
 	    ON
-	        p.teamNo = t.teamNo
+	        p.TEAM_NO = t.TEAM_NO
 	</select>
- -->
+
 </mapper>
 
 

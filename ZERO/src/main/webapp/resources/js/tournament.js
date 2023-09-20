@@ -1,3 +1,3 @@
 function showDetail(){
-    location.href="../zCup/scheduleDetail.html"
+    location.href="zCup/scheduleDetail"
 }

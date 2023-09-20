@@ -16,7 +16,6 @@ public class CupTeam {
 	private String teamMemberCnt;			
 	private String teamRegYear;			//column
 	private int branchNo; 				//fk
-	private int playerNo; 				//fk
 	private int scoreNo;	 			//fk
 	
 	public CupTeam() {
@@ -27,7 +26,7 @@ public class CupTeam {
 	public CupTeam(int teamNo, String teamName, String teamLeader, String teamPhone, String teamMail,
 			String teamUniformHome, String teamUniformAway, String teamEmblem, String teamPassWord,
 			String teamPassWordCheck, String teamCode, String teamMemberCnt, String teamRegYear, int branchNo,
-			int playerNo, int scoreNo) {
+			int scoreNo) {
 		super();
 		this.teamNo = teamNo;
 		this.teamName = teamName;
@@ -43,7 +42,6 @@ public class CupTeam {
 		this.teamMemberCnt = teamMemberCnt;
 		this.teamRegYear = teamRegYear;
 		this.branchNo = branchNo;
-		this.playerNo = playerNo;
 		this.scoreNo = scoreNo;
 	}
 
@@ -130,12 +128,6 @@ public class CupTeam {
 	}
 	public void setBranchNo(int branchNo) {
 		this.branchNo = branchNo;
-	}
-	public int getPlayerNo() {
-		return playerNo;
-	}
-	public void setPlayerNo(int playerNo) {
-		this.playerNo = playerNo;
 	}
 	public int getScoreNo() {
 		return scoreNo;

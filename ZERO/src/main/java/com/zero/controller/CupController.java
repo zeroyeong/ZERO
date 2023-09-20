@@ -48,14 +48,24 @@ public class CupController {
 		return "redirect:/zCup";
 	}
 	
-//	@GetMapping("/zCup/player")
-//	public String zCupAllList(Model model) {
-//	
-//		List<CupPlayer> playerList = cupService.getPlayerWithTeamList();
-//		model.addAttribute("playerList", playerList);
-//		
-//		return "home";
-//	}
+	@GetMapping("/zCup/scheduleDetail")
+	public String scheduleDetail(Model model) {
+		
+		List<CupTeam> cupTeamList = cupService.getCupTeamList();
+		model.addAttribute("cupTeamList", cupTeamList);
+		return "zCup/scheduleDetail";
+	}
+	
+	
+	
+	@GetMapping("/zCup/player")
+	public String zCupAllList(Model model) {
+	
+		List<CupPlayer> playerList = cupService.getPlayerWithTeamList();
+		model.addAttribute("playerList", playerList);
+		
+		return "home";
+	}
 	
 	
 	
@@ -91,10 +101,6 @@ public class CupController {
 		return "teamSetting";
 	}
 	
-	@GetMapping("/scheduleDetail")
-	public String scheduleDetail() {
-		
-		return "scheduleDetail";
-	}
+
 }
  
