@@ -487,7 +487,7 @@
             </table>
 
             <div class="mgrBtn">
-                <input type="button" class="okAddBtn" value="추가" onclick="okBtnPop('schAddPopup')">
+                <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schAddPopup')">
                 <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schAddPopup')">
             </div>
 

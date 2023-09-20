@@ -319,7 +319,7 @@ input[id="detailPlayerRadio"]:checked~.addButton label[for="detailPlayerRadio"] 
 
 @media screen and (max-width:1100px) {
     main .harlfButton li label {
-        font-size: 17px;
+        font-size: 17px !important;
     }
 
     .addButton li label {
