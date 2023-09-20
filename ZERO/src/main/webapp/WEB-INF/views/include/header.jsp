@@ -22,7 +22,7 @@
 <header>
 	<div class="headerBar">
 		<h1 class="logo">
-			<a href="../index.html">zero futsal</a>
+			<a href="<c:url value="/" />">zero futsal</a>
 		</h1>
 
 		<nav class="webNav">
@@ -40,21 +40,29 @@
 			</ul>
 
 			<ul class="rightMenu">
-				<li><a href="" class="sns facebook"> <i
-						class="fa-brands fa-facebook"></i>
-				</a></li>
-				<li><a href="" class="sns instagram"> <i
-						class="fa-brands fa-instagram"></i>
-				</a></li>
-				<li class="loginMenu"><a href="../login/login.html">
-						memberLogin <i class="fa-solid fa-user"></i>
-				</a></li>
+				<li>
+					<a href="" class="sns facebook"> 
+						<i class="fa-brands fa-facebook"></i>
+					</a>
+				</li>
+				<li>
+					<a href="" class="sns instagram">
+						 <i class="fa-brands fa-instagram"></i>
+					</a>
+				</li>
+				<li class="loginMenu">
+					<a href="../login/login.html">
+						memberLogin<i class="fa-solid fa-user"></i>
+					</a>
+				</li>
 			</ul>
 		</nav>
-		<input type="checkbox" name="" id="toggleMenu" /> <label
-			for="toggleMenu" class="toggleMenu"> <i
-			class="fa-solid fa-bars" style="color: #ffffff"></i>
+		
+		<input type="checkbox" name="" id="toggleMenu" /> 
+		<label for="toggleMenu" class="toggleMenu"> 
+			<i class="fa-solid fa-bars" style="color: #ffffff"></i>
 		</label>
+		
 		<nav class="slideMenu">
 			<button type="button" class="memberLogin">
 				MEMBER LOGIN <i class="fa-solid fa-user"></i>
@@ -72,12 +80,16 @@
 				</li>
 			</ul>
 			<ul class="snsMenu">
-				<li><a href="" class="sns facebook"> 
-					<i class="fa-brands fa-facebook"></i>
-				</a></li>
-				<li><a href="" class="sns instagram">
-					 <i class="fa-brands fa-instagram"></i>
-				</a></li>
+				<li>
+					<a href="" class="sns facebook"> 
+						<i class="fa-brands fa-facebook"></i>
+					</a>
+				</li>
+				<li>
+					<a href="" class="sns instagram">
+						 <i class="fa-brands fa-instagram"></i>
+					</a>
+				</li>
 			</ul>
 		</nav>
 	</div>

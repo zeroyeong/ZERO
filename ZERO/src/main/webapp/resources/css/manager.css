@@ -35,7 +35,7 @@ main {
 }
 
 header .headerBar {
-    top: 0;
+    top: 0 !important;
 }
 
 /* CONTAINER - SECTION */
@@ -68,11 +68,11 @@ main .container section table thead .no {
 }
 
 main .container section table thead .date {
-    width: 15%;
+    width: 1%;
 }
 
 main .container section table thead .state {
-    width: 15%;
+    width: 22%;
 }
 
 main .container section table tbody tr:hover {
@@ -169,8 +169,13 @@ main .container section form .searchButton i {
 }
 
 
-/*mgrReserPop*/
-.reserPopup {
+/*mgrPopUp*/
+.reserPopup,
+.teamPopup,
+.playerPopup,
+.schPopup,
+.userPopup,
+.schAddPopup {
     display: none;
     position: fixed;
     top: 50%;
@@ -186,7 +191,12 @@ main .container section form .searchButton i {
     box-shadow: 0 0 10px rgba(0, 0, 0, 3);
 }
 
-.reservationInfo {
+.reservationInfo,
+.teamInfo,
+.playerInfo,
+.schInfo,
+.userInfo,
+.schAddInfo {
     background-color: #ffff;
     padding: 20px;
     border-radius: 10px;
@@ -194,20 +204,56 @@ main .container section form .searchButton i {
     text-align: center;
 }
 
-.reservationInfo h2 {
+.reservationInfo h2,
+.teamInfo h2,
+.playerInfo h2,
+.schInfo h2,
+.userInfo h2,
+.schAddInfo h2 {
     color: #333;
     font-size: 24px;
     margin-bottom: 10px;
 }
 
-.okReser,
-.cancelReser {
+.mgrReserInfo,
+.mgrTeamInfo,
+.mgrPlayerInfo,
+.mgrSchInfo,
+.mgrUserInfo,
+.mgrSchAddInfo {
+    padding: 20px 20px;
+}
+
+.mgrReserInfo td,
+.mgrTeamInfo td,
+.mgrPlayerInfo td,
+.mgrSchInfo td,
+.mgrUserInfo td,
+.mgrSchAddInfo td {
+    width: 250px;
+}
+
+.mgrReserInfo tr,
+.mgrTeamInfo tr,
+.mgrPlayerInfo tr,
+.mgrSchInfo tr,
+.mgrUserInfo tr,
+.mgrSchAddInfo tr {
+    line-height: 55px;
+}
+
+.mgrBtn input[type="button"] {
     margin: 10px;
     padding: 10px 20px;
     font-size: 15px;
     border-radius: 5px;
     background-color: #192336 !important;
     color: #ffff;
+}
+
+.mgrBtn input[type="button"]:hover {
+    background-color: #424242 !important;
+
 }
 
 .closeBtn {
@@ -222,16 +268,12 @@ main .container section form .searchButton i {
     color: #424242;
 }
 
-.okReser:hover,
-.cancelReser:hover {
-    background-color: #424242 !important;
-}
-
 /*mgrTeamContent add*/
 section#mgrTeamContent .addButton {
     display: flex;
-    justify-content: space-between;
     border: 1px solid #2c3c57;
+    position: relative;
+    margin-top: -15px;
 }
 
 section#mgrTeamContent .addButton li {
@@ -256,9 +298,8 @@ section#mgrTeamContent .addButton li:hover label {
 
 section#mgrTeamContent section {
     width: 100%;
-    margin: 50px auto;
+    margin: 30px auto;
 }
-
 
 section#addTeamContent,
 section#addPlayerContent {
@@ -279,6 +320,10 @@ input[id="detailPlayerRadio"]:checked~.addButton label[for="detailPlayerRadio"] 
 @media screen and (max-width:1100px) {
     main .harlfButton li label {
         font-size: 17px;
+    }
+
+    .addButton li label {
+        font-size: 1em !important;
     }
 }
 
@@ -356,13 +401,6 @@ section#addTeamContent table tbody td .teamName .teamTitle a:hover {
     text-decoration: underline;
 }
 
-section#addTeamContent table tbody td a.teamBtn {
-    background-color: #4c89cd;
-    color: #fff;
-    font-size: 1rem;
-    padding: 10px 20px;
-}
-
 @media screen and (max-width: 960px) {
 
     section#addTeamContent table thead th:first-child,
@@ -374,4 +412,148 @@ section#addTeamContent table tbody td a.teamBtn {
     section#addTeamContent table td {
         font-size: 0.9em;
     }
+}
+
+/*addPlayerContent*/
+section#addPlayerContent table {
+    width: 100%;
+}
+
+section#addPlayerContent table .col1 {
+    width: 7%;
+}
+
+section#addPlayerContent table .col2 {
+    width: 12%;
+}
+
+section#addPlayerContent table .col3 {
+    width: 30%;
+}
+
+section#addPlayerContent table .col4 {
+    width: 18%;
+}
+
+section#addPlayerContent table .col5 {
+    width: 5%;
+}
+
+section#addPlayerContent table .col6 {
+    width: 5%;
+}
+
+section#addPlayerContent table .col7 {
+    width: 5%;
+}
+
+section#addPlayerContent table .col8 {
+    width: 5%;
+}
+
+section#addPlayerContent table .col9 {
+    width: 14%;
+}
+
+section#addPlayerContent table thead {
+    border-top: 2px solid var(--pointColor);
+    border-bottom: 2px solid var(--pointColor);
+}
+
+section#addPlayerContent table thead th {
+    padding: 21px 0;
+    height: 22px;
+}
+
+section#addPlayerContent table tbody td {
+    padding: 10px 0;
+    border: 1px solid #dcdcdc;
+    text-align: center;
+}
+
+section#addPlayerContent table tbody td:first-child,
+section#addPlayerContent table tbody td:last-child {
+    border-right: none;
+    border-left: none;
+}
+
+section#addPlayerContent table tbody td .teamName {
+    display: flex;
+    align-items: center;
+}
+
+section#addPlayerContent table tbody td .teamName .teamImage {
+    width: 50px;
+    height: 50px;
+    margin: 0 20px;
+}
+
+section#addPlayerContent table tbody td .teamName .teamImage img {
+    max-width: 50px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+}
+
+section#addPlayerContent table tbody td .teamName .teamTitle a {
+    font-weight: bold;
+    color: #000;
+}
+
+section#addPlayerContent table tbody td .teamName .teamTitle a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 960px) {
+
+    section#addPlayerContent table thead th:first-child,
+    section#addPlayerContent table tbody td:first-child,
+    section#addPlayerContent table tbody td:nth-child(5),
+    section#addPlayerContent table tbody td:nth-child(6),
+    section#addPlayerContent table tbody td:nth-child(7),
+    section#addPlayerContent table tbody td:nth-child(8) {
+        display: none;
+    }
+
+    section#addPlayerContent table .col5,
+    section#addPlayerContent table .col6,
+    section#addPlayerContent table .col7,
+    section#addPlayerContent table .col8 {
+        display: none;
+    }
+
+    section#addPlayerContent table th,
+    section#addPlayerContent table td {
+        font-size: 0.9em;
+    }
+}
+
+/*경기일정 추가 버튼*/
+section#mgrSchContent .schAddBtn {
+    background-color: #192336;
+    color: #fff;
+    font-size: 1rem;
+    top: 180px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: fixed;
+}
+
+/*수정버튼*/
+section#addTeamContent table tbody td a.teamBtn,
+section#addPlayerContent table tbody td a.playerBtn,
+section#mgrSchContent table tbody td a.schBtn,
+section#mgrUserContent table tbody td a.userBtn {
+    background-color: #4c89cd;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+section#addTeamContent table tbody td a.teamBtn:hover,
+section#addPlayerContent table tbody td a.playerBtn:hover,
+section#mgrSchContent table tbody td a.schBtn:hover,
+section#mgrUserContent table tbody td a.userBtn:hover {
+    background-color: var(--beforeColor);
 }
