@@ -22,12 +22,12 @@ public class CupRepositoryImpl implements CupRepository {
 	@Override
 	public List<CupTeam> getCupTeamList(){
 
-    	return sql.selectList("CupTeam.select");
+    	return sql.selectList("Cup.selectTeam");
 	}
 	
 	public List<CupPlayer> getCupPlayerList(){
 		
-		return sql.selectList("CupPlayer.select");
+		return sql.selectList("Cup.selectPlayer");
 	}
 	
 	
@@ -38,7 +38,7 @@ public class CupRepositoryImpl implements CupRepository {
 		String generatedString = RandomStringUtils.randomAlphanumeric(5);
 		cupTeam.setTeamCode(generatedString);
 		
-		sql.insert("CupTeam.insert", cupTeam);
+		sql.insert("Cup.insertTeam", cupTeam);
 	}
 	
 	@Override
@@ -47,6 +47,6 @@ public class CupRepositoryImpl implements CupRepository {
 		cupPlayer.setPlayerGoal("0");
 		cupPlayer.setPlayerYellowCard("0");
 		cupPlayer.setPlayerRedCard("0");
-		sql.insert("CupPlayer.insert", cupPlayer);
+		sql.insert("Cup.insertPlayer", cupPlayer);
 	}
 }
