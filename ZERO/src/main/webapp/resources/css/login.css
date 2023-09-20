@@ -1,40 +1,33 @@
 :root {
-  /* body */
   --bodyColor: #f5f6f7;
-  --bodyPadding: 60px 20px 0;
-  --footerPadding: 0 0 30px;
+  --mainColor: #003e94;
+  --pointColor: #2c3c57;
+  --hoverColor: #003f96;
 
   /* font */
   --allFontColor: #383838;
-  --pointFontColor: #003e94;
+  --logoFontfamlily: 'KBO-Dia-Gothic_bold';
 
-  /* border */
-  --acMenuBorder: 1px solid #cacaca;
+  /* form */
+  --formWidth: 460px;
 
-  /* loginFrm */
-  --loginFrmWidth: 460px;
-  --loginInputHeight: 60px;
-  --logInputBackColor: #fff;
-  --loginInputPadding: 3px 9px;
-  --loginInputBorder: 1px solid #ddd;
+  /* input */
+  --inputBorder: 1px solid #ddd;
+  --focusBorder: 1px solid rgb(112, 146, 203);
+  --inputHeight: 60px;
+  --inputPadding: 3px 9px;
 
-  /* loginButton */
-  --loginBackgroundColor: #2c3c57;
-  --loginButtonHeight: 68px;
-  --loginButtonFontColor: #fff;
+  /* button */
+  --loginHeight: 68px;
   --loginButtonFontSize: 1.5rem;
-  --loginButtonHoverColor: #003f96;
 
   /* SNS LOGIN */
-  --kakaoBackColor: #fff200;
+  --snsButtonHeight: 68px;
+  --kakaoColor: #fff200;
   --kakaoFontColor: #412e34;
-  --naverBackColor: #1ec800;
+  --naverColor: #1ec800;
   --faceBookColor: #475993;
   --socialFontColor: #fff;
-
-  --snsLoginWidth: 460px;
-  --snsLoginTitleSize: 1.25rem;
-  --snsButtonHeight: 68px;
 
   /* FOOTER */
   --footerFontSize: 10px;
@@ -42,28 +35,26 @@
 }
 
 @font-face {
-  font-family: "KBO-Dia-Gothic_bold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff")
-    format("woff");
+  font-family: 'KBO-Dia-Gothic_bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "S-CoreDream-3Light";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
-    format("woff");
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-/* ì „ì²´ ì„¸íŒ… */
+/* ÀüÃ¼ ¼¼ÆÃ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: var(--allFontColor);
-  font-family: "S-CoreDream-3Light";
+  font-family: 'S-CoreDream-3Light';
 }
 
 a {
@@ -75,12 +66,10 @@ ul {
   list-style: none;
 }
 
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-button[type="button"],
-button[type="submit"] {
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+button {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -94,354 +83,337 @@ input {
   outline: none;
 }
 
-/* SKIP */
-.skip {
-  display: none;
-}
-
-/* BODY */
+/* ½ÃÀÛ */
 body {
   background-color: var(--bodyColor);
 }
 
-.bodyDiv {
-  position: absolute;
-  top: 0;
-  left: 0;
+section.container {
+  width: var(--formWidth);
+  margin: 0 auto;
+  padding: 60px 0 0;
+}
 
-  padding: var(--bodyPadding);
+section.container h1.logo {
+  font-size: 2rem;
+  text-align: center;
+  font-family: var(--logoFontfamlily);
+  text-transform: uppercase;
+}
 
+section.container form {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  z-index: 0;
+  margin: 36px 0 48px;
 }
 
-/* logo */
-h1.logo {
-  margin-bottom: 36px;
+section.container form dl dt {
+  display: none;
 }
 
-h1.logo a {
-  font-family: "KBO-Dia-Gothic_bold";
-}
-
-/* loginFrm */
-main #loginFrm {
-  width: var(--loginFrmWidth);
-}
-
-main #loginFrm fieldset {
-  border: none;
-}
-
-main #loginFrm fieldset ul li input {
-  width: 100%;
-  height: var(--loginInputHeight);
-  padding: var(--loginInputPadding);
-  border: var(--loginInputBorder);
+section.container form dl dd {
   margin-bottom: 10px;
+}
+
+section.container form input#userId,
+section.container form input#userPw {
+  width: 100%;
+  height: var(--inputHeight);
+  padding: var(--inputPadding);
+  border: var(--inputBorder);
   font-size: 1rem;
 }
 
-.bodyDiv form input[type="text"]:focus,
-.bodyDiv form input[type="password"]:focus {
-  border: 2px solid rgb(137, 165, 255);
+section.container form input#userId:focus,
+section.container form input#userPw:focus {
+  border: var(--focusBorder);
 }
 
-main #loginFrm fieldset .btm p label input[name="save_id"] {
-  appearance: none;
+section.container form button {
+  display: block;
 }
 
-main #loginFrm fieldset .btm p label input[name="save_id"] + span::before {
-  content: "";
+section.container form label.remId {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+section.container form label.remId input {
+  display: none;
+}
+section.container form label.remId .icon {
   display: inline-block;
-  width: 17px;
-  height: 17px;
-  background-image: url(../images/noChenk.png);
-  margin-right: 5px;
-}
-
-main #loginFrm .btm p label input[name="save_id"]:checked + span::before {
-  content: "";
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  background-image: url(../images/yesCheck.png);
-  margin-right: 5px;
-}
-
-main #loginFrm .btm p label span {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-main #loginFrm fieldset #login_btn {
-  width: 100%;
-  height: var(--loginButtonHeight);
-  color: var(--loginButtonFontColor);
-  font-size: var(--loginButtonFontSize);
-  background-color: var(--loginBackgroundColor);
-
-  margin-top: 40px;
-  transition: 0.5s;
-}
-
-main #loginFrm fieldset #login_btn:hover {
-  background-color: var(--loginButtonHoverColor);
-}
-
-main .accountMenu {
-  margin-top: 48px;
-  padding-top: 22px;
-  border-top: var(--acMenuBorder);
-  text-align: center;
-}
-
-main .accountMenu a.find_pwd,
-main .accountMenu a.join {
-  margin-left: 23px;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 4px solid #d1d0d0;
   position: relative;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
-main .accountMenu a.find_pwd::after,
-main .accountMenu a.join::after {
-  content: "";
+section.container form label.remId .icon::after,
+section.container form label.remId .icon::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 0;
+  background-color: var(--pointColor);
+  position: absolute;
+  transform-origin: left top;
+  border-radius: 5px;
+}
+
+section.container form label.remId .icon::before {
+  top: 10px;
+  left: -1px;
+  transform: rotate(-40deg);
+}
+
+section.container form label.remId .icon::after {
+  top: 24px;
+  left: 12px;
+  transform: rotate(-145deg);
+}
+
+section.container form label.remId input:checked ~ .icon {
+  border-color: var(--pointColor);
+}
+
+section.container form label.remId input:checked ~ .icon::before {
+  height: 15px;
+  transition: all 0.35s ease;
+}
+
+section.container form label.remId input:checked ~ .icon::after {
+  height: 35px;
+  transition: all 0.35s ease 0.35s;
+}
+
+section.container form button {
+  width: 100%;
+  height: var(--loginHeight);
+  font-size: var(--loginButtonFontSize);
+  background-color: var(--pointColor);
+  color: #fff;
+  transition: 0.3s;
+  margin-top: 40px;
+}
+
+section.container form button:hover {
+  background-color: var(--mainColor);
+}
+
+section.container ul.acBtn {
+  padding: 22px 0;
+  border-top: 1px solid #c4c4c4;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.container ul.acBtn li {
+  position: relative;
+  margin: 0 12px;
+}
+
+section.container ul.acBtn li label {
+  cursor: pointer;
+}
+
+section.container ul.acBtn li:nth-child(2)::before,
+section.container ul.acBtn li:nth-child(2)::after {
+  content: '';
   display: block;
   position: absolute;
   top: 50%;
-  left: -12px;
   margin-top: -9px;
   width: 1px;
-  height: 18px;
+  height: 1rem;
   background: #c4c4c4;
 }
 
-main .accountMenu a.join {
-  color: var(--pointFontColor);
-  font-weight: 600;
+section.container ul.acBtn li:nth-child(2)::before {
+  left: -12px;
+}
+section.container ul.acBtn li:nth-child(2)::after {
+  right: -12px;
 }
 
-.container input:focus {
-  border: 2px solid rgb(137, 165, 255);
+section.container ul.acBtn a {
+  color: var(--mainColor);
+  font-weight: bold;
 }
 
-/* SNS LOGIN */
-main .snsLogin {
+section.container div.snsLogin {
   margin-top: 64px;
-  width: var(--snsLoginWidth);
 }
 
-main .snsLogin p {
-  font-size: var(--snsLoginTitleSize);
-  margin-bottom: 8px;
+section.container div.snsLogin p {
+  font-size: 1.3rem;
 }
 
-main .snsLogin .snsButtons {
-  display: flex;
-  flex-direction: column;
-}
-
-main .snsLogin .snsButtons button {
-  margin-bottom: 8px;
+section.container div.snsLogin button {
   width: 100%;
-  display: inline-block;
+  display: block;
   height: var(--snsButtonHeight);
-  font-size: var(--snsLoginTitleSize);
+  font-size: 1.2rem;
   position: relative;
-  text-align: left;
-  padding-left: 75px;
+
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
 }
 
-main .snsLogin .snsButtons button.kakao {
-  background-color: var(--kakaoBackColor);
+section.container div.snsLogin button.kakao {
+  background-color: var(--kakaoColor);
   color: var(--kakaoFontColor);
 }
 
-main .snsLogin .snsButtons button.kakao .logo:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 5px;
-  width: 60px;
-  height: 68px;
-  background: url(/images/kakao.png) no-repeat center center;
+section.container div.snsLogin button.naver {
+  background-color: var(--naverColor);
+  color: #fff;
 }
 
-main .snsLogin .snsButtons button.kakao span.snsLoginGO:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60px;
-  height: 68px;
-  background: url(/images/kakaologin.png) no-repeat center center;
-}
-
-main .snsLogin .snsButtons button.naver {
-  background-color: var(--naverBackColor);
-  color: var(--socialFontColor);
-}
-
-main .snsLogin .snsButtons button.naver .logo:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 5px;
-  width: 60px;
-  height: 68px;
-  background: url(/images/naver.png) no-repeat center center;
-}
-
-main .snsLogin .snsButtons button.naver span.snsLoginGO:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60px;
-  height: 68px;
-  background: url(/images/snslogin.png) no-repeat center center;
-}
-
-main .snsLogin .snsButtons button.facebook {
+section.container div.snsLogin button.faceBook {
   background-color: var(--faceBookColor);
-  color: var(--socialFontColor);
+  color: #fff;
 }
 
-main .snsLogin .snsButtons button.facebook .logo:after {
-  content: "";
+section.container div.snsLogin button.kakao span {
+  margin-right: 05px;
+}
+
+section.container div.snsLogin button::before {
+  content: '';
   display: block;
-  position: absolute;
-  top: 0;
-  left: 5px;
   width: 60px;
   height: 68px;
-  background: url(/images/facebook.png) no-repeat center center;
-}
 
-main .snsLogin .snsButtons button.facebook span.snsLoginGO:after {
-  content: "";
-  display: block;
   position: absolute;
-  top: 0;
   right: 0;
-  width: 60px;
-  height: 68px;
-  background: url(/images/snslogin.png) no-repeat center center;
 }
 
-/* FOOTER */
-footer {
-  padding: var(--footerPadding);
+section.container div.snsLogin button.kakao::before {
+  background: url('../images/kakaologin.png');
+}
+
+section.container div.snsLogin button.naver::before,
+section.container div.snsLogin button.faceBook::before {
+  background: url('../images/snslogin.png');
+}
+
+section.container div.footer {
   margin-top: 40px;
   text-align: center;
-}
-
-footer p {
-  margin-top: 4px;
-  color: var(--footerFontColor);
-  font-size: var(--footerFontSize);
   text-transform: uppercase;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--footerFontSize);
+  color: var(--footerFontColor);
 }
 
-/* ACCOUNT MENU */
-#find_idDiv {
-  display: none;
+section.container div.footer h3.logo {
+  font-size: 1.1rem;
+  font-family: var(--logoFontfamlily);
+  margin-bottom: 7px;
 }
 
-#find_pwdDiv {
-  display: none;
-}
-
-.container {
-  position: absolute;
+label.background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
   top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
 
-  margin: 20px auto;
-  max-width: 646px;
+label.background {
+  display: none;
+}
+
+section.findId,
+section.findPw {
+  width: fit-content;
+  background-color: #fff;
   padding: 78px 90px;
   border-radius: 10px;
-  background-color: #fff;
-  text-align: center;
 
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  z-index: 1000;
+  display: none;
 }
 
-/* CLOSE BUTTON */
-.container .closeButton {
+section.findId label.closeBtn,
+section.findPw label.closeBtn {
   position: absolute;
-  right: 0;
   top: 0;
+  right: 20px;
 
-  width: 60px;
-  height: 60px;
+  font-size: 3rem;
+  color: #000;
 }
 
-.container .closeButton i {
-  font-size: 35px;
+section.findId h3,
+section.findPw h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
 }
 
-/* CONTAINER TITLE */
-.container h1 {
-  font-size: 1.6em;
-  font-weight: normal;
+section.findId dt,
+section.findPw dt {
+  display: none;
 }
 
-/* CONTAINER FORM */
-.container form {
-  margin: 0 auto;
-  width: 100%;
-  margin-top: 25px;
-  padding: 0 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+section.findId dl,
+section.findPw dl {
+  margin-bottom: 28px;
 }
 
-.container form input {
-  border: var(--loginInputBorder);
-  width: 100%;
-  height: var(--loginInputHeight);
+section.findId input,
+section.findPw input {
+  width: 446px;
+  height: var(--inputHeight);
+  border: var(--inputBorder);
   margin-top: 12px;
-  padding: var(--loginInputPadding);
+  padding: var(--inputPadding);
   font-size: 1rem;
 }
 
-.container form button {
-  width: 50%;
-  margin-top: 28px;
-  height: var(--loginButtonHeight);
-  background-color: var(--loginBackgroundColor);
-  color: var(--loginButtonFontColor);
-  font-size: 1.5rem;
+section.findId .button,
+section.findPw .button {
+  text-align: center;
 }
 
-.background000 {
-  background-color: #000;
-  width: 100%;
-  height: 100vh;
+section.findId button,
+section.findPw button {
+  background-color: var(--pointColor);
+  color: #fff;
+  font-size: 1.3rem;
+  width: 200px;
+  height: var(--loginHeight);
 }
 
-#background {
-  width: 100%;
-  background-color: #000000ad;
+input[id='findId']:checked ~ section.findId {
+  display: block;
+}
 
-  position: fixed;
-  top: 0;
-  bottom: 0;
+input[id='findId']:checked + label[for='findId'] {
+  display: block;
+}
 
-  z-index: 900;
+input[id='findPw']:checked ~ section.findPw {
+  display: block;
+}
 
+input[id='findPw']:checked + label[for='findPw'] {
+  display: block;
+}
+
+body > input {
   display: none;
 }
