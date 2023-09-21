@@ -51,7 +51,7 @@
 					</a>
 				</li>
 				<li class="loginMenu">
-					<a href="../login/login.html">
+					<a href="<c:url value="/login"/>">
 						memberLogin<i class="fa-solid fa-user"></i>
 					</a>
 				</li>
@@ -65,7 +65,9 @@
 		
 		<nav class="slideMenu">
 			<button type="button" class="memberLogin">
-				MEMBER LOGIN <i class="fa-solid fa-user"></i>
+				<a href="<c:url value="/login"/>">
+					MEMBER LOGIN <i class="fa-solid fa-user"></i>
+				</a>
 			</button>
 			<ul class="navMenu">
 				<li id="point"><a>지점<span class="nav-bar hover-bar"></span></a>
