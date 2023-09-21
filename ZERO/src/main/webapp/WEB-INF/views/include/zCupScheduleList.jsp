@@ -10,10 +10,12 @@
         </span>
       </label>
       <section class="matchNranking">
+        <div class="showDetail">
+          <button>상세보기</button>
+        </div>
         <div class="match">
           <div class="title">
             <h1>z-cup tournament</h1>
-            <button type="button" onclick="showDetail()">상세보기</button>
           </div>
 
           <div class="tournament">
@@ -105,7 +107,6 @@
         <div class="ranking">
           <div class="title">
             <h1>player ranking</h1>
-            <button type="button" onclick="showDetail()">상세보기</button>
           </div>
           <table>
             <colgroup>

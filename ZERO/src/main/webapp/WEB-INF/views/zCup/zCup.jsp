@@ -318,30 +318,7 @@
           </section>
         </section>
         <section id="teamList">
-          <form action="">
-            <span class="searchIcon">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </span>
-            <div class="searchBox">
-              <div class="selectBox">
-                <select name=""  class="leagueType">
-                  <option value="">전체</option>
-                </select>
-                <select name=""  class="areaList">
-                  <option value="">전국현황</option>
-                </select>
-              </div>
-              <div class="searchInputBox">
-                <input type="text" placeholder="팀명을 입력하세요." />
-                <button type="button">
-                  검색
-                  <span>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </form>
+          
           <table>
             <thead>
               <tr>
@@ -369,7 +346,7 @@
                 </td>
                 <td><span>0</span> 명</td>
                 <td>2023.09.08</td>
-                <td><a href="teamSetting.html" class="teamBtn">팀관리</a></td>
+                <td><button type="button" class="teamBtn">팀관리</button></td>
               </tr>
               
        		<c:forEach items="${cupTeamList}" var="cupTeam"> 
@@ -388,7 +365,7 @@
                 </td>
                 <td><span>${cupTeam.teamMemberCnt}</span> 명</td>
                 <td>${cupTeam.teamRegYear}</td>
-                <td><a href="teamSetting.html" class="teamBtn">팀관리</a></td>
+                <td><button type="button" class="teamBtn">팀관리</button></td>
               </tr>
               </c:forEach>
             </tbody>

@@ -1,6 +1,6 @@
 :root {
   --mainColor: #2c3c57;
-  --labelColor: #192336;
+  --pointColor: #192336;
   --buttonColor: #428ace;
   --tournamentBorder: 1px solid #fff;
   --tableBorder: 1px solid #dcdcdc;
@@ -13,14 +13,14 @@ article.tournament {
   position: relative;
 }
 
-article.tournament input[type="checkbox"] {
+article.tournament input[type='checkbox'] {
   appearance: none;
 }
 
 article.tournament label {
   width: 470px;
   height: 100%;
-  background-color: var(--labelColor);
+  background-color: var(--pointColor);
 
   position: absolute;
   top: 0;
@@ -57,12 +57,24 @@ article.tournament label span {
 
 article.tournament section {
   width: 100%;
-  background-color: var(--labelColor);
+  background-color: var(--pointColor);
 
   position: absolute;
   top: 85px;
 
   z-index: 10;
+}
+
+article.tournament .showDetail {
+  display: flex;
+  justify-content: flex-end;
+}
+
+article.tournament .showDetail button {
+  background-color: var(--buttonColor);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
 }
 
 article.tournament > section > div {
@@ -84,13 +96,6 @@ article.tournament .title h1 {
   color: #fff;
   text-transform: uppercase;
   font-size: 1.5rem;
-}
-
-article.tournament .title button {
-  background-color: var(--buttonColor);
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 1rem;
 }
 
 /* match */
@@ -278,6 +283,6 @@ section.matchNranking {
   overflow: hidden;
 }
 
-article.tournament input[id="checkBox"]:checked ~ section.matchNranking {
+article.tournament input[id='checkBox']:checked ~ section.matchNranking {
   height: fit-content;
 }
