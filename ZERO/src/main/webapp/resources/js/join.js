@@ -1,10 +1,3 @@
-// 비동의 버튼 클릭했을 때 index로 이동
-const noAccep = document.querySelector(".noAccep");
-
-noAccep.addEventListener("click", function () {
-  location.href = "../index.html";
-});
-
 // 한번에 모든 약관 클릭하기
 function selectAll(selectAll) {
   const chekboxes = document.getElementsByName("turm");
@@ -15,10 +8,8 @@ function selectAll(selectAll) {
 }
 
 // 동의 버튼 클릭했을 때 약관alert + 다음페이지 넘어가도록
-const accept = document.querySelector(".aceep");
-
-accept.addEventListener("click", function () {
-  const acep1 = document.getElementById("homepage");
+function frmSubmit(){
+	const acep1 = document.getElementById("homepage");
   const acep2 = document.getElementById("userInfo");
   const acep3 = document.getElementById("userInfotrust");
 
@@ -37,5 +28,5 @@ accept.addEventListener("click", function () {
     return false;
   }
 
-  self.location.href = "joinInput.html";
-});
+  self.location.href = "/zero/join_form";
+}

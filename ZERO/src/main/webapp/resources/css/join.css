@@ -1,85 +1,75 @@
 :root {
-  /* body */
   --bodyColor: #f5f6f7;
-  --bodyPadding: 60px 20px 0;
-  --footerPadding: 0 0 30px;
+  --mainColor: #003e94;
+  --pointColor: #2c3c57;
+  --hoverColor: #003f96;
 
   /* font */
   --allFontColor: #383838;
-  --pointFontColor: #003e94;
-  --footerFontColor: #959595;
+  --logoFontfamlily: 'KBO-Dia-Gothic_bold';
 
-  /* border */
-  --acMenuBorder: 1px solid #cacaca;
+  /* form */
+  --formWidth: 460px;
 
-  /* loginFrm */
-  --loginFrmWidth: 460px;
-  --loginInputHeight: 60px;
-  --logInputBackColor: #fff;
-  --loginInputPadding: 3px 9px;
-  --loginInputBorder: 1px solid #ddd;
+  /* input */
+  --inputBorder: 1px solid #ddd;
+  --focusBorder: 1px solid rgb(112, 146, 203);
+  --inputHeight: 60px;
+  --inputPadding: 3px 9px;
 
-  /* loginButton */
-  --loginBackgroundColor: #2c3c57;
-  --loginButtonHeight: 68px;
-  --loginButtonFontColor: #fff;
+  /* button */
+  --loginHeight: 68px;
   --loginButtonFontSize: 1.5rem;
-  --loginButtonHoverColor: #003f96;
 
   /* SNS LOGIN */
-  --kakaoBackColor: #fff200;
+  --snsButtonHeight: 68px;
+  --kakaoColor: #fff200;
   --kakaoFontColor: #412e34;
-  --naverBackColor: #1ec800;
+  --naverColor: #1ec800;
   --faceBookColor: #475993;
   --socialFontColor: #fff;
 
-  --snsLoginWidth: 460px;
-  --snsLoginTitleSize: 1.25rem;
-  --snsButtonHeight: 68px;
-
   /* FOOTER */
   --footerFontSize: 10px;
+  --footerFontColor: #959595;
 }
 
 @font-face {
-  font-family: "KBO-Dia-Gothic_bold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff")
-    format("woff");
+  font-family: 'KBO-Dia-Gothic_bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "S-CoreDream-3Light";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
-    format("woff");
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-/* ì „ì²´ ì„¸íŒ… */
+/* ÀüÃ¼ ¼¼ÆÃ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: var(--allFontColor);
-  font-family: "S-CoreDream-3Light";
+  font-family: 'S-CoreDream-3Light';
 }
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 ul {
   list-style: none;
 }
 
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-button[type="button"],
-button[type="submit"] {
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+button {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -93,93 +83,112 @@ input {
   outline: none;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-  border: 2px solid rgb(87, 153, 253);
-}
-
-/* SKIP */
-.skip {
-  display: none;
-}
-
-/* BODY */
+/* ½ÃÀÛ */
 body {
   background-color: var(--bodyColor);
 }
 
-.bodyDiv {
-  position: absolute;
-  top: 0;
-  left: 0;
+section.container {
+  width: var(--formWidth);
+  margin: 0 auto;
+  padding: 60px 0 0;
+}
 
-  padding: var(--bodyPadding);
+section.container h1.logo {
+  font-size: 2rem;
+  text-align: center;
+  font-family: var(--logoFontfamlily);
+  text-transform: uppercase;
+  cursor:pointer;
+}
 
+/* SECTION FORM */
+section.container form {
   width: 100%;
-  height: 100vh;
+  margin: 36px 0 48px;
+}
+
+/* CHECKBOX */
+
+label.checkBox {
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 
-  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* logo */
-h1.logo {
-  margin-bottom: 36px;
+label.checkBox input[type='checkbox'] {
+  display: none;
 }
 
-h1.logo a {
-  font-family: "KBO-Dia-Gothic_bold";
+label.checkBox span.icon {
+  display: inline-block;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 4px solid #d1d0d0;
+  position: relative;
+  cursor: pointer;
+  border-radius: 3px;
+
+  margin-right: 10px;
 }
 
-main form {
-  width: var(--loginFrmWidth);
+label.checkBox .icon::after,
+label.checkBox .icon::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 0;
+  background-color: var(--pointColor);
+  position: absolute;
+  transform-origin: left top;
+  border-radius: 5px;
 }
 
-/* JOIN */
-
-main form .trumDiv {
-  margin-bottom: 20px;
+label.checkBox .icon::before {
+  top: 10px;
+  left: -1px;
+  transform: rotate(-40deg);
 }
 
-main form .trumDiv label span {
+label.checkBox .icon::after {
+  top: 24px;
+  left: 12px;
+  transform: rotate(-145deg);
+}
+
+label.checkBox input:checked ~ .icon {
+  border-color: var(--pointColor);
+}
+
+label.checkBox input:checked ~ .icon::before {
+  height: 15px;
+  transition: all 0.35s ease;
+}
+
+label.checkBox input:checked ~ .icon::after {
+  height: 35px;
+  transition: all 0.35s ease 0.35s;
+}
+
+label.checkBox span.term {
+  display: inline-block;
+  width: 410px;
   font-weight: 600;
   font-size: 1.2rem;
 }
 
-main form .trumDiv label input[type="checkbox"] {
-  appearance: none;
-}
-
-main form .trumDiv label input[type="checkbox"] + span::before {
-  content: "";
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  background-image: url(../images/noChenk.png);
-  margin-right: 5px;
-}
-
-main form .trumDiv label input[type="checkbox"]:checked + span::before {
-  content: "";
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  background-image: url(../images/yesCheck.png);
-  margin-right: 5px;
-}
-
-main form .trumDiv label span.essential::after {
-  content: "(í•„ìˆ˜)";
-  font-size: 0.88rem;
-  color: var(--pointFontColor);
-  margin-left: 5px;
+div.turmDiv {
+  margin: 50px 0;
 }
 
 /* TURM */
-main form .trumDiv .trum {
+div.turm {
   padding: 5px;
   margin-top: 5px;
   height: 110px;
@@ -188,171 +197,121 @@ main form .trumDiv .trum {
   background: #fff;
 }
 
-main form .trumDiv:last-child {
-  margin-bottom: 0;
-}
-
-main form .trumDiv .trum p.mt {
+label div.turm p.mt {
   margin-top: 20px;
 }
 
-main form .trumDiv .trum p {
+label div.turm p {
   font-size: 0.85rem;
   color: #555;
 }
 
-/* BUTTON */
-
-main form .aceeptButton {
-  margin-top: 44px;
+div.btnBox {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-main form .aceeptButton button {
+div.btnBox button {
   width: 49%;
-  font-size: 1.5em;
-  color: #fff;
-  height: var(--loginButtonHeight);
-  transition: 0.5s;
-}
-
-main form .aceeptButton .noAccep {
   background-color: #868686;
+  color: #fff;
+  padding: 20px;
+  font-size: var(--loginButtonFontSize);
+  transition: 0.3s;
 }
 
-main form .aceeptButton .aceep {
-  background-color: var(--loginBackgroundColor);
+div.btnBox button.accept {
+  background-color: var(--pointColor);
 }
 
-main form .aceeptButton button:hover {
-  background-color: var(--loginButtonHoverColor);
+div.btnBox button:hover {
+  background-color: var(--mainColor);
 }
 
-/* JOIN Input */
-main form ul li {
+/* JOIN FORM */
+form ul li {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
-main form ul li > label,
-main form ul li > input[type="text"],
-main form ul li > input[type="password"] {
-  display: block;
-  width: 100%;
-  padding: var(--loginInputPadding);
-  font-size: 1rem;
+form ul li label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
 }
 
-main form ul li > label {
-  margin-top: 28px;
-  font-size: var(--snsLoginTitleSize);
-  font-weight: 600;
-  line-height: 2.3rem;
-}
-
-main form ul li > label .essential {
-  font-size: 0.88rem;
-  color: var(--pointFontColor);
+form ul li label span.essential {
+  font-size: 0.9rem;
+  color: var(--mainColor);
   margin-left: 5px;
 }
 
-main form ul li input[type="text"],
-main form ul li input[type="password"] {
-  height: var(--loginInputHeight);
-  border: var(--loginInputBorder);
+form ul li input {
+  height: var(--inputHeight);
+  border: var(--inputBorder);
+  padding: var(--inputPadding);
+  font-size: 1rem;
 }
 
-main form ul li .phone {
+form ul li input:focus {
+  border: var(--focusBorder);
+}
+
+form ul li.confirmMail {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form ul li button {
+  width: 40%;
+  background-color: var(--pointColor);
+  color: #fff;
+  font-size: 1.2rem;
+  height: var(--inputHeight);
+  transition: 0.3s;
+}
+
+form ul li button:hover,
+form button.joinBtn:hover {
+  background-color: var(--mainColor);
+}
+
+form ul li div.mail {
   width: 100%;
-  height: var(--loginInputHeight);
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-main form ul li .phone input {
-  width: 30%;
-  height: 100%;
+form ul li div.mail input.mailConfirm {
+  width: 58%;
 }
 
-main form ul li .phone span {
-  font-size: 10px;
-}
-
-main form ul li.user_phone_certified {
-  margin-top: 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-main form ul li.user_phone_certified label {
-  margin: 0;
-  width: fit-content;
-}
-
-main form ul li.user_phone_certified input[type="button"] {
-  background-color: var(--loginBackgroundColor);
-  color: var(--loginButtonFontColor);
-  width: 180px;
-  height: var(--loginInputHeight);
-  font-size: var(--snsLoginTitleSize);
-  transition: 0.5s;
-}
-
-main form ul li.user_phone_certified input[type="button"]:hover {
-  background-color: var(--loginButtonHoverColor);
-}
-
-main form ul li .message {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-main form ul li .message input[type="button"] {
-  background-color: var(--loginBackgroundColor);
-  color: var(--loginButtonFontColor);
-  width: 180px;
-  height: var(--loginInputHeight);
-  font-size: var(--snsLoginTitleSize);
-  transition: 0.5s;
-}
-
-main form ul li .message input[type="button"]:hover {
-  background-color: var(--loginButtonHoverColor);
-}
-
-main form ul li .message input[type="text"] {
-  width: 270px;
-  height: var(--loginInputHeight);
-}
-
-main form .joinBtn {
-  margin-top: 24px;
+form button.joinBtn {
   width: 100%;
-  height: var(--loginInputHeight);
-  background-color: var(--loginBackgroundColor);
-  font-size: var(--snsLoginTitleSize);
-  color: var(--loginButtonFontColor);
-  transition: 0.5s;
-}
-
-main form .joinBtn:hover {
-  background-color: var(--loginButtonHoverColor);
+  height: var(--inputHeight);
+  margin: 10px 0;
+  background-color: var(--pointColor);
+  color: #fff;
+  font-size: 1.3rem;
+  transition: 0.3s;
 }
 
 /* FOOTER */
-footer {
-  padding: var(--footerPadding);
+section.container div.footer {
   margin-top: 40px;
+  margin-bottom: 20px;
   text-align: center;
+  text-transform: uppercase;
+  font-size: var(--footerFontSize);
+  color: var(--footerFontColor);
 }
 
-footer p {
-  margin-top: 4px;
-  color: var(--footerFontColor);
-  font-size: var(--footerFontSize);
-  text-transform: uppercase;
-  font-family: Arial, Helvetica, sans-serif;
+section.container div.footer h3.logo {
+  font-size: 1.1rem;
+  font-family: var(--logoFontfamlily);
+  margin-bottom: 7px;
 }

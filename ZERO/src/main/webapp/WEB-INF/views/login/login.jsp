@@ -13,7 +13,7 @@
    <title>Z-CUP</title>
 
    <!-- css 연결 -->
-   <link rel="stylesheet" href="<c:url value="/resources/css/login.css?11" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/login.css" />" />
 
    <!-- js 연결 -->
    <script src="<c:url value="/resources/js/login.js" />" defer></script>
@@ -23,7 +23,7 @@
 </head> 
  <body>
     <section class="container">
-      <h1 class="logo" onclick="document.location.href='/';">zero futsal</h1>
+      <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
       
       <c:if test="${not empty error}"> <!-- 인증에 실패했을 때 모델속성 error에 저장된 값이 있다면 오류를 출력한다. -->
       	<div> 
@@ -59,26 +59,26 @@
       <ul class="acBtn">
         <li><label for="findId">아이디 찾기</label></li>
         <li><label for="findPw">비밀번호 찾기</label></li>
-        <li><a href="">회원가입</a></li>
+        <li><a href="<c:url value="/join_agree"/>">회원가입</a></li>
       </ul>
 
       <div class="snsLogin">
         <p>SNS 간편로그인</p>
         <button type="button" class="kakao">
           <span>
-            <img src="../images/kakao.png" alt="" />
+            <img src="<c:url value="/resources/images/kakao.png" />" alt="" />
           </span>
           카카오 계정으로 로그인
         </button>
         <button type="button" class="naver">
           <span>
-            <img src="../images/naver.png" alt="" />
+            <img src="<c:url value="/resources/images/naver.png" />" alt="" />
           </span>
           네이버 계정으로 로그인
         </button>
         <button type="button" class="faceBook">
           <span>
-            <img src="../images/facebook.png" alt="" />
+            <img src="<c:url value="/resources/images/facebook.png" />" alt="" />
           </span>
           페이스북 계정으로 로그인
         </button>
