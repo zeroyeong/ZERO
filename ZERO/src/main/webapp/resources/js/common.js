@@ -16,6 +16,12 @@ reservation.forEach((t) => {
   });
 });
 
+zCup.forEach((t) => {
+  t.addEventListener("click", function () {
+    location.href = "../zero/zCup";
+  });
+});
+
 customer.forEach((t) => {
   t.addEventListener("click", function () {
     location.href = "../zero/customer";
