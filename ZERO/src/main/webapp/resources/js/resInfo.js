@@ -99,7 +99,7 @@ function updateSelectedDate(dateString) {
     // <th>와 <td>에 대한 참조 가져오기
     const reservationDateHeader = document.getElementById("reservationDateHeader");
     const reservationDateCell = document.getElementById("reservationDateCell");
-    const re_dateInput = document.getElementById("RE_DATE"); // input 엘리먼트 가져오기
+    const re_dateInput = document.getElementById("re_date"); // input 엘리먼트 가져오기
 
     // <td> 내용 업데이트
     reservationDateCell.innerText = dateString;
@@ -135,7 +135,7 @@ function leftPad(value) {
     return value;
 }
 
-const selectStadium = document.getElementById("RE_STADIUM");
+const selectStadium = document.getElementById("re_stadium");
 const labelSelectStadium = document.querySelector('label[for="selectStadium"]');
 const stadiumSelect = document.getElementById("stadiumSelect");
 const rsStadiumInput = document.getElementById("rs_stadium");

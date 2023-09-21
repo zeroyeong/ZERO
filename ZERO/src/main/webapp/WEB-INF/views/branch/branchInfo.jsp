@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/reservation.css"/>">
 
     <!-- js 연결-->
-    <script src="<c:url value="/resources/js/resInfo.js?12"/>" defer></script>
+    <script src="<c:url value="/resources/js/resInfo.js?123"/>" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
@@ -47,14 +47,14 @@
                 <div class="conLeft">
                     <div class="leftImg">
                         <span class="img">
-                            <img src="<c:url value="/resources/images/${branch.BRANCH_PIC}"/>" alt="" width="584px">
+                            <img src="<c:url value="/resources/images/${branch.branch_pic}"/>" alt="" width="584px">
                         </span>
-                        <p class="name">${branch.BRANCH_NAME}</p>
+                        <p class="name">${branch.branch_name}</p>
                     </div>
                     <div class="leftInfo">
                         <p class="tit">유의사항</p>
                         <ul>
-                            <li><span class="red-bg">${branch.BRANCH_NAME} 잔디 전면교체 완료</span></li>
+                            <li><span class="red-bg">${branch.branch_name} 잔디 전면교체 완료</span></li>
                             <li><span class="yellow-bg">풋살공, 팀조끼 무료 대여, 풋살화 유료 대여</span></li>
                             <li><span class="blue-bg">"월정기대관" 신청시 1회 10% 할인 적용</span></li>
                         </ul>
@@ -62,9 +62,9 @@
                             <li>1. 예약신청 후 2시간 내에 입금되지 않을 시 자동 취소</li>
                             <p>* 당일예약은 예약 후 바로 입금 필수</p>
                             <p>* 예약자와 입금자 이름이 다를 경우 전화문의 필수</p>
-                            <p>- 입금 계좌 : 국민은행 318037-04-005799 예금주 : ${branch.BRANCH_NAME}</p>
-                            <p>- 입금 확인 전화 :${branch.BRANCH_TELL} (가능시간 : 10:00 ~ 18:00)</p>
-                            <li>2. 문의 전화 : ${branch.BRANCH_TELL}</li>
+                            <p>- 입금 계좌 : 국민은행 318037-04-005799 예금주 : ${branch.branch_name}</p>
+                            <p>- 입금 확인 전화 :${branch.branch_tell} (가능시간 : 10:00 ~ 18:00)</p>
+                            <li>2. 문의 전화 : ${branch.branch_tell}</li>
                             <li>3. 행사 목적 대관 신청 사전 문의 필수</li>
                             <li>4. 전 구역 금연 <small>(흡연구역 준수, 경기장내 흡연 적발 시 대관 취소 및 환불 불가)</small></li>
                             <li>5. 경기장 내 음료 및 음식물 반입 금지</li>
@@ -117,7 +117,7 @@
                             </tbody>
                         </table>
                     </div>      
-                    <form:form modelAttribute = "reservation" action="${branch.BRANCH_CODE}/reservation" method="post">       
+                    <form:form modelAttribute = "reservation" action="${branch.branch_code}/reservation" method="post">       
                     <div class="rightInfo">
                         <div class="infoDiv">
                             <span class="tit">날짜 선택</span>
@@ -129,7 +129,7 @@
                             <span class="select">
                                 <label for="selectStadium">구장을 선택해주세요</label>
                                 <i class="fa-solid fa-caret-down"></i>
-                                <form:select path="RE_STADIUM">
+                                <form:select path="re_stadium">
                                     <form:option value="0">구장 선택</form:option>
                                     <form:option value="1">A구장 (크기:40X20)</form:option>
                                     <form:option value="2">B구장 (크기:40X20)</form:option>
@@ -224,7 +224,7 @@
                                     <tr>
                                         <th scope="row">신청자</th>
                                         <td>
-                                            <form:input type="text" path="RE_NAME" placeholder="이름을 입력하세요"
+                                            <form:input type="text" path="re_name" placeholder="이름을 입력하세요"
                                                 style="width:100%"/>
                                         </td>
                                     </tr>
@@ -232,28 +232,28 @@
                                         <th scope="row">연락처</th>
                                         <td>
                                             <div class="phone">
-                                                <form:input path="RE_TEL1" type="text" maxlength="3" />
+                                                <form:input path="re_tel1" type="text" maxlength="3" />
                                                 <span>-</span>
-                                                <form:input path="RE_TEL2" type="text" maxlength="4" />
+                                                <form:input path="re_tel2" type="text" maxlength="4" />
                                                 <span>-</span>
-                                                <form:input path="RE_TEL3" type="text" maxlength="4" />
+                                                <form:input path="re_tel3" type="text" maxlength="4" />
                                             </div>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <th scope="row">비밀번호</th>
-                                        <td><form:input type="password" path="RE_PWD" placeholder="예약확인시 필요합니다."
+                                        <td><form:input type="password" path="re_pwd" placeholder="예약확인시 필요합니다."
                                                 style="width:100%"/></td>
                                     </tr>
 
                                     <tr>
                                         <th scope="row" id="reservationDateHeader">예약일자</th>
                                         <td id="reservationDateCell"></td>
-                                        <form:hidden path="RE_DATE"/>
+                                        <form:hidden path="re_date"/>
                                     </tr>
                                     <tr>
-                                   		<form:hidden path="RE_BRANCH" value="${branch.BRANCH_NO}" />
+                                   		<form:hidden path="re_branch" value="${branch.branch_no}" />
                                         <th scope="row" id="stadium">선택구장</th>
                                         <td id="stadiumSelect"></td>
                                     </tr>
@@ -264,13 +264,13 @@
                                     <tr>
                                         <th scope="row" id="total">총 결제금액</th>
                                         <td><span class="price" id="totalPay">0</span>원</td>
-                                        <form:hidden path="RE_TOTALPAY" id="re_totalpay"/>
+                                        <form:hidden path="re_totalpay"/>
                                     </tr>
                                     <tr>
                                         <th scope="row">메모</th>
                                         <td>
                                             <span class="textarea">
-                                                <form:textarea path="RE_MEMO" rows="" cols=""/></textarea>
+                                                <form:textarea path="re_memo" rows="" cols=""/></textarea>
                                             </span>
                                         </td>
                                     </tr>
@@ -302,18 +302,18 @@
 </html> 
 <script>
 $(document).ready(function() {
-    $("#RE_STADIUM").change(function() {
-        var reStadium = $("#RE_STADIUM").val();
-        var reBranch = $("#RE_BRANCH").val();
-        var reDate = $("#RE_DATE").val();
+    $("#re_stadium").change(function() {
+        var reStadium = $("#re_stadium").val();
+        var reBranch = $("#re_branch").val();
+        var reDate = $("#re_date").val();
 
         $.ajax({
             type: "POST",
-            url: `${branch.BRANCH_CODE}/timeCheck`,
+            url: `${branch.branch_code}/timeCheck`,
             data: {
-                RE_STADIUM: reStadium,
-                RE_BRANCH: reBranch,
-                RE_DATE: reDate
+            	re_stadium: reStadium,
+            	re_branch: reBranch,
+            	re_date: reDate
             },
             dataType: "json",
             success: function(response) {
@@ -322,13 +322,13 @@ $(document).ready(function() {
                 $timeButton.empty();
 
                 $.each(timeList, function(index, item) {
-                    var TIME_NO = item.TIME_NO;
-                    var TIME_START = item.TIME_START;
-                    var TIME_END = item.TIME_END;
+                    var TIME_NO = item.time_no;
+                    var TIME_START = item.time_start;
+                    var TIME_END = item.time_end;
 
                     var html = '<li><button type="button" onclick="setTime(this);">' + TIME_START + ' ~ ' + TIME_END + 
                         '<br>80000원 <input type="hidden" id="restime" value="' + TIME_START + ' ~ ' + TIME_END + '"> ' +
-                        '<input type="checkbox" style="display: none;" name="RE_TIME" id="RE_TIME" value="' + TIME_NO + '" alt="80000" class="time_check"/>' +
+                        '<input type="checkbox" style="display: none;" name="re_time" id="re_time" value="' + TIME_NO + '" alt="80000" class="time_check"/>' +
                         '</button></li>';
                     $timeButton.append(html);
                 });

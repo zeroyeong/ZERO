@@ -2,12 +2,12 @@ package com.zero.domain;
 
 public class Branch {
 	//ÁöÁ¡
-	private int BRANCH_NO;
-	private String BRANCH_CODE;
-	private String BRANCH_NAME;
-	private String BRANCH_ADDRESS;
-	private String BRANCH_TELL;
-	private String BRANCH_PIC;
+	private int branch_no;
+	private String branch_code;
+	private String branch_name;
+	private String branch_address;
+	private String branch_tell;
+	private String branch_pic;
 	
 	private Reservation reservation;
 
@@ -16,64 +16,64 @@ public class Branch {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Branch(int bRANCH_NO, String bRANCH_CODE, String bRANCH_NAME, String bRANCH_ADDRESS, String bRANCH_TELL,
-			String bRANCH_PIC, Reservation reservation) {
+	public Branch(int branch_no, String branch_code, String branch_name, String branch_address, String branch_tell,
+			String branch_pic, Reservation reservation) {
 		super();
-		BRANCH_NO = bRANCH_NO;
-		BRANCH_CODE = bRANCH_CODE;
-		BRANCH_NAME = bRANCH_NAME;
-		BRANCH_ADDRESS = bRANCH_ADDRESS;
-		BRANCH_TELL = bRANCH_TELL;
-		BRANCH_PIC = bRANCH_PIC;
+		this.branch_no = branch_no;
+		this.branch_code = branch_code;
+		this.branch_name = branch_name;
+		this.branch_address = branch_address;
+		this.branch_tell = branch_tell;
+		this.branch_pic = branch_pic;
 		this.reservation = reservation;
 	}
 
-	public int getBRANCH_NO() {
-		return BRANCH_NO;
+	public int getBranch_no() {
+		return branch_no;
 	}
 
-	public void setBRANCH_NO(int bRANCH_NO) {
-		BRANCH_NO = bRANCH_NO;
+	public void setBranch_no(int branch_no) {
+		this.branch_no = branch_no;
 	}
 
-	public String getBRANCH_CODE() {
-		return BRANCH_CODE;
+	public String getBranch_code() {
+		return branch_code;
 	}
 
-	public void setBRANCH_CODE(String bRANCH_CODE) {
-		BRANCH_CODE = bRANCH_CODE;
+	public void setBranch_code(String branch_code) {
+		this.branch_code = branch_code;
 	}
 
-	public String getBRANCH_NAME() {
-		return BRANCH_NAME;
+	public String getBranch_name() {
+		return branch_name;
 	}
 
-	public void setBRANCH_NAME(String bRANCH_NAME) {
-		BRANCH_NAME = bRANCH_NAME;
+	public void setBranch_name(String branch_name) {
+		this.branch_name = branch_name;
 	}
 
-	public String getBRANCH_ADDRESS() {
-		return BRANCH_ADDRESS;
+	public String getBranch_address() {
+		return branch_address;
 	}
 
-	public void setBRANCH_ADDRESS(String bRANCH_ADDRESS) {
-		BRANCH_ADDRESS = bRANCH_ADDRESS;
+	public void setBranch_address(String branch_address) {
+		this.branch_address = branch_address;
 	}
 
-	public String getBRANCH_TELL() {
-		return BRANCH_TELL;
+	public String getBranch_tell() {
+		return branch_tell;
 	}
 
-	public void setBRANCH_TELL(String bRANCH_TELL) {
-		BRANCH_TELL = bRANCH_TELL;
+	public void setBranch_tell(String branch_tell) {
+		this.branch_tell = branch_tell;
 	}
 
-	public String getBRANCH_PIC() {
-		return BRANCH_PIC;
+	public String getBranch_pic() {
+		return branch_pic;
 	}
 
-	public void setBRANCH_PIC(String bRANCH_PIC) {
-		BRANCH_PIC = bRANCH_PIC;
+	public void setBranch_pic(String branch_pic) {
+		this.branch_pic = branch_pic;
 	}
 
 	public Reservation getReservation() {
@@ -83,8 +83,6 @@ public class Branch {
 	public void setReservation(Reservation reservation) {
 		this.reservation = reservation;
 	}
-	
-	
 	
 	
 	

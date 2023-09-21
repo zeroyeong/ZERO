@@ -23,8 +23,8 @@ public class BranchRepositoryImpl implements BranchRepository {
     }
 
     @Override
-    public Branch getbranchInfo(String BRANCH_CODE) {
-        return sql.selectOne("Branch.readInfo", BRANCH_CODE);
+    public Branch getbranchInfo(String branch_code) {
+        return sql.selectOne("Branch.readInfo", branch_code);
     }
 
     @Override
@@ -33,11 +33,11 @@ public class BranchRepositoryImpl implements BranchRepository {
     }
     
 	@Override
-	public List<Reservation> timeList(int RE_STADIUM, int RE_BRANCH, String RE_DATE) {
+	public List<Reservation> timeList(int re_stadium, int re_branch, String re_date) {
 	    Map<String, Object> parameters = new HashMap<>();
-	    parameters.put("RE_STADIUM", RE_STADIUM);
-	    parameters.put("RE_BRANCH", RE_BRANCH);
-	    parameters.put("RE_DATE", RE_DATE);
+	    parameters.put("re_stadium", re_stadium);
+	    parameters.put("re_branch", re_branch);
+	    parameters.put("re_date", re_date);
 	    return sql.selectList("Branch.checkTime", parameters);
 	}
 }

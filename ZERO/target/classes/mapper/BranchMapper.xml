@@ -10,12 +10,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  </select>
  
  <select id="readInfo" resultType="Branch">
- SELECT * FROM BRANCH WHERE BRANCH_CODE = #{BRANCH_CODE}
+ SELECT * FROM BRANCH WHERE BRANCH_CODE = #{branch_code}
  </select>
  
 <insert id="insertRes">
 INSERT INTO RESERVATION(RE_BRANCH, RE_NAME, RE_TEL1, RE_TEL2, RE_TEL3, RE_PWD, RE_DATE, RE_STADIUM, RE_TIME, RE_TOTALPAY, RE_MEMO)
-VALUES(#{RE_BRANCH}, #{RE_NAME}, #{RE_TEL1}, #{RE_TEL2}, #{RE_TEL3}, #{RE_PWD}, #{RE_DATE}, #{RE_STADIUM}, #{RE_TIME}, #{RE_TOTALPAY}, #{RE_MEMO})
+VALUES(#{re_branch}, #{re_name}, #{re_tel1}, #{re_tel2}, #{re_tel3}, #{re_pwd}, #{re_date}, #{re_stadium}, #{re_time}, #{re_totalpay}, #{re_memo})
 </insert>
 
 <select id="checkTime" resultType="Reservation">
@@ -24,9 +24,9 @@ FROM TIME T
 WHERE T.TIME_NO NOT IN (
     SELECT R.RE_TIME
     FROM RESERVATION R
-    WHERE R.RE_BRANCH = #{RE_BRANCH}
-    AND R.RE_DATE = #{RE_DATE}
-    AND R.RE_STADIUM = #{RE_STADIUM})
+    WHERE R.RE_BRANCH = #{re_branch}
+    AND R.RE_DATE = #{re_date}
+    AND R.RE_STADIUM = #{re_stadium})
 </select>
  
  </mapper>

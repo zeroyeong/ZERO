@@ -34,40 +34,40 @@ public class BranchController {
         return "branch/branch";
     }
 
-    @GetMapping("/{BRANCH_CODE}")
-    public String branchInfo(@PathVariable String BRANCH_CODE, Model model) {
-        Branch branch = branchService.getbranchInfo(BRANCH_CODE);
+    @GetMapping("/{branch_code}")
+    public String branchInfo(@PathVariable String branch_code, Model model) {
+        Branch branch = branchService.getbranchInfo(branch_code);
         Reservation reservation = new Reservation();
         model.addAttribute("branch", branch);
         model.addAttribute("reservation", reservation);
         return "branch/branchInfo";
     }
 
-    @GetMapping("/{BRANCH_CODE}/reservation")
+    @GetMapping("/{branch_code}/reservation")
     public String getReservation(@ModelAttribute("reservation") Reservation reservation) {
         return "branch/branchInfo";
     }
 
-    @PostMapping("/{BRANCH_CODE}/reservation")
+    @PostMapping("/{branch_code}/reservation")
     public String addReservation(@ModelAttribute("reservation") Reservation reservation) {
 		branchService.addReservation(reservation); 
         return "redirect:/branch";
     }	
 
-	@PostMapping("/{BRANCH_CODE}/timeCheck")
+	@PostMapping("/{branch_code}/timeCheck")
 	@ResponseBody
-	public Map<String, Object> checkTime(@RequestParam("RE_STADIUM") int RE_STADIUM,
-	                                     @RequestParam("RE_BRANCH") int RE_BRANCH,
-	                                     @RequestParam("RE_DATE") String RE_DATE) {
+	public Map<String, Object> checkTime(@RequestParam("re_stadium") int re_stadium,
+	                                     @RequestParam("re_branch") int re_branch,
+	                                     @RequestParam("re_date") String re_date) {
 	    Map<String, Object> response = new HashMap<>();
-	    List<Reservation> reservationList = branchService.timeList(RE_STADIUM, RE_BRANCH, RE_DATE);
+	    List<Reservation> reservationList = branchService.timeList(re_stadium, re_branch, re_date);
 	    List<Map<String, Object>> timeList = new ArrayList<>();
 
 	    for (Reservation reservation : reservationList) {
 	        Map<String, Object> timeMap = new HashMap<>();
-	        timeMap.put("TIME_NO", reservation.getTIME_NO());
-	        timeMap.put("TIME_START", reservation.getTIME_START());
-	        timeMap.put("TIME_END", reservation.getTIME_END());
+	        timeMap.put("time_no", reservation.getTime_no());
+	        timeMap.put("time_start", reservation.getTime_start());
+	        timeMap.put("time_end", reservation.getTime_end());
 	        timeList.add(timeMap);
 	    }
 

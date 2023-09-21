@@ -2,180 +2,176 @@ package com.zero.domain;
 
 public class Reservation {
 	
-	private int RE_NO;
-	private int RE_BRANCH;
-	private String RE_NAME;
-	private String RE_TEL1;
-	private String RE_TEL2;
-	private String RE_TEL3;
-	private String RE_PWD;
-	private String RE_DATE;
-	private int RE_STADIUM;
-	private int RE_TIME;
-	private String RE_TOTALPAY;
-	private String RE_MEMO;
-	private String RE_PAYMENT;
+	private int re_no;
+	private int re_branch;
+	private String re_name;
+	private String re_tel1;
+	private String re_tel2;
+	private String re_tel3;
+	private String re_pwd;
+	private String re_date;
+	private int re_stadium;
+	private int re_time;
+	private String re_totalpay;
+	private String re_memo;
+	private String re_payment;
 	
-	private int TIME_NO;
-	private String TIME_START;
-	private String TIME_END;
+	private int time_no;
+	private String time_start;
+	private String time_end;
 	
 	public Reservation() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reservation(int rE_NO, int rE_BRANCH, String rE_NAME, String rE_TEL1, String rE_TEL2, String rE_TEL3,
-			String rE_PWD, String rE_DATE, int rE_STADIUM, int rE_TIME, String rE_TOTALPAY, String rE_MEMO,
-			String rE_PAYMENT, int tIME_NO, String tIME_START, String tIME_END) {
+	public Reservation(int re_no, int re_branch, String re_name, String re_tel1, String re_tel2, String re_tel3,
+			String re_pwd, String re_date, int re_stadium, int re_time, String re_totalpay, String re_memo,
+			String re_payment, int time_no, String time_start, String time_end) {
 		super();
-		RE_NO = rE_NO;
-		RE_BRANCH = rE_BRANCH;
-		RE_NAME = rE_NAME;
-		RE_TEL1 = rE_TEL1;
-		RE_TEL2 = rE_TEL2;
-		RE_TEL3 = rE_TEL3;
-		RE_PWD = rE_PWD;
-		RE_DATE = rE_DATE;
-		RE_STADIUM = rE_STADIUM;
-		RE_TIME = rE_TIME;
-		RE_TOTALPAY = rE_TOTALPAY;
-		RE_MEMO = rE_MEMO;
-		RE_PAYMENT = rE_PAYMENT;
-		TIME_NO = tIME_NO;
-		TIME_START = tIME_START;
-		TIME_END = tIME_END;
+		this.re_no = re_no;
+		this.re_branch = re_branch;
+		this.re_name = re_name;
+		this.re_tel1 = re_tel1;
+		this.re_tel2 = re_tel2;
+		this.re_tel3 = re_tel3;
+		this.re_pwd = re_pwd;
+		this.re_date = re_date;
+		this.re_stadium = re_stadium;
+		this.re_time = re_time;
+		this.re_totalpay = re_totalpay;
+		this.re_memo = re_memo;
+		this.re_payment = re_payment;
+		this.time_no = time_no;
+		this.time_start = time_start;
+		this.time_end = time_end;
 	}
 
-	public int getRE_NO() {
-		return RE_NO;
+	public int getRe_no() {
+		return re_no;
 	}
 
-	public void setRE_NO(int rE_NO) {
-		RE_NO = rE_NO;
+	public void setRe_no(int re_no) {
+		this.re_no = re_no;
 	}
 
-	public int getRE_BRANCH() {
-		return RE_BRANCH;
+	public int getRe_branch() {
+		return re_branch;
 	}
 
-	public void setRE_BRANCH(int rE_BRANCH) {
-		RE_BRANCH = rE_BRANCH;
+	public void setRe_branch(int re_branch) {
+		this.re_branch = re_branch;
 	}
 
-	public String getRE_NAME() {
-		return RE_NAME;
+	public String getRe_name() {
+		return re_name;
 	}
 
-	public void setRE_NAME(String rE_NAME) {
-		RE_NAME = rE_NAME;
+	public void setRe_name(String re_name) {
+		this.re_name = re_name;
 	}
 
-	public String getRE_TEL1() {
-		return RE_TEL1;
+	public String getRe_tel1() {
+		return re_tel1;
 	}
 
-	public void setRE_TEL1(String rE_TEL1) {
-		RE_TEL1 = rE_TEL1;
+	public void setRe_tel1(String re_tel1) {
+		this.re_tel1 = re_tel1;
 	}
 
-	public String getRE_TEL2() {
-		return RE_TEL2;
+	public String getRe_tel2() {
+		return re_tel2;
 	}
 
-	public void setRE_TEL2(String rE_TEL2) {
-		RE_TEL2 = rE_TEL2;
+	public void setRe_tel2(String re_tel2) {
+		this.re_tel2 = re_tel2;
 	}
 
-	public String getRE_TEL3() {
-		return RE_TEL3;
+	public String getRe_tel3() {
+		return re_tel3;
 	}
 
-	public void setRE_TEL3(String rE_TEL3) {
-		RE_TEL3 = rE_TEL3;
+	public void setRe_tel3(String re_tel3) {
+		this.re_tel3 = re_tel3;
 	}
 
-	public String getRE_PWD() {
-		return RE_PWD;
+	public String getRe_pwd() {
+		return re_pwd;
 	}
 
-	public void setRE_PWD(String rE_PWD) {
-		RE_PWD = rE_PWD;
+	public void setRe_pwd(String re_pwd) {
+		this.re_pwd = re_pwd;
 	}
 
-	public String getRE_DATE() {
-		return RE_DATE;
+	public String getRe_date() {
+		return re_date;
 	}
 
-	public void setRE_DATE(String rE_DATE) {
-		RE_DATE = rE_DATE;
+	public void setRe_date(String re_date) {
+		this.re_date = re_date;
 	}
 
-	public int getRE_STADIUM() {
-		return RE_STADIUM;
+	public int getRe_stadium() {
+		return re_stadium;
 	}
 
-	public void setRE_STADIUM(int rE_STADIUM) {
-		RE_STADIUM = rE_STADIUM;
+	public void setRe_stadium(int re_stadium) {
+		this.re_stadium = re_stadium;
 	}
 
-	public int getRE_TIME() {
-		return RE_TIME;
+	public int getRe_time() {
+		return re_time;
 	}
 
-	public void setRE_TIME(int rE_TIME) {
-		RE_TIME = rE_TIME;
+	public void setRe_time(int re_time) {
+		this.re_time = re_time;
 	}
 
-	public String getRE_TOTALPAY() {
-		return RE_TOTALPAY;
+	public String getRe_totalpay() {
+		return re_totalpay;
 	}
 
-	public void setRE_TOTALPAY(String rE_TOTALPAY) {
-		RE_TOTALPAY = rE_TOTALPAY;
+	public void setRe_totalpay(String re_totalpay) {
+		this.re_totalpay = re_totalpay;
 	}
 
-	public String getRE_MEMO() {
-		return RE_MEMO;
+	public String getRe_memo() {
+		return re_memo;
 	}
 
-	public void setRE_MEMO(String rE_MEMO) {
-		RE_MEMO = rE_MEMO;
+	public void setRe_memo(String re_memo) {
+		this.re_memo = re_memo;
 	}
 
-	public String getRE_PAYMENT() {
-		return RE_PAYMENT;
+	public String getRe_payment() {
+		return re_payment;
 	}
 
-	public void setRE_PAYMENT(String rE_PAYMENT) {
-		RE_PAYMENT = rE_PAYMENT;
+	public void setRe_payment(String re_payment) {
+		this.re_payment = re_payment;
 	}
 
-	public int getTIME_NO() {
-		return TIME_NO;
+	public int getTime_no() {
+		return time_no;
 	}
 
-	public void setTIME_NO(int tIME_NO) {
-		TIME_NO = tIME_NO;
+	public void setTime_no(int time_no) {
+		this.time_no = time_no;
 	}
 
-	public String getTIME_START() {
-		return TIME_START;
+	public String getTime_start() {
+		return time_start;
 	}
 
-	public void setTIME_START(String tIME_START) {
-		TIME_START = tIME_START;
+	public void setTime_start(String time_start) {
+		this.time_start = time_start;
 	}
 
-	public String getTIME_END() {
-		return TIME_END;
+	public String getTime_end() {
+		return time_end;
 	}
 
-	public void setTIME_END(String tIME_END) {
-		TIME_END = tIME_END;
+	public void setTime_end(String time_end) {
+		this.time_end = time_end;
 	}
-	
-	
-
-	
 }

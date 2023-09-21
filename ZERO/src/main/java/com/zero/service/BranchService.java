@@ -9,9 +9,9 @@ public interface BranchService {
 
     List<Branch> getList();
 
-    Branch getbranchInfo(String BRANCH_CODE);
+    Branch getbranchInfo(String branch_code);
 
     Reservation addReservation(Reservation reservation);
 
-    List<Reservation> timeList(int RE_STADIUM, int RE_BRANCH, String RE_DATE);
+    List<Reservation> timeList(int re_stadium, int re_branch, String re_date);
 }

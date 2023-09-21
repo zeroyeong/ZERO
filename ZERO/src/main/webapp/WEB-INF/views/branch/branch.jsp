@@ -87,14 +87,14 @@
         <c:forEach items="${branchList}" var="branch">
             <div class="list">
                 <span class="pointImg">
-                    <img src="<c:url value="/resources/images/${branch.BRANCH_PIC}"/>" alt="">
+                    <img src="<c:url value="/resources/images/${branch.branch_pic}"/>" alt="">
                 </span>
                 <div class="listText">
-                    <p class="pt1">${branch.BRANCH_NAME}</p>
-                    <p class="pt2"><i class="fa-solid fa-location-dot"></i>${branch.BRANCH_ADDRESS}</p>
-                    <p class="pt3"><i class="fa-solid fa-phone-volume"></i>${branch.BRANCH_TELL}
+                    <p class="pt1">${branch.branch_name}</p>
+                    <p class="pt2"><i class="fa-solid fa-location-dot"></i>${branch.branch_address}</p>
+                    <p class="pt3"><i class="fa-solid fa-phone-volume"></i>${branch.branch_tell}
                     </p>
-                    <a href="<c:url value="/branch/${branch.BRANCH_CODE}"/>" class="reserBtn">
+                    <a href="<c:url value="/branch/${branch.branch_code}"/>" class="reserBtn">
                         <span><i class="fa-regular fa-calendar-days"></i>예약하기</span>
                     </a>
                     <a href="pointInfo.html" class="infoBtn">	

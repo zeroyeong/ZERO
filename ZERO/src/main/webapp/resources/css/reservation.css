@@ -8,26 +8,42 @@ input[type="radio"] {
   display: none;
 }
 
-input[id="reser"]:checked~.harlfButton label[for="reser"],
+input[id="reservation"]:checked~.harlfButton label[for="reservation"] {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+input[id="reservation"]:checked~.container h1.reserCheck {
+  display: none;
+}
+
+input[id="reservation"]:checked~.container section.reserCheck {
+  display: none;
+}
+
 input[id="reserCheck"]:checked~.harlfButton label[for="reserCheck"] {
   background-color: var(--pointColor);
   color: #fff;
 }
 
-input[id="reser"]:checked~.container h1.reserCheck {
+input[id="reserCheck"]:checked~.container h1.reservation {
   display: none;
 }
 
-input[id="reser"]:checked~.container section.reserCheck {
+input[id="reservation"]:checked~.container section.reserCheck {
   display: none;
 }
 
-input[id="reserCheck"]:checked~.container h1.reser {
+input[id="reserCheck"]:checked~.container section.reservation {
   display: none;
 }
 
-input[id="reserCheck"]:checked~.container section.reser {
-  display: none;
+.harlfButton li#reserComplete {
+  background-color: var(--pointColor);
+}
+
+.harlfButton li#reserComplete a label {
+  color: #ffffff !important;
 }
 
 .reserFrameBox {
@@ -303,7 +319,7 @@ p.name {
   float: right;
 }
 
-/*ë‹¬ë ¥*/
+/*´Ş·Â*/
 .calenderWrap {
   padding: 45px 15px 70px 15px;
   border: 1px solid #bfc4cc;
@@ -393,7 +409,7 @@ p.name {
   font-size: 16px;
 }
 
-/*ì‹œê°„ì„ íƒ*/
+/*½Ã°£¼±ÅÃ*/
 .timeTable ul li {
   margin-top: 9px;
   margin-left: 4px;
@@ -420,8 +436,11 @@ p.name {
   font-size: 16px;
   text-align: center;
 }
+.timeTable ul li button.on {
+background: #2c3c57;
+}
 
-/*í•©ê³„*/
+/*ÇÕ°è*/
 .infoDiv .total {
   font-size: 20px;
   display: inline-block;
@@ -430,7 +449,7 @@ p.name {
   text-align: right;
 }
 
-/*ìœ ë‹ˆí¼ìƒ‰ìƒ*/
+/*À¯´ÏÆû»ö»ó*/
 
 .uniColor span {
   display: inline-block;
@@ -447,7 +466,7 @@ p.name {
   width: 20%;
 }
 
-/*ë§¤ì¹˜ ë“±ë¡*/
+/*¸ÅÄ¡ µî·Ï*/
 .matchList ul li {
   padding: 17px 0;
   border-top: 1px solid #dbdde0;
@@ -461,11 +480,27 @@ p.name {
   display: block;
 }
 
-.infoMemo {
-  margin-top: 0 !important;
+.matchList ul li textarea {
+  width: 100%;
+  height: 100px;
+  font-size: 14px;
 }
 
-/*ì˜ˆì•½ì ì •ë³´*/
+.textarea {
+  width: 100%;
+  height: 100px;
+  padding: 9px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #383838;
+  font-size: 16px;
+  overflow-y: auto;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/*¿¹¾àÀÚ Á¤º¸*/
 .resUserInfo {
   margin-top: 15px;
 }
@@ -537,12 +572,10 @@ p.name {
   text-align: center;
   margin: 15px 0px;
 }
-
 .reserInfoBtn:hover {
   transition: ease-out 0.5s;
   background: #003f96 !important;
 }
-
 /*media*/
 @media screen and (max-width: 1250px) {
   main .topVideo h2 {
