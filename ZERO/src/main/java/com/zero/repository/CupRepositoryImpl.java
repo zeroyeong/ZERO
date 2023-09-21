@@ -51,7 +51,9 @@ public class CupRepositoryImpl implements CupRepository {
 	}
 	
 	@Override
-	public List<CupPlayer> getPlayerWithTeamList() {
+	public List<CupTeam> getPlayerWithTeamList() {
 		return sql.selectList("Cup.selectCupTeamAndPlayers");
 	}
+	
+
 }

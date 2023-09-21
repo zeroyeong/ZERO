@@ -6,16 +6,16 @@
   --tournamentBorder: 2px solid #dcdcdc;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   display: none;
 }
 
-input[id="teamList"]:checked ~ .harlfButton label[for="teamList"] {
+input[id='teamList']:checked ~ .harlfButton label[for='teamList'] {
   background-color: var(--pointColor);
   color: #fff;
 }
 
-input[id="playschedule"]:checked ~ .harlfButton label[for="playschedule"] {
+input[id='playschedule']:checked ~ .harlfButton label[for='playschedule'] {
   background-color: var(--pointColor);
   color: #fff;
 }
@@ -41,7 +41,7 @@ section h3 span {
 }
 
 section h3 span::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 10px;
@@ -52,7 +52,7 @@ section h3 span::before {
 }
 
 section h3 span::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 5px;
@@ -116,7 +116,8 @@ td button.detailBtn {
   font-size: 1rem;
 }
 
-.tournamentTitle {
+.tournamentTitle,
+.playerRankingTilte {
   margin-top: 50px;
 }
 
@@ -252,6 +253,71 @@ div.scheduleBox {
   border-bottom: 2px solid var(--pointColor);
 }
 
+/* PLAYER RANKING */
+.playerRanking colgroup .col1 {
+  width: 5%;
+}
+
+.playerRanking colgroup .col2,
+.playerRanking colgroup .col3 {
+  min-width: 130px;
+  width: 20%;
+}
+
+.playerRanking colgroup .col4,
+.playerRanking colgroup .col5,
+.playerRanking colgroup .col6,
+.playerRanking colgroup .col7 {
+  width: calc(55% / 4);
+}
+
+table.playerRanking td {
+  border: var(--tableBorder);
+}
+
+table.playerRanking td:first-child {
+  border-left: none;
+}
+
+table.playerRanking td:last-child {
+  border-right: none;
+}
+
+table.playerRanking span.rank {
+  display: inline-block;
+  background-color: #717171;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  color: #fff;
+}
+
+table.playerRanking tbody tr:first-child span.rank {
+  display: inline-block;
+  background-color: var(--pointColor);
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  color: #fff;
+}
+
+table.playerRanking div.playerInfo {
+  display: flex;
+  align-items: center;
+}
+table.playerRanking div.playerInfo span.playerImg {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  margin-right: 5px;
+}
+
+table.playerRanking div.playerInfo span.playerImg img {
+  width: 100%;
+  height: 100%;
+}
+
 /* SECTION ZCUP SHCEDULE */
 section.zCupSchedule {
   width: 100%;
@@ -324,7 +390,7 @@ section.zCupSchedule ul li.button label.playButton span {
   padding-left: 10px;
 }
 section.zCupSchedule ul li.button label.playButton span::before {
-  content: "â–¶";
+  content: '¢º';
   font-size: 0.2em;
   position: absolute;
   top: 50%;
@@ -345,14 +411,14 @@ section.zCupSchedule ul li img {
 }
 
 /* section.zCupSchedule input[type="checkbox"] */
-section.zCupSchedule input[type="checkbox"] {
+section.zCupSchedule input[type='checkbox'] {
   display: none;
 }
-section.zCupSchedule input[id="play1"]:checked ~ label.cover {
+section.zCupSchedule input[id='play1']:checked ~ label.cover {
   display: block;
 }
 
-section.zCupSchedule input[id="play1"]:checked ~ section.playInfo {
+section.zCupSchedule input[id='play1']:checked ~ section.playInfo {
   display: block;
 }
 
@@ -411,7 +477,7 @@ section.playInfo table caption span {
   position: relative;
 }
 section.playInfo table caption span::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 10px;
@@ -421,7 +487,7 @@ section.playInfo table caption span::before {
   background-color: var(--pointColor);
 }
 section.playInfo table caption span::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 5px;
@@ -475,10 +541,10 @@ section.playInfo table th {
   }
 }
 
-input[id="teamList"]:checked ~ .container section.playschedule {
+input[id='teamList']:checked ~ .container section.playschedule {
   display: none;
 }
 
-input[id="playschedule"]:checked ~ .container section.teamList {
+input[id='playschedule']:checked ~ .container section.teamList {
   display: none;
 }

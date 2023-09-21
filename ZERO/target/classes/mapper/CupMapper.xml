@@ -21,17 +21,7 @@
         select * from CupPlayer
     </select>
   
-    <resultMap id="CupPlayerResultMap" type="com.zero.domain.CupPlayer">  
-        <id property="playerNo" column="PLAYER_NO"/>
-        <result property="playerName" column="PLAYER_NAME"/>
-        <result property="playerPhoto" column="PLAYER_PHOTO"/>
-        <result property="playerGoal" column="PLAYER_GOAL"/>
-        <result property="playerYellowCard" column="PLAYER_YELLOW_CARD"/>
-        <result property="playerRedCard" column="PLAYER_RED_CARD"/>
-        <collection property="cupTeam" resultMap="CupTeamResultMap"/>
-    </resultMap>
-    
-    <resultMap id="CupTeamResultMap" type="com.zero.domain.CupTeam">
+      <resultMap id="CupTeamResultMap" type="com.zero.domain.CupTeam">
         <id property="teamNo" column="TEAM_NO"/>
         <result property="teamName" column="TEAM_NAME"/>
         <result property="teamLeader" column="TEAM_LEADER"/>
@@ -44,19 +34,30 @@
         <result property="teamCode" column="TEAM_CODE"/>
         <result property="teamMemberCnt" column="TEAM_MEMBER_CNT"/>
         <result property="teamRegYear" column="TEAM_REGYEAR"/>
+        <result property="PlayerNo" column="PLAYER_NO"/>
         <result property="branchNo" column="BRANCH_NO"/>
         <result property="scoreNo" column="SCORE_NO"/>
+        <collection property="cupPlayer" resultMap="CupPlayerResultMap"/>
     </resultMap>
   
-	<select id="selectCupTeamAndPlayers" resultMap="CupPlayerResultMap">
+    <resultMap id="CupPlayerResultMap" type="com.zero.domain.CupPlayer">  
+        <id property="playerNo" column="PLAYER_NO"/>
+        <result property="playerName" column="PLAYER_NAME"/>
+        <result property="playerPhoto" column="PLAYER_PHOTO"/>
+        <result property="playerGoal" column="PLAYER_GOAL"/>
+        <result property="playerYellowCard" column="PLAYER_YELLOW_CARD"/>
+        <result property="playerRedCard" column="PLAYER_RED_CARD"/>
+    </resultMap>
+
+	<select id="selectCupTeamAndPlayers" resultMap="CupTeamResultMap">
 	    SELECT
-	         p.*, t.*
+	         t.*, p.*
 	    FROM
-	        CupPlayer p
+	         CupTeam t
 	    JOIN
-	        CupTeam t
+	     	 CupPlayer p
 	    ON
-	        p.TEAM_NO = t.TEAM_NO
+	        t.PLAYER_NO = p.PLAYER_NO
 	</select>
 
 </mapper>

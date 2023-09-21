@@ -8,12 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>팀 세팅</title>
 
-     <!-- css 연결 -->
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/teamSetting.css" />
-
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/teamSetting.css" />" />
     <!-- js 연결 -->
-    <script src="../js/common.js" defer></script>
+    <script src="<c:url value="/resources/js/common.js" />" defer></script>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous" ></script>

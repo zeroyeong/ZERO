@@ -13,8 +13,8 @@
 
    <!-- css 연결 -->
    <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css" />" />
-   <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css?asdd" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css?sddf" />" />
 
    <!-- js 연결 -->
    <script src="<c:url value="/resources/js/zCup.js?ssd" />" defer></script>
@@ -352,20 +352,20 @@
        		<c:forEach items="${cupTeamList}" var="cupTeam"> 
               <tr>
                 <td>1</td>
-                <td>더피치 평택점</td>
+                <td>더피치 평택점 = ${cupTeam.teamNo}</td>
                 <td>
                   <div class="teamName">
                     <div class="teamImage">
                       <img src="../images/팀2.jpg" alt="" />
                     </div>
                     <div class="teamTitle">
-                      <a href="">${cupTeam.teamName}</a>
+                   			<a href="<c:url value="/zCup/teamDetail?teamNo=${cupTeam.teamNo}" />">${cupTeam.teamName}</a>
                     </div>
                   </div>
                 </td>
                 <td><span>${cupTeam.teamMemberCnt}</span> 명</td>
                 <td>${cupTeam.teamRegYear}</td>
-                <td><button type="button" class="teamBtn">팀관리</button></td>
+                <td><button type="button" class="teamBtn" onclick="">팀관리</button></td>
               </tr>
               </c:forEach>
             </tbody>

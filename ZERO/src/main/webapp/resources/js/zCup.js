@@ -103,6 +103,12 @@ function changeVal(class_name, change_name) {
   class_name.value = change_name;
 }
 
+//url
+function showDetail(){
+    location.href="zCup/scheduleDetail"
+}
+
+
 
 //pjy
 

@@ -9,15 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>팀 디테일</title>
 
-     <!-- css 연결 -->
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/teamDetail.css" />
-    <link rel="stylesheet" href="../css/tournament.css" />
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/teamDetail.css" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
     <!-- js 연결 -->
-    <script src="../js/common.js" defer></script>
-    <script src="../js/detail.js" defer></script>
-    <script src="../js/tournament.js" defer></script>
+    <script src="<c:url value="/resources/js/common.js" />" defer></script>
+    <script src="<c:url value="/resources/js/detail.js" />" defer></script>
+    <script src="<c:url value="/resources/js/tournament.js" />" defer></script>
 
     <!-- Font Awesome -->
     <script

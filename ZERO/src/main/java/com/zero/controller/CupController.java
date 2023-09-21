@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zero.domain.CupPlayer;
 import com.zero.domain.CupTeam;
@@ -56,12 +56,27 @@ public class CupController {
 		return "zCup/scheduleDetail";
 	}
 	
+	@GetMapping("/zCup/teamSetting")
+	public String teamSetting() {
+		
+		return "zCup/teamSetting";
+	}
 	
+    @GetMapping("/zCup/teamDetail") 
+    public String requestBookById(@RequestParam("teamNo") int teamNo, Model model) {  
+    	System.out.println("teamNo = "+teamNo);
+    	
+        //Book bookById = bookService.getBookById(bookId);
+        
+        //model.addAttribute("book", bookById );
+        
+        return "zCup/teamDetail";
+    }
 	
 	@GetMapping("/zCup/player")
 	public String zCupAllList(Model model) {
 	
-		List<CupPlayer> playerList = cupService.getPlayerWithTeamList();
+		List<CupTeam> playerList = cupService.getPlayerWithTeamList();
 		model.addAttribute("playerList", playerList);
 		
 		return "home";
@@ -94,12 +109,7 @@ public class CupController {
 		
 		return "teamDetail";
 	}
-	
-	@GetMapping("/teamSetting")
-	public String teamSetting() {
-		
-		return "teamSetting";
-	}
+
 	
 
 }

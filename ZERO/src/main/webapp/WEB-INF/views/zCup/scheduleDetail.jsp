@@ -16,7 +16,7 @@
 
     <!-- js 연결 -->
     <script src="<c:url value="/resources/js/common.js" />" defer></script>
-    <!-- <script src="../js/detail.js" defer></script> -->
+    <script src="<c:url value="/resources/js/zCupURL.js" />" defer></script>
 
     <!-- Font Awesome -->
     <script
