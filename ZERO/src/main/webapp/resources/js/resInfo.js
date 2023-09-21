@@ -99,18 +99,20 @@ function updateSelectedDate(dateString) {
     // <th>와 <td>에 대한 참조 가져오기
     const reservationDateHeader = document.getElementById("reservationDateHeader");
     const reservationDateCell = document.getElementById("reservationDateCell");
+    const re_dateInput = document.getElementById("RE_DATE"); // input 엘리먼트 가져오기
 
     // <td> 내용 업데이트
     reservationDateCell.innerText = dateString;
+    re_dateInput.value = dateString; // input의 value 속성 설정
 }
 
 // 선택된 날짜를 형식에 맞게 가져오는 함수
 function getFormattedDate(nowColumn) {
     const year = nowMonth.getFullYear();
-    const month = nowMonth.getMonth() + 1; // 월은 0부터 시작하므로 1을 더해줍니다.
-    const day = nowColumn.innerText;
+    const month = leftPad(nowMonth.getMonth() + 1); // 월은 0부터 시작하므로 1을 더해줍니다.
+    const day = leftPad(nowColumn.innerText);
 
-    return `${year}.${leftPad(month)}.${leftPad(day)}`;
+    return `${year}-${month}-${day}`; 
 }
 
 // 이전달 버튼 클릭
@@ -133,26 +135,29 @@ function leftPad(value) {
     return value;
 }
 
-const selectStadium = document.getElementById("selectStadium");
+const selectStadium = document.getElementById("RE_STADIUM");
 const labelSelectStadium = document.querySelector('label[for="selectStadium"]');
 const stadiumSelect = document.getElementById("stadiumSelect");
+const rsStadiumInput = document.getElementById("rs_stadium");
 
 selectStadium.addEventListener("change", function () {
-
     const selectedOption = selectStadium.options[selectStadium.selectedIndex];
     labelSelectStadium.textContent = selectedOption.textContent;
     stadiumSelect.textContent = selectedOption.textContent;
+
+    // 선택한 값으로 rs_stadium input 엘리먼트의 값을 설정
+    rsStadiumInput.value = selectedOption.value;
 });
 
 
 function setTime(e) {
     var timeCheck = e.parentElement.querySelector(".time_check");
-    var restime = e.querySelector("#restime").value;
-
+    var restime = e.querySelector("#restime").value; 
+    
     if (timeCheck.checked) {
         e.classList.remove("on");
         timeCheck.checked = false;
-        updateSelectedTimes();
+        updateSelectedTimes(); 
     } else {
         e.classList.add("on");
         timeCheck.checked = true;
@@ -162,8 +167,8 @@ function setTime(e) {
 }
 
 function updateSelectedTimes() {
-    var selectedTimes = [];
-
+    var selectedTimes = []; 
+    
     var checkboxes = document.querySelectorAll(".time_check");
     checkboxes.forEach(function (checkbox) {
         if (checkbox.checked) {
@@ -183,6 +188,7 @@ function updateSelectedTimes() {
 function updateTotalPay() {
     var totalPaySpan = document.getElementById("totalPay");
     var totalPriceSpan = document.getElementById("totalPrice");
+    var reTotalPayInput = document.getElementById("re_totalpay"); // 추가한 부분
     var checkboxes = document.querySelectorAll(".time_check");
     var totalPay = 0;
 
@@ -191,6 +197,8 @@ function updateTotalPay() {
             totalPay += parseInt(checkbox.getAttribute("alt"));
         }
     });
+
     totalPaySpan.textContent = totalPay.toLocaleString();
     totalPriceSpan.textContent = totalPay.toLocaleString();
-}
+    reTotalPayInput.value = totalPay.toLocaleString(); // re_totalpay 요소에 값 추가
+};

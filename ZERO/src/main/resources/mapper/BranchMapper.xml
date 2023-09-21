@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Branch">
+
+ <select id="read" resultType="Branch">
+ SELECT * FROM BRANCH
+ </select>
+ 
+ <select id="readInfo" resultType="Branch">
+ SELECT * FROM BRANCH WHERE BRANCH_CODE = #{BRANCH_CODE}
+ </select>
+ 
+<insert id="reservation">
+INSERT INTO RESERVATION(RE_BRANCH, RE_NAME, RE_TEL1, RE_TEL2, RE_TEL3, RE_PWD, RE_DATE, RE_STADIUM, RE_TIME, RE_TOTALPAY, RE_MEMO)
+VALUES(#{RE_BRANCH}, #{RE_NAME}, #{RE_TEL1}, #{RE_TEL2}, #{RE_TEL3}, #{RE_PWD}, #{RE_DATE}, #{RE_STADIUM}, #{RE_TIME}, #{RE_TOTALPAY}, #{RE_MEMO})
+</insert>
+
+<select id="checkTime" resultType="Branch">
+SELECT T.TIME_NO, T.TIME_START, T.TIME_END
+FROM TIME T
+WHERE T.TIME_NO NOT IN (
+    SELECT R.RE_TIME
+    FROM RESERVATION R
+    WHERE R.RE_BRANCH = #{RE_BRANCH}
+    AND R.RE_DATE = #{RE_DATE}
+    AND R.RE_STADIUM = #{RE_STADIUM})
+</select>
+ 
+ </mapper>
