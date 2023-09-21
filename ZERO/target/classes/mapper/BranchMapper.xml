@@ -13,12 +13,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  SELECT * FROM BRANCH WHERE BRANCH_CODE = #{BRANCH_CODE}
  </select>
  
-<insert id="reservation">
+<insert id="insert">
 INSERT INTO RESERVATION(RE_BRANCH, RE_NAME, RE_TEL1, RE_TEL2, RE_TEL3, RE_PWD, RE_DATE, RE_STADIUM, RE_TIME, RE_TOTALPAY, RE_MEMO)
 VALUES(#{RE_BRANCH}, #{RE_NAME}, #{RE_TEL1}, #{RE_TEL2}, #{RE_TEL3}, #{RE_PWD}, #{RE_DATE}, #{RE_STADIUM}, #{RE_TIME}, #{RE_TOTALPAY}, #{RE_MEMO})
 </insert>
 
-<select id="checkTime" resultType="Branch">
+<select id="checkTime" resultType="Reservation">
 SELECT T.TIME_NO, T.TIME_START, T.TIME_END
 FROM TIME T
 WHERE T.TIME_NO NOT IN (

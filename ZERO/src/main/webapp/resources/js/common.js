@@ -4,12 +4,11 @@ const zCup = document.querySelectorAll("#zCup");
 const customer = document.querySelectorAll("#customer");
 const manager = document.querySelectorAll("#manager");
 
-point.forEach((t) => { 
+point.forEach((t) => {
   t.addEventListener("click", function () {
-    location.href = "../zero/point";
+    location.href = "../zero/branch";
   });
 });
-
 reservation.forEach((t) => {
   t.addEventListener("click", function () {
     location.href = "../zero/reservation";

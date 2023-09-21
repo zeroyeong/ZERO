@@ -35,17 +35,6 @@ public class HomeController {
 
 		return "index";
 	}
-
-	@RequestMapping("/point")
-	public String point() {
-		return "pointReservation/point";
-	}
-
-	@RequestMapping("/reservation")
-	public String reservation() {
-		return "pointReservation/reservation";
-	}
-
 //	@RequestMapping("/zCup")
 //	public String zCup() {
 //		return "zCup/zCup";

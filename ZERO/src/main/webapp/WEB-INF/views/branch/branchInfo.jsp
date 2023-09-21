@@ -116,8 +116,8 @@
                             <tbody>
                             </tbody>
                         </table>
-                    </div>      
-                    <form:form modelAttribute = "branch" action="${branch.BRANCH_CODE}/reservation" method="post">       
+                    </div>
+				<form:form modelAttribute = "Reservation" action="${branch.BRANCH_CODE}/reservation" method="post">                    
                     <div class="rightInfo">
                         <div class="infoDiv">
                             <span class="tit">날짜 선택</span>
@@ -129,11 +129,11 @@
                             <span class="select">
                                 <label for="selectStadium">구장을 선택해주세요</label>
                                 <i class="fa-solid fa-caret-down"></i>
-                                <form:select path="RE_STADIUM">
-                                    <form:option value="0">구장 선택</form:option>
-                                    <form:option value="1">A구장 (크기:40X20)</form:option>
-                                    <form:option value="2">B구장 (크기:40X20)</form:option>
-                                </form:select>
+                                <select path="RE_STADIUM">
+                                    <option value="0">구장 선택<option>
+                                    <option value="1">A구장 (크기:40X20)<option>
+                                    <option value="2">B구장 (크기:40X20)<option>
+                                <select>
 								</div>
                             </span>
                         </div>
@@ -224,7 +224,7 @@
                                     <tr>
                                         <th scope="row">신청자</th>
                                         <td>
-                                            <form:input type="text" path="RE_NAME" placeholder="이름을 입력하세요"
+                                            <input type="text" path="RE_NAME" placeholder="이름을 입력하세요"
                                                 style="width:100%"/>
                                         </td>
                                     </tr>
@@ -232,28 +232,28 @@
                                         <th scope="row">연락처</th>
                                         <td>
                                             <div class="phone">
-                                                <form:input path="RE_TEL1" type="text" maxlength="3" />
+                                                <input path="RE_TEL1" type="text" maxlength="3" />
                                                 <span>-</span>
-                                                <form:input path="RE_TEL2" type="text" maxlength="4" />
+                                                <input path="RE_TEL2" type="text" maxlength="4" />
                                                 <span>-</span>
-                                                <form:input path="RE_TEL3" type="text" maxlength="4" />
+                                                <input path="RE_TEL3" type="text" maxlength="4" />
                                             </div>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <th scope="row">비밀번호</th>
-                                        <td><form:input type="password" path="RE_PWD" placeholder="예약확인시 필요합니다."
+                                        <td><input type="password" path="RE_PWD" placeholder="예약확인시 필요합니다."
                                                 style="width:100%"/></td>
                                     </tr>
 
                                     <tr>
                                         <th scope="row" id="reservationDateHeader">예약일자</th>
                                         <td id="reservationDateCell"></td>
-                                        <form:hidden path="RE_DATE"/>
+                                        <hidden path="RE_DATE"/>
                                     </tr>
                                     <tr>
-                                   		<form:hidden path="RE_BRANCH" value="${branch.BRANCH_NO}" />
+                                   		<hidden path="RE_BRANCH" value="${branch.BRANCH_NO}" />
                                         <th scope="row" id="stadium">선택구장</th>
                                         <td id="stadiumSelect"></td>
                                     </tr>
@@ -264,12 +264,12 @@
                                     <tr>
                                         <th scope="row" id="total">총 결제금액</th>
                                         <td><span class="price" id="totalPay">0</span>원</td>
-                                        <form:hidden path="RE_TOTALPAY" id="re_totalpay"/>
+                                        <hidden path="RE_TOTALPAY" id="re_totalpay"/>
                                     </tr>
                                     <tr>
                                         <th scope="row">메모</th>
                                         <td>
-                                            <form:input path="RE_MEMO" class="infoMemo" type="text"
+                                            <input path="RE_MEMO" class="infoMemo" type="text"
                                                 placeholder="원하는 매칭시간 / 개인 연락처 / 팀 소개등 메모"/>
                                         </td>
                                     </tr>
@@ -284,10 +284,10 @@
                                 <button class="reserInfoBtn">
                                     <span>대관예약하기</span>
                                 </button>
-                            </div>  
+                            </div>
                         </div>
                     </div>
-                    </form:form>
+                  </form:form>
                 </div>
             </div>
         </div>

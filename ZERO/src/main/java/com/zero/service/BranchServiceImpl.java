@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zero.domain.Branch;
+import com.zero.domain.Reservation;
 import com.zero.repository.BranchRepository;
 
 @Service
@@ -26,12 +27,12 @@ public class BranchServiceImpl implements BranchService {
 	}
 	
     @Override
-    public void reservationBranch(Branch branch) {
-        branchRepository.reservationBranch(branch);
+    public void newReservation(Reservation reservation) {
+        branchRepository.newReservation(reservation);
     }
     
     @Override
-    public List<Branch> timeList(int RE_STADIUM, int RE_BRANCH, String RE_DATE) {
+    public List<Reservation> timeList(int RE_STADIUM, int RE_BRANCH, String RE_DATE) {
     	return branchRepository.timeList(RE_STADIUM, RE_BRANCH, RE_DATE);
     }
 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zero.domain.Branch;
+import com.zero.domain.Reservation;
 import com.zero.service.BranchService;
 
 @Controller
@@ -46,14 +47,14 @@ public class BranchController {
 	                                     @RequestParam("RE_BRANCH") int RE_BRANCH,
 	                                     @RequestParam("RE_DATE") String RE_DATE) {
 	    Map<String, Object> response = new HashMap<>();
-	    List<Branch> branchList = branchService.timeList(RE_STADIUM, RE_BRANCH, RE_DATE);
+	    List<Reservation> reservationList = branchService.timeList(RE_STADIUM, RE_BRANCH, RE_DATE);
 	    List<Map<String, Object>> timeList = new ArrayList<>();
 
-	    for (Branch branch : branchList) {
+	    for (Reservation reservation : reservationList) {
 	        Map<String, Object> timeMap = new HashMap<>();
-	        timeMap.put("TIME_NO", branch.getTIME_NO());
-	        timeMap.put("TIME_START", branch.getTIME_START());
-	        timeMap.put("TIME_END", branch.getTIME_END());
+	        timeMap.put("TIME_NO", reservation.getTIME_NO());
+	        timeMap.put("TIME_START", reservation.getTIME_START());
+	        timeMap.put("TIME_END", reservation.getTIME_END());
 	        timeList.add(timeMap);
 	    }
 
@@ -61,17 +62,13 @@ public class BranchController {
 	    return response;
 	}
     @GetMapping("/branchInfo/{BRANCH_CODE}/reservation")
-    public String branchReservation(@ModelAttribute("branch") Branch branch) {
+    public String getReservation(@ModelAttribute("Reservation") Reservation reservation) {
         return "branch/branchInfo";
     }
     
     @PostMapping("/branchInfo/{BRANCH_CODE}/reservation")
-    public String reservationBranch(@ModelAttribute("branch") Branch branch) {
-        branchService.reservationBranch(branch); 
+    public String newReservation(@ModelAttribute("Reservation") Reservation reservation) {
+        branchService.newReservation(reservation); 
         return "redirect:/branch";
     }	
-	@GetMapping("/reservation")
-	public String reservation() {
-		return "branch/reservation";
-	}
 }

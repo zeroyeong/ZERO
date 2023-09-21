@@ -3,6 +3,7 @@ package com.zero.service;
 import java.util.List;
 
 import com.zero.domain.Branch;
+import com.zero.domain.Reservation;
 
 public interface BranchService {
 	
@@ -10,8 +11,8 @@ public interface BranchService {
 	
 	public Branch getbranchInfo(String BRANCH_CODE);
 	
-	void reservationBranch(Branch branch);
+	void newReservation(Reservation reservation);
 	
-	List<Branch> timeList(int RE_STADIUM, int RE_BRANCH, String RE_DATE);
+	List<Reservation> timeList(int RE_STADIUM, int RE_BRANCH, String RE_DATE);
 
 }

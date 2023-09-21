@@ -3,9 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
        
 <configuration>
-	<settings>
-	    <setting name="mapUnderscoreToCamelCase" value="true"/>
-	</settings>  
 
     <typeAliases>
         <typeAlias type="com.zero.domain.Sample" alias="Sample"></typeAlias>
@@ -13,6 +10,8 @@
         <typeAlias type="com.zero.domain.CupPlayer" alias="CupPlayer"></typeAlias>
         
         <typeAlias type="com.zero.domain.Branch" alias="Branch"></typeAlias>
+        <typeAlias type="com.zero.domain.Reservation" alias="Reservation"></typeAlias>
+        
     </typeAliases>
 </configuration>
 
