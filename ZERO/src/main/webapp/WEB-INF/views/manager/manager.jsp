@@ -232,18 +232,27 @@
             </section>
 
             <section id="mgrUserContent" class="mgrPage">
+                <div class="mgrUserTableTop">
+                    전체 사용자 수 : 01
+                </div>
                 <table>
                     <thead>
                         <tr>
                             <th class="no">번호</th>
-                            <th class="title">제목</th>
+                            <th class="col1">이름</th>
+                            <th class="col2">전화번호</th>
+                            <th class="col3">ID</th>
+                            <th class="col4">PW</th>
                             <th class="state">관리</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>사용자관리</td>
+                            <td>사용자1</td>
+                            <td>010-0101-0101</td>
+                            <td>id123</td>
+                            <td>pw123</td>
                             <td><a class="userBtn" onclick="openUserPopup()">수정</a></td>
                         </tr>
                     </tbody>

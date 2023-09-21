@@ -89,10 +89,6 @@ main .container section table tbody tr:last-child {
     border-bottom: 1px solid var(--pointColor);
 }
 
-main .container section table tbody td:nth-child(2) {
-    text-align: left;
-}
-
 /* CONTAINER - SECTION - FORM */
 main .container section form {
     display: flex;
@@ -167,7 +163,6 @@ main .container section form .searchButton i {
     border-color: var(--pointColor);
     color: var(--pointColor);
 }
-
 
 /*mgrPopUp*/
 .reserPopup,
@@ -319,7 +314,7 @@ input[id="detailPlayerRadio"]:checked~.addButton label[for="detailPlayerRadio"] 
 
 @media screen and (max-width:1100px) {
     main .harlfButton li label {
-        font-size: 17px !important;
+        font-size: 17px;
     }
 
     .addButton li label {
@@ -524,6 +519,48 @@ section#addPlayerContent table tbody td .teamName .teamTitle a:hover {
 
     section#addPlayerContent table th,
     section#addPlayerContent table td {
+        font-size: 0.9em;
+    }
+}
+
+/*userContent*/
+.mgrUserTableTop {
+    display: flex;
+    justify-content: flex-end;
+    top: -15px;
+    position: relative;
+    color: #2c3c57;
+}
+
+section#mgrUserContent table {
+    width: 100%;
+}
+
+section#mgrUserContent table .col1 {
+    width: 17%;
+}
+
+section#mgrUserContent table .col2 {
+    width: 30%;
+}
+
+section#mgrUserContent table .col3 {
+    width: 8%;
+}
+
+section#mgrUserContent table .col4 {
+    width: 8%;
+}
+
+@media screen and (max-width: 960px) {
+
+    section#mgrUserContent table thead th:first-child,
+    section#mgrUserContent table tbody td:first-child {
+        display: none;
+    }
+
+    section#mgrUserContent table th,
+    section#mgrUserContent table td {
         font-size: 0.9em;
     }
 }
