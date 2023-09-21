@@ -598,7 +598,7 @@ section#teamList table tbody td .teamName .teamTitle a:hover {
   text-decoration: underline;
 }
 
-section#teamList table tbody td teamBtn {
+section#teamList table tbody td .teamBtn {
   background-color: #4c89cd;
   color: #fff;
   font-size: 1rem;
