@@ -1,7 +1,7 @@
 package com.zero.domain;
 
 public class Branch {
-	
+	//ÁöÁ¡
 	private int BRANCH_NO;
 	private String BRANCH_CODE;
 	private String BRANCH_NAME;
@@ -9,13 +9,15 @@ public class Branch {
 	private String BRANCH_TELL;
 	private String BRANCH_PIC;
 	
+	private Reservation reservation;
+
 	public Branch() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public Branch(int bRANCH_NO, String bRANCH_CODE, String bRANCH_NAME, String bRANCH_ADDRESS, String bRANCH_TELL,
-			String bRANCH_PIC) {
+			String bRANCH_PIC, Reservation reservation) {
 		super();
 		BRANCH_NO = bRANCH_NO;
 		BRANCH_CODE = bRANCH_CODE;
@@ -23,6 +25,7 @@ public class Branch {
 		BRANCH_ADDRESS = bRANCH_ADDRESS;
 		BRANCH_TELL = bRANCH_TELL;
 		BRANCH_PIC = bRANCH_PIC;
+		this.reservation = reservation;
 	}
 
 	public int getBRANCH_NO() {
@@ -72,5 +75,17 @@ public class Branch {
 	public void setBRANCH_PIC(String bRANCH_PIC) {
 		BRANCH_PIC = bRANCH_PIC;
 	}
+
+	public Reservation getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
+	}
+	
+	
+	
+	
 	
 }

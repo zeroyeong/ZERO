@@ -11,26 +11,26 @@ import com.zero.repository.BranchRepository;
 
 @Service
 public class BranchServiceImpl implements BranchService {
-	
-	@Autowired
-	private BranchRepository branchRepository;
-	
-	@Override
-	public List<Branch> getList() {
-		return branchRepository.getList();
-	}
-	
-	@Override
-	public Branch getbranchInfo(String BRANCH_CODE) {
-		Branch branch = branchRepository.getbranchInfo(BRANCH_CODE);
-		return branch;
-	}
-	
+
+    @Autowired
+    private BranchRepository branchRepository;
+
     @Override
-    public void newReservation(Reservation reservation) {
-        branchRepository.newReservation(reservation);
+    public List<Branch> getList() {
+        return branchRepository.getList();
     }
-    
+
+    @Override
+    public Branch getbranchInfo(String BRANCH_CODE) {
+        Branch branch = branchRepository.getbranchInfo(BRANCH_CODE);
+        return branch;
+    }
+
+    @Override
+    public Reservation addReservation(Reservation reservation) {
+        branchRepository.addReservation(reservation);
+		return reservation;
+    }
     @Override
     public List<Reservation> timeList(int RE_STADIUM, int RE_BRANCH, String RE_DATE) {
     	return branchRepository.timeList(RE_STADIUM, RE_BRANCH, RE_DATE);

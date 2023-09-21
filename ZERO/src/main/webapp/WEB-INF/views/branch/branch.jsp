@@ -94,7 +94,7 @@
                     <p class="pt2"><i class="fa-solid fa-location-dot"></i>${branch.BRANCH_ADDRESS}</p>
                     <p class="pt3"><i class="fa-solid fa-phone-volume"></i>${branch.BRANCH_TELL}
                     </p>
-                    <a href="<c:url value="/branch/branchInfo/${branch.BRANCH_CODE}"/>" class="reserBtn">
+                    <a href="<c:url value="/branch/${branch.BRANCH_CODE}"/>" class="reserBtn">
                         <span><i class="fa-regular fa-calendar-days"></i>예약하기</span>
                     </a>
                     <a href="pointInfo.html" class="infoBtn">	

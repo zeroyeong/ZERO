@@ -9,8 +9,8 @@
         <typeAlias type="com.zero.domain.CupTeam" alias="CupTeam"></typeAlias>
         <typeAlias type="com.zero.domain.CupPlayer" alias="CupPlayer"></typeAlias>
         
-        <typeAlias type="com.zero.domain.Branch" alias="Branch"></typeAlias>
-        <typeAlias type="com.zero.domain.Reservation" alias="Reservation"></typeAlias>
+    	<typeAlias type="com.zero.domain.Branch" alias="Branch"></typeAlias>
+    	<typeAlias type="com.zero.domain.Reservation" alias="Reservation"></typeAlias>
         
     </typeAliases>
 </configuration>

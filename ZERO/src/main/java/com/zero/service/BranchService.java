@@ -6,13 +6,12 @@ import com.zero.domain.Branch;
 import com.zero.domain.Reservation;
 
 public interface BranchService {
-	
-	List<Branch> getList();
-	
-	public Branch getbranchInfo(String BRANCH_CODE);
-	
-	void newReservation(Reservation reservation);
-	
-	List<Reservation> timeList(int RE_STADIUM, int RE_BRANCH, String RE_DATE);
 
+    List<Branch> getList();
+
+    Branch getbranchInfo(String BRANCH_CODE);
+
+    Reservation addReservation(Reservation reservation);
+
+    List<Reservation> timeList(int RE_STADIUM, int RE_BRANCH, String RE_DATE);
 }

@@ -32,4 +32,3 @@ manager.forEach((t) => {
     location.href = "../zero/manager";
   });
 });
-

@@ -23,25 +23,38 @@ import com.zero.service.BranchService;
 @Controller
 @RequestMapping("/branch")
 public class BranchController {
-    
+
     @Autowired
     private BranchService branchService;
-    
+
     @GetMapping
-    public String getList(Model model) { 
+    public String getList(Model model) {
         List<Branch> list = branchService.getList();
-        model.addAttribute("branchList", list);  
-        return "branch/branch"; 
+        model.addAttribute("branchList", list);
+        return "branch/branch";
     }
-    
-    @GetMapping("/branchInfo/{BRANCH_CODE}")
-    public String branchInfo(@PathVariable String BRANCH_CODE, Model model) {  
+
+    @GetMapping("/{BRANCH_CODE}")
+    public String branchInfo(@PathVariable String BRANCH_CODE, Model model) {
         Branch branch = branchService.getbranchInfo(BRANCH_CODE);
-        model.addAttribute("branch", branch); 
+        Reservation reservation = new Reservation();
+        model.addAttribute("branch", branch);
+        model.addAttribute("reservation", reservation);
         return "branch/branchInfo";
     }
-    
-	@PostMapping("/branchInfo/{BRANCH_CODE}/timeCheck")
+
+    @GetMapping("/{BRANCH_CODE}/reservation")
+    public String getReservation(@ModelAttribute("reservation") Reservation reservation) {
+        return "branch/branchInfo";
+    }
+
+    @PostMapping("/{BRANCH_CODE}/reservation")
+    public String addReservation(@ModelAttribute("reservation") Reservation reservation) {
+		branchService.addReservation(reservation); 
+        return "redirect:/branch";
+    }	
+
+	@PostMapping("/{BRANCH_CODE}/timeCheck")
 	@ResponseBody
 	public Map<String, Object> checkTime(@RequestParam("RE_STADIUM") int RE_STADIUM,
 	                                     @RequestParam("RE_BRANCH") int RE_BRANCH,
@@ -61,14 +74,4 @@ public class BranchController {
 	    response.put("timeList", timeList);
 	    return response;
 	}
-    @GetMapping("/branchInfo/{BRANCH_CODE}/reservation")
-    public String getReservation(@ModelAttribute("Reservation") Reservation reservation) {
-        return "branch/branchInfo";
-    }
-    
-    @PostMapping("/branchInfo/{BRANCH_CODE}/reservation")
-    public String newReservation(@ModelAttribute("Reservation") Reservation reservation) {
-        branchService.newReservation(reservation); 
-        return "redirect:/branch";
-    }	
 }
