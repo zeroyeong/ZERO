@@ -21,38 +21,37 @@ public class CupController {
 	private CupService cupService;
 
 	@GetMapping("/zCup")
-	public String zCupAllList(@ModelAttribute("NewTeam") CupTeam cupTeam, @ModelAttribute("NewPlayer") CupPlayer cupPlayer, Model model) {
+	public String zCupAllList(@ModelAttribute("NewTeam") CupTeam cup_team, @ModelAttribute("NewPlayer") CupPlayer cup_player, Model model) {
 		
-		List<CupTeam> cupTeamList = cupService.getCupTeamList();
-		List<CupPlayer> cupPlayerList = cupService.getCupPlayerList();
-		model.addAttribute("cupTeamList", cupTeamList);
-		model.addAttribute("cupPlayerList", cupPlayerList);
+		List<CupTeam> cup_team_list = cupService.getCupTeamList();
+		List<CupPlayer> cup_player_list = cupService.getCupPlayerList();
+		
+		model.addAttribute("cupTeamList", cup_team_list);
+		model.addAttribute("cupPlayerList", cup_player_list);
 		return "zCup/zCup";
 	}
 	
 	@PostMapping("/zCup/cupTeam")
-	public String setCupTeam(@ModelAttribute("NewTeam") CupTeam cupTeam, Model model) {
+	public String setCupTeam(@ModelAttribute("NewTeam") CupTeam cup_team, Model model) {
 
-		cupService.setNewCupTeam(cupTeam);
+		cupService.setNewCupTeam(cup_team);
 		
 		return "redirect:/zCup";
 	}
 	
 	@PostMapping("/zCup/cupPlayer")
-	public String setCupPlayer(@ModelAttribute("NewPlayer") CupPlayer CupPlayer, Model model) {
+	public String setCupPlayer(@ModelAttribute("NewPlayer") CupPlayer cup_player, Model model) {
 
-		System.out.println("newplayer = " + CupPlayer);
-
-		cupService.setNewCupPlayer(CupPlayer);
+		cupService.setNewCupPlayer(cup_player);
 		
 		return "redirect:/zCup";
 	}
 	
 	@GetMapping("/zCup/scheduleDetail")
-	public String scheduleDetail(Model model) {
+	public String getScheduleDetail(Model model) {
 		
-		List<CupTeam> cupTeamList = cupService.getCupTeamList();
-		model.addAttribute("cupTeamList", cupTeamList);
+		List<CupTeam> cup_team_list = cupService.getCupTeamList();
+		model.addAttribute("cupTeamList", cup_team_list);
 		return "zCup/scheduleDetail";
 	}
 	
@@ -63,21 +62,19 @@ public class CupController {
 	}
 	
     @GetMapping("/zCup/teamDetail") 
-    public String requestBookById(@RequestParam("teamNo") int teamNo, Model model) {  
-    	System.out.println("teamNo = "+teamNo);
+    public String getTeamDetail(@RequestParam("team_no") int team_no, Model model) {  
     	
-        //Book bookById = bookService.getBookById(bookId);
-        
-        //model.addAttribute("book", bookById );
-        
+    	List<CupPlayer> team_detail_list = cupService.getTeamDetail(team_no);
+
+    	model.addAttribute("team_detail_list", team_detail_list);
         return "zCup/teamDetail";
     }
 	
-	@GetMapping("/zCup/player")
+	@GetMapping("/zCup/play")
 	public String zCupAllList(Model model) {
 	
-		List<CupTeam> playerList = cupService.getPlayerWithTeamList();
-		model.addAttribute("playerList", playerList);
+		List<CupPlayer> player_list = cupService.getPlayerWithTeamList();
+		model.addAttribute("playerList", player_list);
 		
 		return "home";
 	}
@@ -96,8 +93,8 @@ public class CupController {
 	@GetMapping("/read")
 	public String reqCupTeamList(Model model) {
 		
-		List<CupTeam> cupTeamList = cupService.getCupTeamList();
-		model.addAttribute("cupTeamList", cupTeamList);
+		List<CupTeam> cup_team_list = cupService.getCupTeamList();
+		model.addAttribute("cupTeamList", cup_team_list);
 		
 		return "CupTeamResult";
 	}

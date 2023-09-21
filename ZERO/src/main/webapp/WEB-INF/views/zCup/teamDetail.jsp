@@ -236,11 +236,11 @@
           </tr>
           <tr>
             <th>팀관리자</th>
-            <td></td>
+            <td>${team_detail_list[0].cup_team.team_leader}</td>
           </tr>
           <tr>
             <th>팀유니폼</th>
-            <td></td>
+            <td>${team_detail_list[0].cup_team.team_uniform_home} / ${team_detail_list[0].cup_team.team_uniform_away}</td>
           </tr>
         </table>
 
@@ -399,27 +399,31 @@
               <col class="col6" />
             </colgroup>
             <thead>
-              <th>번호</th>
-              <th>이름</th>
-              <th>출전</th>
-              <th>득점</th>
-              <th>경고</th>
-              <th>퇴장</th>
+              <tr>
+	            <th>번호</th>
+	            <th>이름</th>
+	            <th>출전</th>
+	            <th>득점</th>
+	            <th>경고</th>
+	            <th>퇴장</th>
+              </tr>
             </thead>
             <tbody>
+              <c:forEach items="${team_detail_list}" var="playerlist">
               <tr>
-                <td>1</td>
+                <td>${playerlist.player_no}</td>
                 <td>
                   <div class="player">
                     <img src="../images/person.png" alt="" />
-                    <span>이름1</span>
+                    <span>${playerlist.player_name}</span>
                   </div>
                 </td>
-                <td>10</td>
-                <td>5</td>
-                <td>0</td>
-                <td>0</td>
+                <td>${playerlist.player_name}</td>
+                <td>${playerlist.player_name}</td>
+                <td>${playerlist.player_name}</td>
+                <td>${playerlist.player_name}</td>
               </tr>
+              </c:forEach>
               <tr>
                 <td>1</td>
                 <td>

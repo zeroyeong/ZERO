@@ -13,12 +13,12 @@
 
    <!-- css 연결 -->
    <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css?asdd" />" />
-   <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css?sddf" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/zCup.js?ssd" />" defer></script>
-   <script src="<c:url value="/resources/js/tournament.js?ad" />" defer></script>
+   <script src="<c:url value="/resources/js/zCup.js" />" defer></script>
+   <script src="<c:url value="/resources/js/tournament.js" />" defer></script>
 
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
@@ -175,12 +175,12 @@
 			
 			
 			<c:forEach items="${cupPlayerList}" var="cupPlayer"> 
-			<p>playerNo = ${cupPlayer.playerNo}</p>
-			<p>playerName = ${cupPlayer.playerName}</p>
-			<p>playerPhoto = ${cupPlayer.playerPhoto}</p>
-		   	<p>playerGoal = ${cupPlayer.playerGoal}</p>
-   			<p>playerYellowCard = ${cupPlayer.playerYellowCard}</p>
-  	 	   	<p>playerRedCard = ${cupPlayer.playerRedCard}</p>
+			<p>playerNo = ${cupPlayer.player_no}</p>
+			<p>playerName = ${cupPlayer.player_name}</p>
+			<p>playerPhoto = ${cupPlayer.player_photo}</p>
+		   	<p>playerGoal = ${cupPlayer.player_goal}</p>
+   			<p>playerYellowCard = ${cupPlayer.player_yellow_card}</p>
+  	 	   	<p>playerRedCard = ${cupPlayer.player_red_card}</p>
 			</c:forEach>	
 			
           <ul class="addButton">
@@ -213,42 +213,42 @@
                   </div>
                   <div>
                     <label>팀명</label>
-                    <form:input path="teamName"/>
+                    <form:input path="team_name"/>
                   </div>
                 </div>
 
                 <div class="bothSide">
                   <div>
                     <label>팀관리자</label>
-                    <form:input type="text" path="teamLeader"/>
+                    <form:input type="text" path="team_leader"/>
                   </div>
                   <div>
                     <label>연락처</label>
-                      <form:input type="text" path="teamPhone"/>
+                      <form:input type="text" path="team_phone"/>
                   </div>
                 </div>
                 <div>
                   <label>이메일</label>
-                  <form:input type="text" path="teamMail" />
+                  <form:input type="text" path="team_mail" />
                 </div>
                 <div class="bothSide">
                   <div>
                     <label>유니폼(홈)</label>
                     <div class="harlfInput">
-                      <form:input type="text" path="teamUniformHome" placeholder="유니폼 색" />
+                      <form:input type="text" path="team_uniform_home" placeholder="유니폼 색" />
                     </div>
                   </div>
                   <div>
                     <label>유니폼(어웨이)</label>
                     <div class="harlfInput">
-                      <form:input type="text" path="teamUniformAway" placeholder="유니폼 색" />
+                      <form:input type="text" path="team_uniform_away" placeholder="유니폼 색" />
                     </div>
                   </div>
                 </div>
                 <div>
                   <label>팀엠블럼</label>
                   <div class="search">
-                    <form:input type="text" class="fileName" path="teamEmblem" value="이미지를 업로드 하세요"/>
+                    <form:input type="text" class="fileName" path="team_emblem" value="이미지를 업로드 하세요"/>
                     <input type="file" id="fileInput">
                     <label for="fileInput">찾아보기</label>
                   </div>
@@ -256,11 +256,11 @@
                 <div class="bothSide">
                   <div>
                     <label>팀비밀번호</label>
-                    <form:input type="new-password" id="pwd1" path="teamPassWord" placeholder="5자 이상으로 입력해주세요."/>
+                    <form:input type="new-password" id="pwd1" path="team_password" placeholder="5자 이상으로 입력해주세요."/>
                   </div>
                   <div>
                     <label>팀비밀번호 확인</label>
-                    <form:input type="new-password" id="pwd2" path="teamPassWordCheck" />
+                    <form:input type="new-password" id="pwd2" path="team_password_check" />
                   </div>
                 </div>
               </div>
@@ -299,12 +299,12 @@
                 </div>
                 <div>
                   <label>선수명</label>
-                  <form:input type="text" path="playerName" readonly="true"/>
+                  <form:input type="text" path="player_name" />
                 </div>
                 <div>
                   <label>선수사진</label>
                   <div class="search">
-                    <form:input type="text" class="fileName2" path="playerPhoto" value="이미지를 업로드 하세요" />
+                    <form:input type="text" class="fileName2" path="player_photo" value="이미지를 업로드 하세요" />
                     <input type="file" id="fileInput2">
                     <label for="fileInput2">찾아보기</label>
                   </div>
@@ -352,19 +352,19 @@
        		<c:forEach items="${cupTeamList}" var="cupTeam"> 
               <tr>
                 <td>1</td>
-                <td>더피치 평택점 = ${cupTeam.teamNo}</td>
+                <td>더피치 평택점 = ${cupTeam.team_no}</td>
                 <td>
                   <div class="teamName">
                     <div class="teamImage">
                       <img src="../images/팀2.jpg" alt="" />
                     </div>
                     <div class="teamTitle">
-                   			<a href="<c:url value="/zCup/teamDetail?teamNo=${cupTeam.teamNo}" />">${cupTeam.teamName}</a>
+                   			<a href="<c:url value="/zCup/teamDetail?team_no=${cupTeam.team_no}" />">${cupTeam.team_name}</a>
                     </div>
                   </div>
                 </td>
-                <td><span>${cupTeam.teamMemberCnt}</span> 명</td>
-                <td>${cupTeam.teamRegYear}</td>
+                <td><span>${cupTeam.team_member_cnt}</span> 명</td>
+                <td>${cupTeam.team_reg_year}</td>
                 <td><button type="button" class="teamBtn" onclick="">팀관리</button></td>
               </tr>
               </c:forEach>

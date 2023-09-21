@@ -15,5 +15,7 @@ public interface CupService {
 	
 	public void setNewCupPlayer(CupPlayer cupPlayer);
 	
-	public List<CupTeam> getPlayerWithTeamList();
+	public List<CupPlayer> getPlayerWithTeamList();
+	
+	public List<CupPlayer> getTeamDetail(int team_no);
 }

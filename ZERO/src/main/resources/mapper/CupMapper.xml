@@ -2,12 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
-
 <mapper namespace="Cup">
     <insert id="insertTeam" parameterType="CupTeam">
         insert into CupTeam(TEAM_NAME, TEAM_LEADER, TEAM_PHONE, TEAM_MAIL, TEAM_UNIFORM_HOME, TEAM_UNIFORM_AWAY, TEAM_EMBLEM, TEAM_PASSWORD, TEAM_CODE)
-        values(#{teamName}, #{teamLeader}, #{teamPhone}, #{teamMail}, #{teamUniformHome}, #{teamUniformAway}, #{teamEmblem}, #{teamPassWord}, #{teamCode})
+        values(#{team_name}, #{team_leader}, #{team_phone}, #{team_mail}, #{team_uniform_home}, #{team_uniform_away}, #{team_emblem}, #{team_password}, #{team_code})
     </insert>
      <select id="selectTeam" resultType="CupTeam">
         select * from CUPTEAM
@@ -15,50 +13,64 @@
      
     <insert id="insertPlayer" parameterType="CupPlayer">
         insert into CupPlayer(PLAYER_NAME, PLAYER_PHOTO, PLAYER_GOAL, PLAYER_YELLOW_CARD, PLAYER_RED_CARD)
-        values(#{playerName}, #{playerPhoto}, #{playerGoal}, #{playerYellowCard}, #{playerRedCard})
+        values(#{player_name}, #{player_photo}, #{player_goal}, #{player_yellow_card}, #{player_red_card})
     </insert>
+    
      <select id="selectPlayer" resultType="CupPlayer">
         select * from CupPlayer
     </select>
-  
-      <resultMap id="CupTeamResultMap" type="com.zero.domain.CupTeam">
-        <id property="teamNo" column="TEAM_NO"/>
-        <result property="teamName" column="TEAM_NAME"/>
-        <result property="teamLeader" column="TEAM_LEADER"/>
-        <result property="teamPhone" column="TEAM_PHONE"/>
-        <result property="teamMail" column="TEAM_MAIL"/>
-        <result property="teamUniformHome" column="TEAM_UNIFORM_HOME"/>
-        <result property="teamUniformAway" column="TEAM_UNIFORM_AWAY"/>
-        <result property="teamEmblem" column="TEAM_EMBLEM"/>
-        <result property="teamPassWord" column="TEAM_PASSWORD"/>
-        <result property="teamCode" column="TEAM_CODE"/>
-        <result property="teamMemberCnt" column="TEAM_MEMBER_CNT"/>
-        <result property="teamRegYear" column="TEAM_REGYEAR"/>
-        <result property="PlayerNo" column="PLAYER_NO"/>
-        <result property="branchNo" column="BRANCH_NO"/>
-        <result property="scoreNo" column="SCORE_NO"/>
-        <collection property="cupPlayer" resultMap="CupPlayerResultMap"/>
-    </resultMap>
-  
-    <resultMap id="CupPlayerResultMap" type="com.zero.domain.CupPlayer">  
-        <id property="playerNo" column="PLAYER_NO"/>
-        <result property="playerName" column="PLAYER_NAME"/>
-        <result property="playerPhoto" column="PLAYER_PHOTO"/>
-        <result property="playerGoal" column="PLAYER_GOAL"/>
-        <result property="playerYellowCard" column="PLAYER_YELLOW_CARD"/>
-        <result property="playerRedCard" column="PLAYER_RED_CARD"/>
-    </resultMap>
 
-	<select id="selectCupTeamAndPlayers" resultMap="CupTeamResultMap">
+    <resultMap id="CupPlayerResultMap" type="com.zero.domain.CupPlayer">  
+        <id property="player_no" column="PLAYER_NO"/>
+        <result property="player_name" column="PLAYER_NAME"/>
+        <result property="player_photo" column="PLAYER_PHOTO"/>
+        <result property="player_goal" column="PLAYER_GOAL"/>
+        <result property="player_yellow_card" column="PLAYER_YELLOW_CARD"/>
+        <result property="player_red_card" column="PLAYER_RED_CARD"/>
+        <collection property="cup_team" resultMap="CupTeamResultMap"/>
+    </resultMap>
+    
+    <resultMap id="CupTeamResultMap" type="com.zero.domain.CupTeam">
+        <id property="team_no" column="TEAM_NO"/>
+        <result property="team_name" column="TEAM_NAME"/>
+        <result property="team_leader" column="TEAM_LEADER"/>
+        <result property="team_phone" column="TEAM_PHONE"/>
+        <result property="team_mail" column="TEAM_MAIL"/>
+        <result property="team_uniform_home" column="TEAM_UNIFORM_HOME"/>
+        <result property="team_uniform_away" column="TEAM_UNIFORM_AWAY"/>
+        <result property="team_emblem" column="TEAM_EMBLEM"/>
+        <result property="team_password" column="TEAM_PASSWORD"/>
+        <result property="team_code" column="TEAM_CODE"/>
+        <result property="team_member_cnt" column="TEAM_MEMBER_CNT"/>
+        <result property="team_reg_year" column="TEAM_REG_YEAR"/>
+        <result property="branch_no" column="BRANCH_NO"/>
+        <result property="score_no" column="SCORE_NO"/>
+    </resultMap>
+  
+	<select id="selectCupTeamAndPlayers" resultMap="CupPlayerResultMap">
 	    SELECT
-	         t.*, p.*
+	         p.*, t.*
 	    FROM
-	         CupTeam t
+	        CupPlayer p
 	    JOIN
-	     	 CupPlayer p
+	        CupTeam t
 	    ON
-	        t.PLAYER_NO = p.PLAYER_NO
+	        p.TEAM_NO = t.TEAM_NO
 	</select>
+
+	<select id="selectTeamDetail" parameterType="int" resultMap="CupPlayerResultMap">
+	    SELECT
+	         p.*, t.*
+	    FROM
+	        CupPlayer p
+	    JOIN
+	        CupTeam t
+	    ON
+	        p.TEAM_NO = t.TEAM_NO
+	    WHERE 
+	    	p.TEAM_NO = #{player_no}
+	</select>
+
 
 </mapper>
 
