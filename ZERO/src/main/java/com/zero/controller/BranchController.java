@@ -21,20 +21,19 @@ import com.zero.domain.Reservation;
 import com.zero.service.BranchService;
 
 @Controller
-@RequestMapping("/branch")
 public class BranchController {
 
     @Autowired
     private BranchService branchService;
 
-    @GetMapping
+    @GetMapping("/branch")
     public String getList(Model model) {
         List<Branch> list = branchService.getList();
         model.addAttribute("branchList", list);
         return "branch/branch";
     }
 
-    @GetMapping("/{branch_code}")
+    @GetMapping("/branch/{branch_code}")
     public String branchInfo(@PathVariable String branch_code, Model model) {
         Branch branch = branchService.getbranchInfo(branch_code);
         Reservation reservation = new Reservation();
@@ -43,18 +42,18 @@ public class BranchController {
         return "branch/branchInfo";
     }
 
-    @GetMapping("/{branch_code}/reservation")
+    @GetMapping("/branch/{branch_code}/reservation")
     public String getReservation(@ModelAttribute("reservation") Reservation reservation) {
         return "branch/branchInfo";
     }
 
-    @PostMapping("/{branch_code}/reservation")
+    @PostMapping("/branch/{branch_code}/reservation")
     public String addReservation(@ModelAttribute("reservation") Reservation reservation) {
 		branchService.addReservation(reservation); 
         return "redirect:/branch";
     }	
 
-	@PostMapping("/{branch_code}/timeCheck")
+	@PostMapping("/branch/{branch_code}/timeCheck")
 	@ResponseBody
 	public Map<String, Object> checkTime(@RequestParam("re_stadium") int re_stadium,
 	                                     @RequestParam("re_branch") int re_branch,
@@ -74,4 +73,9 @@ public class BranchController {
 	    response.put("timeList", timeList);
 	    return response;
 	}
+	@GetMapping("/reservation")
+	public String reservation() {
+		return "branch/reservation";
+	}
+	
 }

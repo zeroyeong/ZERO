@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -12,7 +13,7 @@
     <title>ZERO FUTSAL</title>
 
     <!-- css 연결-->
-    <link rel="stylesheet" href="<c:url value="/resources/css/reservation.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/reservation.css?123111"/>">
 
     <!-- js 연결-->
     <script src="<c:url value="/resources/js/resInfo.js"/>" defer></script>
@@ -49,26 +50,26 @@
                     <p><i class="fa-solid fa-location-dot"></i>예약을 원하시는 지점을 선택해 주세요</p>
                     <div class="reserBody">
                         <div class="reserContent">
-                            <form action="#">
+                            <form:form modelAttribute="branch" action="../zero/reservation">
                                 <span class="select">
                                     <label for="pointSelect">지점을 선택해주세요</label>
                                     <i class="fa-solid fa-caret-down"></i>
-                                    <select name="" id="pointSelect" required>
-                                        <option value>지점선택</option>
-                                        <option value>더피치 인하점</option>
-                                        <option value>더피치 평택점</option>
-                                        <option value>더피치 천안신방점</option>
-                                        <option value>아산인주풋살장</option>
-                                        <option value>부산 북구점</option>
-                                        <option value>울산 남구점</option>
-                                        <option value>전주 완산점</option>
-                                        <option value>제주 서귀포점</option>
+                                    <select name="branch_code" id="pointSelect" required>
+                                        <option value="">지점선택</option>
+                                        <option value="HM0048">더피치 인하점</option>
+                                        <option value="HM0053">더피치 평택점</option>
+                                        <option value="HM0049">더피치 천안신방점</option>
+                                        <option value="HM0052">아산인주풋살장</option>
+                                        <option value="HM0031">부산 북구점</option>
+                                        <option value="HM0008">울산 남구점</option>
+                                        <option value="HM0010">전주 완산점</option>
+                                        <option value="HM0032">제주 서귀포점</option>
                                     </select>
                                 </span>
-                            </form>
                             <div class="reserBtnBox">
-                                <a href="reservationInfo.html" class="reserBtn">예약하기</a>
+                                <button class="reserBtn">예약하기</button>
                             </div>
+                            </form:form>
                         </div>
                     </div>
                 </div>
@@ -80,12 +81,14 @@
                     <div class="reserBody">
                         <div class="reserContent">
                             <span class="text">
+                            <form>
                                 <input type="text" placeholder="예약자명">
                                 <input type="password" placeholder="비밀번호">
                             </span>
                             <div class="reserBtnBox">
                                 <a href="reservationComplete.html" class="reserBtn">확인</a>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -8,42 +8,17 @@ input[type="radio"] {
   display: none;
 }
 
-input[id="reservation"]:checked~.harlfButton label[for="reservation"] {
-  background-color: var(--pointColor);
-  color: #fff;
-}
-
-input[id="reservation"]:checked~.container h1.reserCheck {
-  display: none;
-}
-
-input[id="reservation"]:checked~.container section.reserCheck {
-  display: none;
-}
-
+input[id="reser"]:checked~.harlfButton label[for="reser"],
 input[id="reserCheck"]:checked~.harlfButton label[for="reserCheck"] {
   background-color: var(--pointColor);
   color: #fff;
 }
 
-input[id="reserCheck"]:checked~.container h1.reservation {
+input[id="reser"]:checked~.container h1.reserCheck,
+input[id="reser"]:checked~.container section.reserCheck,
+input[id="reserCheck"]:checked~.container h1.reser,
+input[id="reserCheck"]:checked~.container section.reser {
   display: none;
-}
-
-input[id="reservation"]:checked~.container section.reserCheck {
-  display: none;
-}
-
-input[id="reserCheck"]:checked~.container section.reservation {
-  display: none;
-}
-
-.harlfButton li#reserComplete {
-  background-color: var(--pointColor);
-}
-
-.harlfButton li#reserComplete a label {
-  color: #ffffff !important;
 }
 
 .reserFrameBox {
@@ -157,6 +132,14 @@ input[id="reserCheck"]:checked~.container section.reservation {
 .reserContent {
   margin: 0 auto;
   width: 390px;
+}
+
+main .harlfButton li#reserComplete {
+  background: #2c3c57 !important;
+}
+
+main .harlfButton li#reserComplete label {
+  color: #ffff !important;
 }
 
 .reserInfoTable {
@@ -436,9 +419,6 @@ p.name {
   font-size: 16px;
   text-align: center;
 }
-.timeTable ul li button.on {
-background: #2c3c57;
-}
 
 /*합계*/
 .infoDiv .total {
@@ -483,6 +463,7 @@ background: #2c3c57;
 .infoMemo {
   margin-top: 0 !important;
 }
+
 /*예약자 정보*/
 .resUserInfo {
   margin-top: 15px;
@@ -555,10 +536,12 @@ background: #2c3c57;
   text-align: center;
   margin: 15px 0px;
 }
+
 .reserInfoBtn:hover {
   transition: ease-out 0.5s;
   background: #003f96 !important;
 }
+
 /*media*/
 @media screen and (max-width: 1250px) {
   main .topVideo h2 {
@@ -620,4 +603,134 @@ background: #2c3c57;
   .reserFrameBox p .fa-location-dot {
     font-size: 3rem;
   }
+}
+
+/*예약확안 addButton*/
+.container .addButton {
+  display: flex;
+  border: 1px solid #2c3c57;
+  position: relative;
+  margin-top: -15px;
+}
+
+.container .addButton li {
+  width: 50%;
+}
+
+.container .addButton li label {
+  display: inline-block;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  cursor: pointer;
+  color: var(--pointColor);
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.container .addButton li:hover label {
+  background-color: #192336;
+  color: #fff;
+}
+
+.container section {
+  width: 100%;
+  margin: 30px auto;
+}
+
+section#reserHoldContent,
+section#reserFinishContent {
+  display: none;
+}
+
+input[id="reserHold"]:checked~#reserHoldContent,
+input[id="reserFinish"]:checked~#reserFinishContent {
+  display: block;
+}
+
+input[id="reserHold"]:checked~.addButton label[for="reserHold"],
+input[id="reserFinish"]:checked~.addButton label[for="reserFinish"] {
+  background-color: #192336;
+  color: #fff !important;
+}
+
+@media screen and (max-width:1100px) {
+  .addButton li label {
+    font-size: 1em !important;
+  }
+}
+
+/*예약완료 테이블*/
+main .container section#reserFinishContent table {
+  width: 100%;
+}
+
+main .container section#reserFinishContent table th,
+main .container section#reserFinishContent table td {
+  padding: 13px;
+}
+
+main .container section#reserFinishContent table td a {
+  color: #424242;
+}
+
+main .container section#reserFinishContent table thead {
+  border-top: 1px solid var(--pointColor);
+  color: var(--pointColor);
+}
+
+main .container section#reserFinishContent table thead .no {
+  width: 15%;
+}
+
+main .container section#reserFinishContent table thead .date {
+  width: 1%;
+}
+
+main .container section#reserFinishContent table thead .state {
+  width: 22%;
+}
+
+main .container section#reserFinishContent table tbody tr:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+main .container section#reserFinishContent table tbody td {
+  border-top: 1px solid var(--beforeColor);
+  text-align: center;
+}
+
+main .container section#reserFinishContent table tbody tr:last-child {
+  border-bottom: 1px solid var(--pointColor);
+}
+
+main .container section#reserFinishContent table tbody td:nth-child(2) {
+  text-align: left;
+}
+
+/* CONTAINER - SECTION - PAGINATION */
+.container .pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.container .pagination li {
+  cursor: pointer;
+  width: 45px;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 5px;
+  border: 1px solid var(--beforeColor);
+  color: var(--beforeColor);
+}
+
+.container .pagination li.active {
+  background-color: var(--pointColor);
+  color: #fff;
+}
+
+.container .pagination li:hover {
+  border-color: var(--pointColor);
+  color: var(--pointColor);
 }
