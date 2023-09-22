@@ -570,10 +570,10 @@ section#mgrSchContent .schAddBtn {
     background-color: #192336;
     color: #fff;
     font-size: 1rem;
-    top: 180px;
+    bottom: 5px;
     padding: 10px 20px;
     border-radius: 5px;
-    position: fixed;
+    position: relative;
 }
 
 /*수정버튼*/

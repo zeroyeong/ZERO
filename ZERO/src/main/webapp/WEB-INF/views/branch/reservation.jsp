@@ -12,12 +12,10 @@
     <title>ZERO FUTSAL</title>
 
     <!-- css 연결-->
-    <link rel="stylesheet" href="<c:url value="/resources/css/common.css?123"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/reservation.css?123"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/reservation.css"/>">
 
     <!-- js 연결-->
-    <script src="<c:url value="/resources/js/common.js?123"/>" defer></script>
-    <script src="<c:url value="/resources/js/resInfo.js?123"/>" defer></script>
+    <script src="<c:url value="/resources/js/resInfo.js"/>" defer></script>
 
     <!--아이콘-->
     <script src="https://kit.fontawesome.com/a923b8b28f.js" crossorigin="anonymous"></script>
