@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common.css' />" />
 
 <!-- JS 연결 -->
-<script src="<c:url value='/resources/js/common.js' />" defer></script>
+<script src="<c:url value='/resources/js/common.js?11' />" defer></script>
 
 <!-- 아이콘 -->
 <script src="https://kit.fontawesome.com/a923b8b28f.js" crossorigin="anonymous"></script>
@@ -29,7 +29,7 @@
 			<ul class="leftMenu">
 				<li id="point"><a>지점<span class="nav-bar hover-bar"></span></a>
 				</li>
-				<li id="reservation"><a>예약<span class="nav-bar hover-bar"></span></a>
+				<li id="Reservation"><a>예약<span class="nav-bar hover-bar"></span></a>
 				</li>
 				<li id="zCup"><a>Z-CUP<span class="nav-bar hover-bar"></span></a>
 				</li>
@@ -72,7 +72,7 @@
 			<ul class="navMenu">
 				<li id="point"><a>지점<span class="nav-bar hover-bar"></span></a>
 				</li>
-				<li id="reservation"><a>예약<span class="nav-bar hover-bar"></span></a>
+				<li id="Reservation"><a>예약<span class="nav-bar hover-bar"></span></a>
 				</li>
 				<li id="zCup"><a>Z-CUP<span class="nav-bar hover-bar"></span></a>
 				</li>

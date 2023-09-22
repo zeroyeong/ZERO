@@ -130,7 +130,7 @@
                                 <label for="selectStadium">구장을 선택해주세요</label>
                                 <i class="fa-solid fa-caret-down"></i>
                                 <form:select path="re_stadium">
-                                    <form:option value="0">구장 선택</form:option>
+                                    <option>구장 선택</option>
                                     <form:option value="1">A구장 (크기:40X20)</form:option>
                                     <form:option value="2">B구장 (크기:40X20)</form:option>
                                 </form:select>
@@ -269,9 +269,8 @@
                                     <tr>
                                         <th scope="row">메모</th>
                                         <td>
-                                            <span class="textarea">
-                                                <form:textarea path="re_memo" rows="" cols=""/></textarea>
-                                            </span>
+                                            <form:input path="re_memo" class="infoMemo" type="text"
+                                                placeholder="원하는 매칭시간 / 개인 연락처 / 팀 소개등 메모"/>
                                         </td>
                                     </tr>
                                 </tbody>
