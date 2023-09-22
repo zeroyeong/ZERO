@@ -1,5 +1,7 @@
 package com.zero.repository;
 
-public interface JoinRepository {
+import com.zero.domain.Member;
 
+public interface JoinRepository {
+	void addMember(Member member);
 }

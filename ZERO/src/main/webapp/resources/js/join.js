@@ -28,7 +28,7 @@ function frmSubmit(){
     return false;
   }
 
-  self.location.href = "/zero/join_form";
+  self.location.href = "join";
 }
 
 //회원가입 버튼 클릭했을 때

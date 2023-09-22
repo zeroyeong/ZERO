@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/join.css?123" />" />
     
    <!-- js 연결 -->
-    <script src="<c:url value="/resources/js/join.js?1" />" defer></script>
+    <script src="<c:url value="/resources/js/join.js?121" />" defer></script>
     
     
   </head>

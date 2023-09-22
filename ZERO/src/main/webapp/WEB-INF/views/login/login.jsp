@@ -16,7 +16,11 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/login.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/login.js" />" defer></script>
+   <script src="<c:url value="/resources/js/login.js?3" />" defer></script>
+   <!-- facebook 로그인 -->
+   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+   <!-- 카카오톡 로그인 -->
+   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
@@ -64,7 +68,7 @@
 
       <div class="snsLogin">
         <p>SNS 간편로그인</p>
-        <button type="button" class="kakao">
+        <button type="button" class="kakao" onClick="kakaoLogin();">
           <span>
             <img src="<c:url value="/resources/images/kakao.png" />" alt="" />
           </span>
@@ -76,7 +80,7 @@
           </span>
           네이버 계정으로 로그인
         </button>
-        <button type="button" class="faceBook">
+        <button type="button" class="faceBook" onClick="fnFbCustomLogin();">
           <span>
             <img src="<c:url value="/resources/images/facebook.png" />" alt="" />
           </span>
@@ -129,3 +133,14 @@
     </section>
   </body>
 </html>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : 'your-app-id',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v18.0'
+    });
+  };
+</script>
+

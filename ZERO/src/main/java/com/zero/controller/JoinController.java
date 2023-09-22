@@ -7,28 +7,46 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.zero.domain.Member;
+import com.zero.service.JoinService;
 
 @Controller
+
 public class JoinController {
+	
+	private JoinService joinService;
+	
 	@GetMapping("/join_agree")
 	public String Join() {
 		return "join/join";
 	}
 
-	@GetMapping("/join_form")
+	@GetMapping("/join")
 	public String JoinInput(@ModelAttribute("NewMember") Member member) {
+		
+		System.out.println("join 컨트롤러 처리전");
+		
 		return "join/joinInput";
+		
 	}
 	
-	@PostMapping("/join_form")
-	public String setNewMember(@ModelAttribute("NewMember") Member member) {
-		System.out.println("getMem_no" + member.getMem_no());
-		System.out.println("getMem_id = " + member.getMem_id());
-		System.out.println("getMem_name = " + member.getMem_name());
-		System.out.println("getMem_phone = " + member.getMem_phone());
-		System.out.println("getMem_pw = " + member.getMem_pw());
-
-		
-		return "join/join";//수정
+	@PostMapping("/member")
+	public String addMember(@ModelAttribute("NewMember") Member member) {
+		joinService.addMember(member);
+		return "redirect:/joinInput";
 	}
+	
+//	@PostMapping("/member")
+//	public String submitForm(@ModelAttribute Member member, Model model) {
+//		
+//		joinService.addMember(member);
+//		
+//		System.out.println("getMem_id = " + member.getMem_id());
+//		System.out.println("getMem_name = " + member.getMem_name());
+//		System.out.println("getMem_phone = " + member.getMem_phone());
+//		System.out.println("getMem_pw = " + member.getMem_pw());
+//
+//		model.addAttribute("member", member);
+//		
+//		return "join/test";//수정
+//	}
 }

@@ -99,7 +99,7 @@ section.container h1.logo {
   text-align: center;
   font-family: var(--logoFontfamlily);
   text-transform: uppercase;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 /* SECTION FORM */
@@ -286,7 +286,8 @@ form ul li div.mail {
   justify-content: space-between;
 }
 
-form ul li div.mail input.mailConfirm {
+form ul li div.mail input.mailConfirm,
+form ul li div.mail input.id_check {
   width: 58%;
 }
 

@@ -4,8 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
- 
-<html lang="ko">
+<!DOCTYPE html>
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta path="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,11 +21,14 @@
   <body>
     <section class="container">
       <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
-      <form:form modelAttribute = "NewMember" path="joinFrm" method="post" action="join_form">
+      <form:form modelAttribute = "NewMember" name="joinFrm" method="post" action="member">
         <ul>
           <li>
             <label for="user_id">아이디(이메일)<span class="essential">(필수)</span></label>
-            <form:input type="text" path="mem_id" id="user_id" />
+            <div class="mail">
+              <form:input type="text" path="mem_id" id="user_id" class="id_check" placeholder="이메일주소 입력" />
+              <button type="button">중복확인</button>
+            </div>
           </li>
           <li>
             <label for="user_pwd">비밀번호<span class="essential">(필수)</span></label>

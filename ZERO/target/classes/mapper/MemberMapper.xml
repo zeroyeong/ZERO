@@ -5,20 +5,20 @@
 
 <mapper namespace="Member">
 
-    <select id="selectMember" resultType="member">
+    <select id="allMemberRead" resultType="Member">
         select * from member
     </select>
     
-    <select id="memberNo" parameterType="int" resultType="member">
+    <select id="memberRead" parameterType="int" resultType="Member">
     	select * from member where mem_no = #{mem_no}
     </select>
 
-    <insert id="insertMember" parameterType="member">
+    <insert id="insertMember" parameterType="Member">
         insert into member(mem_id, mem_pw, mem_name, mem_phone)
         values(#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_phone})
     </insert>
 
-    <update id="updateMember" parameterType="member">
+    <update id="updateMember" parameterType="Member">
     	 update member set mem_id = #{mem_id}, mem_pw = #{mem_pw}, mem_name = #{mem_name}, mem_phone = #{mem_phone} where mem_no = #{mem_no}
     </update>
     

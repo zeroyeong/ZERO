@@ -1,5 +1,7 @@
 package com.zero.service;
 
-public interface JoinService {
+import com.zero.domain.Member;
 
+public interface JoinService {
+	void addMember(Member member);
 }
