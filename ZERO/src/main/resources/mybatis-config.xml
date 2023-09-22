@@ -11,6 +11,8 @@
         
     	<typeAlias type="com.zero.domain.Branch" alias="Branch"></typeAlias>
     	<typeAlias type="com.zero.domain.Reservation" alias="Reservation"></typeAlias>
+    	
+    	<typeAlias type="com.zero.domain.Member" alias="Member"></typeAlias>
         
     </typeAliases>
 </configuration>
