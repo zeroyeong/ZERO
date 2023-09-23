@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zero.domain.CupPlayer;
+import com.zero.domain.CupSchejule;
 import com.zero.domain.CupTeam;
 import com.zero.service.CupService;
 
@@ -21,13 +22,18 @@ public class CupController {
 	private CupService cupService;
 
 	@GetMapping("/zCup")
-	public String zCupAllList(@ModelAttribute("NewTeam") CupTeam cup_team, @ModelAttribute("NewPlayer") CupPlayer cup_player, Model model) {
+	public String zCupAllList(@ModelAttribute("NewTeam") CupTeam cup_team, 
+							  @ModelAttribute("NewPlayer") CupPlayer cup_player,
+							  @ModelAttribute CupSchejule cup_schejule,
+							  Model model) {
 		
 		List<CupTeam> cup_team_list = cupService.getCupTeamList();
 		List<CupPlayer> cup_player_list = cupService.getCupPlayerList();
-		
+		List<CupSchejule> cup_schejule_list = cupService.getCupSchejuleList();
+
 		model.addAttribute("cupTeamList", cup_team_list);
 		model.addAttribute("cupPlayerList", cup_player_list);
+		model.addAttribute("cupSchejuleList", cup_schejule_list);
 		return "zCup/zCup";
 	}
 	
@@ -51,14 +57,11 @@ public class CupController {
 	public String getScheduleDetail(Model model) {
 		
 		List<CupTeam> cup_team_list = cupService.getCupTeamList();
-		model.addAttribute("cupTeamList", cup_team_list);
-		return "zCup/scheduleDetail";
-	}
-	
-	@GetMapping("/zCup/teamSetting")
-	public String teamSetting() {
+		List<CupSchejule> cup_schejule_list = cupService.getCupSchejuleList();
 		
-		return "zCup/teamSetting";
+		model.addAttribute("cupTeamList", cup_team_list);
+		model.addAttribute("cupSchejuleList", cup_schejule_list);
+		return "zCup/scheduleDetail";
 	}
 	
     @GetMapping("/zCup/teamDetail") 
@@ -70,6 +73,24 @@ public class CupController {
         return "zCup/teamDetail";
     }
 	
+	@GetMapping("/zCup/teamSetting")
+	public String teamSetting(@RequestParam("team_no") int team_no, Model model) {
+		
+		String pass ="1234";
+		
+		return "zCup/teamSetting";
+	}
+    
+	
+	@GetMapping("/zCup/editorTeam")
+	public String editorTeam() {
+		
+		
+		return "zCup/editorTeam";
+	}
+    
+    
+    ////
 	@GetMapping("/zCup/play")
 	public String zCupAllList(Model model) {
 	
@@ -101,11 +122,7 @@ public class CupController {
 	
 	
 	
-	@GetMapping("/teamDetail")
-	public String teamDetail() {
-		
-		return "teamDetail";
-	}
+
 
 	
 

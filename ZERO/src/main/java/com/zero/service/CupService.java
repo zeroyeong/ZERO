@@ -3,6 +3,7 @@ package com.zero.service;
 import java.util.List;
 
 import com.zero.domain.CupPlayer;
+import com.zero.domain.CupSchejule;
 import com.zero.domain.CupTeam;
 
 public interface CupService {
@@ -10,6 +11,8 @@ public interface CupService {
 	public List<CupTeam> getCupTeamList();
 	
 	public List<CupPlayer> getCupPlayerList();
+	
+	public List<CupSchejule> getCupSchejuleList();
 	
 	public void setNewCupTeam(CupTeam cupTeam);
 	

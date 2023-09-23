@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
+    
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -8,13 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>팀관리(수정)</title>
     <!-- css 연결 -->
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/editorTeam.css" />
-    <link rel="stylesheet" href="../css/tournament.css" />
-
+   <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/editorTeam.css?asd" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
     <!-- js 연결 -->
-    <script src="../js/common.js" defer></script>
-    <script src="../js/tournament.js" defer></script>
+   <script src="<c:url value="/resources/js/zCup.js" />" defer></script>
+   <script src="<c:url value="/resources/js/tournament.js" />" defer></script>
 
     <!-- Font Awesome -->
     <script
@@ -220,7 +222,7 @@
           <div class="teamImage">
             <!--팀 사진-->
             <img src="../images/팀2.jpg" alt="" />
-            <label class="modify">변경</button>
+            <label class="modify">변경</label>
           </div>
           <table class="teamDetail">
             <tr>

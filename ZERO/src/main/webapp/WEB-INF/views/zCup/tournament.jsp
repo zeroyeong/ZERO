@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>서브메뉴</title>
+    <title>ìë¸ë©ë´</title>
     <link rel="stylesheet" href="css/common.css" />
     <!-- <link rel="stylesheet" href="tournament.css" /> -->
     <link rel="stylesheet" href="test.css" />
@@ -82,36 +82,36 @@
             </ul>
             <ul class="teamList">
               <li>
-                <img src="images/팀2.jpg" alt="" />
-                <span class="teamName">팀 이름 1</span>
+                <img src="images/í2.jpg" alt="" />
+                <span class="teamName">팀 이름 1</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
-                <span class="teamName">팀 이름 2</span>
+                <img src="images/í2.jpg" alt="" />
+                <span class="teamName">팀 이름 2</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
-                <span class="teamName">팀 이름 3</span>
+                <img src="images/í2.jpg" alt="" />
+                <span class="teamName">팀 이름 3</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
-                <span class="teamName">팀 이름 4</span>
+                <img src="images/í2.jpg" alt="" />
+                <span class="teamName">팀 이름 4</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
-                <span class="teamName">팀 이름 5</span>
+                <img src="images/í2.jpg" alt="" />
+                <span class="teamName">팀 이름 5</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
-                <span class="teamName">팀 이름 6</span>
+                <img src="images/í2.jpg" alt="" />
+                <span class="teamName">팀 이름 6</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
-                <span class="teamName">팀 이름 7</span>
+                <img src="images/í2.jpg" alt="" />
+                <span class="teamName">팀 이름 7</span>
               </li>
               <li>
-                <img src="images/팀2.jpg" alt="" />
-                <span class="teamName">팀 이름 8</span>
+                <img src="images/í2.jpg" alt="" />
+                <span class="teamName">팀 이름 8</span>
               </li>
             </ul>
           </div>
@@ -119,7 +119,6 @@
         <div class="ranking">
           <div class="title">
             <h1>player ranking</h1>
-            <button type="button" onclick="showDetail()">상세보기</button>
           </div>
           <table>
             <colgroup>
@@ -134,10 +133,10 @@
             <thead>
               <tr>
                 <th>순위</th>
-                <th>이름</th>
-                <th>소속팀</th>
+                <th>이름</th>
+                <th>소속팀</th>
                 <th>출전</th>
-                <th>득점</th>
+                <th>득점</th>
                 <th>경고</th>
                 <th>퇴장</th>
               </tr>
@@ -151,7 +150,7 @@
                     <span class="playerName">홍길동</span>
                   </div>
                 </td>
-                <td>소속 팀 1</td>
+                <td>ìì í 1</td>
                 <td>5</td>
                 <td>5</td>
                 <td>5</td>
@@ -165,7 +164,7 @@
                     <span class="playerName">홍길동</span>
                   </div>
                 </td>
-                <td>소속 팀 1</td>
+                <td>ìì í 1</td>
                 <td>5</td>
                 <td>5</td>
                 <td>5</td>
@@ -179,7 +178,7 @@
                     <span class="playerName">홍길동</span>
                   </div>
                 </td>
-                <td>소속 팀 1</td>
+                <td>ìì í 1</td>
                 <td>5</td>
                 <td>5</td>
                 <td>5</td>

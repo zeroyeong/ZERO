@@ -215,7 +215,7 @@
       </article>
 
       <div class="container">
-        <h1>팀 이름</h1>
+        <h1>${team_detail_list[0].cup_team.team_name}</h1>
 
         <table class="detail">
           <caption>

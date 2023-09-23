@@ -18,7 +18,7 @@ section#teamList {
   display: none;
 }
 
-/* ´ëÈ¸ ¼Ò°³ ¼±ÅÃ */
+/* ï¿½ï¿½È¸ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 input[id="zCupInfo"]:checked ~ section#zCupInfo {
   display: block;
 }
@@ -35,7 +35,7 @@ input[id="zCupInfo"]:checked ~ h1#zCupTitle {
   display: none;
 }
 
-/* ÀüÃ¼ÇöÈ² ¼±ÅÃ */
+/* ï¿½ï¿½Ã¼ï¿½ï¿½È² ï¿½ï¿½ï¿½ï¿½ */
 input[id="zCupAllView"]:checked ~ article.zCupAll {
   display: block;
 }
@@ -52,7 +52,7 @@ input[id="zCupAllView"]:checked ~ h1#zCupTitle {
   display: none;
 }
 
-/* ÆÀµî·Ï ¼±ÅÃ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 input[id="teamAdd"]:checked ~ section#teamAdd {
   display: block;
 }
@@ -65,7 +65,7 @@ input[id="teamAdd"]:checked ~ article {
   display: none;
 }
 
-/* ÆÀ¸®½ºÆ® ¼±ÅÃ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ */
 input[id="teamList"]:checked ~ section#teamList {
   display: block;
 }
@@ -963,7 +963,7 @@ section table tr {
 }
 
 .zCupSchedule .zCup ul li label span::before {
-  content: "¢º";
+  content: "ï¿½ï¿½";
   font-size: 0.2em;
   position: absolute;
   top: 50%;

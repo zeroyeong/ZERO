@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zero.domain.CupPlayer;
+import com.zero.domain.CupSchejule;
 import com.zero.domain.CupTeam;
 import com.zero.repository.CupRepository;
 
@@ -24,6 +25,11 @@ public class CupServiceImpl implements CupService {
 	@Override
 	public List<CupPlayer> getCupPlayerList(){
 		return cupRepository.getCupPlayerList();
+	}
+	
+	@Override
+	public List<CupSchejule> getCupSchejuleList(){
+		return cupRepository.getCupSchejuleList();
 	}
 	
 	@Override

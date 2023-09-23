@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.zero.domain.CupPlayer;
+import com.zero.domain.CupSchejule;
 import com.zero.domain.CupTeam;
 
 @Repository
@@ -24,12 +25,18 @@ public class CupRepositoryImpl implements CupRepository {
 
     	return sql.selectList("Cup.selectTeam");
 	}
-	
+
+	@Override
 	public List<CupPlayer> getCupPlayerList(){
 
 		return sql.selectList("Cup.selectPlayer");
 	}
-	
+
+	@Override
+	public List<CupSchejule> getCupSchejuleList(){
+		
+		return sql.selectList("Cup.selectSchejuleDetail");
+	}
 	@Override
 	public void setNewCupTeam(CupTeam cupTeam) {
 		

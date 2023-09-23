@@ -18,6 +18,7 @@
 
    <!-- js 연결 -->
    <script src="<c:url value="/resources/js/zCup.js" />" defer></script>
+   <script src="<c:url value="/resources/js/zCupURL.js?adbc" />" defer></script>
    <script src="<c:url value="/resources/js/tournament.js" />" defer></script>
 
    <!-- Font Awesome -->
@@ -170,19 +171,7 @@
             </div>
           </div>
         </section>
-        <section id="teamAdd">		 
-			<p>player!!!!</p>
-			
-			
-			<c:forEach items="${cupPlayerList}" var="cupPlayer"> 
-			<p>playerNo = ${cupPlayer.player_no}</p>
-			<p>playerName = ${cupPlayer.player_name}</p>
-			<p>playerPhoto = ${cupPlayer.player_photo}</p>
-		   	<p>playerGoal = ${cupPlayer.player_goal}</p>
-   			<p>playerYellowCard = ${cupPlayer.player_yellow_card}</p>
-  	 	   	<p>playerRedCard = ${cupPlayer.player_red_card}</p>
-			</c:forEach>	
-			
+        <section id="teamAdd">		 	
           <ul class="addButton">
             <li>
               <label for="addTeam" id="selectMenuBtn" class="addTeam active">
@@ -365,7 +354,7 @@
                 </td>
                 <td><span>${cupTeam.team_member_cnt}</span> 명</td>
                 <td>${cupTeam.team_reg_year}</td>
-                <td><button type="button" class="teamBtn" onclick="">팀관리</button></td>
+                <td><button type="button" class="teamBtn" onclick="teamSetting(${cupTeam.team_no})">팀관리</button></td>
               </tr>
               </c:forEach>
             </tbody>
@@ -454,19 +443,23 @@
           </section>
           <section class="zCupSchedule">
             <h3><span>z-cup</span> Schedule</h3>
+              <c:forEach items="${cupSchejuleList}" var="cupSchejule">
             <div class="zCup">
               <ul>
                 <li class="place">시흥점</li>
                 <li class="playInfo">
                   <div>
+                 	<span>${cupSchejule.schejule_date}</span>
                     <span>04.26(월)</span>
                     21:30
                   </div>
-                  <span>C구장</span>
+                  <span>${cupSchejule.schejule_location}</span>
                 </li>
                 <li class="team leftTeam">
-                  <a href="teamDetail.html">팀 스피드러너</a>
-                  <a href="teamDetail.html">
+                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_home_team.team_no}" />">
+                  	${cupSchejule.cup_home_team.team_name}
+                  </a>
+                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_home_team.team_no}" />">
                     <img
                       src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg"
                       alt=""/>
@@ -474,12 +467,14 @@
                 </li>
                 <li class="score">1 : 2</li>
                 <li class="team rightTeam">
-                  <a href="teamDetail.html">
+                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_away_team.team_no}" />">
                     <img
                       src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg"
                     />
                   </a>
-                  <a href="teamDetail.html">team 동그라미</a>
+                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_away_team.team_no}" />">
+                 	${cupSchejule.cup_away_team.team_name}
+                  </a>
                 </li>
                 <li class="button">
                   <label for="play1" class="playButton"
@@ -516,32 +511,33 @@
                     경기기록
                   </caption>
                   <tr>
-                    <th>팀 스피드러너(1)</th>
+                    <th>${cupSchejule.cup_home_team.team_name}</th>
                     <th>팀명</th>
-                    <th>team 동그라미(2)</th>
+                    <th>${cupSchejule.cup_away_team.team_name}</th>
                   </tr>
                   <tr>
-                    <td>백태양 (1쿼터/5')</td>
+                    <td>${cupSchejule.detail.detail_home_goal}</td>
                     <th>득점현황</th>
                     <td>
-                      장승연 (1쿼터/6')
+                      ${cupSchejule.detail.detail_away_goal}
                       <br />
                       주영웅 (2쿼터/6')
                     </td>
                   </tr>
                   <tr>
-                    <td>0</td>
+                    <td>${cupSchejule.detail.detail_home_yellow_card}</td>
                     <th>경고</th>
-                    <td>0</td>
+                    <td>${cupSchejule.detail.detail_away_yellow_card}</td>
                   </tr>
                   <tr>
-                    <td>0</td>
+                    <td>${cupSchejule.detail.detail_home_red_card}</td>
                     <th>퇴장</th>
-                    <td>0</td>
+                    <td>${cupSchejule.detail.detail_away_red_card}</td>
                   </tr>
                 </table>
               </section>
             </div>
+              </c:forEach>
           </section>
 
           <section class="playerRanking">

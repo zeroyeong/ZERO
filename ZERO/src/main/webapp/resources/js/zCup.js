@@ -151,3 +151,10 @@ function playerAdd(){
 	
 	alert("정상적으로 선수 등록이 완료 되었습니다.");
 }
+
+function teamEditPassword(){
+	
+	alert("비밀번호를 다시 확인해주세요.");
+	
+	location.href="editorTeam";
+}

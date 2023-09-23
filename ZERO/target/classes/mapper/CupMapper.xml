@@ -4,23 +4,27 @@
 
 <mapper namespace="Cup">
     <insert id="insertTeam" parameterType="CupTeam">
-        insert into CupTeam(TEAM_NAME, TEAM_LEADER, TEAM_PHONE, TEAM_MAIL, TEAM_UNIFORM_HOME, TEAM_UNIFORM_AWAY, TEAM_EMBLEM, TEAM_PASSWORD, TEAM_CODE)
+        insert into Cup_Team(TEAM_NAME, TEAM_LEADER, TEAM_PHONE, TEAM_MAIL, TEAM_UNIFORM_HOME, TEAM_UNIFORM_AWAY, TEAM_EMBLEM, TEAM_PASSWORD, TEAM_CODE)
         values(#{team_name}, #{team_leader}, #{team_phone}, #{team_mail}, #{team_uniform_home}, #{team_uniform_away}, #{team_emblem}, #{team_password}, #{team_code})
     </insert>
      <select id="selectTeam" resultType="CupTeam">
-        select * from CUPTEAM
+        select * from CUP_TEAM
     </select>
      
     <insert id="insertPlayer" parameterType="CupPlayer">
-        insert into CupPlayer(PLAYER_NAME, PLAYER_PHOTO, PLAYER_GOAL, PLAYER_YELLOW_CARD, PLAYER_RED_CARD)
+        insert into Cup_Player(PLAYER_NAME, PLAYER_PHOTO, PLAYER_GOAL, PLAYER_YELLOW_CARD, PLAYER_RED_CARD)
         values(#{player_name}, #{player_photo}, #{player_goal}, #{player_yellow_card}, #{player_red_card})
     </insert>
     
      <select id="selectPlayer" resultType="CupPlayer">
-        select * from CupPlayer
+        select * from Cup_Player
     </select>
 
-    <resultMap id="CupPlayerResultMap" type="com.zero.domain.CupPlayer">  
+	<select id="selectSchejule" resultType="CupSchejule">
+        select * from CUP_MATCH_SCHEJULE
+    </select>
+
+    <resultMap id="CupPlayerResultMap" type="CupPlayer">  
         <id property="player_no" column="PLAYER_NO"/>
         <result property="player_name" column="PLAYER_NAME"/>
         <result property="player_photo" column="PLAYER_PHOTO"/>
@@ -30,7 +34,7 @@
         <collection property="cup_team" resultMap="CupTeamResultMap"/>
     </resultMap>
     
-    <resultMap id="CupTeamResultMap" type="com.zero.domain.CupTeam">
+    <resultMap id="CupTeamResultMap" type="CupTeam">
         <id property="team_no" column="TEAM_NO"/>
         <result property="team_name" column="TEAM_NAME"/>
         <result property="team_leader" column="TEAM_LEADER"/>
@@ -46,14 +50,14 @@
         <result property="branch_no" column="BRANCH_NO"/>
         <result property="score_no" column="SCORE_NO"/>
     </resultMap>
-  
+    
 	<select id="selectCupTeamAndPlayers" resultMap="CupPlayerResultMap">
 	    SELECT
 	         p.*, t.*
 	    FROM
-	        CupPlayer p
+	        Cup_Player p
 	    JOIN
-	        CupTeam t
+	        Cup_Team t
 	    ON
 	        p.TEAM_NO = t.TEAM_NO
 	</select>
@@ -62,16 +66,66 @@
 	    SELECT
 	         p.*, t.*
 	    FROM
-	        CupPlayer p
+	        Cup_Player p
 	    JOIN
-	        CupTeam t
+	        Cup_Team t
 	    ON
 	        p.TEAM_NO = t.TEAM_NO
 	    WHERE 
 	    	p.TEAM_NO = #{player_no}
 	</select>
 
+ 	<resultMap id="CupSchejuleResultMap" type="CupSchejule">  
+        <id property="schejule_no" column="SCHEJULE_NO"/>
+        <result property="schejule_location" column="SCHEJULE_LOCATION"/>
+        <result property="schejule_date" column="SCHEJULE_DATE"/>
+        <result property="branch_no" column="BRANCH_NO"/>
+     
 
+    	<association property="cup_home_team" javaType="CupTeam">
+            <id property="team_no" column="TEAM_HOME_NO"/>
+            <result property="team_name" column="HOME_NAME"/>
+        </association>
+    	<association property="cup_away_team" javaType="CupTeam">
+            <id property="team_no" column="TEAM_AWAY_NO"/>
+            <result property="team_name" column="AWAY_NAME"/>
+        </association>
+        
+        <association property= "detail" javaType="CupMatchDetail">
+        	<id property="detail_no" column="DETAIL_NO"/>
+        	<result property="detail_home_goal" column="DETAIL_TEAM_HOME_GOAL"/>
+            <result property="detail_away_goal" column="DETAIL_TEAM_AWAY_GOAL"/>
+            <result property="detail_home_yellow_card" column="DETAIL_HOME_YELLOW_CARD"/>
+            <result property="detail_away_yellow_card" column="DETAIL_AWAY_YELLOW_CARD"/>
+            <result property="detail_home_red_card" column="DETAIL_HOME_RED_CARD"/>
+            <result property="detail_away_red_card" column="DETAIL_AWAY_RED_CARD"/>
+        </association>
+    </resultMap>
+    
+   	<select id="selectSchejuleDetail" resultMap="CupSchejuleResultMap">
+	   	SELECT
+    	    s.*,
+    	    d.*, 
+			h.TEAM_NO,
+			h.TEAM_NAME AS HOME_NAME,
+			a.TEAM_NO,
+			a.TEAM_NAME AS AWAY_NAME
+	    FROM
+	        cup_match_schejule s
+		JOIN
+	        Cup_Team h
+	    ON
+	        h.TEAM_NO = s.TEAM_HOME_NO        
+	    JOIN
+	        Cup_Team a
+	    ON
+	    	a.TEAM_NO = s.TEAM_AWAY_NO
+	    JOIN
+	    	CUP_MATCH_DETAIL d
+	    ON
+	    	d.DETAIL_NO = s.DETAIL_NO	      
+	</select>
+	
 </mapper>
 
 

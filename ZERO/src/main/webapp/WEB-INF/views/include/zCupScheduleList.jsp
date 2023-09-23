@@ -11,7 +11,7 @@
       </label>
       <section class="matchNranking">
         <div class="showDetail">
-          <button>상세보기</button>
+           <button type="button" onclick="showDetail()">상세보기</button>
         </div>
         <div class="match">
           <div class="title">
