@@ -16,8 +16,8 @@ public class BranchServiceImpl implements BranchService {
     private BranchRepository branchRepository;
 
     @Override
-    public List<Branch> getList() {
-        return branchRepository.getList();
+    public List<Branch> branchList() {
+        return branchRepository.branchList();
     }
 
     @Override
@@ -27,13 +27,22 @@ public class BranchServiceImpl implements BranchService {
     }
 
     @Override
-    public Reservation addReservation(Reservation reservation) {
+    public void addReservation(Reservation reservation) {
         branchRepository.addReservation(reservation);
-		return reservation;
     }
     @Override
     public List<Reservation> timeList(int re_stadium, int re_branch, String re_date) {
     	return branchRepository.timeList(re_stadium, re_branch, re_date);
+    }
+    
+    @Override
+    public List<Reservation> reservationList(String re_name, String re_pwd) {
+    	return branchRepository.reservationList(re_name, re_pwd);
+    }
+    
+    @Override
+    public void deleteReservation(int re_no,String re_pwd) {
+    	branchRepository.deleteReservation(re_no, re_pwd);
     }
 
 }

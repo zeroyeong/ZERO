@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="Branch">
 
- <select id="read" resultType="Branch">
+ <select id="bList" resultType="Branch">
  SELECT * FROM BRANCH
  </select>
  
@@ -28,5 +28,24 @@ WHERE T.TIME_NO NOT IN (
     AND R.RE_DATE = #{re_date}
     AND R.RE_STADIUM = #{re_stadium})
 </select>
+
+<select id="rList" resultType="Reservation">
+SELECT
+    R.*,
+    B.BRANCH_NAME,
+    S.STADIUM_NAME,
+    T.TIME_START,
+    T.TIME_END
+FROM RESERVATION R
+JOIN BRANCH B ON R.RE_BRANCH = B.BRANCH_NO
+JOIN STADIUM S ON R.RE_STADIUM = S.STADIUM_NO
+JOIN TIME T ON R.RE_TIME = T.TIME_NO
+WHERE R.RE_NAME = #{re_name} AND R.RE_PWD = #{re_pwd}
+</select>
+
+<delete id="rDelete">
+DELETE FROM RESERVATION WHERE RE_NO = #{re_no} 
+AND RE_PWD = #{re_pwd}
+</delete>
  
  </mapper>

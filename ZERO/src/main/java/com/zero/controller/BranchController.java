@@ -28,8 +28,9 @@ public class BranchController {
 
     @GetMapping("/branch")
     public String getList(Model model) {
-        List<Branch> list = branchService.getList();
+        List<Branch> list = branchService.branchList();
         model.addAttribute("branchList", list);
+        
         return "branch/branch";
     }
 
@@ -74,8 +75,34 @@ public class BranchController {
 	    return response;
 	}
 	@GetMapping("/reservation")
-	public String reservation() {
+	public String reservation(Model model) {
+		List<Reservation> list = new ArrayList<>();
+		model.addAttribute("reservationList", list);
 		return "branch/reservation";
 	}
+	@PostMapping("/reservation")
+	public String reservationInfo(@RequestParam("branch_code") String branch_code, Model model) {
+	    Branch branch = branchService.getbranchInfo(branch_code);
+	    model.addAttribute("branch", branch);
+	    String returnURL = "redirect:/branch/" + branch_code;
+	    
+	    return returnURL;
+	}
 	
+	@PostMapping("/reservation/reservationInfo")
+	public String reservationList(@RequestParam("re_name") String re_name, 
+								  @RequestParam("re_pwd") String re_pwd , Model model) {
+	    List<Reservation> list = branchService.reservationList(re_name, re_pwd);
+	    model.addAttribute("reservationList", list);
+	    System.out.println(re_name);
+	    System.out.println(re_pwd);
+	    return "branch/reservationInfo";
+	}
+	@PostMapping("/reservation/cancel")
+	public String deleteReservation(@RequestParam("re_no") int re_no,
+									@RequestParam("re_pwd") String re_pwd) {
+		branchService.deleteReservation(re_no, re_pwd);
+		return "redirect:/reservation";
+		
+	}
 }
