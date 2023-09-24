@@ -50,7 +50,7 @@
                     <p><i class="fa-solid fa-location-dot"></i>예약을 원하시는 지점을 선택해 주세요</p>
                     <div class="reserBody">
                         <div class="reserContent">
-                            <form:form modelAttribute="branch" action="../zero/reservation">
+                            <form:form action="../zero/reservation" method="post">
                                 <span class="select">
                                     <label for="pointSelect">지점을 선택해주세요</label>
                                     <i class="fa-solid fa-caret-down"></i>
@@ -74,25 +74,25 @@
                     </div>
                 </div>
             </section>
-
+            
+		<form:form action="../zero/reservation/reservationInfo" method="post">
             <section class="reserCheck">
                 <div class="reserFrameBox">
                     <p><i class="fa-solid fa-location-dot"></i>예약 시 입력하신 정보를 입력해주십시오</p>
                     <div class="reserBody">
                         <div class="reserContent">
                             <span class="text">
-                            <form>
-                                <input type="text" placeholder="예약자명">
-                                <input type="password" placeholder="비밀번호">
+                                <input name="re_name" type="text" placeholder="예약자명">
+                                <input name="re_pwd" type="password" placeholder="비밀번호">
                             </span>
                             <div class="reserBtnBox">
-                                <a href="reservationComplete.html" class="reserBtn">확인</a>
+                                <button class="reserBtn">확인</button>
                             </div>
-                            </form>
                         </div>
                     </div>
                 </div>
             </section>
+         </form:form>
         </div>
     </main>
 

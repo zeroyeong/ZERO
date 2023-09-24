@@ -20,6 +20,13 @@ public class Reservation {
 	private String time_start;
 	private String time_end;
 	
+	private int stadium_no;
+	private String stadium_name;
+	private String stadium_size;
+	
+	private Branch branch;
+	private String branch_name;
+
 	public Reservation() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -27,7 +34,8 @@ public class Reservation {
 
 	public Reservation(int re_no, int re_branch, String re_name, String re_tel1, String re_tel2, String re_tel3,
 			String re_pwd, String re_date, int re_stadium, int re_time, String re_totalpay, String re_memo,
-			String re_payment, int time_no, String time_start, String time_end) {
+			String re_payment, int time_no, String time_start, String time_end, int stadium_no, String stadium_name,
+			String stadium_size, Branch branch) {
 		super();
 		this.re_no = re_no;
 		this.re_branch = re_branch;
@@ -45,6 +53,15 @@ public class Reservation {
 		this.time_no = time_no;
 		this.time_start = time_start;
 		this.time_end = time_end;
+		this.stadium_no = stadium_no;
+		this.stadium_name = stadium_name;
+		this.stadium_size = stadium_size;
+		this.branch = branch;
+	}
+	
+	
+	public String getBranch_name() {
+		return branch_name;
 	}
 
 	public int getRe_no() {
@@ -174,4 +191,40 @@ public class Reservation {
 	public void setTime_end(String time_end) {
 		this.time_end = time_end;
 	}
+
+	public int getStadium_no() {
+		return stadium_no;
+	}
+
+	public void setStadium_no(int stadium_no) {
+		this.stadium_no = stadium_no;
+	}
+
+	public String getStadium_name() {
+		return stadium_name;
+	}
+
+	public void setStadium_name(String stadium_name) {
+		this.stadium_name = stadium_name;
+	}
+
+	public String getStadium_size() {
+		return stadium_size;
+	}
+
+	public void setStadium_size(String stadium_size) {
+		this.stadium_size = stadium_size;
+	}
+
+	public Branch getBranch() {
+		return branch;
+	}
+
+	public void setBranch(Branch branch) {
+		this.branch = branch;
+	}
+	
+
+	
+	
 }

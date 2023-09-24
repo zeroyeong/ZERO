@@ -7,11 +7,15 @@ import com.zero.domain.Reservation;
 
 public interface BranchService {
 
-    List<Branch> getList();
+    List<Branch> branchList();
 
     Branch getbranchInfo(String branch_code);
 
-    Reservation addReservation(Reservation reservation);
+    void addReservation(Reservation reservation);
 
     List<Reservation> timeList(int re_stadium, int re_branch, String re_date);
+    
+    List<Reservation> reservationList(String re_name, String re_pwd);
+    
+    void deleteReservation(int re_no, String re_pwd);
 }

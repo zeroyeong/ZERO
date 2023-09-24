@@ -18,8 +18,8 @@ public class BranchRepositoryImpl implements BranchRepository {
     private SqlSessionTemplate sql;
 
     @Override
-    public List<Branch> getList() {
-        return sql.selectList("Branch.read");
+    public List<Branch> branchList() {
+        return sql.selectList("Branch.bList");
     }
 
     @Override
@@ -39,5 +39,20 @@ public class BranchRepositoryImpl implements BranchRepository {
 	    parameters.put("re_branch", re_branch);
 	    parameters.put("re_date", re_date);
 	    return sql.selectList("Branch.checkTime", parameters);
+	}
+	
+	@Override
+	public List<Reservation> reservationList(String re_name, String re_pwd) {
+	    Map<String, Object> parameters = new HashMap<>();
+	    parameters.put("re_name", re_name);
+	    parameters.put("re_pwd", re_pwd);
+		return sql.selectList("Branch.rList", parameters);
+	}
+	@Override
+	public void deleteReservation(int re_no, String re_pwd) {
+	    Map<String, Object> parameters = new HashMap<>();
+	    parameters.put("re_no", re_no);
+	    parameters.put("re_pwd", re_pwd);
+		sql.delete("Branch.rDelete", parameters);
 	}
 }
