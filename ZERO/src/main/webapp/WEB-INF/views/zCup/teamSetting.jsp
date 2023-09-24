@@ -13,13 +13,15 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/teamSetting.css" />" />
     <!-- js 연결 -->
     <script src="<c:url value="/resources/js/common.js" />" defer></script>
-	<script src="<c:url value="/resources/js/zCup.js?ddb" />" defer></script>
+	<script src="<c:url value="/resources/js/zCup.js?ddfdg" />" defer></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous" ></script>
   </head>
   <body>
   	<!-- header include -->
   	<jsp:include page="../include/header.jsp" />
+  	
+  	<input type="hidden" id = "team_password" value = "${team.team_password}"/>
   	
   	<main>
       <div class="topVideo">
@@ -40,11 +42,11 @@
           <div class="settingFrom">
             <form action="#">
               <label>비밀번호</label>
-              <input type="password" name="" />
+              <input type="password" id="password" name="" />
             </form>
             <div class="btns">
               <a href="" class="accept">인증하기</a>
-              <button type="button" onclick = "teamEditPassword()">인증하기</button>
+              <button type="button" onclick = "teamEditPassword(${team.team_no})">인증하기</button>
               <a href="">취소하기</a>
             </div>
           </div>

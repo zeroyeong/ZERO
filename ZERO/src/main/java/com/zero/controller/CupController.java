@@ -28,11 +28,11 @@ public class CupController {
 							  Model model) {
 		
 		List<CupTeam> cup_team_list = cupService.getCupTeamList();
-		List<CupPlayer> cup_player_list = cupService.getCupPlayerList();
+		List<CupPlayer> player_rank_list = cupService.getPlayerRanking();
 		List<CupSchejule> cup_schejule_list = cupService.getCupSchejuleList();
-
+		
 		model.addAttribute("cupTeamList", cup_team_list);
-		model.addAttribute("cupPlayerList", cup_player_list);
+		model.addAttribute("player_rank_list", player_rank_list);
 		model.addAttribute("cupSchejuleList", cup_schejule_list);
 		return "zCup/zCup";
 	}
@@ -76,16 +76,17 @@ public class CupController {
 	@GetMapping("/zCup/teamSetting")
 	public String teamSetting(@RequestParam("team_no") int team_no, Model model) {
 		
-		String pass ="1234";
-		
+		CupTeam team = cupService.getCupTeamOne(team_no);
+		model.addAttribute("team",team);		
 		return "zCup/teamSetting";
 	}
     
 	
 	@GetMapping("/zCup/editorTeam")
-	public String editorTeam() {
+	public String editorTeam(@RequestParam("team_no") int team_no, Model model) {
 		
-		
+		List<CupPlayer> team_detail_list = cupService.getTeamDetail(team_no);
+		model.addAttribute("team_detail_list", team_detail_list);
 		return "zCup/editorTeam";
 	}
     

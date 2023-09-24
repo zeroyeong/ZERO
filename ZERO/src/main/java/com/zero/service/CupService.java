@@ -10,6 +10,8 @@ public interface CupService {
 
 	public List<CupTeam> getCupTeamList();
 	
+	public CupTeam getCupTeamOne(int team_no);
+	
 	public List<CupPlayer> getCupPlayerList();
 	
 	public List<CupSchejule> getCupSchejuleList();
@@ -21,4 +23,6 @@ public interface CupService {
 	public List<CupPlayer> getPlayerWithTeamList();
 	
 	public List<CupPlayer> getTeamDetail(int team_no);
+	
+	public List<CupPlayer> getPlayerRanking();
 }

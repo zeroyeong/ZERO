@@ -107,34 +107,7 @@ function changeVal(class_name, change_name) {
 function showDetail(){
     location.href="zCup/scheduleDetail"
 }
-
-
-
-//pjy
-
-function refreshSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    section.innerHTML = section.innerHTML; // 섹션 내용을 갱신
-}
-
-function okReser(id) {
-    let message;
-
-    switch (id) {
-        case 'test1':
-            message = "팀 새로고침.";
-            refreshSection('addTeam');
-            break;
-        case 'test2':
-            message = "선수 정보 새로고침" ;
-            refreshSection('addPlayer');
-            var teamCodeInput = document.getElementById("teamCodeInput");
-            teamCodeInput.value = "동그라미";
-            break;
-            }
-     alert(message);
-}
-           
+  
 function teamAdd(){
 	var teamForm = document.getElementById("teamForm");
 	
@@ -152,9 +125,18 @@ function playerAdd(){
 	alert("정상적으로 선수 등록이 완료 되었습니다.");
 }
 
-function teamEditPassword(){
+function teamEditPassword(team_no){
+	var password = document.getElementById("password");
+	var team_password = document.getElementById("team_password");
+	console.log("password = " + password.value);
 	
-	alert("비밀번호를 다시 확인해주세요.");
+	if(team_password.value === password.value){
+		alert("인증되었습니다.");	
+		location.href="editorTeam?team_no=" + team_no;
+	}else{
+		alert("비밀번호를 다시 확인해주세요.");	
+	}
 	
-	location.href="editorTeam";
+	
 }
+

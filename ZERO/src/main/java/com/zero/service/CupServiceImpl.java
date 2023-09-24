@@ -23,6 +23,11 @@ public class CupServiceImpl implements CupService {
     } 
 	
 	@Override
+	public CupTeam getCupTeamOne(int team_no){
+		return cupRepository.getCupTeamOne(team_no);
+	}
+	
+	@Override
 	public List<CupPlayer> getCupPlayerList(){
 		return cupRepository.getCupPlayerList();
 	}
@@ -50,6 +55,11 @@ public class CupServiceImpl implements CupService {
 	@Override
 	public List<CupPlayer> getTeamDetail(int team_no) {
 		return cupRepository.getTeamDetail(team_no);
+	}
+	
+	@Override
+	public List<CupPlayer> getPlayerRanking(){
+		return cupRepository.getPlayerRanking();
 	}
 }
  

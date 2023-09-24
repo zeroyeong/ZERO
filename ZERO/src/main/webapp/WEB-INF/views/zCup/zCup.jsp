@@ -17,9 +17,8 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/zCup.js" />" defer></script>
-   <script src="<c:url value="/resources/js/zCupURL.js?adbc" />" defer></script>
-   <script src="<c:url value="/resources/js/tournament.js" />" defer></script>
+   <script src="<c:url value="/resources/js/zCup.js?f" />" defer></script>
+   <script src="<c:url value="/resources/js/zCupURL.js?dbc" />" defer></script>
 
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
@@ -259,6 +258,13 @@
               </div>
             </form:form>
           </section>
+          
+          <c:forEach items="${cupTeamList}" var="cupTeam" varStatus="loop">
+	    	<input type="hidden" id="teamNo_${loop.index}" value="${cupTeam.team_no}" />
+	    	<input type="hidden" id="teamName_${loop.index}" value="${cupTeam.team_name}" />
+	    	<input type="hidden" id="teamCode_${loop.index}" value="${cupTeam.team_code}" />
+		  </c:forEach>
+          
           <section class="addPlayer">
             <form:form id="playerForm" modelAttribute = "NewPlayer" method="post" action="zCup/cupPlayer">
               <h3 class="formTitle"><span></span>선수 등록</h3>
@@ -279,11 +285,11 @@
                 <div class="bothSide">
                   <div>
                     <label>팀명</label>
-                    <input type="text" name=""  readonly />
+                    <input type="text" id="player_team_name"  readonly />
                   </div>
                   <div>
                     <label>지점명</label>
-                    <input type="text" name=""  readonly />
+                    <input type="text" id="player_branch_name"  readonly />
                   </div>
                 </div>
                 <div>
@@ -443,8 +449,8 @@
           </section>
           <section class="zCupSchedule">
             <h3><span>z-cup</span> Schedule</h3>
-              <c:forEach items="${cupSchejuleList}" var="cupSchejule">
             <div class="zCup">
+              <c:forEach items="${cupSchejuleList}" var="cupSchejule">
               <ul>
                 <li class="place">시흥점</li>
                 <li class="playInfo">
@@ -482,6 +488,7 @@
                   ></label>
                 </li>
               </ul>
+              </c:forEach>
               <input type="checkbox" name="" id="play1" />
               <label for="play1" class="cover"></label>
               <section class="play1 playInfo">
@@ -511,33 +518,32 @@
                     경기기록
                   </caption>
                   <tr>
-                    <th>${cupSchejule.cup_home_team.team_name}</th>
+                    <th>{cupSchejule.cup_home_team.team_name}</th>
                     <th>팀명</th>
-                    <th>${cupSchejule.cup_away_team.team_name}</th>
+                    <th>{cupSchejule.cup_away_team.team_name}</th>
                   </tr>
                   <tr>
-                    <td>${cupSchejule.detail.detail_home_goal}</td>
+                    <td>{cupSchejule.detail.detail_home_goal}</td>
                     <th>득점현황</th>
                     <td>
-                      ${cupSchejule.detail.detail_away_goal}
+                      {cupSchejule.detail.detail_away_goal}
                       <br />
                       주영웅 (2쿼터/6')
                     </td>
                   </tr>
                   <tr>
-                    <td>${cupSchejule.detail.detail_home_yellow_card}</td>
+                    <td>{cupSchejule.detail.detail_home_yellow_card}</td>
                     <th>경고</th>
-                    <td>${cupSchejule.detail.detail_away_yellow_card}</td>
+                    <td>{cupSchejule.detail.detail_away_yellow_card}</td>
                   </tr>
                   <tr>
-                    <td>${cupSchejule.detail.detail_home_red_card}</td>
+                    <td>{cupSchejule.detail.detail_home_red_card}</td>
                     <th>퇴장</th>
-                    <td>${cupSchejule.detail.detail_away_red_card}</td>
+                    <td>{cupSchejule.detail.detail_away_red_card}</td>
                   </tr>
                 </table>
               </section>
-            </div>
-              </c:forEach>
+            </div>           
           </section>
 
           <section class="playerRanking">
@@ -569,22 +575,25 @@
                 </tr>
               </thead>
               <tbody>
+               <c:forEach items="${player_rank_list}" var="cupPlayer">
+               <c:set var="rankNum" value="${rankNum + 1}" />
                 <tr>
-                  <td><span class="rank">1</span></td>
+                  <td><span class="rank">${rankNum}</span></td>
                   <td>
                     <div class="player">
                       <span class="img">
                         <img src="../images/person.png" alt="" />
                       </span>
-                      <span class="name">홍길동</span>
+                      <span class="name">${cupPlayer.player_name}</span>
                     </div>
                   </td>
-                  <td>팀 1</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
+                  <td>${cupPlayer.cup_team.team_name}</td>
+                  <td>미구현</td>
+                  <td>${cupPlayer.player_goal}</td>
+                  <td>${cupPlayer.player_yellow_card}</td>
+                  <td>${cupPlayer.player_red_card}</td>
                 </tr>
+                </c:forEach>
                 <tr>
                   <td><span class="rank">2</span></td>
                   <td>
@@ -626,5 +635,59 @@
 	
     <!-- footer include -->
     <jsp:include page="../include/footer.jsp" />
+    
+<script type="text/javascript">
+    var cupTeamNo = [];
+    var cupTeamCode = [];
+    var cupTeamName = [];
+    var teamCodeCheck = false;
+	var teamNum = 0;
+	var player_team_name  = document.getElementById("player_team_name");
+	var player_branch_name = document.getElementById("player_branch_name");
+	
+    <c:forEach items="${cupTeamList}" var="cupTeam" varStatus="loop">    	
+    	cupTeamNo.push("${cupTeam.team_no}");
+    	cupTeamCode.push("${cupTeam.team_code}");
+    	cupTeamName.push("${cupTeam.team_name}");
+    </c:forEach>
+
+    console.log('Cup Team No:', cupTeamNo);
+    console.log('Cup Team Code:', cupTeamCode);
+    console.log('Cup Team Name:', cupTeamName);
+    
+    function okReser(id) {
+        let message;
+    	var teamCodeInput = document.getElementById("teamCodeInput").value;
+    	
+    	if(teamCodeInput == ""){
+    		message ="팀코드를 입력해 주세요";
+    		alert(message);
+    	}else{
+    		for(var i=0; i<cupTeamCode.length; i++){
+        		if(teamCodeInput == cupTeamCode[i]){
+        			teamCodeCheck = true;
+        			teamNum = i;
+        		}
+        	}
+    		
+    		if(teamCodeCheck){
+    			message ="팀코드 확인 팀 넘버" + teamNum;
+    			player_team_name.value = cupTeamName[teamNum];
+    			player_branch_name.value = cupTeamName[teamNum];
+    			refreshSection('addTeam');
+        		alert(message);
+    		}else{
+    			message ="등록된 팀코드가 아닙니다. 다시 확인 바랍니다.";
+        		alert(message);
+    		}
+    	}       
+    }
+    
+    function refreshSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        section.innerHTML = section.innerHTML; // 섹션 내용을 갱신
+    }    
+    
+</script>
 </body>
 </html>

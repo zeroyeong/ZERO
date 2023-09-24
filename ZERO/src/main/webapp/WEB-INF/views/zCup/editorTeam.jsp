@@ -215,7 +215,7 @@
 
       <div class="container">
         <h1>
-          팀 관리
+          팀 관리 1
         </h1>
 
         <form class="team">
@@ -230,11 +230,10 @@
               <td>
                 <input type="checkbox" id="teamName" class="checkBotInput">
                 <div class="origin branch">
-                  <span>팀 이름</span>
+                  <span>${team_detail_list[0].cup_team.team_name}</span>
                   <label class="modify" for="teamName">변경</label>
                   <!--변경버튼 클릭하면 div.orgin이 감춰지고 div.new가 보인다.-->
                 </div>
-
                 <div class="new">
                   <input type="text">
                 </div>
@@ -242,7 +241,7 @@
             </tr>
             <tr>
               <th>팀 코드</th>
-              <td>abc12</td>
+              <td>${team_detail_list[0].cup_team.team_code}</td>
             </tr>
             <tr>
               <th>지점</th>
@@ -267,7 +266,7 @@
               <td>
                 <input type="checkbox" id="director" class="checkBotInput">
                 <div class="origin director">
-                  <span>홍길동</span>
+                  <span>${team_detail_list[0].cup_team.team_leader}</span>
                   <label class="modify" for="director">변경</label>
                   <!--변경버튼 클릭하면 div.orgin이 감춰지고 div.new가 보인다.-->
                 </div>
@@ -286,7 +285,8 @@
               <td>
                 <input type="checkbox" id="uniform" class="checkBotInput">
                 <div class="origin uniform">
-                  <span>홈: 흰 / 원정: 검</span>
+                  <span>홈: ${team_detail_list[0].cup_team.team_uniform_home} / 
+                  원정: ${team_detail_list[0].cup_team.team_uniform_away}</span>
                   <label class="modify" for="uniform">변경</label>
                 </div>
                 <div class="new uniform">
@@ -314,6 +314,7 @@
               </tr>
             </thead>
             <tbody>
+              <c:forEach var= "player" items="${team_detail_list}">
               <tr>
                 <td>1</td>
                 <td>
@@ -322,13 +323,14 @@
                       <!--선수 사진-->
                       <img src="../images/person.png" alt="">
                     </span>
-                    <span>홍길동</span>
+                    <span>${player.player_name}</span>
                   </div>
                 </td>
                 <td>
                   <button type="button" class="playerOut">퇴출</button>
                 </td>
               </tr>
+              </c:forEach>
               <tr>
                 <td>1</td>
                 <td>

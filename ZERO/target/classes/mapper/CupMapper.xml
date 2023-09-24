@@ -7,8 +7,13 @@
         insert into Cup_Team(TEAM_NAME, TEAM_LEADER, TEAM_PHONE, TEAM_MAIL, TEAM_UNIFORM_HOME, TEAM_UNIFORM_AWAY, TEAM_EMBLEM, TEAM_PASSWORD, TEAM_CODE)
         values(#{team_name}, #{team_leader}, #{team_phone}, #{team_mail}, #{team_uniform_home}, #{team_uniform_away}, #{team_emblem}, #{team_password}, #{team_code})
     </insert>
+    
      <select id="selectTeam" resultType="CupTeam">
         select * from CUP_TEAM
+    </select>
+    
+    <select id="selectOneTeam" parameterType="int" resultType="CupTeam">
+        select * from CUP_TEAM  WHERE team_no = #{team_no}
     </select>
      
     <insert id="insertPlayer" parameterType="CupPlayer">
@@ -17,12 +22,14 @@
     </insert>
     
      <select id="selectPlayer" resultType="CupPlayer">
-        select * from Cup_Player
+        select * from cup_player
     </select>
 
 	<select id="selectSchejule" resultType="CupSchejule">
         select * from CUP_MATCH_SCHEJULE
     </select>
+
+	
 
     <resultMap id="CupPlayerResultMap" type="CupPlayer">  
         <id property="player_no" column="PLAYER_NO"/>
@@ -60,6 +67,19 @@
 	        Cup_Team t
 	    ON
 	        p.TEAM_NO = t.TEAM_NO
+	</select>
+	
+	<select id="selectTeamAndPlayerRanking" resultMap="CupPlayerResultMap">
+	    SELECT
+	         p.*, t.*
+	    FROM
+	        Cup_Player p
+	    JOIN
+	        Cup_Team t
+	    ON
+	        p.TEAM_NO = t.TEAM_NO
+	    ORDER BY 
+	    	PLAYER_GOAL DESC;    
 	</select>
 
 	<select id="selectTeamDetail" parameterType="int" resultMap="CupPlayerResultMap">
