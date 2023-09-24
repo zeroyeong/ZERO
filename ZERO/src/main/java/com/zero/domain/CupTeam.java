@@ -22,7 +22,7 @@ public class CupTeam {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+ 
 	public CupTeam(int team_no, String team_name, String team_leader, String team_phone, String team_mail,
 			String team_uniform_home, String team_uniform_away, String team_emblem, String team_password,
 			String team_password_check, String team_code, String team_member_cnt, String team_reg_year, int branch_no,

@@ -11,7 +11,7 @@ public class CupMatchDetail {
 	private String detail_away_red_card;
 
 	public CupMatchDetail() {
-		super();
+		super(); 
 		// TODO Auto-generated constructor stub
 	}
 	

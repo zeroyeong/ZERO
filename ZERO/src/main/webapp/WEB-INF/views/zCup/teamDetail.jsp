@@ -32,7 +32,7 @@
   	<jsp:include page="../include/header.jsp" />
   	
   	<main>
-      <div class="topVideo">
+      <div class="topVideo"> 
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
           <source src="../videos/point.mp4" type="video/mp4" />

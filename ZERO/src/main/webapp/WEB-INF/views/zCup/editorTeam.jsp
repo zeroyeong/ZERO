@@ -340,7 +340,7 @@
                       <img src="../images/person.png" alt="">
                     </span>
                     <span>홍길동</span>
-                  </div>
+                  </div> 
                 </td>
                 <td>
                   <button type="button" class="playerOut">퇴출</button>

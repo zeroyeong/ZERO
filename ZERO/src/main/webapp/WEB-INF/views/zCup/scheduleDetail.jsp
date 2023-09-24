@@ -215,7 +215,7 @@
                   <li class="button">
                     <label for="play1" class="playButton"
                       >경기정보 <span></span
-                    ></label>
+                    ></label>  
                   </li>
                 </ul>
                 <input type="checkbox" name="" id="play1" />

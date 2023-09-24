@@ -344,7 +344,7 @@
                 <td><button type="button" class="teamBtn">팀관리</button></td>
               </tr>
               
-       		<c:forEach items="${cupTeamList}" var="cupTeam"> 
+       		<c:forEach items="${cupTeamList}" var="cupTeam">  
               <tr>
                 <td>1</td>
                 <td>더피치 평택점 = ${cupTeam.team_no}</td>

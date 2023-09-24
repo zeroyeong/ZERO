@@ -14,7 +14,7 @@ public class CupSchejule {
 	public CupSchejule() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
+	} 
 
 	public CupSchejule(int schejule_no, String schejule_location, String schejule_date, int branch_no,
 			CupTeam cup_home_team, CupTeam cup_away_team, CupMatchDetail detail) {

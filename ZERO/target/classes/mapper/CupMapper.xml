@@ -88,7 +88,7 @@
 	    FROM
 	        Cup_Player p
 	    JOIN
-	        Cup_Team t
+	        Cup_Team t 
 	    ON
 	        p.TEAM_NO = t.TEAM_NO
 	    WHERE 

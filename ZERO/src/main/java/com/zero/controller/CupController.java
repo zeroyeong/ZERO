@@ -90,7 +90,7 @@ public class CupController {
 		return "zCup/editorTeam";
 	}
     
-    
+     
     ////
 	@GetMapping("/zCup/play")
 	public String zCupAllList(Model model) {

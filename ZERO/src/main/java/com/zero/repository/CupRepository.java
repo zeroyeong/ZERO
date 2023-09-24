@@ -19,7 +19,7 @@ public interface CupRepository {
 	public void setNewCupTeam(CupTeam cupTeam);
 	
 	public void setNewCupPlayer(CupPlayer cupPlayer);
-	
+	 
 	public List<CupPlayer> getPlayerWithTeamList();
 	
 	public List<CupPlayer> getTeamDetail(int team_no);

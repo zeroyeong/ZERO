@@ -14,7 +14,7 @@ public class CupPlayer {
 	public CupPlayer() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
+	} 
 	
 	public CupPlayer(int player_no, String player_name, String player_photo, String player_goal,
 			String player_yellow_card, String player_red_card, CupTeam cup_team) {

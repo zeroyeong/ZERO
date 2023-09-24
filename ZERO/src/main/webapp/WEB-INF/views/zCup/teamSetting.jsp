@@ -34,7 +34,7 @@
       <div class="container">
         <h1 class="pageTitle">팀관리</h1>
 
-        <div class="settingBox">
+        <div class="settingBox"> 
           <p>
             <i class="fa-solid fa-location-dot"></i>팀관리에 앞서 정보를 입력해
             주세요.

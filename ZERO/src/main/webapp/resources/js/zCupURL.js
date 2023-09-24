@@ -12,4 +12,4 @@ function teamDetail(team_no){
 
 function editorTeam(team_no){
 	location.href="zCup/editorTeam?team_no=" + team_no;
-}
+} 

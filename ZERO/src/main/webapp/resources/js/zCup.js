@@ -124,7 +124,7 @@ function playerAdd(){
 	
 	alert("정상적으로 선수 등록이 완료 되었습니다.");
 }
-
+  
 function teamEditPassword(team_no){
 	var password = document.getElementById("password");
 	var team_password = document.getElementById("team_password");

@@ -59,7 +59,7 @@ public class CupRepositoryImpl implements CupRepository {
 		cupPlayer.setPlayer_yellow_card("0");
 		cupPlayer.setPlayer_red_card("0");
 		sql.insert("Cup.insertPlayer", cupPlayer);
-	}
+	} 
 	
 	@Override
 	public List<CupPlayer> getPlayerWithTeamList() {
