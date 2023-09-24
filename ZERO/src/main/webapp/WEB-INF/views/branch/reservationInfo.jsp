@@ -39,7 +39,7 @@
 
             <h1>예약확인</h1>
 		<c:forEach items="${reservationList}" var="reservation">
-		<form action="../reservation/test" method="post">
+		<form action="../reservation/cancel" method="post">
             <div class="reserInfoTable">
                 <table>
                     <colgroup>

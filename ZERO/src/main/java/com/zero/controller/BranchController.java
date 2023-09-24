@@ -98,11 +98,10 @@ public class BranchController {
 	    System.out.println(re_pwd);
 	    return "branch/reservationInfo";
 	}
-	@PostMapping("/reservation/test")
+	@PostMapping("/reservation/cancel")
 	public String deleteReservation(@RequestParam("re_no") int re_no,
-									@RequestParam("re_pwd") String re_pwd, Reservation reservation, Model model) {
+									@RequestParam("re_pwd") String re_pwd) {
 		branchService.deleteReservation(re_no, re_pwd);
-		model.addAttribute(reservation);
 		return "redirect:/reservation";
 		
 	}
