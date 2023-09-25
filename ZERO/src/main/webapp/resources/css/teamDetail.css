@@ -32,7 +32,7 @@
 }
 
 .container table caption span::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 10px;
@@ -43,7 +43,7 @@
 }
 
 .container table caption span::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 5px;
@@ -105,7 +105,7 @@ main .container > ul {
 }
 
 main .container > ul li {
-  width: calc(100% / 3);
+  width: calc(100% / 2);
 }
 
 main .container > ul li label {
@@ -123,10 +123,10 @@ main .container > ul {
   border: 1px solid var(--pointColor);
 }
 
-main .container > ul li:nth-child(2) label {
+/* main .container > ul li:nth-child(2) label {
   border-left: 1px solid var(--pointColor);
   border-right: 1px solid var(--pointColor);
-}
+} */
 
 main .container > ul li label:hover {
   background-color: var(--pointColor);
@@ -139,24 +139,24 @@ main .container > ul li label.active {
 }
 
 /* INPUT:RADIO */
-input[type="radio"] {
+input[type='radio'] {
   display: none;
 }
 
-input[id="shcedule"]:checked + * label[for="shcedule"] {
+input[id='shcedule']:checked + * label[for='shcedule'] {
   background-color: var(--pointColor);
   color: #fff;
 }
 
-input[id="shcedule"]:checked ~ section.shcedule {
+input[id='shcedule']:checked ~ section.shcedule {
   display: block;
 }
 
-input[id="ranking"]:checked ~ section.ranking {
+input[id='ranking']:checked ~ section.ranking {
   display: block;
 }
 
-input[id="player"]:checked ~ section.player {
+input[id='player']:checked ~ section.player {
   display: block;
 }
 
@@ -269,7 +269,7 @@ section.shcedule ul li label span {
 }
 
 section.shcedule ul li label span::before {
-  content: "▶";
+  content: '�뼳';
   font-size: 0.2em;
   position: absolute;
   top: 50%;
@@ -316,15 +316,15 @@ section.shcedule section label.closeBtn {
 }
 
 /* SECTION.SCHEDULE - INPUT:RADIO */
-section.shcedule input[type="checkbox"] {
+section.shcedule input[type='checkbox'] {
   display: none;
 }
 
-input[id="play1"]:checked ~ label.cover {
+input[id='play1']:checked ~ label.cover {
   display: block;
 }
 
-input[id="play1"]:checked ~ section.playInfo {
+input[id='play1']:checked ~ section.playInfo {
   display: block;
 }
 

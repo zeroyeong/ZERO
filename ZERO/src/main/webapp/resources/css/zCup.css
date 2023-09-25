@@ -7,7 +7,7 @@
 }
 
 /* INPUT RADIO */
-.container input[type="radio"] {
+.container input[type='radio'] {
   display: none;
 }
 
@@ -18,63 +18,63 @@ section#teamList {
   display: none;
 }
 
-/* ��ȸ �Ұ� ���� */
-input[id="zCupInfo"]:checked ~ section#zCupInfo {
+/* 대회 소개 선택 */
+input[id='zCupInfo']:checked ~ section#zCupInfo {
   display: block;
 }
 
-input[id="zCupInfo"]:checked ~ ul.menuBtn li label#zCupInfo {
+input[id='zCupInfo']:checked ~ ul.menuBtn li label#zCupInfo {
   border: 5px solid var(--pointColor);
 }
 
-input[id="zCupInfo"]:checked ~ article {
+input[id='zCupInfo']:checked ~ article {
   display: none;
 }
 
-input[id="zCupInfo"]:checked ~ h1#zCupTitle {
+input[id='zCupInfo']:checked ~ h1#zCupTitle {
   display: none;
 }
 
-/* ��ü��Ȳ ���� */
-input[id="zCupAllView"]:checked ~ article.zCupAll {
+/* 전체현황 선택 */
+input[id='zCupAllView']:checked ~ article.zCupAll {
   display: block;
 }
 
-input[id="zCupAllView"]:checked ~ ul.menuBtn li label#zCupAllView {
+input[id='zCupAllView']:checked ~ ul.menuBtn li label#zCupAllView {
   border: 5px solid var(--pointColor);
 }
 
-input[id="zCupAllView"]:checked ~ article {
+input[id='zCupAllView']:checked ~ article {
   display: none;
 }
 
-input[id="zCupAllView"]:checked ~ h1#zCupTitle {
+input[id='zCupAllView']:checked ~ h1#zCupTitle {
   display: none;
 }
 
-/* ����� ���� */
-input[id="teamAdd"]:checked ~ section#teamAdd {
+/* 팀등록 선택 */
+input[id='teamAdd']:checked ~ section#teamAdd {
   display: block;
 }
 
-input[id="teamAdd"]:checked ~ ul.menuBtn li label#teamAdd {
+input[id='teamAdd']:checked ~ ul.menuBtn li label#teamAdd {
   border: 5px solid var(--pointColor);
 }
 
-input[id="teamAdd"]:checked ~ article {
+input[id='teamAdd']:checked ~ article {
   display: none;
 }
 
-/* ������Ʈ ���� */
-input[id="teamList"]:checked ~ section#teamList {
+/* 팀리스트 선택 */
+input[id='teamList']:checked ~ section#teamList {
   display: block;
 }
 
-input[id="teamList"]:checked ~ ul.menuBtn li label#teamList {
+input[id='teamList']:checked ~ ul.menuBtn li label#teamList {
   border: 5px solid var(--pointColor);
 }
 
-input[id="teamList"]:checked ~ article {
+input[id='teamList']:checked ~ article {
   display: none;
 }
 
@@ -244,7 +244,7 @@ section#teamAdd section form h3 span {
 }
 
 section#teamAdd section form h3 span::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 10px;
@@ -255,7 +255,7 @@ section#teamAdd section form h3 span::after {
 }
 
 section#teamAdd section form h3 span::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 5px;
@@ -286,9 +286,9 @@ section#teamAdd section form .formDiv label {
   margin-bottom: 7px;
 }
 
-section#teamAdd section form .formDiv input[type="text"],
-section#teamAdd section form .formDiv input[type="new-password"],
-section#teamAdd section form .formDiv input[type="new-password"],
+section#teamAdd section form .formDiv input[type='text'],
+section#teamAdd section form .formDiv input[type='new-password'],
+section#teamAdd section form .formDiv input[type='new-password'],
 section#teamAdd section form .formDiv select {
   width: 100%;
   padding: 10px 5px;
@@ -297,10 +297,10 @@ section#teamAdd section form .formDiv select {
   font-size: 1rem;
 }
 
-section#teamAdd section form .formDiv input[type="text"]:focus,
-section#teamAdd section form .formDiv input[type="text"]:active,
-section#teamAdd section form .formDiv input[type="password"]:focus,
-section#teamAdd section form .formDiv input[type="password"]:active,
+section#teamAdd section form .formDiv input[type='text']:focus,
+section#teamAdd section form .formDiv input[type='text']:active,
+section#teamAdd section form .formDiv input[type='password']:focus,
+section#teamAdd section form .formDiv input[type='password']:active,
 section#teamAdd section form .formDiv select:hover {
   border: 1px solid rgb(170, 185, 255);
 }
@@ -349,7 +349,7 @@ section#teamAdd section form .formDiv div .search label {
   border-radius: 5px;
 }
 
-section#teamAdd section form .formDiv div .search input[type="file"] {
+section#teamAdd section form .formDiv div .search input[type='file'] {
   position: absolute;
   width: 0;
   height: 0;
@@ -643,7 +643,7 @@ section#teamList .pagination li:hover {
 }
 
 /* CONTAINER INPUT[RADIO] */
-section#teamAdd input[type="radio"] {
+section#teamAdd input[type='radio'] {
   display: none;
 }
 
@@ -657,11 +657,11 @@ section.addPlayer {
   display: none;
 }
 
-input[id="addTeam"]:checked ~ section.addTeam {
+input[id='addTeam']:checked ~ section.addTeam {
   display: block;
 }
 
-input[id="addPlayer"]:checked ~ section.addPlayer {
+input[id='addPlayer']:checked ~ section.addPlayer {
   display: block;
 }
 
@@ -696,7 +696,7 @@ input[id="addPlayer"]:checked ~ section.addPlayer {
 }
 
 .container .zCupAll section h3 span::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 10px;
@@ -707,7 +707,7 @@ input[id="addPlayer"]:checked ~ section.addPlayer {
 }
 
 .container .zCupAll section h3 span::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 5px;
@@ -847,7 +847,7 @@ section caption span {
 }
 
 section caption span::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 10px;
@@ -858,7 +858,7 @@ section caption span::before {
 }
 
 section caption span::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 5px;
@@ -963,7 +963,7 @@ section table tr {
 }
 
 .zCupSchedule .zCup ul li label span::before {
-  content: "��";
+  content: '▶';
   font-size: 0.2em;
   position: absolute;
   top: 50%;
@@ -1022,15 +1022,15 @@ section.playInfo {
   display: none;
 }
 
-.zCupSchedule .zCup input[type="checkbox"] {
+.zCupSchedule .zCup input[type='checkbox'] {
   display: none;
 }
 
-input[id="play1"]:checked ~ label.cover {
+input[id='play1']:checked ~ label.cover {
   display: block;
 }
 
-input[id="play1"]:checked ~ section.playInfo {
+input[id='play1']:checked ~ section.playInfo {
   display: block;
 }
 

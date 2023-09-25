@@ -13,7 +13,7 @@
 
    <!-- css 연결 -->
    <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css?asas" />" />
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->

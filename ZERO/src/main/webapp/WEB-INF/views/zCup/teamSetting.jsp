@@ -34,19 +34,15 @@
       <div class="container">
         <h1 class="pageTitle">팀관리</h1>
 
-        <div class="settingBox"> 
-          <p>
-            <i class="fa-solid fa-location-dot"></i>팀관리에 앞서 정보를 입력해
-            주세요.
-          </p>
+        <div class="settingBox">
+          <p><i class="fa-solid fa-location-dot"></i>팀관리에 앞서 정보를 입력해 주세요.</p>
           <div class="settingFrom">
             <form action="#">
               <label>비밀번호</label>
               <input type="password" id="password" name="" />
             </form>
             <div class="btns">
-              <a href="" class="accept">인증하기</a>
-              <button type="button" onclick = "teamEditPassword(${team.team_no})">인증하기</button>
+              <button type="button" class="accept" onclick="teamEditPassword(${team.team_no})">인증하기</button>
               <a href="">취소하기</a>
             </div>
           </div>

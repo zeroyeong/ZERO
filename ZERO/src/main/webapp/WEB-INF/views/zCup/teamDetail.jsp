@@ -32,188 +32,15 @@
   	<jsp:include page="../include/header.jsp" />
   	
   	<main>
-      <div class="topVideo"> 
+      <div class="topVideo">
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
           <source src="../videos/point.mp4" type="video/mp4" />
         </video>
       </div>
-      <article class="tournament">
-        <input type="checkbox" name="" id="checkBox" />
-        <label for="checkBox">
-          <span>Z-CUP Schedule List</span>
-          <span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </span>
-        </label>
-        <section class="matchNranking">
-          <div class="match">
-            <div class="title">
-              <h1>z-cup tournament</h1>
-              <button type="button" onclick="showDetail()">상세보기</button>
-            </div>
-
-            <div class="tournament">
-              <h1 class="logo">zero futsal</h1>
-              <ul class="round3">
-                <li>
-                  <ul>
-                    <li></li>
-                    <li></li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="round2">
-                <li>
-                  <ul>
-                    <li></li>
-                    <li></li>
-                  </ul>
-                </li>
-                <li>
-                  <ul>
-                    <li></li>
-                    <li></li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="round1">
-                <li>
-                  <ul>
-                    <li></li>
-                    <li></li>
-                  </ul>
-                </li>
-                <li>
-                  <ul>
-                    <li></li>
-                    <li></li>
-                  </ul>
-                </li>
-                <li>
-                  <ul>
-                    <li></li>
-                    <li></li>
-                  </ul>
-                </li>
-                <li>
-                  <ul>
-                    <li></li>
-                    <li></li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="teamList">
-                <li>
-                  <img src="images/팀2.jpg" alt="" />
-                  <span class="teamName">팀 이름 1</span>
-                </li>
-                <li>
-                  <img src="images/팀2.jpg" alt="" />
-                  <span class="teamName">팀 이름 2</span>
-                </li>
-                <li>
-                  <img src="images/팀2.jpg" alt="" />
-                  <span class="teamName">팀 이름 3</span>
-                </li>
-                <li>
-                  <img src="images/팀2.jpg" alt="" />
-                  <span class="teamName">팀 이름 4</span>
-                </li>
-                <li>
-                  <img src="images/팀2.jpg" alt="" />
-                  <span class="teamName">팀 이름 5</span>
-                </li>
-                <li>
-                  <img src="images/팀2.jpg" alt="" />
-                  <span class="teamName">팀 이름 6</span>
-                </li>
-                <li>
-                  <img src="images/팀2.jpg" alt="" />
-                  <span class="teamName">팀 이름 7</span>
-                </li>
-                <li>
-                  <img src="images/팀2.jpg" alt="" />
-                  <span class="teamName">팀 이름 8</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="ranking">
-            <div class="title">
-              <h1>player ranking</h1>
-              <button type="button" onclick="showDetail()">상세보기</button>
-            </div>
-            <table>
-              <colgroup>
-                <col class="col1" />
-                <col class="col2" />
-                <col class="col3" />
-                <col class="col4" />
-                <col class="col5" />
-                <col class="col6" />
-                <col class="col7" />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>순위</th>
-                  <th>이름</th>
-                  <th>소속팀</th>
-                  <th>출전</th>
-                  <th>득점</th>
-                  <th>경고</th>
-                  <th>퇴장</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><span class="rank">1</span></td>
-                  <td>
-                    <div class="player">
-                      <img src="images/person.png" alt="" />
-                      <span class="playerName">홍길동</span>
-                    </div>
-                  </td>
-                  <td>소속 팀 1</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td><span class="rank">2</span></td>
-                  <td>
-                    <div class="player">
-                      <img src="images/person.png" alt="" />
-                      <span class="playerName">홍길동</span>
-                    </div>
-                  </td>
-                  <td>소속 팀 1</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td><span class="rank">3</span></td>
-                  <td>
-                    <div class="player">
-                      <img src="images/person.png" alt="" />
-                      <span class="playerName">홍길동</span>
-                    </div>
-                  </td>
-                  <td>소속 팀 1</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-      </article>
-
+      <!-- subMenu include -->
+ 	  <jsp:include page="../include/zCupScheduleList.jsp" />
+ 	  
       <div class="container">
         <h1>${team_detail_list[0].cup_team.team_name}</h1>
 
@@ -231,26 +58,22 @@
             <td>시흥점</td>
           </tr>
           <tr>
-            <th>팀분류</th>
-            <td></td>
-          </tr>
-          <tr>
             <th>팀관리자</th>
             <td>${team_detail_list[0].cup_team.team_leader}</td>
           </tr>
           <tr>
             <th>팀유니폼</th>
-            <td>${team_detail_list[0].cup_team.team_uniform_home} / ${team_detail_list[0].cup_team.team_uniform_away}</td>
+            <td>
+              ${team_detail_list[0].cup_team.team_uniform_home} / ${team_detail_list[0].cup_team.team_uniform_away}
+            </td>
           </tr>
         </table>
 
         <ul class="teamBtn">
           <li><label for="shcedule" class="shcedule active">팀일정</label></li>
-          <li><label for="ranking" class="ranking">팀순위</label></li>
           <li><label for="player" class="player">선수명단</label></li>
         </ul>
         <input type="radio" name="team" id="shcedule" checked />
-        <input type="radio" name="team" id="ranking" />
         <input type="radio" name="team" id="player" />
 
         <section class="shcedule">
@@ -335,59 +158,6 @@
           </section>
         </section>
 
-        <section class="ranking">
-          <table class="playerRanking">
-            <colgroup>
-              <col class="col1" />
-              <col class="col2" />
-              <col class="col3" />
-              <col class="col4" />
-              <col class="col5" />
-              <col class="col6" />
-              <col class="col7" />
-              <col class="col8" />
-              <col class="col9" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th>순위</th>
-                <th>리그</th>
-                <th>승점</th>
-                <th>승</th>
-                <th>무</th>
-                <th>패</th>
-                <th>득</th>
-                <th>실</th>
-                <th>골득실</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span>1</span></td>
-                <td>그날 리그~~</td>
-                <td>10</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <td><span>1</span></td>
-                <td>그날 리그~~</td>
-                <td>10</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>2</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
         <section class="player">
           <table class="player">
             <colgroup>
@@ -400,29 +170,29 @@
             </colgroup>
             <thead>
               <tr>
-	            <th>번호</th>
-	            <th>이름</th>
-	            <th>출전</th>
-	            <th>득점</th>
-	            <th>경고</th>
-	            <th>퇴장</th>
+                <th>번호</th>
+                <th>이름</th>
+                <th>출전</th>
+                <th>득점</th>
+                <th>경고</th>
+                <th>퇴장</th>
               </tr>
             </thead>
             <tbody>
               <c:forEach items="${team_detail_list}" var="playerlist">
-              <tr>
-                <td>${playerlist.player_no}</td>
-                <td>
-                  <div class="player">
-                    <img src="../images/person.png" alt="" />
-                    <span>${playerlist.player_name}</span>
-                  </div>
-                </td>
-                <td>${playerlist.player_name}</td>
-                <td>${playerlist.player_name}</td>
-                <td>${playerlist.player_name}</td>
-                <td>${playerlist.player_name}</td>
-              </tr>
+                <tr>
+                  <td>${playerlist.player_no}</td>
+                  <td>
+                    <div class="player">
+                      <img src="../images/person.png" alt="" />
+                      <span>${playerlist.player_name}</span>
+                    </div>
+                  </td>
+                  <td>${playerlist.player_name}</td>
+                  <td>${playerlist.player_name}</td>
+                  <td>${playerlist.player_name}</td>
+                  <td>${playerlist.player_name}</td>
+                </tr>
               </c:forEach>
               <tr>
                 <td>1</td>
@@ -455,7 +225,7 @@
         </section>
       </div>
     </main>
-  	
+  	  	
   	<!-- footer include -->
     <jsp:include page="../include/footer.jsp" />
   </body>
