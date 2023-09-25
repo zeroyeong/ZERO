@@ -7,13 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
         labelSelectPoint.textContent = selectedOption.textContent;
     });
 });
-const matchCheck = document.querySelector(".matchCheck");
-const matchList = document.querySelector(".matchList");
-
-matchCheck.addEventListener('click', () => {
-    matchCheck.classList.toggle('active');
-    matchList.classList.toggle('active');
-});
 
 /*달력*/
 window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드되면 buildCalendar 실행

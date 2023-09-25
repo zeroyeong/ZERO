@@ -50,7 +50,7 @@
                     <p><i class="fa-solid fa-location-dot"></i>예약을 원하시는 지점을 선택해 주세요</p>
                     <div class="reserBody">
                         <div class="reserContent">
-                            <form:form action="../zero/reservation" method="post">
+                            <form:form action="${pageContext.request.contextPath}/reservation" method="post">
                                 <span class="select">
                                     <label for="pointSelect">지점을 선택해주세요</label>
                                     <i class="fa-solid fa-caret-down"></i>
@@ -75,7 +75,7 @@
                 </div>
             </section>
             
-		<form:form action="../zero/reservation/reservationInfo" method="post">
+		<form:form action="${pageContext.request.contextPath}/reservation/reservationInfo" method="post">
             <section class="reserCheck">
                 <div class="reserFrameBox">
                     <p><i class="fa-solid fa-location-dot"></i>예약 시 입력하신 정보를 입력해주십시오</p>

@@ -12,11 +12,10 @@
     <title>ZERO FUTSAL</title>
 
     <!-- css 연결-->
-    <link rel="stylesheet" href="<c:url value="/resources/css/common.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/reservation.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/reservation.css?123"/>">
 
     <!-- js 연결-->
-    <script src="<c:url value="/resources/js/resInfo.js?123"/>" defer></script>
+    <script src="<c:url value="/resources/js/resInfo.js?11111"/>" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
@@ -36,10 +35,10 @@
             </video>
         </div>
 
-        <input type="radio" id="reservation" checked />
+        <input type="radio" id="reser" checked />
         <ul class="harlfButton">
-            <li><label for="reservation">예약</label></li>
-            <li><label><a href="<c:url value="../branch/reservation"/>">예약확인</a></label></li>
+            <li><label for="reser">예약</label></li>
+            <li><label><a href="<c:url value="../reservation"/>">예약확인</a></label></li>
         </ul>
         <div class="container">
             <h1>예약</h1>
@@ -139,7 +138,6 @@
                         </div>
                         <div class="infoDiv">
                             <span class="tit">시간 선택</span>
-                            <span class="subTit">* 다중 선택이 가능 합니다.</span>
                             <div class="timeTable" id="buttonContainer">
                                 <ul>
                                 <br>
@@ -152,66 +150,6 @@
                         <div class="infoDiv">
                             <span class="tit">합계</span>
                             <span class="total"><b><span id="totalPrice">0</span>원</b></span>
-                        </div>
-                        <div class="infoDiv">
-                            <input type="checkbox" class="matchCheck">
-                            <span class="tit">매치 등록하기</span>
-                            <br>
-                            <span class="subTit">* 매치를 등록하면 경기를 희망하는 팀의 연락을 받을 수 있습니다.</span>
-                            <div id="matchForm" class="matchList">
-                                <ul>
-                                    <li>
-                                        <span class="select">
-                                            <label for="mat01">매치형태 선택</label>
-                                            <select name="mat01" id="mat01">
-                                                <option value>매치형태 선택</option>
-                                                <option value="5vs5">5 vs 5</option>
-                                                <option value="6vs6">6 vs 6</option>
-                                            </select>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="select">
-                                            <label for="mat02">신청 가능 팀 선택</label>
-                                            <select name="mat02" id="mat02">
-                                                <option value>신청 가능 팀 선택</option>
-                                                <option value="1">1팀</option>
-                                                <option value="2">2팀</option>
-                                            </select>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="select">
-                                            <label for="mat03">매치형태 선택</label>
-                                            <select name="mat03" id="mat03">
-                                                <option value>팀수준선택</option>
-                                                <option value="1">상</option>
-                                                <option value="2">중상</option>
-                                                <option value="3">중</option>
-                                                <option value="4">중하</option>
-                                                <option value="5">하</option>
-                                            </select>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <div class="uniColor">
-                                            <span>유니폼 색상</span>
-                                            <input type="text" title name="uniColorTop" placeholder="상의색">
-                                            <span></span>
-                                            <input type="text" title name="uniColorTop" placeholder="하의색">
-                                            <span></span>
-                                            <input type="text" title name="uniColorTop" placeholder="스타킹색">
-                                            <span></span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="textarea">
-                                            <textarea name="" id=""
-                                                placeholder="원하는 매칭시간 / 개인 연락처 / 팀 소개등 메모"></textarea>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                         <div class="resUserInfo">
                             <p class="name">대관 예약자 정보 입력</p>

@@ -31,15 +31,15 @@
         </div>
 
         <ul class="harlfButton">
-            <li><a href="reservation.html"><label>예약</label></a></li>
-            <li id="reserComplete"><a href="#"><label>예약확인</label></a></li>
+             <li><label><a href="<c:url value="../reservation"/>">예약</a></label></li>
+            <li id="reserComplete"><a href="<c:url value="../reservation"/>"><label>예약확인</label></a></li>
         </ul>
 
         <div class="container">
 
             <h1>예약확인</h1>
 		<c:forEach items="${reservationList}" var="reservation">
-		<form action="../reservation/cancel" method="post">
+		<form action="${pageContext.request.contextPath}/reservation/cancel" method="post">
             <div class="reserInfoTable">
                 <table>
                     <colgroup>
@@ -92,10 +92,10 @@
                     </tbody>
                 </table>
             </div>
-            <input name="re_no" value="${reservation.re_no }">
+            <input type="hidden" name="re_no" value="${reservation.re_no }">
             <div class="btnWrap">
                 <button class="btnCancel">예약취소하기</button>
-            </div>
+            </div>	
             </form>
           </c:forEach>
         </div>

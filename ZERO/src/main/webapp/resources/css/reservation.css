@@ -419,7 +419,9 @@ p.name {
   font-size: 16px;
   text-align: center;
 }
-
+.timeTable ul li button.on {
+background: #2c3c57;
+}
 /*гу╟Х*/
 .infoDiv .total {
   font-size: 20px;
