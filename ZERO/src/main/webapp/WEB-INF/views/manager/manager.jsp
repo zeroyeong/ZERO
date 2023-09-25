@@ -65,10 +65,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <ul class="pagination">
-                    <li>1</li>
-                    <li>2</li>
-                </ul>
             </section>
 
             <section id="mgrTeamContent" class="mgrPage">
@@ -134,10 +130,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <ul class="pagination">
-                        <li>1</li>
-                        <li>2</li>
-                    </ul>
                 </section>
 
                 <section id="addPlayerContent">
@@ -198,37 +190,67 @@
                             </tr>
                         </tbody>
                     </table>
-                    <ul class="pagination">
-                        <li>1</li>
-                        <li>2</li>
-                    </ul>
                 </section>
             </section>
 
             <section id="mgrSchContent" class="mgrPage">
                 <input type="button" value="경기일정추가" class="schAddBtn" onclick="openSchAddPopup()">
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="no">번호</th>
-                            <th class="title">제목</th>
-                            <th class="date">작성일</th>
-                            <th class="state">관리</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>경기일정</td>
-                            <td>2023.09.13</td>
-                            <td><a class="schBtn" onclick="openSchPopup()">수정</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <ul class="pagination">
-                    <li>1</li>
-                    <li>2</li>
-                </ul>
+                <div class="mgrSch">
+                    <ul>
+                        <li class="place">시흥점</li>
+                        <li class="playInfo">
+                            <div>
+                                <span>04.26(월)</span>
+                                21:30
+                            </div>
+                            <span>C구장</span>
+                        </li>
+                        <li class="team leftTeam">
+                            <a href="teamDetail.html">팀 스피드러너</a>
+                            <a href="teamDetail.html">
+                                <img src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg" alt="" />
+                            </a>
+                        </li>
+                        <li class="score">1 : 2</li>
+                        <li class="team rightTeam">
+                            <a href="teamDetail.html">
+                                <img src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg" />
+                            </a>
+                            <a href="teamDetail.html">team 동그라미</a>
+                        </li>
+                        <li class="button">
+                            <a class="schBtn" onclick="openSchPopup()">수정</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mgrSch">
+                    <ul>
+                        <li class="place">시흥점</li>
+                        <li class="playInfo">
+                            <div>
+                                <span>04.26(월)</span>
+                                21:30
+                            </div>
+                            <span>C구장</span>
+                        </li>
+                        <li class="team leftTeam">
+                            <a href="teamDetail.html">팀 스피드러너</a>
+                            <a href="teamDetail.html">
+                                <img src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg" alt="" />
+                            </a>
+                        </li>
+                        <li class="score">1 : 2</li>
+                        <li class="team rightTeam">
+                            <a href="teamDetail.html">
+                                <img src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg" />
+                            </a>
+                            <a href="teamDetail.html">team 동그라미</a>
+                        </li>
+                        <li class="button">
+                            <a class="schBtn" onclick="openSchPopup()">수정</a>
+                        </li>
+                    </ul>
+                </div>
             </section>
 
             <section id="mgrUserContent" class="mgrPage">
@@ -271,7 +293,6 @@
                     <li>2</li>
                 </ul>
             </section>
-
         </div>
     </main>
 
@@ -392,42 +413,62 @@
         <section class="schInfo">
             <span class="closeBtn" onclick="closePopup()">x</span>
             <h2>경기 일정관리</h2>
-            <table class="mgrSchInfo">
-                <tr>
-                    <th>지점</th>
-                    <td>더피치 평택점</td>
-                </tr>
-                <tr>
-                    <th>팀명</th>
-                    <td>팀1</td>
-                </tr>
-                <tr>
-                    <th>선수명</th>
-                    <td>선수명</td>
-                </tr>
-                <tr>
-                    <th>출전</th>
-                    <td>출전</td>
-                </tr>
-                <tr>
-                    <th>득점</th>
-                    <td>득점</td>
-                </tr>
-                <tr>
-                    <th>경고</th>
-                    <td>경고</td>
-                </tr>
-                <tr>
-                    <th>퇴장</th>
-                    <td>퇴장</td>
-                </tr>
-            </table>
+            <div class="mgrSchInfo">
+                <table>
+                    <caption>
+                        <span></span>
+                        기본정보
+                    </caption>
+                    <tr>
+                        <th>지점</th>
+                        <td>시흥점</td>
+                    </tr>
+                    <tr>
+                        <th>컵 명</th>
+                        <td>그날 리그 그 그날리그</td>
+                    </tr>
+                    <tr>
+                        <th>경기일자</th>
+                        <td>2021.04.25(월) 21:30 C구장</td>
+                    </tr>
+                </table>
 
-            <div class="mgrBtn">
-                <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup')">
-                <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup')">
+                <table>
+                    <caption>
+                        <span></span>
+                        경기기록
+                    </caption>
+                    <tr>
+                        <th>팀 스피드러너(1)</th>
+                        <th>팀명</th>
+                        <th>team 동그라미(2)</th>
+                    </tr>
+                    <tr>
+                        <td>백태양 (1쿼터/5')</td>
+                        <th>득점현황</th>
+                        <td>
+                            장승연 (1쿼터/6')
+                            <br />
+                            주영웅 (2쿼터/6')
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <th>경고</th>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <th>퇴장</th>
+                        <td>0</td>
+                    </tr>
+                </table>
+
+                <div class="mgrBtn">
+                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup')">
+                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup')">
+                </div>
             </div>
-
         </section>
     </div>
 
@@ -496,7 +537,7 @@
             </table>
 
             <div class="mgrBtn">
-                <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schAddPopup')">
+                <input type="button" class="okAddBtn" value="추가" onclick="okBtnPop('schAddPopup')">
                 <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schAddPopup')">
             </div>
 

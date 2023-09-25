@@ -565,7 +565,7 @@ section#mgrUserContent table .col4 {
     }
 }
 
-/*경기일정 추가 버튼*/
+/*  mgrSchContent */
 section#mgrSchContent .schAddBtn {
     background-color: #192336;
     color: #fff;
@@ -576,21 +576,166 @@ section#mgrSchContent .schAddBtn {
     position: relative;
 }
 
+.mgrSch ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #d7d7d7;
+    background-color: #fff;
+}
+
+.mgrSch ul:first-child {
+    border-top: 1px solid var(--pointColor);
+    border-bottom: 1px solid var(--pointColor);
+}
+
+.mgrSch ul li {
+    height: 70px;
+    padding: 17px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mgrSch ul li a {
+    color: var(--pointColor);
+}
+
+.mgrSch ul li.place {
+    width: 10%;
+}
+
+.mgrSch ul li.playInfo {
+    width: 20%;
+    flex-direction: column;
+}
+
+.mgrSch ul li.playInfo div {
+    color: var(--pointColor);
+}
+
+.mgrSch ul li.playInfo div span {
+    font-size: 1.5rem;
+}
+
+.mgrSch ul li.team {
+    width: 25%;
+}
+
+.mgrSch ul li.score {
+    width: 10%;
+    font-size: 2rem;
+    color: var(--pointColor);
+}
+
+.mgrSch ul li.button {
+    width: 12%;
+}
+
+.mgrSch ul li.team img {
+    width: 50px;
+    height: 50px;
+}
+
+.mgrSch ul li.leftTeam {
+    justify-content: flex-end;
+}
+
+.mgrSch ul li.rightTeam {
+    justify-content: flex-start;
+}
+
+.mgrSch ul li label span {
+    position: relative;
+    padding-left: 10px;
+}
+
+.mgrSchInfo caption {
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 30px;
+    color: var(--pointColor);
+    margin-bottom: 15px;
+    margin-top: 50px;
+    padding-left: 26px;
+}
+
+.mgrSchInfo {
+    max-width: 800px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0 22px 48px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000000;
+}
+
+.mgrSchInfo caption span {
+    font-weight: 600;
+    position: relative;
+}
+
+.mgrSchInfo caption span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: -26px;
+    height: 30px;
+    width: 5px;
+    background-color: var(--pointColor);
+}
+
+.mgrSchInfo caption span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: -26px;
+    height: 5px;
+    width: 5px;
+    background-color: #aec8f4;
+}
+
+.mgrSchInfo table {
+    width: 100%;
+    background-color: #fff;
+}
+
+.mgrSchInfo table th {
+    padding: 21px 0;
+    background-color: var(--backgroundColor);
+    border: 1px solid #d7d7d7;
+}
+
+.mgrSchInfo table:first-child td {
+    text-align: left;
+    padding-left: 10px;
+}
+
 /*수정버튼*/
 section#addTeamContent table tbody td a.teamBtn,
 section#addPlayerContent table tbody td a.playerBtn,
-section#mgrSchContent table tbody td a.schBtn,
+section#mgrSchContent a.schBtn,
 section#mgrUserContent table tbody td a.userBtn {
     background-color: #4c89cd;
     color: #fff;
     font-size: 1rem;
     padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 section#addTeamContent table tbody td a.teamBtn:hover,
 section#addPlayerContent table tbody td a.playerBtn:hover,
-section#mgrSchContent table tbody td a.schBtn:hover,
+section#mgrSchContent a.schBtn:hover,
 section#mgrUserContent table tbody td a.userBtn:hover {
     background-color: var(--beforeColor);
 }
