@@ -4,12 +4,12 @@
 
 <mapper namespace="Cup">
     <insert id="insertTeam" parameterType="CupTeam">
-        insert into Cup_Team(TEAM_NAME, TEAM_LEADER, TEAM_PHONE, TEAM_MAIL, TEAM_UNIFORM_HOME, TEAM_UNIFORM_AWAY, TEAM_EMBLEM, TEAM_PASSWORD, TEAM_CODE)
-        values(#{team_name}, #{team_leader}, #{team_phone}, #{team_mail}, #{team_uniform_home}, #{team_uniform_away}, #{team_emblem}, #{team_password}, #{team_code})
+        insert into Cup_Team(TEAM_NAME, TEAM_LEADER, TEAM_PHONE, TEAM_MAIL, TEAM_UNIFORM_HOME, TEAM_UNIFORM_AWAY, TEAM_EMBLEM, TEAM_PASSWORD, TEAM_CODE, TEAM_MEMBER_CNT, TEAM_REG_YEAR, BRANCH_NO)
+        values(#{team_name}, #{team_leader}, #{team_phone}, #{team_mail}, #{team_uniform_home}, #{team_uniform_away}, #{team_emblem}, #{team_password}, #{team_code} , #{team_member_cnt}, #{team_reg_year}, #{branch_no})
     </insert>
     
-     <select id="selectTeam" resultType="CupTeam">
-        select * from CUP_TEAM
+    <select id="selectTeam" resultType="CupTeam">
+        select * from CUP_TEAM       
     </select>
     
     <select id="selectOneTeam" parameterType="int" resultType="CupTeam">
@@ -17,19 +17,17 @@
     </select>
      
     <insert id="insertPlayer" parameterType="CupPlayer">
-        insert into Cup_Player(PLAYER_NAME, PLAYER_PHOTO, PLAYER_GOAL, PLAYER_YELLOW_CARD, PLAYER_RED_CARD)
-        values(#{player_name}, #{player_photo}, #{player_goal}, #{player_yellow_card}, #{player_red_card})
+        insert into Cup_Player(PLAYER_NAME, PLAYER_PHOTO, PLAYER_GOAL, PLAYER_YELLOW_CARD, PLAYER_RED_CARD, TEAM_NO)
+        values(#{player_name}, #{player_photo}, #{player_goal}, #{player_yellow_card}, #{player_red_card}, #{team_no})
     </insert>
     
      <select id="selectPlayer" resultType="CupPlayer">
         select * from cup_player
     </select>
 
-	<select id="selectSchejule" resultType="CupSchejule">
-        select * from CUP_MATCH_SCHEJULE
+	<select id="selectschedule" resultType="Cupschedule">
+        select * from CUP_MATCH_SCHEDULE
     </select>
-
-	
 
     <resultMap id="CupPlayerResultMap" type="CupPlayer">  
         <id property="player_no" column="PLAYER_NO"/>
@@ -56,8 +54,12 @@
         <result property="team_reg_year" column="TEAM_REG_YEAR"/>
         <result property="branch_no" column="BRANCH_NO"/>
         <result property="score_no" column="SCORE_NO"/>
+        <association property="branch" javaType="branch">
+		    <id property="branch_no" column="BRANCH_NO" />
+		    <result property="branch_name" column="BRANCH_NAME" />
+        </association>
     </resultMap>
-    
+       
 	<select id="selectCupTeamAndPlayers" resultMap="CupPlayerResultMap">
 	    SELECT
 	         p.*, t.*
@@ -68,6 +70,19 @@
 	    ON
 	        p.TEAM_NO = t.TEAM_NO
 	</select>
+	
+	<select id="selectTeamWithbranch" resultMap="CupTeamResultMap">
+       	SELECT
+    	    t.*,
+    	    b.branch_no,
+    	    b.branch_name 
+	    FROM
+	        Cup_Team t
+		JOIN
+	        branch b
+	    ON
+	        t.branch_no = b.branch_no               
+    </select>
 	
 	<select id="selectTeamAndPlayerRanking" resultMap="CupPlayerResultMap">
 	    SELECT
@@ -84,21 +99,28 @@
 
 	<select id="selectTeamDetail" parameterType="int" resultMap="CupPlayerResultMap">
 	    SELECT
-	         p.*, t.*
+	         p.*, t.*,
+	         b.branch_no,
+	         b.branch_name
 	    FROM
 	        Cup_Player p
 	    JOIN
 	        Cup_Team t 
 	    ON
 	        p.TEAM_NO = t.TEAM_NO
+	    JOIN
+	        branch b 
+	    ON
+	        b.branch_no = t.branch_no    
 	    WHERE 
-	    	p.TEAM_NO = #{player_no}
+	    	t.TEAM_NO = #{player_no}
 	</select>
 
- 	<resultMap id="CupSchejuleResultMap" type="CupSchejule">  
-        <id property="schejule_no" column="SCHEJULE_NO"/>
-        <result property="schejule_location" column="SCHEJULE_LOCATION"/>
-        <result property="schejule_date" column="SCHEJULE_DATE"/>
+ 	<resultMap id="CupScheduleResultMap" type="Cupschedule">  
+        <id property="schedule_no" column="SCHEDULE_NO"/>
+        <result property="schedule_location" column="SCHEDULE_LOCATION"/>
+        <result property="schedule_date" column="SCHEDULE_DATE"/>
+        <result property="schedule_time" column="SCHEDULE_TIME"/>
         <result property="branch_no" column="BRANCH_NO"/>
      
 
@@ -122,7 +144,7 @@
         </association>
     </resultMap>
     
-   	<select id="selectSchejuleDetail" resultMap="CupSchejuleResultMap">
+   	<select id="selectScheduleDetail" resultMap="CupScheduleResultMap">
 	   	SELECT
     	    s.*,
     	    d.*, 
@@ -131,7 +153,7 @@
 			a.TEAM_NO,
 			a.TEAM_NAME AS AWAY_NAME
 	    FROM
-	        cup_match_schejule s
+	        cup_match_schedule s
 		JOIN
 	        Cup_Team h
 	    ON

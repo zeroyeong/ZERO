@@ -17,7 +17,7 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/zCup.js?fsx" />" defer></script>
+   <script src="<c:url value="/resources/js/zCup.js?x" />" defer></script>
    <script src="<c:url value="/resources/js/zCupURL.js?dbc" />" defer></script>
 
    <!-- Font Awesome -->
@@ -193,11 +193,11 @@
                 <div class="bothSide">
                   <div>
                     <label>지점명</label>
-                    <select name="" >
-                      <option value="">지점선택</option>
-                      <option value="">서울</option>
-                      <option value="">경기</option>
-                    </select>
+                    <form:select path="branch_no">
+	                    <c:forEach var="branch" items="${branch_List}">
+	                      <form:option value="${branch.branch_no}">${branch.branch_name}</form:option>
+						</c:forEach>
+                    </form:select>
                   </div>
                   <div>
                     <label>팀명</label>
@@ -258,13 +258,7 @@
               </div>
             </form:form>
           </section>
-          
-          <c:forEach items="${cupTeamList}" var="cupTeam" varStatus="loop">
-	    	<input type="hidden" id="teamNo_${loop.index}" value="${cupTeam.team_no}" />
-	    	<input type="hidden" id="teamName_${loop.index}" value="${cupTeam.team_name}" />
-	    	<input type="hidden" id="teamCode_${loop.index}" value="${cupTeam.team_code}" />
-		  </c:forEach>
-          
+                 
           <section class="addPlayer">
             <form:form id="playerForm" modelAttribute = "NewPlayer" method="post" action="zCup/cupPlayer">
               <h3 class="formTitle"><span></span>선수 등록</h3>
@@ -274,7 +268,7 @@
                     <label>팀코드 입력</label>
                     <div class="inpuBtn">
                       <input type="text" id="teamCodeInput"/>
-                      <button type="button" onclick="okReser('test2')">코드확인</button>
+                      <button type="button" onclick="okReser()">코드확인</button>
                     </div>
                   </div>
                   <div>
@@ -285,11 +279,12 @@
                 <div class="bothSide">
                   <div>
                     <label>팀명</label>
-                    <input type="text" id="player_team_name"  readonly />
+                    <input type="text" id="player_team_name" readonly/>
                   </div>
                   <div>
                     <label>지점명</label>
-                    <input type="text" id="player_branch_name"  readonly />
+                    <input type="text" id="player_branch_name" readonly/>
+                    <form:input type="hidden" id="player_team_no" path="team_no"/>                
                   </div>
                 </div>
                 <div>
@@ -325,29 +320,11 @@
                 <th class="col7">관리</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>더피치 평택점</td>
-                <td>
-                  <div class="teamName">
-                    <div class="teamImage">
-                      <img src="../images/팀2.jpg" alt="" />
-                    </div>
-                    <div class="teamTitle">
-                      <a href="">팀 1</a>
-                    </div>
-                  </div>
-                </td>
-                <td><span>0</span> 명</td>
-                <td>2023.09.08</td>
-                <td><button type="button" class="teamBtn">팀관리</button></td>
-              </tr>
-              
+            <tbody>          
        		<c:forEach items="${cupTeamList}" var="cupTeam">  
               <tr>
-                <td>1</td>
-                <td>더피치 평택점 = ${cupTeam.team_no}</td>
+                <td>${cupTeam.team_no}</td>
+                <td>${cupTeam.branch.branch_name}</td>
                 <td>
                   <div class="teamName">
                     <div class="teamImage">
@@ -361,7 +338,7 @@
                 <td><span>${cupTeam.team_member_cnt}</span> 명</td>
                 <td>${cupTeam.team_reg_year}</td>
                 <td><button type="button" class="teamBtn" onclick="teamSetting(${cupTeam.team_no})">팀관리</button></td>
-              </tr>
+              </tr> 
               </c:forEach>
             </tbody>
           </table>
@@ -450,23 +427,23 @@
           <section class="zCupSchedule">
             <h3><span>z-cup</span> Schedule</h3>
             <div class="zCup">
-              <c:forEach items="${cupSchejuleList}" var="cupSchejule">
+              <c:forEach items="${cupScheduleList}" var="cupSchedule">
               <c:set var="listNum" value="${listNum + 1}" />
               <ul>
                 <li class="place">시흥점</li>
                 <li class="playInfo">
                   <div>
-                 	<span>${cupSchejule.schejule_date}</span>
-                    <span>04.26(월)</span>
+                 	<span>${cupSchedule.schedule_date}</span>
+                    <span>${cupSchedule.schedule_time}</span>
                     21:30
                   </div>
-                  <span>${cupSchejule.schejule_location}</span>
+                  <span>${cupSchedule.schedule_location}</span>
                 </li>
                 <li class="team leftTeam">
-                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_home_team.team_no}" />">
-                  	${cupSchejule.cup_home_team.team_name}
+                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_home_team.team_no}" />">
+                  	${cupSchedule.cup_home_team.team_name}
                   </a>
-                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_home_team.team_no}" />">
+                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_home_team.team_no}" />">
                     <img
                       src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg"
                       alt=""/>
@@ -474,13 +451,13 @@
                 </li>
                 <li class="score">1 : 2</li>
                 <li class="team rightTeam">
-                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_away_team.team_no}" />">
+                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
                     <img
                       src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg"
                     />
                   </a>
-                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_away_team.team_no}" />">
-                 	${cupSchejule.cup_away_team.team_name}
+                  <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
+                 	${cupSchedule.cup_away_team.team_name}
                   </a>
                 </li>
                 <li class="button">
@@ -517,28 +494,28 @@
                     경기기록
                   </caption>
                   <tr>
-                    <th>${cupSchejule.cup_home_team.team_name}</th>
+                    <th>${cupSchedule.cup_home_team.team_name}</th>
                     <th>팀명</th>
-                    <th>${cupSchejule.cup_away_team.team_name}</th>
+                    <th>${cupSchedule.cup_away_team.team_name}</th>
                   </tr>
                   <tr>
-                    <td>${cupSchejule.detail.detail_home_goal}</td>
+                    <td>${cupSchedule.detail.detail_home_goal}</td>
                     <th>득점현황</th>
                     <td>
-                      ${cupSchejule.detail.detail_away_goal}
+                      ${cupSchedule.detail.detail_away_goal}
                       <br />
                       주영웅 (2쿼터/6')
                     </td>
                   </tr>
                   <tr>
-                    <td>${cupSchejule.detail.detail_home_yellow_card}</td>
+                    <td>${cupSchedule.detail.detail_home_yellow_card}</td>
                     <th>경고</th>
-                    <td>${cupSchejule.detail.detail_away_yellow_card}</td>
+                    <td>${cupSchedule.detail.detail_away_yellow_card}</td>
                   </tr>
                   <tr>
-                    <td>${cupSchejule.detail.detail_home_red_card}</td>
+                    <td>${cupSchedule.detail.detail_home_red_card}</td>
                     <th>퇴장</th>
-                    <td>${cupSchejule.detail.detail_away_red_card}</td>
+                    <td>${cupSchedule.detail.detail_away_red_card}</td>
                   </tr>
                 </table>
               </section>
@@ -640,22 +617,23 @@
     var cupTeamNo = [];
     var cupTeamCode = [];
     var cupTeamName = [];
+    var cupBranch = [];
+    var cupBranchNo = [];
     var teamCodeCheck = false;
 	var teamNum = 0;
 	var player_team_name  = document.getElementById("player_team_name");
 	var player_branch_name = document.getElementById("player_branch_name");
+	var player_team_no = document.getElementById("player_team_no");
 	
     <c:forEach items="${cupTeamList}" var="cupTeam" varStatus="loop">    	
     	cupTeamNo.push("${cupTeam.team_no}");
     	cupTeamCode.push("${cupTeam.team_code}");
     	cupTeamName.push("${cupTeam.team_name}");
+    	cupBranch.push("${cupTeam.branch.branch_name}");
+    	cupBranchNo.push("${cupTeam.branch.branch_no}");
     </c:forEach>
-
-    console.log('Cup Team No:', cupTeamNo);
-    console.log('Cup Team Code:', cupTeamCode);
-    console.log('Cup Team Name:', cupTeamName);
     
-    function okReser(id) {
+    function okReser() {
         let message;
     	var teamCodeInput = document.getElementById("teamCodeInput").value;
     	
@@ -673,7 +651,8 @@
     		if(teamCodeCheck){
     			message ="팀코드 확인 팀 넘버" + teamNum;
     			player_team_name.value = cupTeamName[teamNum];
-    			player_branch_name.value = cupTeamName[teamNum];
+    			player_branch_name.value = cupBranch[teamNum];
+    			player_team_no.value = cupBranchNo[teamNum];
     			refreshSection('addTeam');
         		alert(message);
     		}else{

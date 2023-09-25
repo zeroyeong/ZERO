@@ -67,7 +67,7 @@
             <tbody>             
               <c:forEach items="${cupTeamList}" var="cupTeam"> 
 	              <tr>
-	                <td>OO 점</td>
+	                <td>${cupTeam.branch.branch_name}</td>
 	                <td>
 	                  <div class="teamName">
 	                    <img src="../images/í2.jpg" alt="" />
@@ -179,23 +179,23 @@
           <div class="scheduleBox">
             <section class="zCupSchedule">
               <div class="zCup">
-            <c:forEach items="${cupSchejuleList}" var="cupSchejule">
+            <c:forEach items="${cupScheduleList}" var="cupSchedule">
             <c:set var="listNum" value="${listNum + 1}" />
                 <ul>
                   <li class="place">시흥점</li>
                   <li class="playInfo">
                     <div>
-                    <span>${cupSchejule.schejule_date}</span>
-                      <span>04.26(월)</span>
+                    <span>${cupSchedule.schedule_date}</span>
+                    <span>${cupSchedule.schedule_time}</span>
                       21:30
                     </div>
-                    <span>${cupSchejule.schejule_location}</span>
+                    <span>${cupSchedule.schedule_location}</span>
                   </li>
                   <li class="team leftTeam">
-                    <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_home_team.team_no}" />">
-                    	${cupSchejule.cup_home_team.team_name}
+                    <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_home_team.team_no}" />">
+                    	${cupSchedule.cup_home_team.team_name}
                     </a>
-                    <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_home_team.team_no}" />">
+                    <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_home_team.team_no}" />">
                       <img
                         src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg"
                         alt=""
@@ -204,13 +204,13 @@
                   </li>
                   <li class="score">1 : 2</li>
                   <li class="team rightTeam">
-                    <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_away_team.team_no}" />">
+                    <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
                       <img
                         src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg"
                       />
                     </a>
-                     <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchejule.cup_away_team.team_no}" />">
-                 		${cupSchejule.cup_away_team.team_name}
+                     <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
+                 		${cupSchedule.cup_away_team.team_name}
                  	 </a>
                   </li>
                   <li class="button">
@@ -251,29 +251,29 @@
                     </caption>
 
                     <tr>
-                      <th>${cupSchejule.cup_home_team.team_name}</th>
+                      <th>${cupSchedule.cup_home_team.team_name}</th>
                       <th>팀명</th>
-                      <th>${cupSchejule.cup_away_team.team_name}</th>
+                      <th>${cupSchedule.cup_away_team.team_name}</th>
                     </tr>
 
                     <tr>
-                      <td>${cupSchejule.detail.detail_home_goal}</td>
+                      <td>${cupSchedule.detail.detail_home_goal}</td>
                       <th>득점현황</th>
                       <td>
-                        ${cupSchejule.detail.detail_away_goal}
+                        ${cupSchedule.detail.detail_away_goal}
                         <br />
                         주영웅 (2쿼터/6')
                       </td>
                     </tr>
                     <tr>
-	                    <td>${cupSchejule.detail.detail_home_yellow_card}</td>
+	                    <td>${cupSchedule.detail.detail_home_yellow_card}</td>
 	                    <th>경고</th>
-	                    <td>${cupSchejule.detail.detail_away_yellow_card}</td>
+	                    <td>${cupSchedule.detail.detail_away_yellow_card}</td>
                     </tr>
                     <tr>
-	                    <td>${cupSchejule.detail.detail_home_red_card}</td>
+	                    <td>${cupSchedule.detail.detail_home_red_card}</td>
 	                    <th>퇴장</th>
-	                    <td>${cupSchejule.detail.detail_away_red_card}</td>
+	                    <td>${cupSchedule.detail.detail_away_red_card}</td>
                     </tr>
                   </table>
                 </section>

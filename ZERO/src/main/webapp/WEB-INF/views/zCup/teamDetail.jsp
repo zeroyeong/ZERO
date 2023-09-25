@@ -15,9 +15,8 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
     <!-- js 연결 -->
-    <script src="<c:url value="/resources/js/common.js" />" defer></script>
+    <script src="<c:url value="/resources/js/zCup.js?x" />" defer></script>
     <script src="<c:url value="/resources/js/detail.js" />" defer></script>
-    <script src="<c:url value="/resources/js/tournament.js" />" defer></script>
 
     <!-- Font Awesome -->
     <script
@@ -55,7 +54,7 @@
               <img src="../images/팀2.jpg" alt="" />
             </td>
             <th>지점</th>
-            <td>시흥점</td>
+            <td>${team_detail_list[0].cup_team.branch.branch_name}</td>
           </tr>
           <tr>
             <th>팀관리자</th>

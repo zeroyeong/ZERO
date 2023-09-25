@@ -7,7 +7,7 @@
     <typeAliases>
         <typeAlias type="com.zero.domain.CupTeam" alias="CupTeam"></typeAlias>
         <typeAlias type="com.zero.domain.CupPlayer" alias="CupPlayer"></typeAlias>
-        <typeAlias type="com.zero.domain.CupSchejule" alias="CupSchejule"></typeAlias>
+        <typeAlias type="com.zero.domain.CupSchedule" alias="CupSchedule"></typeAlias>
         <typeAlias type="com.zero.domain.CupMatchDetail" alias="CupMatchDetail"></typeAlias>      
               
   	 	<typeAlias type="com.zero.domain.Branch" alias="Branch"></typeAlias>

@@ -5,8 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.zero.domain.Branch;
 import com.zero.domain.CupPlayer;
-import com.zero.domain.CupSchejule;
+import com.zero.domain.CupSchedule;
 import com.zero.domain.CupTeam;
 import com.zero.repository.CupRepository;
 
@@ -33,8 +34,8 @@ public class CupServiceImpl implements CupService {
 	}
 	
 	@Override
-	public List<CupSchejule> getCupSchejuleList(){
-		return cupRepository.getCupSchejuleList();
+	public List<CupSchedule> getCupScheduleList(){
+		return cupRepository.getCupScheduleList();
 	}
 	
 	@Override
@@ -60,6 +61,11 @@ public class CupServiceImpl implements CupService {
 	@Override
 	public List<CupPlayer> getPlayerRanking(){
 		return cupRepository.getPlayerRanking();
+	}
+	
+	@Override
+	public List<Branch> getBranchList(){
+		return cupRepository.getBranchList();
 	}
 }
  

@@ -8,8 +8,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.zero.domain.Branch;
 import com.zero.domain.CupPlayer;
-import com.zero.domain.CupSchejule;
+import com.zero.domain.CupSchedule;
 import com.zero.domain.CupTeam;
 
 @Repository
@@ -23,9 +24,9 @@ public class CupRepositoryImpl implements CupRepository {
 	@Override
 	public List<CupTeam> getCupTeamList(){
 
-    	return sql.selectList("Cup.selectTeam");
+    	return sql.selectList("Cup.selectTeamWithbranch");
 	}
-
+ 
 	@Override
 	public CupTeam getCupTeamOne(int team_no){
 		return sql.selectOne("Cup.selectOneTeam", team_no);
@@ -38,9 +39,9 @@ public class CupRepositoryImpl implements CupRepository {
 	}
 
 	@Override
-	public List<CupSchejule> getCupSchejuleList(){
+	public List<CupSchedule> getCupScheduleList(){
 		
-		return sql.selectList("Cup.selectSchejuleDetail");
+		return sql.selectList("Cup.selectScheduleDetail");
 	}
 	@Override
 	public void setNewCupTeam(CupTeam cupTeam) {
@@ -74,6 +75,11 @@ public class CupRepositoryImpl implements CupRepository {
 	@Override
 	public List<CupPlayer> getPlayerRanking(){
 		return sql.selectList("Cup.selectTeamAndPlayerRanking");
+	}
+	
+	@Override
+	public List<Branch> getBranchList(){
+		return sql.selectList("Branch.bList");
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.zero.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.zero.domain.Branch;
 import com.zero.domain.CupPlayer;
-import com.zero.domain.CupSchejule;
+import com.zero.domain.CupSchedule;
 import com.zero.domain.CupTeam;
 import com.zero.service.CupService;
 
@@ -24,22 +27,32 @@ public class CupController {
 	@GetMapping("/zCup")
 	public String zCupAllList(@ModelAttribute("NewTeam") CupTeam cup_team, 
 							  @ModelAttribute("NewPlayer") CupPlayer cup_player,
-							  @ModelAttribute CupSchejule cup_schejule,
+							  @ModelAttribute CupSchedule cup_schedule,
 							  Model model) {
 		
 		List<CupTeam> cup_team_list = cupService.getCupTeamList();
 		List<CupPlayer> player_rank_list = cupService.getPlayerRanking();
-		List<CupSchejule> cup_schejule_list = cupService.getCupSchejuleList();
-		
+		List<CupSchedule> cup_schedule_list = cupService.getCupScheduleList();
+		List<Branch> branch_List = cupService.getBranchList();
+			
 		model.addAttribute("cupTeamList", cup_team_list);
 		model.addAttribute("player_rank_list", player_rank_list);
-		model.addAttribute("cupSchejuleList", cup_schejule_list);
+		model.addAttribute("cupScheduleList", cup_schedule_list);
+		model.addAttribute("branch_List", branch_List);
 		return "zCup/zCup";
 	}
 	
 	@PostMapping("/zCup/cupTeam")
 	public String setCupTeam(@ModelAttribute("NewTeam") CupTeam cup_team, Model model) {
 
+		//날짜
+        Date currentDate = new Date();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(currentDate);
+         
+		cup_team.setTeam_member_cnt("1");
+		cup_team.setTeam_reg_year(formattedDate);
 		cupService.setNewCupTeam(cup_team);
 		
 		return "redirect:/zCup";
@@ -47,7 +60,7 @@ public class CupController {
 	
 	@PostMapping("/zCup/cupPlayer")
 	public String setCupPlayer(@ModelAttribute("NewPlayer") CupPlayer cup_player, Model model) {
-
+		
 		cupService.setNewCupPlayer(cup_player);
 		
 		return "redirect:/zCup";
@@ -57,10 +70,10 @@ public class CupController {
 	public String getScheduleDetail(Model model) {
 		
 		List<CupTeam> cup_team_list = cupService.getCupTeamList();
-		List<CupSchejule> cup_schejule_list = cupService.getCupSchejuleList();
+		List<CupSchedule> cup_schedule_list = cupService.getCupScheduleList();
 		
 		model.addAttribute("cupTeamList", cup_team_list);
-		model.addAttribute("cupSchejuleList", cup_schejule_list);
+		model.addAttribute("cupScheduleList", cup_schedule_list);
 		return "zCup/scheduleDetail";
 	}
 	

@@ -62,7 +62,7 @@ function changeVal(class_name, change_name) {
 
 //url
 function showDetail() {
-  location.href = 'zCup/scheduleDetail';
+  location.href = 'scheduleDetail';
 }
 
 function teamAdd() {

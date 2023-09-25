@@ -18,15 +18,17 @@ public class CupTeam {
 	private int branch_no; 				//fk
 	private int score_no;	 			//fk
 	
+	private Branch branch;
+	
 	public CupTeam() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
- 
+
 	public CupTeam(int team_no, String team_name, String team_leader, String team_phone, String team_mail,
 			String team_uniform_home, String team_uniform_away, String team_emblem, String team_password,
 			String team_password_check, String team_code, String team_member_cnt, String team_reg_year, int branch_no,
-			int score_no) {
+			int score_no, Branch branch) {
 		super();
 		this.team_no = team_no;
 		this.team_name = team_name;
@@ -43,6 +45,7 @@ public class CupTeam {
 		this.team_reg_year = team_reg_year;
 		this.branch_no = branch_no;
 		this.score_no = score_no;
+		this.branch = branch;
 	}
 
 	public int getTeam_no() {
@@ -164,4 +167,14 @@ public class CupTeam {
 	public void setScore_no(int score_no) {
 		this.score_no = score_no;
 	}
+
+	public Branch getBranch() {
+		return branch;
+	}
+
+	public void setBranch(Branch branch) {
+		this.branch = branch;
+	}
+ 
+	
 }
