@@ -451,6 +451,7 @@
             <h3><span>z-cup</span> Schedule</h3>
             <div class="zCup">
               <c:forEach items="${cupSchejuleList}" var="cupSchejule">
+              <c:set var="listNum" value="${listNum + 1}" />
               <ul>
                 <li class="place">시흥점</li>
                 <li class="playInfo">
@@ -483,16 +484,15 @@
                   </a>
                 </li>
                 <li class="button">
-                  <label for="play1" class="playButton"
+                  <label for="play${listNum}" class="playButton"
                     >경기정보 <span></span
                   ></label>
                 </li>
-              </ul>
-              </c:forEach>
-              <input type="checkbox" name="" id="play1" />
-              <label for="play1" class="cover"></label>
-              <section class="play1 playInfo">
-                <label for="play1" class="closeBtn">×</label>
+              </ul>        
+              <input type="checkbox" name="" id="play${listNum}" />
+              <label for="play${listNum}" class="cover"></label>
+              <section class="play${listNum} playInfo">
+                <label for="play${listNum}" class="closeBtn">×</label>
                 <table>
                   <caption>
                     <span></span>
@@ -511,7 +511,6 @@
                     <td>2021.04.25(월) 21:30 C구장</td>
                   </tr>
                 </table>
-
                 <table>
                   <caption>
                     <span></span>
@@ -543,6 +542,7 @@
                   </tr>
                 </table>
               </section>
+              </c:forEach>
             </div>           
           </section>
 
