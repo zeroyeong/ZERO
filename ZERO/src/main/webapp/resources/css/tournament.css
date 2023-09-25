@@ -1,6 +1,6 @@
 :root {
-  --mainColor: #2c3c57;
-  --pointColor: #192336;
+  --pointcolor: #2c3c57;
+  --mainColor: #192336;
   --buttonColor: #428ace;
   --tournamentBorder: 1px solid #fff;
   --tableBorder: 1px solid #dcdcdc;
@@ -9,7 +9,7 @@
 article.tournament {
   width: 100%;
   height: 85px;
-  background-color: var(--mainColor);
+  background-color: var(--pointcolor);
   position: relative;
 }
 
@@ -20,7 +20,7 @@ article.tournament input[type='checkbox'] {
 article.tournament label {
   width: 470px;
   height: 100%;
-  background-color: var(--pointColor);
+  background-color: var(--mainColor);
 
   position: absolute;
   top: 0;
@@ -32,7 +32,7 @@ article.tournament label {
   align-items: center;
   padding: 0 20px;
 
-  cursor: pointer;
+  cursor: pointcolorer;
 }
 
 @media screen and (max-width: 1100px) {
@@ -57,7 +57,7 @@ article.tournament label span {
 
 article.tournament section {
   width: 100%;
-  background-color: var(--pointColor);
+  background-color: var(--mainColor);
 
   position: absolute;
   top: 85px;
@@ -246,8 +246,8 @@ article.tournament div.ranking th {
 }
 
 article.tournament div.ranking thead {
-  border-top: 2px solid var(--mainColor);
-  border-bottom: 2px solid var(--mainColor);
+  border-top: 2px solid var(--pointcolor);
+  border-bottom: 2px solid var(--pointcolor);
 }
 
 article.tournament div.ranking tbody td {
@@ -264,7 +264,7 @@ article.tournament div.ranking span.rank {
 }
 
 article.tournament div.ranking tbody tr:first-child span.rank {
-  background-color: var(--mainColor);
+  background-color: var(--pointcolor);
 }
 
 article.tournament div.ranking .player {

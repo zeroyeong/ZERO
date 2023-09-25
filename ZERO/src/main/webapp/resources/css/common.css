@@ -63,7 +63,7 @@
   font-style: normal;
 }
 
-/* ì „ì²´ ì„¤ì • */
+/* ÀüÃ¼¼³Á¤ */
 * {
   padding: 0;
   margin: 0;
@@ -87,7 +87,6 @@ input[type="reset"],
 button[type="button"],
 button[type="submit"],
 button[type="reset"] {
-  background-color: transparent;
   border: none;
   cursor: pointer;
 }

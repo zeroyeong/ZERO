@@ -47,7 +47,7 @@ th {
 }
 
 .container table caption span::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 10px;
@@ -58,7 +58,7 @@ th {
 }
 
 .container table caption span::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 5px;
@@ -88,7 +88,8 @@ td input {
   font-size: 1rem;
 }
 
-label.modify {
+label.modify,
+button.modify {
   background-color: var(--buttonColor);
   color: #fff;
   font-size: 1rem;
@@ -97,7 +98,8 @@ label.modify {
   transition: 0.3s;
 }
 
-label.modify:hover {
+label.modify:hover,
+button.modify:hover {
   background-color: var(--pointColor);
 }
 
@@ -113,11 +115,13 @@ button.playerOut {
 button.playerOut:hover {
   background-color: rgb(83, 7, 26);
 }
+
 /* ________________________________________________________________ */
 
 /* FORM TEAM */
 form.team {
   width: 100%;
+  position: relative;
 }
 
 form.team div.teamImage {
@@ -176,54 +180,54 @@ table.teamDetail input.checkBotInput {
 }
 
 /* input[id=branch] */
-table.teamDetail input[id="teamName"] ~ div.new {
+table.teamDetail input[id='teamName'] ~ div.new {
   display: none;
 }
 
-table.teamDetail input[id="teamName"]:checked ~ div.origin {
+table.teamDetail input[id='teamName']:checked ~ div.origin {
   display: none;
 }
 
-table.teamDetail input[id="teamName"]:checked ~ div.new {
+table.teamDetail input[id='teamName']:checked ~ div.new {
   display: block;
 }
 
 /* input[id=branch] */
-table.teamDetail input[id="branch"] ~ div.new {
+table.teamDetail input[id='branch'] ~ div.new {
   display: none;
 }
 
-table.teamDetail input[id="branch"]:checked ~ div.origin {
+table.teamDetail input[id='branch']:checked ~ div.origin {
   display: none;
 }
 
-table.teamDetail input[id="branch"]:checked ~ div.new {
+table.teamDetail input[id='branch']:checked ~ div.new {
   display: block;
 }
 
 /* input[id=director] */
-table.teamDetail input[id="director"] ~ div.new {
+table.teamDetail input[id='director'] ~ div.new {
   display: none;
 }
 
-table.teamDetail input[id="director"]:checked ~ div.origin {
+table.teamDetail input[id='director']:checked ~ div.origin {
   display: none;
 }
 
-table.teamDetail input[id="director"]:checked ~ div.new {
+table.teamDetail input[id='director']:checked ~ div.new {
   display: block;
 }
 
 /* input[id=uniform] */
-table.teamDetail input[id="uniform"] ~ div.new {
+table.teamDetail input[id='uniform'] ~ div.new {
   display: none;
 }
 
-table.teamDetail input[id="uniform"]:checked ~ div.origin {
+table.teamDetail input[id='uniform']:checked ~ div.origin {
   display: none;
 }
 
-table.teamDetail input[id="uniform"]:checked ~ div.new {
+table.teamDetail input[id='uniform']:checked ~ div.new {
   display: block;
 }
 
@@ -255,4 +259,12 @@ table.playerList td div.player span.playerImage img {
   width: 100%;
   height: 100%;
   margin-right: 5px;
+}
+
+div.btnBox {
+  margin: 20px 0;
+}
+
+div.btnBox button {
+  float: right;
 }
