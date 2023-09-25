@@ -11,11 +11,12 @@
 
      <!-- css 연결 -->
     <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-    <link rel="stylesheet" href="<c:url value="/resources/css/scheduleDetail.css" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/scheduleDetail.css?a12" />" />
     <!--  <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css" />" /> -->
 
     <!-- js 연결 -->
     <script src="<c:url value="/resources/js/common.js" />" defer></script>
+    <script src="<c:url value="/resources/js/zCup.js" />" defer></script>
     <script src="<c:url value="/resources/js/zCupURL.js?d" />" defer></script>
 
     <!-- Font Awesome -->
@@ -174,12 +175,12 @@
         </section>
 
         <section class="playschedule">
-          <!-- ë°ì´í° ì¶ê°í  ë section.zCupSchedule ìì²´ë¥¼ ë±ë¡í´ì£¼ìë©´ ë©ëë¤. -->
           <h3><span>z-cup</span> Schedule</h3>
           <div class="scheduleBox">
-            <c:forEach items="${cupSchejuleList}" var="cupSchejule">
             <section class="zCupSchedule">
               <div class="zCup">
+            <c:forEach items="${cupSchejuleList}" var="cupSchejule">
+            <c:set var="listNum" value="${listNum + 1}" />
                 <ul>
                   <li class="place">시흥점</li>
                   <li class="playInfo">
@@ -213,15 +214,17 @@
                  	 </a>
                   </li>
                   <li class="button">
-                    <label for="play1" class="playButton"
-                      >경기정보 <span></span
-                    ></label>  
+                    <label for="play${listNum}" class="playButton" onClick="showPlayInfo(this);">
+                    	경기정보
+                    	<span></span>
+                    </label>  
                   </li>
                 </ul>
-                <input type="checkbox" name="" id="play1" />
-                <label for="play1" class="cover"></label>
-                <section class="play1 playInfo">
-                  <label for="play1" class="closeBtn">×</label>
+                <input type="checkbox" name="" id="play${listNum}" />
+                <!-- label cover 클래스 옆에 play1 추가해주세용 -->
+                <label for="play${listNum}" class="cover play${listNum}"></label>
+                <section class="playInfo play${listNum}">
+                  <label for="play${listNum}" class="closeBtn">×</label>
                   <table>
                     <caption>
                       <span></span>
@@ -274,193 +277,7 @@
                     </tr>
                   </table>
                 </section>
-              </div>
-            </section>
             </c:forEach>
-            <section class="zCupSchedule">
-              <div class="zCup">
-                <ul>
-                  <li class="place">시흥점</li>
-                  <li class="playInfo">
-                    <div>
-                      <span>04.26(월)</span>
-                      21:30
-                    </div>
-                    <span>C구장</span>
-                  </li>
-                  <li class="team leftTeam">
-                    <a href="teamDetail.html">팀 스피드러너</a>
-                    <a href="teamDetail.html">
-                      <img
-                        src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg"
-                        alt=""
-                      />
-                    </a>
-                  </li>
-                  <li class="score">1 : 2</li>
-                  <li class="team rightTeam">
-                    <a href="teamDetail.html">
-                      <img
-                        src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg"
-                      />
-                    </a>
-                    <a href="teamDetail.html">team 동그라미</a>
-                  </li>
-                  <li class="button">
-                    <label for="play1" class="playButton"
-                      >경기정보 <span></span
-                    ></label>
-                  </li>
-                </ul>
-                <input type="checkbox" name="" id="play1" />
-                <label for="play1" class="cover"></label>
-                <section class="play1 playInfo">
-                  <label for="play1" class="closeBtn">×</label>
-                  <table>
-                    <caption>
-                      <span></span>
-                      기본정보
-                    </caption>
-                    <tr>
-                      <th>지점</th>
-                      <td>시흥점</td>
-                    </tr>
-                    <tr>
-                      <th>컵 명</th>
-                      <td>그날 리그 그 그날리그</td>
-                    </tr>
-                    <tr>
-                      <th>경기일자</th>
-                      <td>2021.04.25(월) 21:30 C구장</td>
-                    </tr>
-                  </table>
-
-				  <table>
-                    <caption>
-                      <span></span>
-                      경기기록
-                    </caption>
-
-                    <tr>
-                      <th>팀 스피드러너(1)</th>
-                      <th>팀명</th>
-                      <th>team 동그라미(2)</th>
-                    </tr>
-
-                    <tr>
-                      <td>백태양 (1쿼터/5')</td>
-                      <th>득점현황</th>
-                      <td>
-                        장승연 (1쿼터/6')
-                        <br />
-                        주영웅 (2쿼터/6')
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>0</td>
-                      <th>경고</th>
-                      <td>0</td>
-                    </tr>
-                    <tr>
-                      <td>0</td>
-                      <th>퇴장</th>
-                      <td>0</td>
-                    </tr>
-                  </table>
-                </section>
-              </div>
-            </section>
-            <section class="zCupSchedule">
-              <div class="zCup">
-                <ul>
-                  <li class="place">ìí¥ì </li>
-                  <li class="playInfo">
-					<div>
-                      <span>04.26(월)</span>
-                      21:30
-                    </div>
-                    <span>C구장</span>
-                  </li>
-                  <li class="team leftTeam">
-                    <a href="teamDetail.html">팀 스피드러너</a>
-                    <a href="teamDetail.html">
-                      <img
-                        src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg"
-                        alt=""
-                      />
-                    </a>
-                  </li>
-                  <li class="score">1 : 2</li>
-                  <li class="team rightTeam">
-                    <a href="teamDetail.html">
-                      <img
-                        src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg"
-                      />
-                    </a>
-                    <a href="teamDetail.html">team 동그라미</a>
-                  </li>
-                  <li class="button">
-                    <label for="play1" class="playButton"
-                      >경기정보 <span></span
-                    ></label>
-                  </li>
-                </ul>
-                <input type="checkbox" name="" id="play1" />
-                <label for="play1" class="cover"></label>
-                <section class="play1 playInfo">
-                  <label for="play1" class="closeBtn">×</label>
-                  <table>
-                    <caption>
-                      <span></span>
-                      기본정보
-                    </caption>
-                    <tr>
-                      <th>지점</th>
-                      <td>시흥점</td>
-                    </tr>
-                    <tr>
-                      <th>컵 명</th>
-                      <td>그날 리그 그 그날리그</td>
-                    </tr>
-                    <tr>
-                      <th>경기일자</th>
-                      <td>2021.04.25(월) 21:30 C구장</td>
-                    </tr>
-                  </table>
-
-                  <table>
-                    <caption>
-                      <span></span>
-                      경기기록
-                    </caption>
-
-                    <tr>
-                      <th>팀 스피드러너(1)</th>
-                      <th>팀명</th>
-                      <th>team 동그라미(2)</th>
-                    </tr>
-
-                    <tr>
-                      <td>백태양 (1쿼터/5')</td>
-                      <th>득점현황</th>
-                      <td>
-                        장승연 (1쿼터/6')
-                        <br />
-                        주영웅 (2쿼터/6')
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>0</td>
-                      <th>경고</th>
-                      <td>0</td>
-                    </tr>
-                    <tr>
-                      <td>0</td>
-                      <th>퇴장</th>
-                      <td>0</td>
-                    </tr>
-                  </table>
-                </section>
               </div>
             </section>
           </div>
