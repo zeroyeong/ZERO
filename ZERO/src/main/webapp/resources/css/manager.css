@@ -692,7 +692,7 @@ section#mgrSchContent .schAddBtn {
     width: 5px;
     background-color: var(--pointColor);
 }
-
+ 
 .mgrSchInfo caption span::after {
     content: "";
     display: block;
