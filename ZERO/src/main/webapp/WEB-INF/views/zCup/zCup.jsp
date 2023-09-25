@@ -13,11 +13,11 @@
 
    <!-- css 연결 -->
    <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css?asas" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css?a" />" />
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/zCup.js?f" />" defer></script>
+   <script src="<c:url value="/resources/js/zCup.js?fsx" />" defer></script>
    <script src="<c:url value="/resources/js/zCupURL.js?dbc" />" defer></script>
 
    <!-- Font Awesome -->
@@ -484,13 +484,13 @@
                   </a>
                 </li>
                 <li class="button">
-                  <label for="play${listNum}" class="playButton"
+                  <label for="play${listNum}" class="playButton" onclick="showPlayInfo(this)"
                     >경기정보 <span></span
                   ></label>
                 </li>
               </ul>        
               <input type="checkbox" name="" id="play${listNum}" />
-              <label for="play${listNum}" class="cover"></label>
+              <label for="play${listNum}" class="cover play${listNum}"></label>
               <section class="play${listNum} playInfo">
                 <label for="play${listNum}" class="closeBtn">×</label>
                 <table>
@@ -517,28 +517,28 @@
                     경기기록
                   </caption>
                   <tr>
-                    <th>{cupSchejule.cup_home_team.team_name}</th>
+                    <th>${cupSchejule.cup_home_team.team_name}</th>
                     <th>팀명</th>
-                    <th>{cupSchejule.cup_away_team.team_name}</th>
+                    <th>${cupSchejule.cup_away_team.team_name}</th>
                   </tr>
                   <tr>
-                    <td>{cupSchejule.detail.detail_home_goal}</td>
+                    <td>${cupSchejule.detail.detail_home_goal}</td>
                     <th>득점현황</th>
                     <td>
-                      {cupSchejule.detail.detail_away_goal}
+                      ${cupSchejule.detail.detail_away_goal}
                       <br />
                       주영웅 (2쿼터/6')
                     </td>
                   </tr>
                   <tr>
-                    <td>{cupSchejule.detail.detail_home_yellow_card}</td>
+                    <td>${cupSchejule.detail.detail_home_yellow_card}</td>
                     <th>경고</th>
-                    <td>{cupSchejule.detail.detail_away_yellow_card}</td>
+                    <td>${cupSchejule.detail.detail_away_yellow_card}</td>
                   </tr>
                   <tr>
-                    <td>{cupSchejule.detail.detail_home_red_card}</td>
+                    <td>${cupSchejule.detail.detail_home_red_card}</td>
                     <th>퇴장</th>
-                    <td>{cupSchejule.detail.detail_away_red_card}</td>
+                    <td>${cupSchejule.detail.detail_away_red_card}</td>
                   </tr>
                 </table>
               </section>

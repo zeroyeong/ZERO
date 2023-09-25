@@ -18,7 +18,7 @@ section#teamList {
   display: none;
 }
 
-/* 대회 소개 선택 */
+/* ���쉶 �냼媛� �꽑�깮 */
 input[id='zCupInfo']:checked ~ section#zCupInfo {
   display: block;
 }
@@ -35,7 +35,7 @@ input[id='zCupInfo']:checked ~ h1#zCupTitle {
   display: none;
 }
 
-/* 전체현황 선택 */
+/* �쟾泥댄쁽�솴 �꽑�깮 */
 input[id='zCupAllView']:checked ~ article.zCupAll {
   display: block;
 }
@@ -52,7 +52,7 @@ input[id='zCupAllView']:checked ~ h1#zCupTitle {
   display: none;
 }
 
-/* 팀등록 선택 */
+/* ���벑濡� �꽑�깮 */
 input[id='teamAdd']:checked ~ section#teamAdd {
   display: block;
 }
@@ -65,7 +65,7 @@ input[id='teamAdd']:checked ~ article {
   display: none;
 }
 
-/* 팀리스트 선택 */
+/* ��由ъ뒪�듃 �꽑�깮 */
 input[id='teamList']:checked ~ section#teamList {
   display: block;
 }
@@ -963,7 +963,7 @@ section table tr {
 }
 
 .zCupSchedule .zCup ul li label span::before {
-  content: '▶';
+  content: '�뼳';
   font-size: 0.2em;
   position: absolute;
   top: 50%;
@@ -1026,13 +1026,13 @@ section.playInfo {
   display: none;
 }
 
-input[id='play1']:checked ~ label.cover {
+/*input[id='play1']:checked ~ label.cover {
   display: block;
 }
 
 input[id='play1']:checked ~ section.playInfo {
   display: block;
-}
+}*/
 
 /* PLAYER RAKING TABLE */
 .playerRanking colgroup .col1 {

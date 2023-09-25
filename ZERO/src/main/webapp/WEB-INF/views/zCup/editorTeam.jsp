@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>팀관리(수정)</title>
     <!-- css 연결 -->
-   <link rel="stylesheet" href="<c:url value="/resources/css/common.css?aa1" />" />
    <link rel="stylesheet" href="<c:url value="/resources/css/editorTeam.css?123" />" />
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css?123" />" />
     <!-- js 연결 -->

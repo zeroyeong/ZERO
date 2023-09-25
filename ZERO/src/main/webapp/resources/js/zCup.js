@@ -32,48 +32,7 @@ allBtn.addEventListener("click", function () {
   zCupTitle.innerText = "Z-CUP 전체 현황";
 });
 
-// TEAM LIST pagination
-const showTr = 30;
-const totalTr = document.querySelectorAll("tbody tr").length;
-const totalPage = Math.ceil(totalTr / showTr);
-const pages = document.querySelector(".pagination");
 
-// pagination button 생성
-for (let i = 1; i <= totalPage; i++) {
-  pages.innerHTML += `<li>${i}</li>`;
-}
-
-const page = document.querySelectorAll(".pagination li");
-
-page.forEach((t, idx) => {
-  t.addEventListener("click", () => {
-    for (p of page) {
-      p.classList.remove("active");
-    }
-    displayTr(idx);
-  });
-});
-
-function displayTr(idx) {
-  const trArray = document.querySelectorAll("tbody tr");
-
-  let start = idx * showTr;
-  let end = start + showTr;
-
-  let trArray1 = [...trArray];
-  for (ta1 of trArray1) {
-    ta1.style.display = "none";
-  }
-
-  let showTrArray = trArray1.slice(start, end);
-  for (st of showTrArray) {
-    st.style.display = "";
-  }
-
-  page[idx].classList.add("active");
-}
-
-displayTr(0);
 
 const upload_file = document.querySelector("#fileInput");
 const upload_name = document.querySelector(".fileName");
@@ -139,4 +98,27 @@ function teamEditPassword(team_no){
 	
 	
 }
+
+//Z-CUP SCHEDULE 경기정보 박스
+function showPlayInfo(label) {
+  let idName = label.getAttribute('for');
+  console.log(idName);
+  let coverLabel = document.querySelector(`label.${idName}`);
+  let playInfo = document.querySelector(`section.${idName}`);
+  let closeBtn = document.querySelector(`section.${idName} label.closeBtn`);
+
+  coverLabel.style.display = 'block';
+  playInfo.style.display = 'block';
+
+  closeBtn.addEventListener('click', function () {
+    playInfo.style.display = 'none';
+    coverLabel.style.display = 'none';
+  });
+
+  coverLabel.addEventListener('click', function () {
+    playInfo.style.display = 'none';
+    coverLabel.style.display = 'none';
+  });
+}
+
 

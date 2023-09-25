@@ -118,10 +118,14 @@ button.playerOut:hover {
 
 /* ________________________________________________________________ */
 
+.container{
+	position: relative;
+}
+
 /* FORM TEAM */
 form.team {
   width: 100%;
-  position: relative;
+  
 }
 
 form.team div.teamImage {
@@ -262,9 +266,15 @@ table.playerList td div.player span.playerImage img {
 }
 
 div.btnBox {
+	position:absolute;
+	top:50px;
+	right:100px;
   margin: 20px 0;
 }
 
 div.btnBox button {
-  float: right;
+  padding:15px;
+  border-radius:10px;
+  font-size:1.1rem;
+  font-weight:bold;
 }
