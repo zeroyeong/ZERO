@@ -35,10 +35,13 @@ function frmSubmit(){
 function idCheck(id){
 	const frm = document.joinFrm;
 	if(id == ""){
- 	alert("아이디를 입력해 주세요.");
+ 	alert("아이디(이메일)를 입력해 주세요.");
 	frm.mem_id.focus();
-} else{
-	url = "idCheck?mem_id";
+}else if(id.indexOf("@") == -1 || id.indexOf(".com") == -1){
+	alert("입력하신 아이디는 이메일형식이 아닙니다. 확인해주세요.");
+	frm.mem_id.focus();
+}else{
+	url = "idCheck?id="+id;
 	window.open(url, "IDCheck", "width=550, height=300");
 	}	  
 }

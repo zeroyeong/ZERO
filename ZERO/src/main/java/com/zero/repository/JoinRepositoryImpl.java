@@ -20,4 +20,9 @@ public class JoinRepositoryImpl implements JoinRepository {
 	public void addMember(Member member) {		
 		sql.insert("Member.insertMember", member);
 	}
+	
+	@Override
+	public void checkId(String mem_id) {
+		sql.selectOne("Member.idCheck", mem_id);
+	}
 }

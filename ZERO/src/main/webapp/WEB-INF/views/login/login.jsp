@@ -34,7 +34,7 @@
       		이메일과 비밀번호가 올바르지 않습니다.
       	</div>
       </c:if>
-      <form action="" name="loginFrm" action="<c:url value="/login"/>" method="post"> <!-- form태그 선언 및 로그인 인증을 위한 요청경로 설정 -->
+      <form action="" name="loginFrm" action="<c:url value="/login/login_proc"/>" method="post">
         <dl>
           <dt>
             <label for="userId">아이디</label>

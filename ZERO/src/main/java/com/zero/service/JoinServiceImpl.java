@@ -16,4 +16,9 @@ public class JoinServiceImpl implements JoinService {
 	public void addMember(Member member) {
 		joinRepository.addMember(member);
 	}
+	
+	@Override
+	public void checkId(String mem_id) {
+		joinRepository.checkId(mem_id);
+	}
 }
