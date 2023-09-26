@@ -111,7 +111,7 @@ function showPlayInfo(label) {
   });
 
   coverLabel.addEventListener('click', function () {
-    playInfo.style.display = 'none';
+    payInfo.style.display = 'none';
     coverLabel.style.display = 'none';
   });
 }

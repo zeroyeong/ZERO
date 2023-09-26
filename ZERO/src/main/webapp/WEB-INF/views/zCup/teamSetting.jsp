@@ -11,9 +11,12 @@
     <!-- css 연결 -->
     <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
     <link rel="stylesheet" href="<c:url value="/resources/css/teamSetting.css" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css?123" />" />
+    
     <!-- js 연결 -->
     <script src="<c:url value="/resources/js/common.js" />" defer></script>
 	<script src="<c:url value="/resources/js/zCup.js?ddfdg" />" defer></script>
+	
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous" ></script>
   </head>
@@ -30,6 +33,8 @@
           <source src="../videos/point.mp4" type="video/mp4" />
         </video>
       </div>
+            <!-- subMenu include -->
+ 	  <jsp:include page="../include/zCupScheduleList.jsp" />
 
       <div class="container">
         <h1 class="pageTitle">팀관리</h1>
