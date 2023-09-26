@@ -320,6 +320,7 @@ section.shcedule input[type='checkbox'] {
   display: none;
 }
 
+/*
 input[id='play1']:checked ~ label.cover {
   display: block;
 }
@@ -327,6 +328,7 @@ input[id='play1']:checked ~ label.cover {
 input[id='play1']:checked ~ section.playInfo {
   display: block;
 }
+*/
 
 section.shcedule table.record td {
   text-align: center;

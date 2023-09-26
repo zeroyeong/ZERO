@@ -45,7 +45,7 @@ public class CupController {
 	@PostMapping("/zCup/cupTeam")
 	public String setCupTeam(@ModelAttribute("NewTeam") CupTeam cup_team, Model model) {
 
-		//날짜
+		//�궇吏�
         Date currentDate = new Date();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -81,8 +81,11 @@ public class CupController {
     public String getTeamDetail(@RequestParam("team_no") int team_no, Model model) {  
     	
     	List<CupPlayer> team_detail_list = cupService.getTeamDetail(team_no);
-
+    	System.out.println("asd = " +team_detail_list);
+    	List<CupSchedule> cup_schedule_list = cupService.getTeamSchedule(team_no);
+    	
     	model.addAttribute("team_detail_list", team_detail_list);
+    	model.addAttribute("cup_schedule_list", cup_schedule_list);
         return "zCup/teamDetail";
     }
 	

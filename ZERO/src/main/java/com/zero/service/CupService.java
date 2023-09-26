@@ -25,6 +25,8 @@ public interface CupService {
 	
 	public List<CupPlayer> getTeamDetail(int team_no);
 	
+	public List<CupSchedule> getTeamSchedule(int team_no);
+	
 	public List<CupPlayer> getPlayerRanking();
 	
 	public List<Branch> getBranchList();

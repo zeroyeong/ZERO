@@ -11,11 +11,11 @@
 
     <!-- css 연결 -->
     <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-    <link rel="stylesheet" href="<c:url value="/resources/css/teamDetail.css" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/teamDetail.css?asd" />" />
     <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
     <!-- js 연결 -->
-    <script src="<c:url value="/resources/js/zCup.js?x" />" defer></script>
+    <script src="<c:url value="/resources/js/zCup.js?dd" />" defer></script>
     <script src="<c:url value="/resources/js/detail.js" />" defer></script>
 
     <!-- Font Awesome -->
@@ -77,34 +77,36 @@
 
         <section class="shcedule">
           <div>
+            <c:forEach var="cupSchedule" items="${cup_schedule_list}">
+            <c:set var="listNum" value="${listNum + 1}" />
             <ul>
               <li class="playName">컵 이름</li>
               <li class="playInfo">
                 <div>
-                  <span>12.12(토)</span>
+                  <span>${cupSchedule.schedule_date}</span>
+                  <span>${cupSchedule.schedule_time}</span>
                   21:30
                 </div>
                 <span class="place">C구장</span>
               </li>
               <li class="team leftTeam">
                 <img src="../images/팀1.jpg" alt="" />
-                <span class="teamName">팀 1 이름</span>
+                <span class="teamName">${cupSchedule.cup_home_team.team_name}</span>
               </li>
               <li class="score">1:2</li>
               <li class="team rightTeam">
-                <span class="teamName">팀 1 이름</span>
+                <span class="teamName">${cupSchedule.cup_away_team.team_name}</span>
                 <img src="../images/팀1.jpg" alt="" />
               </li>
               <li class="button">
-                <label for="play1">경기정보 <span></span></label>
+                <label for="play${listNum}" class="playButton" onclick="showPlayInfo(this)"
+                >경기정보 <span></span></label>
               </li>
-            </ul>
-          </div>
-
-          <input type="checkbox" name="" id="play1" />
-          <label for="play1" class="cover"></label>
-          <section class="play1 playInfo">
-            <label for="play1" class="closeBtn">×</label>
+            </ul>    
+          <input type="checkbox" name="" id="play${listNum}" />
+          <label for="play${listNum}" class="cover play${listNum}"></label>
+          <section class="play${listNum} playInfo">
+            <label for="play${listNum}" class="closeBtn">×</label>
             <table>
               <caption>
                 <span></span>
@@ -155,6 +157,8 @@
               </tr>
             </table>
           </section>
+          </c:forEach>
+          </div>
         </section>
 
         <section class="player">

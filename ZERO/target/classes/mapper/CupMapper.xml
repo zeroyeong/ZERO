@@ -99,7 +99,7 @@
 
 	<select id="selectTeamDetail" parameterType="int" resultMap="CupPlayerResultMap">
 	    SELECT
-	         p.*, t.*,
+	         p.*,t.*,
 	         b.branch_no,
 	         b.branch_name
 	    FROM
@@ -116,7 +116,7 @@
 	    	t.TEAM_NO = #{player_no}
 	</select>
 
- 	<resultMap id="CupScheduleResultMap" type="Cupschedule">  
+ 	<resultMap id="CupScheduleResultMap" type="CupSchedule">  
         <id property="schedule_no" column="SCHEDULE_NO"/>
         <result property="schedule_location" column="SCHEDULE_LOCATION"/>
         <result property="schedule_date" column="SCHEDULE_DATE"/>
@@ -168,6 +168,31 @@
 	    	d.DETAIL_NO = s.DETAIL_NO	      
 	</select>
 	
+	<select id="selectTeamSchedule" parameterType="int" resultMap="CupScheduleResultMap">
+	    SELECT
+    	    s.*,
+    	    d.*, 
+			h.TEAM_NO,
+			h.TEAM_NAME AS HOME_NAME,
+			a.TEAM_NO,
+			a.TEAM_NAME AS AWAY_NAME
+	    FROM
+	        cup_match_schedule s
+		JOIN
+	        Cup_Team h
+	    ON
+	        h.TEAM_NO = s.TEAM_HOME_NO        
+	    JOIN
+	        Cup_Team a
+	    ON
+	    	a.TEAM_NO = s.TEAM_AWAY_NO
+	    JOIN
+	    	CUP_MATCH_DETAIL d
+	    ON
+	    	d.DETAIL_NO = s.DETAIL_NO
+	    WHERE
+		 	TEAM_HOME_NO = #{team_no} OR TEAM_AWAY_NO = #{team_no}	    			
+	</select>
 </mapper>
 
 

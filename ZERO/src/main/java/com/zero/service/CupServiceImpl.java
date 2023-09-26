@@ -59,6 +59,11 @@ public class CupServiceImpl implements CupService {
 	}
 	
 	@Override
+	public List<CupSchedule> getTeamSchedule(int team_no){
+		return cupRepository.getTeamSchedule(team_no);
+	}
+	
+	@Override
 	public List<CupPlayer> getPlayerRanking(){
 		return cupRepository.getPlayerRanking();
 	}
