@@ -11,12 +11,10 @@ public class CupTeam {
 	private String team_uniform_away; 	//column
 	private String team_emblem;			//column
 	private String team_password;		//column
-	private String team_password_check;	
 	private String team_code;			//column
 	private String team_member_cnt;			
 	private String team_reg_year;			//column
 	private int branch_no; 				//fk
-	private int score_no;	 			//fk
 	
 	private Branch branch;
 	
@@ -27,8 +25,7 @@ public class CupTeam {
 
 	public CupTeam(int team_no, String team_name, String team_leader, String team_phone, String team_mail,
 			String team_uniform_home, String team_uniform_away, String team_emblem, String team_password,
-			String team_password_check, String team_code, String team_member_cnt, String team_reg_year, int branch_no,
-			int score_no, Branch branch) {
+			String team_code, String team_member_cnt, String team_reg_year, int branch_no, Branch branch) {
 		super();
 		this.team_no = team_no;
 		this.team_name = team_name;
@@ -39,12 +36,10 @@ public class CupTeam {
 		this.team_uniform_away = team_uniform_away;
 		this.team_emblem = team_emblem;
 		this.team_password = team_password;
-		this.team_password_check = team_password_check;
 		this.team_code = team_code;
 		this.team_member_cnt = team_member_cnt;
 		this.team_reg_year = team_reg_year;
 		this.branch_no = branch_no;
-		this.score_no = score_no;
 		this.branch = branch;
 	}
 
@@ -120,14 +115,6 @@ public class CupTeam {
 		this.team_password = team_password;
 	}
 
-	public String getTeam_password_check() {
-		return team_password_check;
-	}
-
-	public void setTeam_password_check(String team_password_check) {
-		this.team_password_check = team_password_check;
-	}
-
 	public String getTeam_code() {
 		return team_code;
 	}
@@ -160,14 +147,6 @@ public class CupTeam {
 		this.branch_no = branch_no;
 	}
 
-	public int getScore_no() {
-		return score_no;
-	}
-
-	public void setScore_no(int score_no) {
-		this.score_no = score_no;
-	}
-
 	public Branch getBranch() {
 		return branch;
 	}
@@ -175,6 +154,4 @@ public class CupTeam {
 	public void setBranch(Branch branch) {
 		this.branch = branch;
 	}
- 
-	
 }

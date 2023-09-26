@@ -32,7 +32,7 @@
       <div class="topVideo">
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
-          <source src="../videos/point.mp4" type="video/mp4" />
+          <source src="resources/videos/point.mp4" type="video/mp4" />
         </video>
       </div>
       
@@ -156,22 +156,7 @@
                   <button type="button" class="playerOut">퇴출</button>
                 </td>
               </tr>
-              </c:forEach>
-              <tr>
-                <td>1</td>
-                <td>
-                  <div class="player">
-                    <span class="playerImage">
-                      <!--선수 사진-->
-                      <img src="../images/person.png" alt="">
-                    </span>
-                    <span>홍길동</span>
-                  </div> 
-                </td>
-                <td>
-                  <button type="button" class="playerOut">퇴출</button>
-                </td>
-              </tr>
+              </c:forEach>            
             </tbody>
           </table>
           <div class="btnBox">

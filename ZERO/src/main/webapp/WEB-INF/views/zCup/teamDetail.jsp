@@ -11,7 +11,7 @@
 
     <!-- css 연결 -->
     <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-    <link rel="stylesheet" href="<c:url value="/resources/css/teamDetail.css" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/teamDetail.css?sd" />" />
     <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
     <!-- js 연결 -->
@@ -34,7 +34,7 @@
       <div class="topVideo">
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
-          <source src="../videos/point.mp4" type="video/mp4" />
+          <source src="resources/videos/point.mp4" type="video/mp4" />
         </video>
       </div>
       <!-- subMenu include -->
@@ -85,18 +85,17 @@
                 <div>
                   <span>${cupSchedule.schedule_date}</span>
                   <span>${cupSchedule.schedule_time}</span>
-                  21:30
                 </div>
                 <span class="place">C구장</span>
               </li>
               <li class="team leftTeam">
-                <img src="../images/팀1.jpg" alt="" />
                 <span class="teamName">${cupSchedule.cup_home_team.team_name}</span>
-              </li>
-              <li class="score">1:2</li>
-              <li class="team rightTeam">
-                <span class="teamName">${cupSchedule.cup_away_team.team_name}</span>
                 <img src="../images/팀1.jpg" alt="" />
+              </li>
+              <li class="score">${cupSchedule.schedule_home_goal} : ${cupSchedule.schedule_away_goal}</li>
+              <li class="team rightTeam">
+                <img src="../images/팀1.jpg" alt="" />
+                <span class="teamName">${cupSchedule.cup_away_team.team_name}</span>
               </li>
               <li class="button">
                 <label for="play${listNum}" class="playButton" onclick="showPlayInfo(this)"
@@ -197,32 +196,6 @@
                   <td>${playerlist.player_name}</td>
                 </tr>
               </c:forEach>
-              <tr>
-                <td>1</td>
-                <td>
-                  <div class="player">
-                    <img src="../images/person.png" alt="" />
-                    <span>이름1</span>
-                  </div>
-                </td>
-                <td>10</td>
-                <td>5</td>
-                <td>0</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>
-                  <div class="player">
-                    <img src="../images/person.png" alt="" />
-                    <span>이름1</span>
-                  </div>
-                </td>
-                <td>10</td>
-                <td>5</td>
-                <td>0</td>
-                <td>0</td>
-              </tr>
             </tbody>
           </table>
         </section>

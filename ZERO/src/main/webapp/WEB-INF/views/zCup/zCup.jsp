@@ -13,7 +13,7 @@
 
    <!-- css 연결 -->
    <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css?a" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css?ddd" />" />
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
@@ -36,7 +36,7 @@
       <div class="topVideo">
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
-          <source src="../videos/point.mp4" type="video/mp4" />
+          <source src="resources/videos/point.mp4" type="video/mp4" />
         </video>
       </div>
       <!-- subMenu include -->
@@ -244,11 +244,11 @@
                 <div class="bothSide">
                   <div>
                     <label>팀비밀번호</label>
-                    <form:input type="new-password" id="pwd1" path="team_password" placeholder="5자 이상으로 입력해주세요."/>
+                    <form:input type="password" id="pwd1" path="team_password" placeholder="5자 이상으로 입력해주세요."/>
                   </div>
                   <div>
                     <label>팀비밀번호 확인</label>
-                    <form:input type="new-password" id="pwd2" path="team_password_check" />
+                    <form:input type="password" id="pwd2" path="" />
                   </div>
                 </div>
               </div>
@@ -273,7 +273,8 @@
                   </div>
                   <div>
                     <label>팀비밀번호</label>
-                    <input type="text" />
+                    <input type="password" id="team_pwd" />
+                    <form:input type="hidden" id="player_team_pwd" path=""/>   
                   </div>
                 </div>
                 <div class="bothSide">
@@ -435,7 +436,6 @@
                   <div>
                  	<span>${cupSchedule.schedule_date}</span>
                     <span>${cupSchedule.schedule_time}</span>
-                    21:30
                   </div>
                   <span>${cupSchedule.schedule_location}</span>
                 </li>
@@ -449,7 +449,7 @@
                       alt=""/>
                     </a>
                 </li>
-                <li class="score">1 : 2</li>
+                <li class="score">${cupSchedule.schedule_home_goal} : ${cupSchedule.schedule_away_goal}</li>
                 <li class="team rightTeam">
                   <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
                     <img
@@ -552,7 +552,7 @@
                 </tr>
               </thead>
               <tbody>
-               <c:forEach items="${player_rank_list}" var="cupPlayer">
+               <c:forEach items="${player_rank_list}" var="cupPlayer" begin="0" end="19" step="1">
                <c:set var="rankNum" value="${rankNum + 1}" />
                 <tr>
                   <td><span class="rank">${rankNum}</span></td>
@@ -565,44 +565,12 @@
                     </div>
                   </td>
                   <td>${cupPlayer.cup_team.team_name}</td>
-                  <td>미구현</td>
+                  <td>${cupPlayer.player_games}</td>
                   <td>${cupPlayer.player_goal}</td>
                   <td>${cupPlayer.player_yellow_card}</td>
                   <td>${cupPlayer.player_red_card}</td>
                 </tr>
-                </c:forEach>
-                <tr>
-                  <td><span class="rank">2</span></td>
-                  <td>
-                    <div class="player">
-                      <span class="img">
-                        <img src="../images/person.png" alt="" />
-                      </span>
-                      <span class="name">홍길동</span>
-                    </div>
-                  </td>
-                  <td>팀 1</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td><span class="rank">3</span></td>
-                  <td>
-                    <div class="player">
-                      <span class="img">
-                        <img src="../images/person.png" alt="" />
-                      </span>
-                      <span class="name">홍길동</span>
-                    </div>
-                  </td>
-                  <td>팀 1</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                  <td>5</td>
-                </tr>
+                </c:forEach>               
               </tbody>
             </table>
           </section>
@@ -619,18 +587,21 @@
     var cupTeamName = [];
     var cupBranch = [];
     var cupBranchNo = [];
+    var cupTeamPwd =[];
     var teamCodeCheck = false;
 	var teamNum = 0;
 	var player_team_name  = document.getElementById("player_team_name");
 	var player_branch_name = document.getElementById("player_branch_name");
 	var player_team_no = document.getElementById("player_team_no");
+	var player_team_pwd = document.getElementById("player_team_pwd");
 	
-    <c:forEach items="${cupTeamList}" var="cupTeam" varStatus="loop">    	
+    <c:forEach items="${cupTeamList}" var="cupTeam">    	
     	cupTeamNo.push("${cupTeam.team_no}");
     	cupTeamCode.push("${cupTeam.team_code}");
     	cupTeamName.push("${cupTeam.team_name}");
     	cupBranch.push("${cupTeam.branch.branch_name}");
     	cupBranchNo.push("${cupTeam.branch.branch_no}");
+    	cupTeamPwd.push("${cupTeam.team_password}");
     </c:forEach>
     
     function okReser() {
@@ -649,10 +620,11 @@
         	}
     		
     		if(teamCodeCheck){
-    			message ="팀코드 확인 팀 넘버" + teamNum;
+    			message ="팀코드 확인";
     			player_team_name.value = cupTeamName[teamNum];
     			player_branch_name.value = cupBranch[teamNum];
     			player_team_no.value = cupBranchNo[teamNum];
+    			player_team_pwd.value = cupTeamPwd[teamNum];
     			refreshSection('addTeam');
         		alert(message);
     		}else{

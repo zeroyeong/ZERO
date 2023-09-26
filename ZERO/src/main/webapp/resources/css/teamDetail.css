@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root {
   --pointColor: #2c3c57;
   --thBackColor: #f0f1f3;
@@ -258,7 +260,7 @@ section.shcedule ul li label span {
 }
 
 section.shcedule ul li label span::before {
-  content: '¢º';
+  content: 'â–¶';
   font-size: 0.2em;
   position: absolute;
   top: 50%;

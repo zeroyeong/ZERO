@@ -17,8 +17,8 @@
     </select>
      
     <insert id="insertPlayer" parameterType="CupPlayer">
-        insert into Cup_Player(PLAYER_NAME, PLAYER_PHOTO, PLAYER_GOAL, PLAYER_YELLOW_CARD, PLAYER_RED_CARD, TEAM_NO)
-        values(#{player_name}, #{player_photo}, #{player_goal}, #{player_yellow_card}, #{player_red_card}, #{team_no})
+        insert into Cup_Player(PLAYER_NAME, PLAYER_PHOTO, PLAYER_GAMES, PLAYER_GOAL, PLAYER_YELLOW_CARD, PLAYER_RED_CARD, TEAM_NO)
+        values(#{player_name}, #{player_photo}, #{player_games}, #{player_goal}, #{player_yellow_card}, #{player_red_card}, #{team_no})
     </insert>
     
      <select id="selectPlayer" resultType="CupPlayer">
@@ -33,6 +33,7 @@
         <id property="player_no" column="PLAYER_NO"/>
         <result property="player_name" column="PLAYER_NAME"/>
         <result property="player_photo" column="PLAYER_PHOTO"/>
+        <result property="player_games" column="PLAYER_GAMES"/>
         <result property="player_goal" column="PLAYER_GOAL"/>
         <result property="player_yellow_card" column="PLAYER_YELLOW_CARD"/>
         <result property="player_red_card" column="PLAYER_RED_CARD"/>
@@ -53,7 +54,6 @@
         <result property="team_member_cnt" column="TEAM_MEMBER_CNT"/>
         <result property="team_reg_year" column="TEAM_REG_YEAR"/>
         <result property="branch_no" column="BRANCH_NO"/>
-        <result property="score_no" column="SCORE_NO"/>
         <association property="branch" javaType="branch">
 		    <id property="branch_no" column="BRANCH_NO" />
 		    <result property="branch_name" column="BRANCH_NAME" />
@@ -121,6 +121,8 @@
         <result property="schedule_location" column="SCHEDULE_LOCATION"/>
         <result property="schedule_date" column="SCHEDULE_DATE"/>
         <result property="schedule_time" column="SCHEDULE_TIME"/>
+        <result property="schedule_home_goal" column="SCHEDULE_HOME_GOAL"/>
+        <result property="schedule_away_goal" column="SCHEDULE_AWAY_GOAL"/>
         <result property="branch_no" column="BRANCH_NO"/>
      
 
@@ -165,7 +167,9 @@
 	    JOIN
 	    	CUP_MATCH_DETAIL d
 	    ON
-	    	d.DETAIL_NO = s.DETAIL_NO	      
+	    	d.DETAIL_NO = s.DETAIL_NO
+	    ORDER BY 
+	    	s.SCHEDULE_DATE DESC;	      
 	</select>
 	
 	<select id="selectTeamSchedule" parameterType="int" resultMap="CupScheduleResultMap">
@@ -191,7 +195,9 @@
 	    ON
 	    	d.DETAIL_NO = s.DETAIL_NO
 	    WHERE
-		 	TEAM_HOME_NO = #{team_no} OR TEAM_AWAY_NO = #{team_no}	    			
+		 	TEAM_HOME_NO = #{team_no} OR TEAM_AWAY_NO = #{team_no}	
+		ORDER BY 
+	    	s.SCHEDULE_DATE DESC; 	    			
 	</select>
 </mapper>
 

@@ -5,6 +5,7 @@ public class CupPlayer {
 	private int player_no;
 	private String player_name;
 	private String player_photo;
+	private String player_games;
 	private String player_goal;
 	private String player_yellow_card;
 	private String player_red_card;	
@@ -16,12 +17,13 @@ public class CupPlayer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CupPlayer(int player_no, String player_name, String player_photo, String player_goal,
+	public CupPlayer(int player_no, String player_name, String player_photo, String player_games, String player_goal,
 			String player_yellow_card, String player_red_card, int team_no, CupTeam cup_team) {
 		super();
 		this.player_no = player_no;
 		this.player_name = player_name;
 		this.player_photo = player_photo;
+		this.player_games = player_games;
 		this.player_goal = player_goal;
 		this.player_yellow_card = player_yellow_card;
 		this.player_red_card = player_red_card;
@@ -51,6 +53,14 @@ public class CupPlayer {
 
 	public void setPlayer_photo(String player_photo) {
 		this.player_photo = player_photo;
+	}
+
+	public String getPlayer_games() {
+		return player_games;
+	}
+
+	public void setPlayer_games(String player_games) {
+		this.player_games = player_games;
 	}
 
 	public String getPlayer_goal() {
@@ -91,7 +101,6 @@ public class CupPlayer {
 
 	public void setCup_team(CupTeam cup_team) {
 		this.cup_team = cup_team;
-	} 
-	
+	}
 	
 }

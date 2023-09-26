@@ -1,6 +1,8 @@
 package com.zero.repository;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -44,18 +46,28 @@ public class CupRepositoryImpl implements CupRepository {
 		return sql.selectList("Cup.selectScheduleDetail");
 	}
 	@Override
-	public void setNewCupTeam(CupTeam cupTeam) {
+	public void setNewCupTeam(CupTeam cup_team) {
 		
 		//RANDOM TEAM CODE
 		String generatedString = RandomStringUtils.randomAlphanumeric(5);
-		cupTeam.setTeam_code(generatedString);
+		cup_team.setTeam_code(generatedString);
+
+		//real DATE
+	    Date currentDate = new Date();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(currentDate);
+         
+		cup_team.setTeam_member_cnt("1");
+		cup_team.setTeam_reg_year(formattedDate);
 		
-		sql.insert("Cup.insertTeam", cupTeam);
+		sql.insert("Cup.insertTeam", cup_team);
 	}
 	
 	@Override
 	public void setNewCupPlayer(CupPlayer cupPlayer) {
 		
+		cupPlayer.setPlayer_games("0");
 		cupPlayer.setPlayer_goal("0");
 		cupPlayer.setPlayer_yellow_card("0");
 		cupPlayer.setPlayer_red_card("0");

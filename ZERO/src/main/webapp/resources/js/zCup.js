@@ -67,18 +67,29 @@ function showDetail() {
 
 function teamAdd() {
   var teamForm = document.getElementById('teamForm');
+  var pwd1 = document.getElementById('pwd1');
+  var pwd2 = document.getElementById('pwd2');	
+  
+  if(pwd1.value != pwd2.value){
+  	    alert('비밀번호가 일치하지 않습니다');
+  }else{
+	  alert('정상적으로 팀 등록이 완료 되었습니다.');
+	  teamForm.submit();  
+  }
 
-  teamForm.submit();
-
-  alert('정상적으로 팀 등록이 완료 되었습니다.');
 }
 
 function playerAdd() {
   var playerForm = document.getElementById('playerForm');
-
-  playerForm.submit();
-
-  alert('정상적으로 선수 등록이 완료 되었습니다.');
+  var team_pwd = document.getElementById('team_pwd');
+  var player_team_pwd = document.getElementById('player_team_pwd');
+  
+  if(team_pwd.value != player_team_pwd.value){
+  	alert('비밀번호가 일치하지 않습니다');
+  }else{
+    alert('정상적으로 선수 등록이 완료 되었습니다.');
+    playerForm.submit();
+  } 
 }
 
 function teamEditPassword(team_no) {

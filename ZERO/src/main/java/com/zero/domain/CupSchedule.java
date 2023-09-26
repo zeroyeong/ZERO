@@ -6,6 +6,8 @@ public class CupSchedule {
 	private String schedule_location;
 	private String schedule_date;
 	private String schedule_time;
+	private String schedule_home_goal;
+	private String schedule_away_goal;
 	private int branch_no;
 	private CupTeam cup_home_team;
 	private CupTeam cup_away_team;
@@ -17,12 +19,15 @@ public class CupSchedule {
 	}
 
 	public CupSchedule(int schedule_no, String schedule_location, String schedule_date, String schedule_time,
-			int branch_no, CupTeam cup_home_team, CupTeam cup_away_team, CupMatchDetail detail) {
+			String schedule_home_goal, String schedule_away_goal, int branch_no, CupTeam cup_home_team,
+			CupTeam cup_away_team, CupMatchDetail detail) {
 		super();
 		this.schedule_no = schedule_no;
 		this.schedule_location = schedule_location;
 		this.schedule_date = schedule_date;
 		this.schedule_time = schedule_time;
+		this.schedule_home_goal = schedule_home_goal;
+		this.schedule_away_goal = schedule_away_goal;
 		this.branch_no = branch_no;
 		this.cup_home_team = cup_home_team;
 		this.cup_away_team = cup_away_team;
@@ -61,6 +66,22 @@ public class CupSchedule {
 		this.schedule_time = schedule_time;
 	}
 
+	public String getschedule_home_goal() {
+		return schedule_home_goal;
+	}
+
+	public void setschedule_home_goal(String schedule_home_goal) {
+		this.schedule_home_goal = schedule_home_goal;
+	}
+
+	public String getSchedule_away_goal() {
+		return schedule_away_goal;
+	}
+
+	public void setSchedule_away_goal(String schedule_away_goal) {
+		this.schedule_away_goal = schedule_away_goal;
+	}
+
 	public int getBranch_no() {
 		return branch_no;
 	}
@@ -93,5 +114,6 @@ public class CupSchedule {
 		this.detail = detail;
 	}
 
+	
 
 }

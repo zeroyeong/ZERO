@@ -11,11 +11,10 @@
 
      <!-- css 연결 -->
     <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-    <link rel="stylesheet" href="<c:url value="/resources/css/scheduleDetail.css?a12" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/scheduleDetail.css?addd" />" />
     <!--  <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css" />" /> -->
 
     <!-- js 연결 -->
-    <script src="<c:url value="/resources/js/common.js" />" defer></script>
     <script src="<c:url value="/resources/js/zCup.js" />" defer></script>
     <script src="<c:url value="/resources/js/zCupURL.js?d" />" defer></script>
 
@@ -33,7 +32,7 @@
       <div class="topVideo">
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
-          <source src="../videos/point.mp4" type="video/mp4" />
+          <source src="resources/videos/point.mp4" type="video/mp4" />
         </video>
       </div>
       <input type="radio" name="scheduleDetail" id="teamList" checked />
@@ -187,7 +186,6 @@
                     <div>
                     <span>${cupSchedule.schedule_date}</span>
                     <span>${cupSchedule.schedule_time}</span>
-                      21:30
                     </div>
                     <span>${cupSchedule.schedule_location}</span>
                   </li>
@@ -202,7 +200,7 @@
                       />
                     </a>
                   </li>
-                  <li class="score">1 : 2</li>
+                  <li class="score">${cupSchedule.schedule_home_goal} : ${cupSchedule.schedule_away_goal}</li>
                   <li class="team rightTeam">
                     <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
                       <img
