@@ -163,19 +163,8 @@ input[id='player']:checked ~ section.player {
 /* SECTION */
 .container > section {
   width: 100%;
-  /* display: flex;
-  flex-direction: column; */
   display: none;
 }
-
-/* .container > section select {
-  width: 200px;
-  padding: 5px;
-  outline: none;
-  border: var(--tableBorder);
-  font-size: 1rem;
-  margin-bottom: 15px;
-} */
 
 /* SECTION SCHEDULE */
 section.shcedule > div {
@@ -269,7 +258,7 @@ section.shcedule ul li label span {
 }
 
 section.shcedule ul li label span::before {
-  content: 'ï¿½ë¼³';
+  content: '¢º';
   font-size: 0.2em;
   position: absolute;
   top: 50%;
@@ -320,88 +309,11 @@ section.shcedule input[type='checkbox'] {
   display: none;
 }
 
-/*
-input[id='play1']:checked ~ label.cover {
-  display: block;
-}
-
-input[id='play1']:checked ~ section.playInfo {
-  display: block;
-}
-*/
 
 section.shcedule table.record td {
   text-align: center;
 }
 
-/* SECTION.PLAYER RANKING */
-.playerRanking colgroup .col1 {
-  width: 5%;
-}
-
-.playerRanking colgroup .col2 {
-  max-width: 475px;
-  width: 39%;
-}
-
-.playerRanking colgroup .col3,
-.playerRanking colgroup .col4,
-.playerRanking colgroup .col5,
-.playerRanking colgroup .col6,
-.playerRanking colgroup .col7,
-.playerRanking colgroup .col8,
-.playerRanking colgroup .col9 {
-  width: 8%;
-}
-
-section.ranking table thead tr {
-  border-top: 1px solid var(--pointColor);
-  border-bottom: 1px solid var(--pointColor);
-}
-
-section.ranking table td {
-  border: var(--tableBorder);
-  text-align: center;
-}
-
-section.ranking table th {
-  border-top: 1px solid var(--pointColor);
-  border-bottom: 1px solid var(--pointColor);
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-  color: var(--fontColor);
-  background-color: #fff;
-}
-
-section.ranking table tr td:first-child {
-  border-left: 1px solid transparent;
-}
-
-section.ranking table tr th:last-child,
-section.ranking table tr td:last-child {
-  border-right: 1px solid transparent;
-}
-
-section.ranking table td > span {
-  display: inline-block;
-  background-color: #717171;
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
-  color: #fff;
-}
-
-section.ranking table tr:first-child td > span {
-  background-color: var(--pointColor);
-}
-
-section.ranking tbody tr:nth-child(odd) {
-  background-color: #f0f1f3;
-}
-
-.playerRanking th span {
-  font-size: 0.5rem;
-}
 
 /* SECTION.PLAYER */
 table.player .col1 {
