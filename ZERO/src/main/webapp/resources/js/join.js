@@ -31,6 +31,18 @@ function frmSubmit(){
   self.location.href = "join";
 }
 
+//중복확인 버튼 클릭했을 때
+function idCheck(id){
+	const frm = document.joinFrm;
+	if(id == ""){
+ 	alert("아이디를 입력해 주세요.");
+	frm.mem_id.focus();
+} else{
+	url = "idCheck?mem_id";
+	window.open(url, "IDCheck", "width=550, height=300");
+	}	  
+}
+
 //회원가입 버튼 클릭했을 때
 function joinFrmSubmit(){
 	const id = document.getElementById("user_id").value;
@@ -38,11 +50,16 @@ function joinFrmSubmit(){
 	const pwd2 = document.getElementById("user_pwd_check").value;
 	const name = document.getElementById("user_name").value;
 	const confirm = document.getElementById("emailConfirm").value;
+	const idCheck = document.getElementById("checkId").value;
+	const mailCheck = document.getElementById("checkMail").value;
 	
-	if(id == "" || name == "" || confirm == "" ||pwd1 == "" || pwd2 == "" || pwd1 != pwd2){
+	if(id == "" || checkId != "true" || name == "" || confirm == "" ||
+		pwd1 == "" || pwd2 == "" || pwd1 != pwd2 || mailCheck != "true"){
 		if(id == ""){
-			alert("아이디를 입력해 주세요.");
+			alert("아이디(이메일)를 입력해 주세요.");
 			document.joinFrm.mem_id.focus();
+		}else if(idCheck != "true"){
+			alert("아이디(이메일) 중복확인을 해주세요.");
 		}else if(pwd1 == ""){
 			 alert("비밀번호를 입력해 주세요.");
 			 document.joinFrm.mem_pw.focus();
@@ -54,11 +71,13 @@ function joinFrmSubmit(){
 			document.joinFrm.mem_name.focus();
 		}else if(confirm == ""){
 			alert("이메일 인증을 완료해주세요.");
-		}else{
+		}else if(pwd1 != pwd2){
 			alert("입력한 비밀번호가 일치하지 않습니다. 확인해주세요!");
+		}else{
+			alert("이메일 인증을 해주세요!");
 		}
+	}else{
+		alert("환영합니다. 회원가입이 완료되었습니다.");
+		document.joinFrm.submit();	
 	}
-	
-	document.joinFrm.submit();	
-	
 }

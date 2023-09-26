@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/join.css?123" />" />
     
    	<!-- js 연결 -->
-    <script src="<c:url value="/resources/js/join.js?1" />" defer></script>
+    <script src="<c:url value="/resources/js/join.js?12" />" defer></script>
     
   </head>
   <body>
@@ -26,8 +26,8 @@
           <li>
             <label for="user_id">아이디(이메일)<span class="essential">(필수)</span></label>
             <div class="mail">
-              <form:input type="text" path="mem_id" id="user_id" class="id_check" placeholder="이메일주소 입력" />
-              <button type="button">중복확인</button>
+              <form:input type="email" path="mem_id" id="user_id" class="id_check" placeholder="이메일주소 입력" />
+              <button type="button" onClick="idCheck(this.form.mem_id.value)">중복확인</button>
             </div>
           </li>
           <li>
@@ -59,6 +59,11 @@
           </li>
         </ul>
         <button type="button" class="joinBtn" onclick ="joinFrmSubmit()">가입하기</button>
+        
+        <!-- [중복확인] 버튼을 눌렀나 확인하는 hidden input -->
+         <input type="hidden" name="checkId" id="checkId">
+         <!-- [메일인증] 버튼을 눌렀나 확인하는 hidden input -->
+         <input type="hidden" name="checkMail" id="checkMail">
         
       </form:form>
 

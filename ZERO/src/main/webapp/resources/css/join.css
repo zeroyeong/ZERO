@@ -316,3 +316,75 @@ section.container div.footer h3.logo {
   font-family: var(--logoFontfamlily);
   margin-bottom: 7px;
 }
+
+/* ID CHECK 중복확인 */
+div.IdCheck {
+  width: 500px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+}
+
+div.IdCheck .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 2px solid var(--allFontColor);
+  margin-bottom: 20px;
+}
+
+div.IdCheck .title button {
+  font-size: 2rem;
+}
+
+div.yes,
+div.no {
+  text-align: center;
+}
+
+div.yes button,
+div.no > button {
+  background-color: var(--pointColor);
+  color: #fff;
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+div.yes button:hover,
+div.no > button:hover {
+  background-color: var(--mainColor);
+}
+
+div.no .search {
+  width: 100%;
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+div.no .search label {
+  display: inline-block;
+  width: 20%;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+div.no .search input {
+  width: 57%;
+  border: var(--inputBorder);
+  padding: var(--inputPadding);
+  font-size: 1rem;
+}
+
+div.no .search button {
+  background-color: var(--pointColor);
+  color: #fff;
+  width: 20%;
+  font-size: 1rem;
+}

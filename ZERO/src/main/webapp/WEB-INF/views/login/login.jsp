@@ -40,13 +40,13 @@
             <label for="userId">아이디</label>
           </dt>
           <dd>
-            <input type="text" name="userId" id="userId" placeholder="이메일" />
+            <input type="text" name="mem_id" id="userId" placeholder="이메일" />
           </dd>
           <dt>
             <label for="userPw">비밀번호</label>
           </dt>
           <dd>
-            <input type="password" name="userPw" id="userPw" placeholder="비밀번호" />
+            <input type="password" name="mem_pw" id="userPw" placeholder="비밀번호" />
           </dd>
         </dl>
 
@@ -57,6 +57,8 @@
         </label>
 
         <button type="button" onClick="loginCheck()">로그인</button>
+        
+        <!-- CSRF 공격을 방어하는 토큰 -->
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
       </form>
 

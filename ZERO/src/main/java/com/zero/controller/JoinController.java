@@ -35,4 +35,9 @@ public class JoinController {
 		joinService.addMember(member);
 		return "login/login";
 	}
+	
+	@GetMapping("/idCheck")
+	public String idCheck() {
+		return "join/idCheck";
+	}
 }
