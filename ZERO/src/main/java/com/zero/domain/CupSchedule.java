@@ -12,6 +12,7 @@ public class CupSchedule {
 	private CupTeam cup_home_team;
 	private CupTeam cup_away_team;
 	private CupMatchDetail detail;
+	private Branch branch;
 	
 	public CupSchedule() {
 		super();
@@ -20,7 +21,7 @@ public class CupSchedule {
 
 	public CupSchedule(int schedule_no, String schedule_location, String schedule_date, String schedule_time,
 			String schedule_home_goal, String schedule_away_goal, int branch_no, CupTeam cup_home_team,
-			CupTeam cup_away_team, CupMatchDetail detail) {
+			CupTeam cup_away_team, CupMatchDetail detail, Branch branch) {
 		super();
 		this.schedule_no = schedule_no;
 		this.schedule_location = schedule_location;
@@ -32,6 +33,7 @@ public class CupSchedule {
 		this.cup_home_team = cup_home_team;
 		this.cup_away_team = cup_away_team;
 		this.detail = detail;
+		this.branch = branch;
 	}
 
 	public int getSchedule_no() {
@@ -66,11 +68,11 @@ public class CupSchedule {
 		this.schedule_time = schedule_time;
 	}
 
-	public String getschedule_home_goal() {
+	public String getSchedule_home_goal() {
 		return schedule_home_goal;
 	}
 
-	public void setschedule_home_goal(String schedule_home_goal) {
+	public void setSchedule_home_goal(String schedule_home_goal) {
 		this.schedule_home_goal = schedule_home_goal;
 	}
 
@@ -114,6 +116,11 @@ public class CupSchedule {
 		this.detail = detail;
 	}
 
-	
+	public Branch getBranch() {
+		return branch;
+	}
 
+	public void setBranch(Branch branch) {
+		this.branch = branch;
+	}
 }

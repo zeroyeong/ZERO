@@ -236,7 +236,7 @@
                 <div>
                   <label>팀엠블럼</label>
                   <div class="search">
-                    <form:input type="text" class="fileName" path="team_emblem" value="이미지를 업로드 하세요"/>
+                    <form:input type="text" class="fileName" path="team_emblem" placeholder="이미지를 업로드 하세요" readonly="true"/>
                     <input type="file" id="fileInput">
                     <label for="fileInput">찾아보기</label>
                   </div>
@@ -244,7 +244,7 @@
                 <div class="bothSide">
                   <div>
                     <label>팀비밀번호</label>
-                    <form:input type="password" id="pwd1" path="team_password" placeholder="5자 이상으로 입력해주세요."/>
+                    <form:input type="password" id="pwd1" path="team_password" placeholder="비밀번호를 입력해주세요."/>
                   </div>
                   <div>
                     <label>팀비밀번호 확인</label>
@@ -280,11 +280,11 @@
                 <div class="bothSide">
                   <div>
                     <label>팀명</label>
-                    <input type="text" id="player_team_name" readonly/>
+                    <input type="text" id="player_team_name" placeholder="팀코드 입력" readonly/>
                   </div>
                   <div>
                     <label>지점명</label>
-                    <input type="text" id="player_branch_name" readonly/>
+                    <input type="text" id="player_branch_name" placeholder="팀코드 입력" readonly/>
                     <form:input type="hidden" id="player_team_no" path="team_no"/>                
                   </div>
                 </div>
@@ -295,7 +295,7 @@
                 <div>
                   <label>선수사진</label>
                   <div class="search">
-                    <form:input type="text" class="fileName2" path="player_photo" value="이미지를 업로드 하세요" />
+                    <form:input type="text" class="fileName2" path="player_photo" placeholder="이미지를 업로드 하세요" readonly="true"/>
                     <input type="file" id="fileInput2">
                     <label for="fileInput2">찾아보기</label>
                   </div>
@@ -477,15 +477,11 @@
                   </caption>
                   <tr>
                     <th>지점</th>
-                    <td>시흥점</td>
-                  </tr>
-                  <tr>
-                    <th>컵 명</th>
-                    <td>그날 리그 그 그날리그</td>
+                    <td>${cupSchedule.branch.branch_name}</td>
                   </tr>
                   <tr>
                     <th>경기일자</th>
-                    <td>2021.04.25(월) 21:30 C구장</td>
+                    <td>${cupSchedule.schedule_date} ${cupSchedule.schedule_time} ${cupSchedule.schedule_location}</td>
                   </tr>
                 </table>
                 <table>
@@ -626,7 +622,7 @@
     			player_team_no.value = cupBranchNo[teamNum];
     			player_team_pwd.value = cupTeamPwd[teamNum];
     			refreshSection('addTeam');
-        		alert(message);
+        		//alert(message);
     		}else{
     			message ="등록된 팀코드가 아닙니다. 다시 확인 바랍니다.";
         		alert(message);

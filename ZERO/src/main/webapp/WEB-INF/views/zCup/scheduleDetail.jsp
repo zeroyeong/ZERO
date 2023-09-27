@@ -230,16 +230,12 @@
                     </caption>
                     <tr>
                       <th>지점</th>
-                      <td>시흥점</td>
-                    </tr>
-                    <tr>
-                      <th>컵 명</th>
-                      <td>그날 리그 그 그날리그</td>
+                    <td>${cupSchedule.branch.branch_name}</td>
                     </tr>
                     <tr>
                       <th>경기일자</th>
-                      <td>2021.04.25(월) 21:30 C구장</td>
-                    </tr>
+                      <td>${cupSchedule.schedule_date} ${cupSchedule.schedule_time} ${cupSchedule.schedule_location}</td>
+                  	</tr>
                   </table>
 
                   <table>

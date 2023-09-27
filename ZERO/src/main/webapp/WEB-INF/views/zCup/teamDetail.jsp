@@ -131,28 +131,28 @@
                 경기기록
               </caption>
               <tr>
-                <th>팀 스피드러너(1)</th>
+                <th>${cupSchedule.cup_home_team.team_name}</th>
                 <th>팀명</th>
-                <th>team 동그라미(2)</th>
+                <th>${cupSchedule.cup_away_team.team_name}</th>
               </tr>
               <tr>
-                <td>백태양 (1쿼터/5')</td>
+                <td>${cupSchedule.detail.detail_home_goal}</td>
                 <th>득점현황</th>
                 <td>
-                  장승연 (1쿼터/6')
+                   ${cupSchedule.detail.detail_away_goal}
                   <br />
                   주영웅 (2쿼터/6')
                 </td>
               </tr>
               <tr>
-                <td>0</td>
+                <td>${cupSchedule.detail.detail_home_yellow_card}</td>
                 <th>경고</th>
-                <td>0</td>
+                <td>${cupSchedule.detail.detail_away_yellow_card}</td>
               </tr>
               <tr>
-                <td>0</td>
+                <td>${cupSchedule.detail.detail_home_red_card}</td>
                 <th>퇴장</th>
-                <td>0</td>
+                <td>${cupSchedule.detail.detail_away_red_card}</td>
               </tr>
             </table>
           </section>

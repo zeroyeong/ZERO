@@ -125,7 +125,6 @@
         <result property="schedule_away_goal" column="SCHEDULE_AWAY_GOAL"/>
         <result property="branch_no" column="BRANCH_NO"/>
      
-
     	<association property="cup_home_team" javaType="CupTeam">
             <id property="team_no" column="TEAM_HOME_NO"/>
             <result property="team_name" column="HOME_NAME"/>
@@ -144,6 +143,11 @@
             <result property="detail_home_red_card" column="DETAIL_HOME_RED_CARD"/>
             <result property="detail_away_red_card" column="DETAIL_AWAY_RED_CARD"/>
         </association>
+        
+        <association property="branch" javaType="branch">
+		    <id property="branch_no" column="BRANCH_NO" />
+		    <result property="branch_name" column="BRANCH_NAME" />
+        </association>
     </resultMap>
     
    	<select id="selectScheduleDetail" resultMap="CupScheduleResultMap">
@@ -153,7 +157,9 @@
 			h.TEAM_NO,
 			h.TEAM_NAME AS HOME_NAME,
 			a.TEAM_NO,
-			a.TEAM_NAME AS AWAY_NAME
+			a.TEAM_NAME AS AWAY_NAME,
+			b.branch_no,
+	        b.branch_name
 	    FROM
 	        cup_match_schedule s
 		JOIN
@@ -168,6 +174,10 @@
 	    	CUP_MATCH_DETAIL d
 	    ON
 	    	d.DETAIL_NO = s.DETAIL_NO
+	    JOIN
+	    	BRANCH b
+	    ON
+	    	b.branch_no = s.branch_no		
 	    ORDER BY 
 	    	s.SCHEDULE_DATE DESC;	      
 	</select>
