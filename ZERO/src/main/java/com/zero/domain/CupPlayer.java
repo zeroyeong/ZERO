@@ -1,5 +1,7 @@
 package com.zero.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class CupPlayer {
 
 	private int player_no;
@@ -11,6 +13,7 @@ public class CupPlayer {
 	private String player_red_card;	
 	private int team_no;	
 	private CupTeam cup_team;
+	private MultipartFile photo_file;
 	
 	public CupPlayer() {
 		super();
@@ -18,7 +21,8 @@ public class CupPlayer {
 	}
 
 	public CupPlayer(int player_no, String player_name, String player_photo, String player_games, String player_goal,
-			String player_yellow_card, String player_red_card, int team_no, CupTeam cup_team) {
+			String player_yellow_card, String player_red_card, int team_no, CupTeam cup_team,
+			MultipartFile photo_file) {
 		super();
 		this.player_no = player_no;
 		this.player_name = player_name;
@@ -29,6 +33,7 @@ public class CupPlayer {
 		this.player_red_card = player_red_card;
 		this.team_no = team_no;
 		this.cup_team = cup_team;
+		this.photo_file = photo_file;
 	}
 
 	public int getPlayer_no() {
@@ -102,5 +107,12 @@ public class CupPlayer {
 	public void setCup_team(CupTeam cup_team) {
 		this.cup_team = cup_team;
 	}
-	
+
+	public MultipartFile getPhoto_file() {
+		return photo_file;
+	}
+
+	public void setPhoto_file(MultipartFile photo_file) {
+		this.photo_file = photo_file;
+	}	
 }

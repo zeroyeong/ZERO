@@ -1,5 +1,7 @@
 package com.zero.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class CupTeam {
 
 	private int team_no; 				//pk
@@ -15,17 +17,18 @@ public class CupTeam {
 	private String team_member_cnt;			
 	private String team_reg_year;			//column
 	private int branch_no; 				//fk
-	
 	private Branch branch;
+	private MultipartFile emblem_file;
 	
 	public CupTeam() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+ 
 	public CupTeam(int team_no, String team_name, String team_leader, String team_phone, String team_mail,
 			String team_uniform_home, String team_uniform_away, String team_emblem, String team_password,
-			String team_code, String team_member_cnt, String team_reg_year, int branch_no, Branch branch) {
+			String team_code, String team_member_cnt, String team_reg_year, int branch_no, Branch branch,
+			MultipartFile emblem_file) {
 		super();
 		this.team_no = team_no;
 		this.team_name = team_name;
@@ -41,6 +44,7 @@ public class CupTeam {
 		this.team_reg_year = team_reg_year;
 		this.branch_no = branch_no;
 		this.branch = branch;
+		this.emblem_file = emblem_file;
 	}
 
 	public int getTeam_no() {
@@ -153,5 +157,13 @@ public class CupTeam {
 
 	public void setBranch(Branch branch) {
 		this.branch = branch;
+	}
+
+	public MultipartFile getEmblem_file() {
+		return emblem_file;
+	}
+
+	public void setEmblem_file(MultipartFile emblem_file) {
+		this.emblem_file = emblem_file;
 	}
 }

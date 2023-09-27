@@ -1,5 +1,6 @@
 package com.zero.repository;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,6 +10,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.zero.domain.Branch;
 import com.zero.domain.CupPlayer;
@@ -60,7 +62,23 @@ public class CupRepositoryImpl implements CupRepository {
          
 		cup_team.setTeam_member_cnt("1");
 		cup_team.setTeam_reg_year(formattedDate);
-		
+				
+	    if(cup_team.getEmblem_file() != null) {
+	    	
+	       MultipartFile image = cup_team.getEmblem_file();  
+	       String saveName = image.getOriginalFilename();  
+	       File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
+	    try {
+	    		image.transferTo(saveFile);
+	    		cup_team.setTeam_emblem(saveName);
+			} catch (Exception e) {
+                throw new RuntimeException("Image saving failed", e);
+            }
+	    	cup_team.setTeam_emblem(saveName);
+	    }else {
+	    	cup_team.setTeam_emblem("");
+	    }
+				
 		sql.insert("Cup.insertTeam", cup_team);
 	}
 	
@@ -71,6 +89,23 @@ public class CupRepositoryImpl implements CupRepository {
 		cupPlayer.setPlayer_goal("0");
 		cupPlayer.setPlayer_yellow_card("0");
 		cupPlayer.setPlayer_red_card("0");
+		
+	    if(cupPlayer.getPhoto_file() != null) {
+	    	
+		       MultipartFile image = cupPlayer.getPhoto_file();  
+		       String saveName = image.getOriginalFilename();  
+		       File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
+		    try {
+		    		image.transferTo(saveFile);
+		    		cupPlayer.setPlayer_photo(saveName);
+				} catch (Exception e) {
+	                throw new RuntimeException("Image saving failed", e);
+	            }
+		    	cupPlayer.setPlayer_photo(saveName);
+		    }else {
+		    	cupPlayer.setPlayer_photo("");
+		    }
+		
 		sql.insert("Cup.insertPlayer", cupPlayer);
 	} 
 	

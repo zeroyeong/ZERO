@@ -187,7 +187,7 @@
           <input type="radio" name="addLeague" id="addPlayer" />
 
           <section class="addTeam">
-              <form:form id="teamForm" modelAttribute = "NewTeam" method="post" action="zCup/cupTeam">
+              <form:form id="teamForm" modelAttribute = "NewTeam" method="post" action="zCup/cupTeam" enctype="multipart/form-data">
               <h3 class="formTitle"><span></span>팀 등록</h3>
               <div class="formDiv">
                 <div class="bothSide">
@@ -236,8 +236,8 @@
                 <div>
                   <label>팀엠블럼</label>
                   <div class="search">
-                    <form:input type="text" class="fileName" path="team_emblem" placeholder="이미지를 업로드 하세요" readonly="true"/>
-                    <input type="file" id="fileInput">
+                    <input type="text" class="fileName" placeholder="이미지를 업로드 하세요" readonly>
+                    <form:input type="file" id="fileInput" path="emblem_file" />
                     <label for="fileInput">찾아보기</label>
                   </div>
                 </div>
@@ -260,7 +260,7 @@
           </section>
                  
           <section class="addPlayer">
-            <form:form id="playerForm" modelAttribute = "NewPlayer" method="post" action="zCup/cupPlayer">
+            <form:form id="playerForm" modelAttribute = "NewPlayer" method="post" action="zCup/cupPlayer" enctype="multipart/form-data">
               <h3 class="formTitle"><span></span>선수 등록</h3>
               <div class="formDiv">
                 <div class="bothSide">
@@ -295,8 +295,8 @@
                 <div>
                   <label>선수사진</label>
                   <div class="search">
-                    <form:input type="text" class="fileName2" path="player_photo" placeholder="이미지를 업로드 하세요" readonly="true"/>
-                    <input type="file" id="fileInput2">
+                    <input type="text" class="fileName2"  placeholder="이미지를 업로드 하세요" readonly>
+                    <form:input type="file" id="fileInput2" path="photo_file"/>
                     <label for="fileInput2">찾아보기</label>
                   </div>
                 </div>
