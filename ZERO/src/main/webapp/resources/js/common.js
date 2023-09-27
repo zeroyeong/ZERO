@@ -1,7 +1,7 @@
 const point = document.querySelectorAll("#point");
 const Reservation = document.querySelectorAll("#Reservation");
 const zCup = document.querySelectorAll("#zCup");
-const customer = document.querySelectorAll("#customer");
+const service= document.querySelectorAll("#service");
 const manager = document.querySelectorAll("#manager");
 
 point.forEach((t) => {
@@ -21,9 +21,9 @@ zCup.forEach((t) => {
   });
 });
 
-customer.forEach((t) => {
+service.forEach((t) => {
   t.addEventListener("click", function () {
-    location.href = "/zero/customer";
+    location.href = "/zero/service";
   });
 });
 

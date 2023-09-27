@@ -1,14 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>      
+
 <!DOCTYPE html>
 <html lang="en">
-  <head> 
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ</title>
+    <title>NOTICE</title>
 
     <!-- css 연결 -->
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/post.css" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/post.css" />" />
 
     <!-- js 연결 -->
     <script src="../js/common.js" defer></script>
@@ -113,32 +119,34 @@
       </div>
 
       <ul class="harlfButton">
-        <li><a href="service.html">공지사항</a></li>
-        <li class="active"><a href="service.html">FAQ</a></li>
+        <li class="active"><a href="service.html">공지사항</a></li>
+        <li><a href="service.html">FAQ</a></li>
       </ul>
 
       <div class="container">
-        <h1 class="pageTitle notice">FAQ</h1>
+        <h1 class="pageTitle notice">공지사항</h1>
 
         <table class="post">
           <thead>
             <tr>
-              <th class="title" colspan="4">제목</th>
+              <th class="title" colspan="4">${notice.notTitle}</th>
             </tr>
             <tr>
               <th class="date">작성일</th>
-              <th class="dateInput">2023.09.11</th>
+              <th class="dateInput">${notice.notDate}</th>
               <th class="show">조회</th>
-              <th class="showInput">1</th>
+              <th class="showInput">${notice.notHit}</th>
             </tr>
           </thead>
           <tbody>
-            <td colspan="4">게시글 내용내용</td>
+            <td colspan="4">${notice.notContent}</td>
           </tbody>
         </table>
 
-        <div class="buttons">
-          <button type="button" class="beforePage">목록으로</button>
+        <div class="addButtons">
+          <button type="button" class="notAddBtns">수정</button>
+          <button type="button" class="notAddBtns">삭제</button>
+          <button type="button" class="notAddBtns">목록으로</button>
         </div>
 
         <table class="postGo">

@@ -33,7 +33,7 @@
 				</li>
 				<li id="zCup"><a>Z-CUP<span class="nav-bar hover-bar"></span></a>
 				</li>
-				<li id="customer"><a>고객센터<span class="nav-bar hover-bar"></span></a>
+				<li id="service"><a>고객센터<span class="nav-bar hover-bar"></span></a>
 				</li>
 				<li id="manager"><a>Manager<span class="nav-bar hover-bar"></span></a>
 				</li>
@@ -76,7 +76,7 @@
 				</li>
 				<li id="zCup"><a>Z-CUP<span class="nav-bar hover-bar"></span></a>
 				</li>
-				<li id="customer"><a>고객센터<span class="nav-bar hover-bar"></span></a>
+				<li id="service"><a>고객센터<span class="nav-bar hover-bar"></span></a>
 				</li>
 				<li id="manager"><a>Manager<span class="nav-bar hover-bar"></span></a>
 				</li>

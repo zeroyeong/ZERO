@@ -15,6 +15,8 @@
     	
     	<typeAlias type="com.zero.domain.Member" alias="Member"></typeAlias>
         
+        <typeAlias type="com.zero.domain.Faq" alias="Faq"></typeAlias>
+    	<typeAlias type="com.zero.domain.Notice" alias="Notice"></typeAlias>
     </typeAliases>
 </configuration>
 

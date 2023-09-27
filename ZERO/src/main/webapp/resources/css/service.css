@@ -8,33 +8,33 @@ input[type="radio"] {
   display: none;
 }
 
-input[id="notice"]:checked ~ .harlfButton label[for="notice"] {
+input[id="notice"]:checked~.harlfButton label[for="notice"] {
   background-color: var(--pointColor);
   color: #fff;
 }
 
-input[id="notice"]:checked ~ .container h1.faq {
+input[id="notice"]:checked~.container h1.faq {
   display: none;
 }
 
-input[id="notice"]:checked ~ .container section.faq {
+input[id="notice"]:checked~.container section.faq {
   display: none;
 }
 
-input[id="faq"]:checked ~ .harlfButton label[for="faq"] {
+input[id="faq"]:checked~.harlfButton label[for="faq"] {
   background-color: var(--pointColor);
   color: #fff;
 }
 
-input[id="faq"]:checked ~ .container h1.notice {
+input[id="faq"]:checked~.container h1.notice {
   display: none;
 }
 
-input[id="notice"]:checked ~ .container section.faq {
+input[id="notice"]:checked~.container section.faq {
   display: none;
 }
 
-input[id="faq"]:checked ~ .container section.notice {
+input[id="faq"]:checked~.container section.notice {
   display: none;
 }
 
@@ -163,4 +163,18 @@ main .container section form .searchButton i {
 .container .pagination li:hover {
   border-color: var(--pointColor);
   color: var(--pointColor);
+}
+
+main .container section .addBtn {
+  background-color: #192336;
+  color: #fff;
+  font-size: 1rem;
+  bottom: 5px;
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+main .container section .addBtn:hover {
+  background-color: var(--beforeColor);
 }

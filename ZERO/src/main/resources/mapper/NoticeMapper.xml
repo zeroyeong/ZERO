@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Notice">
+    <insert id="insertNotice" parameterType="Notice">
+        insert into Notice(notTitle, notContent, notPass, notFile)
+        values(#{notTitle}, #{notContent}, #{notPass}, #{notFile})
+    </insert>
+     <select id="selectNotice" resultType="Notice">
+        select * from Notice
+    </select>
+    <select id="byNotNo" parameterType="int" resultType="Notice">
+    	select * from Notice where notNo = #{notNo}
+    </select>
+    <update id="updateNotice" parameterType="Notice">
+    	 update Notice set notTitle = #{notTitle}, notContent = #{notContent}, notPass = #{notPass}, notFile = #{notFile} where notNo = #{notNo}
+    </update>
+    <delete id="deleteNotice" parameterType="int">
+        DELETE FROM Notice WHERE notNo = #{notNo} 
+    </delete>
+    
+    <insert id="insertFaq" parameterType="Faq">
+        insert into Faq(faqTitle, faqContent)
+        values(#{faqTitle}, #{faqContent})
+    </insert>
+     <select id="selectFaq" resultType="Faq">
+        select * from Faq
+    </select>
+    <select id="byFaqNo" parameterType="int" resultType="Faq">
+    	select * from Faq where faqNo = #{faqNo}
+    </select>
+    <update id="updateFaq" parameterType="Faq">
+    	 update Faq set faqTitle = #{faqTitle}, faqContent = #{faqContent} where faqNo = #{faqNo}
+    </update>
+    <delete id="deleteFaq" parameterType="int">
+        DELETE FROM Faq WHERE faqNo = #{faqNo} 
+    </delete>
+    
+</mapper>
+

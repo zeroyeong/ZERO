@@ -9,29 +9,29 @@ input[type="radio"] {
   display: none;
 }
 
-input[id="notice"]:checked ~ .harlfButton label[for="notice"] {
+input[id="notice"]:checked~.harlfButton label[for="notice"] {
   background-color: var(--pointColor);
   color: #fff;
 }
 
-input[id="notice"]:checked ~ .container h1.faq {
+input[id="notice"]:checked~.container h1.faq {
   display: none;
 }
 
-input[id="notice"]:checked ~ .container section.faq {
+input[id="notice"]:checked~.container section.faq {
   display: none;
 }
 
-input[id="faq"]:checked ~ .harlfButton label[for="faq"] {
+input[id="faq"]:checked~.harlfButton label[for="faq"] {
   background-color: var(--pointColor);
   color: #fff;
 }
 
-input[id="faq"]:checked ~ .container h1.notice {
+input[id="faq"]:checked~.container h1.notice {
   display: none;
 }
 
-input[id="notice"]:checked ~ .container section.faq {
+input[id="notice"]:checked~.container section.faq {
   display: none;
 }
 
@@ -133,21 +133,65 @@ main .container .postGo td {
   margin: 10px;
 }
 
-/* CONTAINER - BUTTONS */
-main .container .buttons {
+/*ADD*/
+main .container table.postAdd thead {
+  border-top: 1px solid var(--pointColor);
+  border-bottom: 1px solid var(--pointColor);
+}
+
+main .container table.postAdd th {
+  text-align: center;
+}
+
+main .container table.postAdd tbody td {
+  padding: 0 !important;
+  line-height: 300px;
+}
+
+main .container table.postAdd .title {
+  width: 15%;
+  color: var(--pointColor);
+}
+
+main .container table.postAdd .titleInput,
+main .container table.postAdd .contentInput {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  resize: none;
+}
+
+main .container table.postAdd .contentInput {
+  position: relative;
+  top: 50px;
+  height: 300px;
+  outline: none;
+}
+
+main .container table.postAdd tbody tr {
+  border-bottom: 1px solid var(--pointColor);
+}
+
+main .container .addButtons {
   position: relative;
   height: 70px;
   margin: 15px 0 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-main .container .buttons .beforePage {
-  width: 170px;
+main .container .addButtons .notAddBtns {
+  width: 110px;
   background-color: var(--pointColor);
   color: #fff;
-  font-size: 1.2rem;
-  padding: 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin: 0 10px;
+}
 
-  position: absolute;
-  top: 0;
-  right: 0;
+main .container .addButtons .notAddBtns:hover {
+  background-color: var(--beforeColor);
 }
