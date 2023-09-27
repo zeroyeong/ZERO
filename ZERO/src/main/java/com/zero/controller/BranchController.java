@@ -42,6 +42,12 @@ public class BranchController {
         model.addAttribute("reservation", reservation);
         return "branch/branchInfo";
     }
+    @GetMapping("/branch/{branch_code}_info")
+    public String branchIntroduce(@PathVariable String branch_code, Model model) {
+        Branch branch = branchService.getbranchInfo(branch_code);
+        model.addAttribute("branch", branch);
+        return "branch/Introduce";
+    }
 
     @GetMapping("/branch/{branch_code}/reservation")
     public String getReservation(@ModelAttribute("reservation") Reservation reservation) {

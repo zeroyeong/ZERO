@@ -96,7 +96,7 @@
                     <a href="<c:url value="/branch/${branch.branch_code}"/>" class="reserBtn">
                         <span><i class="fa-regular fa-calendar-days"></i>예약하기</span>
                     </a>
-                    <a href="pointInfo.html" class="infoBtn">	
+                    <a href="<c:url value="/branch/${branch.branch_code}_info"/>" class="infoBtn">	
                         <span><i class="fa-regular fa-clipboard"></i>지점소개</span>
                     </a>
                 </div>
