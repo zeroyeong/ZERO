@@ -4,7 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import com.zero.domain.Member;
 
-public interface MemberService {
+public interface MemberService { 
 	/*________ 회원가입 ________*/
 	void addMember(Member member);
 	int checkId(String mem_id);

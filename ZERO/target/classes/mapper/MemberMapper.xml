@@ -5,7 +5,7 @@
 
 <mapper namespace="Member">
 
-    <select id="allMemberRead" resultType="Member">
+    <select id="allMemberRead" resultType="Member"> 
         select * from member
     </select>
     

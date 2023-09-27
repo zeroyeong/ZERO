@@ -28,7 +28,7 @@
             <div class="mail">
               <form:input type="email" path="mem_id" id="user_id" class="id_check" placeholder="이메일주소 입력" />
               <button type="button" onClick="idCheck(this.form.mem_id.value)">중복확인</button>
-            </div>
+            </div> 
           </li>
           <li>
             <label for="user_pwd">비밀번호<span class="essential">(필수)</span></label>

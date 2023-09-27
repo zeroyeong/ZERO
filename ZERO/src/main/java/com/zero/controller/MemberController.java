@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.zero.domain.Member;
 import com.zero.service.MemberService;
 
-@Controller
+@Controller 
 
 public class MemberController {
 	

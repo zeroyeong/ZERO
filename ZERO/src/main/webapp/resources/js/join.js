@@ -29,7 +29,7 @@ function frmSubmit(){
   }
 
   self.location.href = "join";
-}
+} 
 
 //중복확인 버튼 클릭했을 때
 function idCheck(id){

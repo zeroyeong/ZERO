@@ -9,7 +9,7 @@ import com.zero.domain.Member;
 import com.zero.repository.MemberRepository;
 
 @Service
-public class MemberServiceImpl implements MemberService {
+public class MemberServiceImpl implements MemberService { 
 	
 	@Autowired
 	private MemberRepository memberRepository;

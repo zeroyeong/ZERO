@@ -1,6 +1,6 @@
 package com.zero.repository;
 
-import com.zero.domain.Member;
+import com.zero.domain.Member; 
 
 public interface MemberRepository {
 	/*______회원가입______*/
