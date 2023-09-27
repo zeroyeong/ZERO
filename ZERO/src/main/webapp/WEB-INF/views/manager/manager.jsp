@@ -15,8 +15,6 @@
 <!-- JS 연결 -->
 <script src="<c:url value='/resources/js/manager.js' />" defer></script>
 
-<!-- 아이콘 -->
-<script src="https://kit.fontawesome.com/a923b8b28f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -68,129 +66,60 @@
             </section>
 
             <section id="mgrTeamContent" class="mgrPage">
-                <input type="radio" name="detailRadio" id="detailTeamRadio" checked />
-                <input type="radio" name="detailRadio" id="detailPlayerRadio" />
-
-                <ul class="addButton">
-                    <li>
-                        <label for="detailTeamRadio">팀 관리</label>
-                    </li>
-                    <li>
-                        <label for="detailPlayerRadio">선수 관리</label>
-                    </li>
-                </ul>
-
-                <section id="addTeamContent">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="col1">순번</th>
-                                <th class="col2">지점명</th>
-                                <th class="col3">팀명</th>
-                                <th class="col4">등록선수</th>
-                                <th class="col5">등록년도</th>
-                                <th class="col6">관리</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>더피치 평택점</td>
-                                <td>
-                                    <div class="teamName">
-                                        <div class="teamImage">
-                                            <img src="../images/팀2.jpg" alt="" />
-                                        </div>
-                                        <div class="teamTitle">
-                                            <a href="">팀 1</a>
-                                        </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col1">순번</th>
+                            <th class="col2">지점명</th>
+                            <th class="col3">팀명</th>
+                            <th class="col4">등록선수</th>
+                            <th class="col5">등록년도</th>
+                            <th colspan="2" class="col6">관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>더피치 평택점</td>
+                            <td>
+                                <div class="teamName">
+                                    <div class="teamImage">
+                                        <img src="../images/팀2.jpg" alt="" />
                                     </div>
-                                </td>
-                                <td><span>0</span> 명</td>
-                                <td>2023.09.08</td>
-                                <td><a class="teamBtn" onclick="openTeamPopup()">수정</a></td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>더피치 평택점</td>
-                                <td>
-                                    <div class="teamName">
-                                        <div class="teamImage">
-                                            <img src="../images/팀2.jpg" alt="" />
-                                        </div>
-                                        <div class="teamTitle">
-                                            <a href="">팀 1</a>
-                                        </div>
+                                    <div class="teamTitle">
+                                        <a href="mgrPlayerList.html">팀1</a>
                                     </div>
-                                </td>
-                                <td><span>0</span> 명</td>
-                                <td>2023.09.08</td>
-                                <td><a class="teamBtn" onclick="openTeamPopup()">수정</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <section id="addPlayerContent">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="col1">순번</th>
-                                <th class="col2">지점명</th>
-                                <th class="col3">팀명</th>
-                                <th class="col4">선수명</th>
-                                <th class="col5">출전</th>
-                                <th class="col6">득점</th>
-                                <th class="col7">경고</th>
-                                <th class="col8">퇴장</th>
-                                <th class="col9">관리</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>더피치 평택점</td>
-                                <td>
-                                    <div class="teamName">
-                                        <div class="teamImage">
-                                            <img src="../images/팀2.jpg" alt="" />
-                                        </div>
-                                        <div class="teamTitle">
-                                            <a href="">팀 1</a>
-                                        </div>
+                                </div>
+                            </td>
+                            <td><span>0</span> 명</td>
+                            <td>2023.09.08</td>
+                            <td>
+                                <a class="teamBtn" onclick="openTeamPopup()">수정</a>
+                                <a class="teamDelBtn" onclick="">삭제</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>더피치 평택점</td>
+                            <td>
+                                <div class="teamName">
+                                    <div class="teamImage">
+                                        <img src="../images/팀2.jpg" alt="" />
                                     </div>
-                                </td>
-                                <td>선수명</td>
-                                <td>출전</td>
-                                <td>득점</td>
-                                <td>경고</td>
-                                <td>퇴장</td>
-                                <td><a class="playerBtn" onclick="openPlayerPopup()">수정</a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>더피치 평택점</td>
-                                <td>
-                                    <div class="teamName">
-                                        <div class="teamImage">
-                                            <img src="../images/팀2.jpg" alt="" />
-                                        </div>
-                                        <div class="teamTitle">
-                                            <a href="">팀 1</a>
-                                        </div>
+                                    <div class="teamTitle">
+                                        <a href="mgrPlayerList.html">팀2</a>
                                     </div>
-                                </td>
-                                <td>선수명</td>
-                                <td>출전</td>
-                                <td>득점</td>
-                                <td>경고</td>
-                                <td>퇴장</td>
-                                <td><a class="playerBtn" onclick="openPlayerPopup()">수정</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
+                                </div>
+                            </td>
+                            <td><span>0</span> 명</td>
+                            <td>2023.09.08</td>
+                            <td>
+                                <a class="teamBtn" onclick="openTeamPopup()">수정</a>
+                                <a class="teamDelBtn" onclick="">삭제</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
 
             <section id="mgrSchContent" class="mgrPage">
@@ -199,11 +128,11 @@
                     <ul>
                         <li class="place">시흥점</li>
                         <li class="playInfo">
-                            <div>
+                            <div class="schInfoDiv">
                                 <span>04.26(월)</span>
-                                21:30
+                                <span>21:30</span>
+                                <span>A구장</span>
                             </div>
-                            <span>C구장</span>
                         </li>
                         <li class="team leftTeam">
                             <a href="teamDetail.html">팀 스피드러너</a>
@@ -221,17 +150,18 @@
                         <li class="button">
                             <a class="schBtn" onclick="openSchPopup()">수정</a>
                         </li>
+                        <li class="button">
+                            <a class="schDelBtn" onclick="">삭제</a>
+                        </li>
                     </ul>
-                </div>
-                <div class="mgrSch">
                     <ul>
                         <li class="place">시흥점</li>
                         <li class="playInfo">
-                            <div>
+                            <div class="schInfoDiv">
                                 <span>04.26(월)</span>
-                                21:30
+                                <span>21:30</span>
+                                <span>A구장</span>
                             </div>
-                            <span>C구장</span>
                         </li>
                         <li class="team leftTeam">
                             <a href="teamDetail.html">팀 스피드러너</a>
@@ -248,6 +178,9 @@
                         </li>
                         <li class="button">
                             <a class="schBtn" onclick="openSchPopup()">수정</a>
+                        </li>
+                        <li class="button">
+                            <a class="schDelBtn" onclick="">삭제</a>
                         </li>
                     </ul>
                 </div>
@@ -277,17 +210,32 @@
                             <td>pw123</td>
                             <td><a class="userBtn" onclick="openUserPopup()">수정</a></td>
                         </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>사용자1</td>
+                            <td>010-0101-0101</td>
+                            <td>id123</td>
+                            <td>pw123</td>
+                            <td><a class="userBtn" onclick="openUserPopup()">수정</a></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>사용자1</td>
+                            <td>010-0101-0101</td>
+                            <td>id123</td>
+                            <td>pw123</td>
+                            <td><a class="userBtn" onclick="openUserPopup()">수정</a></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>사용자1</td>
+                            <td>010-0101-0101</td>
+                            <td>id123</td>
+                            <td>pw123</td>
+                            <td><a class="userBtn" onclick="openUserPopup()">수정</a></td>
+                        </tr>
                     </tbody>
                 </table>
-                <form action="" class="search-form">
-                    <select name="" id="">
-                        <option value="">제목</option>
-                    </select>
-                    <input type="text">
-                    <button type="button" class="searchButton">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
                 <ul class="pagination">
                     <li>1</li>
                     <li>2</li>
@@ -299,7 +247,7 @@
     <!--예약승인 팝업-->
     <div class="reserPopup" id="reserPopup">
         <section class="reservationInfo">
-            <span class="closeBtn" onclick="closePopup()">x</span>
+            <span class="closeBtn" onclick="closePopup(reserPopup)">x</span>
             <h2>예약 정보</h2>
             <table class="mgrReserInfo">
                 <tr>
@@ -339,7 +287,7 @@
     <!--팀관리 팝업-->
     <div class="teamPopup" id="teamPopup">
         <section class="teamInfo">
-            <span class="closeBtn" onclick="closePopup()">x</span>
+            <span class="closeBtn" onclick="closePopup(teamPopup)">x</span>
             <h2>팀 정보</h2>
             <table class="mgrTeamInfo">
                 <tr>
@@ -364,54 +312,10 @@
         </section>
     </div>
 
-    <!--선수관리 팝업-->
-    <div class="playerPopup" id="playerPopup">
-        <section class="playerInfo">
-            <span class="closeBtn" onclick="closePopup()">x</span>
-            <h2>예약 정보</h2>
-            <table class="mgrPlayerInfo">
-                <tr>
-                    <th>지점</th>
-                    <td>더피치 평택점</td>
-                </tr>
-                <tr>
-                    <th>팀명</th>
-                    <td>팀1</td>
-                </tr>
-                <tr>
-                    <th>선수명</th>
-                    <td>선수명</td>
-                </tr>
-                <tr>
-                    <th>출전</th>
-                    <td>출전</td>
-                </tr>
-                <tr>
-                    <th>득점</th>
-                    <td>득점</td>
-                </tr>
-                <tr>
-                    <th>경고</th>
-                    <td>경고</td>
-                </tr>
-                <tr>
-                    <th>퇴장</th>
-                    <td>퇴장</td>
-                </tr>
-            </table>
-
-            <div class="mgrBtn">
-                <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('playerPopup')">
-                <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('playerPopup')">
-            </div>
-
-        </section>
-    </div>
-
     <!--경기일정 팝업-->
     <div class="schPopup" id="schPopup">
         <section class="schInfo">
-            <span class="closeBtn" onclick="closePopup()">x</span>
+            <span class="closeBtn" onclick="closePopup(schPopup)">x</span>
             <h2>경기 일정관리</h2>
             <div class="mgrSchInfo">
                 <table>
@@ -475,7 +379,7 @@
     <!--사용자 팝업-->
     <div class="userPopup" id="userPopup">
         <section class="userInfo">
-            <span class="closeBtn" onclick="closePopup()">x</span>
+            <span class="closeBtn" onclick="closePopup(userPopup)">x</span>
             <h2>사용자 정보</h2>
             <table class="mgrUserInfo">
                 <tr>
@@ -519,7 +423,7 @@
     <!--경기일정추가 팝업-->
     <div class="schAddPopup" id="schAddPopup">
         <section class="schAddInfo">
-            <span class="closeBtn" onclick="closePopup()">x</span>
+            <span class="closeBtn" onclick="closePopup(schAddPopup)">x</span>
             <h2>경기일정 추가</h2>
             <table class="mgrSchAddInfo">
                 <tr>

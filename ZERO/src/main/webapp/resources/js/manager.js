@@ -65,9 +65,9 @@ function closeSchAddPopup() {
 }
 
 //클릭 이벤트 설정
+document.querySelector(".popUp").addEventListener("click", openReserPopup);
 document.querySelector(".playerBtn").addEventListener("click", openPlayerPopup);
 document.querySelector(".teamBtn").addEventListener("click", openTeamPopup);
-document.querySelector(".popUp").addEventListener("click", openReserPopup);
 document.querySelector(".schBtn").addEventListener("click", openSchPopup);
 document.querySelector(".userBtn").addEventListener("click", openUserPopup);
 document.querySelector(".schAddBtn").addEventListener("click", openSchAddPopup);
@@ -92,12 +92,12 @@ function okBtnPop(popupId) {
         case 'teamPopup':
             message = "팀 정보가 수정 처리 되었습니다.";
             closeTeamPopup();
-            refreshSection('addTeamContent');
+            refreshSection('mgrTeamContent');
             break;
         case 'playerPopup':
             message = "선수 정보가 수정 처리 되었습니다.";
             closePlayerPopup();
-            refreshSection('addPlayerContent');
+            location.reload();
             break;
         case 'reserPopup':
             message = "예약 승인 처리 되었습니다.";
@@ -135,12 +135,12 @@ function cancelBtnPop(popupId) {
         case 'teamPopup':
             message = "팀 정보가 수정 취소처리 되었습니다.";
             closeTeamPopup();
-            refreshSection('addTeamContent');
+            refreshSection('mgrTeamContent');
             break;
         case 'playerPopup':
             message = "선수 정보가 수정 취소처리 되었습니다.";
             closePlayerPopup();
-            refreshSection('addPlayerContent');
+            location.reload();
             break;
         case 'reserPopup':
             message = "예약 취소 처리 되었습니다.";
@@ -157,13 +157,13 @@ function cancelBtnPop(popupId) {
             closeUserPopup();
             refreshSection('mgrUserContent');
             break;
-        default:
-            message = "알 수 없는 팝업 ID입니다.";
-            break;
         case 'schAddPopup':
             message = "경기일정이 추가 취소 되었습니다.";
             closeSchAddPopup();
             refreshSection('mgrSchContent');
+            break;
+        default:
+            message = "알 수 없는 팝업 ID입니다.";
             break;
     }
 
