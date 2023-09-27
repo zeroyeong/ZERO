@@ -22,8 +22,8 @@
     	select count(1) mem_id from member where mem_id = #{mem_id}
     </select>
     
-    <select id="login" parameterType="Member" resultType="Member">
-    	select * form member where mem_id - #{mem_id} and mem_pw = #{mem_pw}
+    <select id="login" parameterType="String" resultType="Member">
+    	select * from member where mem_id = #{mem_id}
     </select>
 
     <select id="findId" parameterType="Member" resultType="Member">

@@ -10,13 +10,13 @@ import org.springframework.stereotype.Repository;
 import com.zero.domain.Member;
 
 @Repository
-public class JoinRepositoryImpl implements JoinRepository {
+public class MemberRepositoryImpl implements MemberRepository {
 	
 	 @Autowired
      private SqlSessionTemplate sql;	
-	 
 	 private List<Member> list = new ArrayList<Member>();
 	
+	 /*______회원가입______*/
 	@Override
 	public void addMember(Member member) {		
 		sql.insert("Member.insertMember", member);
@@ -27,4 +27,10 @@ public class JoinRepositoryImpl implements JoinRepository {
 		int result = sql.selectOne("Member.idCheck", mem_id);
 		return result;
 	}
+	
+	/*______로그인______*/
+	@Override
+	 public Member loginMember(String mem_id){
+		 return sql.selectOne("Member.login",mem_id);
+	 }
 }

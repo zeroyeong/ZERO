@@ -19,13 +19,22 @@
     
   </head>
   <script>
-	//중복확인 창에서 버튼 클릭했을 때
-	function idCheck(){ 
-		opener.newFrm.MEM_ID.value='';
-		opener.newFrm.check.value=true;
+	function useId(){
+		opener.joinFrm.mem_id.value="${mem_id}";
+		opener.joinFrm.checkId.value=true;
+		opener.joinFrm.mem_pw.focus();
 		window.close();
-		opener.newFrm.MEM_PW.focus();
-		opener.console.log(opener.newFrm.check.value);
+	}
+	
+	function idFrmSubmit(id){
+		if(id.indexOf("@") == -1 || id.indexOf(".com") == -1){
+			console.log(id);
+			alert("이메일 형식이 잘못됐습니다. 확인해주세요!");
+		} else{
+			document.idFrm.action = "idCheck?id="+id;
+			document.idFrm.submit();
+		}
+		
 	}
   </script>
   
@@ -36,7 +45,7 @@
         <button onclick="window.close()">×</button>
       </div>
 
-      <form action="idCheck" method="post">
+      <form method="get" name="idFrm" action="idCheck">
       	
       	<c:choose>
       		<c:when test="${result != 0}">
@@ -46,18 +55,18 @@
 		          	 이미 존재하는 이메일 주소입니다.</p>
 		          <div class="search">
 		            <label for="">이메일</label>
-		            <input type="email" placeholder="이메일주소 입력" />
-		            <button type="submit">중복확인</button>
+		            <input type="email" placeholder="이메일주소 입력" name="id" />
+		            <button type="button" onClick="idFrmSubmit(this.form.id.value)" >중복확인</button>
 		          </div>
 		        </div>
       		</c:when>
       		<c:otherwise>
       			<div class="yes">
 		          <p>
-		            입력하신 <span>${result}</span> 는(은) 사용가능합니다. <br />
+		            입력하신 <span>${mem_id}</span> 는(은) 사용가능합니다. <br />
 		            입력하신 이메일주소를 사용하시겠습니까?
 		          </p>
-		          <button type="button" onclick="idCheck()">사용하기</button>
+		          <button type="button" onClick="useId()">사용하기</button>
 		        </div>
       		</c:otherwise>
       	</c:choose>  

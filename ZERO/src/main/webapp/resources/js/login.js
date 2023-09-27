@@ -1,16 +1,19 @@
 function loginCheck(){
-	if(document.loginFrm.userId.value == ""){
+	const id = document.getElementById("userid");
+	const pw = document.getElementById("userPw");
+	
+	if(id.value == ""){
 		alert("아이디를 입력해 주세요.");
-		document.loginFrm.userId.focus();
+		document.loginFrm.mem_id.focus();
 		return;
 	}
 	
-	if(document.loginFrm.userPw.value == ""){
+	if(pw.value == ""){
 		alert("비밀번호를 입력해 주세요.");
-		document.loginFrm.userPw.focus();
+		document.loginFrm.mem_pw.focus();
 		return;
 	}
-	document.loginFrm.submit();
+	document.loginFrm.submit();	
 }
 
 //페이스북 로그인

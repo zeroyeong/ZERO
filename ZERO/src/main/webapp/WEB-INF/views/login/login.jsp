@@ -34,19 +34,23 @@
       		이메일과 비밀번호가 올바르지 않습니다.
       	</div>
       </c:if>
-      <form action="" name="loginFrm" action="<c:url value="/login/login_proc"/>" method="post">
+      <form:form modelAttribute = "LoginMember" name="loginFrm" method="post" action="login_proc">  
+<!--       <c:if test="${message == 'error'}">
+		  <div style="color:red;"> 아이디 또는 비밀번호가 일치하지 않습니다.
+		  </div>
+		</c:if> -->
         <dl>
           <dt>
             <label for="userId">아이디</label>
           </dt>
           <dd>
-            <input type="text" name="mem_id" id="userId" placeholder="이메일" />
+            <form:input type="email" path="mem_id" id="userId" placeholder="이메일" />
           </dd>
           <dt>
             <label for="userPw">비밀번호</label>
           </dt>
           <dd>
-            <input type="password" name="mem_pw" id="userPw" placeholder="비밀번호" />
+            <form:input type="password" path="mem_pw" id="userPw" placeholder="비밀번호" />
           </dd>
         </dl>
 
@@ -57,10 +61,7 @@
         </label>
 
         <button type="button" onClick="loginCheck()">로그인</button>
-        
-        <!-- CSRF 공격을 방어하는 토큰 -->
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-      </form>
+      </form:form>
 
       <ul class="acBtn">
         <li><label for="findId">아이디 찾기</label></li>
