@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>팀관리(수정)</title>
     <!-- css 연결 -->
-   <link rel="stylesheet" href="<c:url value="/resources/css/editorTeam.css?123" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/editorTeam.css?1" />" />
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css?123" />" />
     <!-- js 연결 -->
    <script src="<c:url value="/resources/js/zCup.js?adsd" />" defer></script>
@@ -136,6 +136,10 @@
               <tr>
                 <th>No.</th>
                 <th>이름</th>
+                <th>출전</th>
+                <th>득점</th>
+                <th>경고</th>
+                <th>퇴장</th>
                 <th></th>
               </tr>
             </thead>
@@ -152,6 +156,10 @@
                     <span>${player.player_name}</span>
                   </div>
                 </td>
+                <td class="score">0</td>
+                <td class="score">0</td>
+                <td class="score">0</td>
+                <td class="score">0</td>
                 <td>
                   <button type="button" class="playerOut">퇴출</button>
                 </td>

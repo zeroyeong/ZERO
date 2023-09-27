@@ -18,7 +18,7 @@ public class JoinServiceImpl implements JoinService {
 	}
 	
 	@Override
-	public void checkId(String mem_id) {
-		joinRepository.checkId(mem_id);
+	public int checkId(String mem_id) {
+		return joinRepository.checkId(mem_id);
 	}
 }

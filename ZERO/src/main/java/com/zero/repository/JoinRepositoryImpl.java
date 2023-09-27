@@ -13,7 +13,8 @@ import com.zero.domain.Member;
 public class JoinRepositoryImpl implements JoinRepository {
 	
 	 @Autowired
-     private SqlSessionTemplate sql;	 
+     private SqlSessionTemplate sql;	
+	 
 	 private List<Member> list = new ArrayList<Member>();
 	
 	@Override
@@ -22,7 +23,8 @@ public class JoinRepositoryImpl implements JoinRepository {
 	}
 	
 	@Override
-	public void checkId(String mem_id) {
-		sql.selectOne("Member.idCheck", mem_id);
+	public int checkId(String mem_id) {
+		int result = sql.selectOne("Member.idCheck", mem_id);
+		return result;
 	}
 }

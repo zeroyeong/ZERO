@@ -249,6 +249,11 @@ table.playerList tbody td:last-child {
   text-align: center;
 }
 
+table.playerList td.score{
+	text-align:center;
+	width:8%;
+}
+
 table.playerList td div.player {
   display: flex;
   align-items: center;

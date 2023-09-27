@@ -18,8 +18,8 @@
         values(#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_phone})
     </insert>
     
-    <select id="idCheck" parameterType="Member" resultType="Member">
-    	select mem_id from member where mem_id = #{mem_id}
+    <select id="idCheck" parameterType="Member" resultType="int">
+    	select count(1) mem_id from member where mem_id = #{mem_id}
     </select>
     
     <select id="login" parameterType="Member" resultType="Member">

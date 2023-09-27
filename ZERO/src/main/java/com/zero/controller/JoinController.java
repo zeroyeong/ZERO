@@ -34,7 +34,8 @@ public class JoinController {
 
 	@GetMapping("/idCheck")
 	public String idCheck(@RequestParam("id") String mem_id, Model model) {
-//		mem_id = joinService.checkId(mem_id);
+		int result = joinService.checkId(mem_id);
+		model.addAttribute("result", result);
 		model.addAttribute("mem_id", mem_id);
 		return "join/idCheck";
 	}
