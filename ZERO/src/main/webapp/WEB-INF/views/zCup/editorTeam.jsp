@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
-    
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -14,13 +14,13 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/editorTeam.css?1" />" />
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css?123" />" />
     <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/zCup.js?adsd" />" defer></script>
+   <script src="<c:url value="/resources/js/zCup.js?ad" />" defer></script>
 
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/1a03dd2ba1.js"
-      crossorigin="anonymous"
-    ></script>
+   <!-- Font Awesome -->
+   <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
+   
+   <!-- 아이콘 -->
+    <script src="https://kit.fontawesome.com/a923b8b28f.js" crossorigin="anonymous"></script>
 
     <!-- googleFont -->
   </head>
@@ -32,7 +32,7 @@
       <div class="topVideo">
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
-          <source src="resources/videos/point.mp4" type="video/mp4" />
+          <source src="../resources/videos/point.mp4" type="video/mp4" />
         </video>
       </div>
       
@@ -41,13 +41,14 @@
       
       <div class="container">
         <h1>
-          팀 관리 1
+          ${team_detail_list[0].cup_team.team_name} 관리
         </h1>
 
-        <form class="team">
+		<form:form id="teamForm" modelAttribute = "editTeam" method="post" action="cupTeamEdit" enctype="multipart/form-data">
+		<form:input type="hidden" path="team_no" value="${team_detail_list[0].cup_team.team_no}"/>         
           <div class="teamImage">
             <!--팀 사진-->
-            <img src="../images/팀2.jpg" alt="" />
+            <img src="<c:url value="../resources/images/HM0008.jpg"/>" alt="">
             <label class="modify">변경</label>
           </div>
           <table class="teamDetail">
@@ -61,7 +62,7 @@
                   <!--변경버튼 클릭하면 div.orgin이 감춰지고 div.new가 보인다.-->
                 </div>
                 <div class="new">
-                  <input type="text">
+                  <form:input type="text" path="team_name" />
                 </div>
               </td>
             </tr>
@@ -74,16 +75,17 @@
               <td>
                 <input type="checkbox" id="branch" class="checkBotInput">
                 <div class="origin branch">
-                  <span>~~~점</span>
+                  <span>${team_detail_list[0].cup_team.branch.branch_name}</span>
                   <label class="modify" for="branch">변경</label>
                   <!--변경버튼 클릭하면 div.orgin이 감춰지고 div.new가 보인다.-->
                 </div>
 
                 <div class="new">
-                  <select name="" id="">
-                    <option value="">~~1점</option>
-                    <option value="">~~2점</option>
-                  </select>
+                   <form:select path="branch_no">
+                    <c:forEach var="branch" items="${branch_List}">
+                      <form:option value="${branch.branch_no}">${branch.branch_name}</form:option>
+					</c:forEach>
+                   </form:select>
                 </div>
               </td>
             </tr>
@@ -98,11 +100,11 @@
                 </div>
 
                 <div class="new">
-                  <select name="" id="">
-                    <!--선수명단 중에서 선택할 수 있도록-->
-                    <option value="">김길동</option>
-                    <option value="">이길동</option>
-                  </select>
+                   <form:select path="team_leader">
+                    <c:forEach var="team_detail_list" items="${team_detail_list}">
+                      <form:option value="${team_detail_list.player_name}">${team_detail_list.player_name}</form:option>
+					</c:forEach>
+                   </form:select>
                 </div>
               </td>
             </tr>
@@ -117,15 +119,15 @@
                 </div>
                 <div class="new uniform">
                   <label>홈: </label>
-                  <input type="text" />
+                  <form:input type="text" path="team_uniform_home" />
                   /
                   <label>원정: </label>
-                  <input type="text" />
+                  <form:input type="text" path="team_uniform_away" />
                 </div>
               </td>
             </tr>
           </table>
-
+     	</form:form>
           <table class="playerList">
             <caption>
               <span></span>
@@ -144,6 +146,7 @@
               </tr>
             </thead>
             <tbody>
+          	<form:form id="playerForm" method="post" action="playerDelete">
               <c:forEach var= "player" items="${team_detail_list}">
               <tr>
                 <td>1</td>
@@ -161,16 +164,17 @@
                 <td class="score">0</td>
                 <td class="score">0</td>
                 <td>
-                  <button type="button" class="playerOut">퇴출</button>
+                  <button type="button" class="playerOut" onclick="deletePlayer(${player.player_no}, ${team_detail_list[0].cup_team.team_no})">퇴출</button>
                 </td>
               </tr>
-              </c:forEach>            
+              </c:forEach>
+            </form:form>              
             </tbody>
           </table>
           <div class="btnBox">
-            <button type="button" class="modify submitBtn">수정완료</button>
+            <button type="button" class="modify submitBtn" onclick="teamEdit()">수정완료</button>
           </div>
-        </form>
+   
       </div>
     </main>
     

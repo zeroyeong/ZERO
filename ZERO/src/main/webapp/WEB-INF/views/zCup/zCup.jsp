@@ -582,7 +582,6 @@
     var cupTeamCode = [];
     var cupTeamName = [];
     var cupBranch = [];
-    var cupBranchNo = [];
     var cupTeamPwd =[];
     var teamCodeCheck = false;
 	var teamNum = 0;
@@ -596,7 +595,6 @@
     	cupTeamCode.push("${cupTeam.team_code}");
     	cupTeamName.push("${cupTeam.team_name}");
     	cupBranch.push("${cupTeam.branch.branch_name}");
-    	cupBranchNo.push("${cupTeam.branch.branch_no}");
     	cupTeamPwd.push("${cupTeam.team_password}");
     </c:forEach>
     
@@ -617,9 +615,9 @@
     		
     		if(teamCodeCheck){
     			message ="팀코드 확인";
+    			player_team_no.value = cupTeamNo[teamNum];
     			player_team_name.value = cupTeamName[teamNum];
-    			player_branch_name.value = cupBranch[teamNum];
-    			player_team_no.value = cupBranchNo[teamNum];
+    			player_branch_name.value = cupBranch[teamNum];	
     			player_team_pwd.value = cupTeamPwd[teamNum];
     			refreshSection('addTeam');
         		//alert(message);

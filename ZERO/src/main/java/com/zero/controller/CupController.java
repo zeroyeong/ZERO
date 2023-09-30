@@ -1,7 +1,5 @@
 package com.zero.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +41,7 @@ public class CupController {
 	}
 	
 	@PostMapping("/zCup/cupTeam")
-	public String setCupTeam(@ModelAttribute("NewTeam") CupTeam cup_team, Model model) {
+	public String setCupTeam(@ModelAttribute("NewTeam") CupTeam cup_team) {
  
 		cupService.setNewCupTeam(cup_team);
 		
@@ -51,7 +49,7 @@ public class CupController {
 	}
 	
 	@PostMapping("/zCup/cupPlayer")
-	public String setCupPlayer(@ModelAttribute("NewPlayer") CupPlayer cup_player, Model model) {
+	public String setCupPlayer(@ModelAttribute("NewPlayer") CupPlayer cup_player) {
 		
 		cupService.setNewCupPlayer(cup_player);
 		
@@ -90,12 +88,27 @@ public class CupController {
     
 	
 	@GetMapping("/zCup/editorTeam")
-	public String editorTeam(@RequestParam("team_no") int team_no, Model model) {
+	public String editorTeam(@ModelAttribute("editTeam") CupTeam cup_team, @RequestParam("team_no") int team_no, Model model) {
 		
 		List<CupPlayer> team_detail_list = cupService.getTeamDetail(team_no);
+		List<Branch> branch_List = cupService.getBranchList();
 		model.addAttribute("team_detail_list", team_detail_list);
+		model.addAttribute("branch_List", branch_List);
 		return "zCup/editorTeam";
 	}
     
+	@PostMapping("/zCup/cupTeamEdit")
+	public String updateTeam(@ModelAttribute("editTeam") CupTeam cup_team) {
+		
+		cupService.updateCupTeam(cup_team);		
+		return "redirect:editorTeam?team_no="+cup_team.getTeam_no();
+	}
+	
+	@GetMapping("/zCup/playerDelete")
+	public String deletePlayer(@RequestParam("player_no") int player_no, @RequestParam("team_no") int team_no) {
+		
+		cupService.deletePlayer(player_no);		
+		return "redirect:editorTeam?team_no="+team_no;
+	}
 }
  

@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css?123" />" />
     
     <!-- js 연결 -->
-    <script src="<c:url value="/resources/js/common.js" />" defer></script>
 	<script src="<c:url value="/resources/js/zCup.js?ddfdg" />" defer></script>
 	
     <!-- Font Awesome -->
@@ -30,7 +29,7 @@
       <div class="topVideo">
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
-          <source src="resources/videos/point.mp4" type="video/mp4" />
+          <source src="../resources/videos/point.mp4" type="video/mp4" />
         </video>
       </div>
             <!-- subMenu include -->

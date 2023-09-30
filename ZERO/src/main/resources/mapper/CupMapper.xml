@@ -209,6 +209,24 @@
 		ORDER BY 
 	    	s.SCHEDULE_DATE DESC; 	    			
 	</select>
+	
+	<update id="updateTeam" parameterType="CupTeam">
+    	 update CUP_TEAM set 
+    	 	TEAM_NAME = #{team_name}, 
+    	 	TEAM_LEADER = #{team_leader}, 
+    	 <!-- TEAM_PHONE = #{team_phone}, 
+    	 	TEAM_MAIL = #{team_mail},   -->	
+    	 	TEAM_UNIFORM_HOME = #{team_uniform_home},
+    	 	TEAM_UNIFORM_AWAY = #{team_uniform_away},
+    	 <!-- 	TEAM_EMBLEM = #{team_emblem},  
+   			TEAM_PASSWORD = #{team_password}, -->	
+   			BRANCH_NO = #{branch_no}
+    	 	where TEAM_NO = #{team_no}
+    </update>
+    
+    <delete id="deletePlayer" parameterType="int">
+        DELETE FROM CUP_PLAYER WHERE PLAYER_NO = #{player_no} 
+    </delete>
 </mapper>
 
 

@@ -34,7 +34,7 @@
       <div class="topVideo">
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
-          <source src="resources/videos/point.mp4" type="video/mp4" />
+          <source src="../resources/videos/point.mp4" type="video/mp4" />
         </video>
       </div>
       <!-- subMenu include -->
@@ -51,7 +51,7 @@
 
           <tr>
             <td rowspan="4" class="teamImg">
-              <img src="../images/팀2.jpg" alt="" />
+               <img src="<c:url value="/resources/images/${branch.branch_pic}"/>" alt="">
             </td>
             <th>지점</th>
             <td>${team_detail_list[0].cup_team.branch.branch_name}</td>
@@ -114,10 +114,6 @@
               <tr>
                 <th>지점</th>
                 <td>시흥점</td>
-              </tr>
-              <tr>
-                <th>컵 명</th>
-                <td>그날 리그 그 그날리그</td>
               </tr>
               <tr>
                 <th>경기일자</th>

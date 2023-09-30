@@ -105,6 +105,20 @@ function teamEditPassword(team_no) {
   }
 }
 
+function teamEdit(team_no) {
+   var teamForm = document.getElementById('teamForm');
+   teamForm.submit();
+}
+
+function deletePlayer(player_no, team_no) {
+   var playerForm = document.getElementById('playerForm');
+   console.log("player_no = " + player_no);
+   console.log("team_no = " + team_no);
+   
+   location.href = 'playerDelete?player_no=' + player_no +'&team_no=' + team_no;
+   //playerForm.submit();
+}
+
 //Z-CUP SCHEDULE 경기정보 박스
 function showPlayInfo(label) {
   let idName = label.getAttribute('for');

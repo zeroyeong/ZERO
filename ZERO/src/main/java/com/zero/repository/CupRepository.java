@@ -30,4 +30,8 @@ public interface CupRepository {
 	public List<CupPlayer> getPlayerRanking();
 	
 	public List<Branch> getBranchList();
+	
+	public void updateCupTeam(CupTeam cup_team);
+	
+	public void deletePlayer(int player_no);
 }

@@ -63,7 +63,7 @@ public class CupRepositoryImpl implements CupRepository {
 		cup_team.setTeam_member_cnt("1");
 		cup_team.setTeam_reg_year(formattedDate);
 				
-	    if(cup_team.getEmblem_file() != null) {
+		if(cup_team.getEmblem_file() != null && cup_team.getTeam_emblem() != null) {
 	    	
 	       MultipartFile image = cup_team.getEmblem_file();  
 	       String saveName = image.getOriginalFilename();  
@@ -90,7 +90,7 @@ public class CupRepositoryImpl implements CupRepository {
 		cupPlayer.setPlayer_yellow_card("0");
 		cupPlayer.setPlayer_red_card("0");
 		
-	    if(cupPlayer.getPhoto_file() != null) {
+		if(cupPlayer.getPhoto_file() != null && cupPlayer.getPlayer_photo() != null) {
 	    	
 		       MultipartFile image = cupPlayer.getPhoto_file();  
 		       String saveName = image.getOriginalFilename();  
@@ -102,9 +102,9 @@ public class CupRepositoryImpl implements CupRepository {
 	                throw new RuntimeException("Image saving failed", e);
 	            }
 		    	cupPlayer.setPlayer_photo(saveName);
-		    }else {
-		    	cupPlayer.setPlayer_photo("");
-		    }
+	    } else {
+		  	cupPlayer.setPlayer_photo("");
+		}
 		
 		sql.insert("Cup.insertPlayer", cupPlayer);
 	} 
@@ -132,6 +132,16 @@ public class CupRepositoryImpl implements CupRepository {
 	@Override
 	public List<Branch> getBranchList(){
 		return sql.selectList("Branch.bList");
+	}
+	
+	@Override
+	public void updateCupTeam(CupTeam cup_team) {
+		sql.update("Cup.updateTeam", cup_team);
+	}
+	
+	@Override
+	public void deletePlayer(int player_no) {
+		sql.delete("Cup.deletePlayer", player_no);
 	}
 
 }

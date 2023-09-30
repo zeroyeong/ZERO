@@ -72,5 +72,15 @@ public class CupServiceImpl implements CupService {
 	public List<Branch> getBranchList(){
 		return cupRepository.getBranchList();
 	}
+	
+	@Override
+	public void updateCupTeam(CupTeam cup_team) {
+		cupRepository.updateCupTeam(cup_team);
+	}
+	
+	@Override
+	public void deletePlayer(int player_no) {
+		cupRepository.deletePlayer(player_no);
+	}
 }
  
