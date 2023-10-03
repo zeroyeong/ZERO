@@ -329,7 +329,7 @@
                 <td>
                   <div class="teamName">
                     <div class="teamImage">
-                      <img src="../images/팀2.jpg" alt="" />
+                      <img src="resources/images/${cupTeam.team_emblem}" alt="" />
                     </div>
                     <div class="teamTitle">
                    			<a href="<c:url value="/zCup/teamDetail?team_no=${cupTeam.team_no}" />">${cupTeam.team_name}</a>
@@ -444,17 +444,13 @@
                   	${cupSchedule.cup_home_team.team_name}
                   </a>
                   <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_home_team.team_no}" />">
-                    <img
-                      src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg"
-                      alt=""/>
-                    </a>
-                </li>
+                    <img src="resources/images/${cupSchedule.cup_home_team.team_emblem}" alt=""/>
+                  </a>
+                </li>       
                 <li class="score">${cupSchedule.schedule_home_goal} : ${cupSchedule.schedule_away_goal}</li>
                 <li class="team rightTeam">
                   <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
-                    <img
-                      src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg"
-                    />
+  				    <img src="resources/images/${cupSchedule.cup_away_team.team_emblem}" alt=""/>
                   </a>
                   <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
                  	${cupSchedule.cup_away_team.team_name}
@@ -555,7 +551,7 @@
                   <td>
                     <div class="player">
                       <span class="img">
-                        <img src="../images/person.png" alt="" />
+                        <img src="resources/images/${cupPlayer.player_photo}" alt="" />
                       </span>
                       <span class="name">${cupPlayer.player_name}</span>
                     </div>
@@ -573,7 +569,7 @@
         </article>
       </div>
     </main>
-	
+
     <!-- footer include -->
     <jsp:include page="../include/footer.jsp" />
     

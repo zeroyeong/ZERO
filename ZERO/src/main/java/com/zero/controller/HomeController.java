@@ -35,10 +35,6 @@ public class HomeController {
 
 		return "index";
 	}
-//	@RequestMapping("/zCup")
-//	public String zCup() {
-//		return "zCup/zCup";
-//	}
 
 	@RequestMapping("/customer")
 	public String customer() {

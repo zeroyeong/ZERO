@@ -34,4 +34,6 @@ public interface CupService {
 	void updateCupTeam(CupTeam cup_team);
 	
 	void deletePlayer(int player_no);
+
+	public void setTest(CupSchedule cup_schedule);
 }

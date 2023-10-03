@@ -128,10 +128,12 @@
     	<association property="cup_home_team" javaType="CupTeam">
             <id property="team_no" column="TEAM_HOME_NO"/>
             <result property="team_name" column="HOME_NAME"/>
+            <result property="team_emblem" column="HOME_EMBLEM"/>
         </association>
     	<association property="cup_away_team" javaType="CupTeam">
             <id property="team_no" column="TEAM_AWAY_NO"/>
             <result property="team_name" column="AWAY_NAME"/>
+            <result property="team_emblem" column="AWAY_EMBLEM"/>
         </association>
         
         <association property= "detail" javaType="CupMatchDetail">
@@ -156,8 +158,10 @@
     	    d.*, 
 			h.TEAM_NO,
 			h.TEAM_NAME AS HOME_NAME,
+			h.TEAM_EMBLEM AS HOME_EMBLEM,
 			a.TEAM_NO,
 			a.TEAM_NAME AS AWAY_NAME,
+			a.TEAM_EMBLEM AS AWAY_EMBLEM,
 			b.branch_no,
 	        b.branch_name
 	    FROM
@@ -227,6 +231,12 @@
     <delete id="deletePlayer" parameterType="int">
         DELETE FROM CUP_PLAYER WHERE PLAYER_NO = #{player_no} 
     </delete>
+    
+    <!-- Manager -->
+    <insert id="insertSchedule" parameterType="CupSchedule">
+        insert into CUP_MATCH_SCHEDULE(TEAM_HOME_NO, TEAM_AWAY_NO, SCHEDULE_LOCATION, SCHEDULE_DATE, SCHEDULE_TIME, SCHEDULE_HOME_GOAL, SCHEDULE_AWAY_GOAL, BRANCH_NO, DETAIL_NO)
+        values(#{team_home_no}, #{team_away_no}, #{schedule_location}, #{schedule_date}, #{schedule_time}, #{schedule_home_goal}, #{schedule_away_goal}, #{branch_no}, #{detail_no})
+    </insert>
 </mapper>
 
 

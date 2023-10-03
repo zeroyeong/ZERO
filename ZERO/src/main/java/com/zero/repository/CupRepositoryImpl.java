@@ -76,7 +76,7 @@ public class CupRepositoryImpl implements CupRepository {
             }
 	    	cup_team.setTeam_emblem(saveName);
 	    }else {
-	    	cup_team.setTeam_emblem("");
+	    	cup_team.setTeam_emblem("basic.PNG");
 	    }
 				
 		sql.insert("Cup.insertTeam", cup_team);
@@ -103,7 +103,7 @@ public class CupRepositoryImpl implements CupRepository {
 	            }
 		    	cupPlayer.setPlayer_photo(saveName);
 	    } else {
-		  	cupPlayer.setPlayer_photo("");
+		  	cupPlayer.setPlayer_photo("basic.PNG");
 		}
 		
 		sql.insert("Cup.insertPlayer", cupPlayer);
@@ -144,4 +144,8 @@ public class CupRepositoryImpl implements CupRepository {
 		sql.delete("Cup.deletePlayer", player_no);
 	}
 
+	@Override
+	public void setTest(CupSchedule cup_schedule) {
+		sql.insert("Cup.insertSchedule", cup_schedule);
+	}
 }

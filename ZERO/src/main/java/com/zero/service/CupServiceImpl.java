@@ -82,5 +82,10 @@ public class CupServiceImpl implements CupService {
 	public void deletePlayer(int player_no) {
 		cupRepository.deletePlayer(player_no);
 	}
+	
+	@Override
+	public void setTest(CupSchedule cup_schedule) {
+		cupRepository.setTest(cup_schedule);
+	}
 }
  

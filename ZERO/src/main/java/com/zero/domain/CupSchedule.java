@@ -3,6 +3,8 @@ package com.zero.domain;
 public class CupSchedule {
 
 	private int schedule_no;
+	private int team_home_no;
+	private int team_away_no;
 	private String schedule_location;
 	private String schedule_date;
 	private String schedule_time;
@@ -12,6 +14,7 @@ public class CupSchedule {
 	private CupTeam cup_home_team;
 	private CupTeam cup_away_team;
 	private CupMatchDetail detail;
+	private int detail_no;
 	private Branch branch;
 	
 	public CupSchedule() {
@@ -19,11 +22,14 @@ public class CupSchedule {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CupSchedule(int schedule_no, String schedule_location, String schedule_date, String schedule_time,
-			String schedule_home_goal, String schedule_away_goal, int branch_no, CupTeam cup_home_team,
-			CupTeam cup_away_team, CupMatchDetail detail, Branch branch) {
+	public CupSchedule(int schedule_no, int team_home_no, int team_away_no, String schedule_location,
+			String schedule_date, String schedule_time, String schedule_home_goal, String schedule_away_goal,
+			int branch_no, CupTeam cup_home_team, CupTeam cup_away_team, CupMatchDetail detail, int detail_no,
+			Branch branch) {
 		super();
 		this.schedule_no = schedule_no;
+		this.team_home_no = team_home_no;
+		this.team_away_no = team_away_no;
 		this.schedule_location = schedule_location;
 		this.schedule_date = schedule_date;
 		this.schedule_time = schedule_time;
@@ -33,6 +39,7 @@ public class CupSchedule {
 		this.cup_home_team = cup_home_team;
 		this.cup_away_team = cup_away_team;
 		this.detail = detail;
+		this.detail_no = detail_no;
 		this.branch = branch;
 	}
 
@@ -42,6 +49,22 @@ public class CupSchedule {
 
 	public void setSchedule_no(int schedule_no) {
 		this.schedule_no = schedule_no;
+	}
+
+	public int getTeam_home_no() {
+		return team_home_no;
+	}
+
+	public void setTeam_home_no(int team_home_no) {
+		this.team_home_no = team_home_no;
+	}
+
+	public int getTeam_away_no() {
+		return team_away_no;
+	}
+
+	public void setTeam_away_no(int team_away_no) {
+		this.team_away_no = team_away_no;
 	}
 
 	public String getSchedule_location() {
@@ -116,6 +139,14 @@ public class CupSchedule {
 		this.detail = detail;
 	}
 
+	public int getDetail_no() {
+		return detail_no;
+	}
+
+	public void setDetail_no(int detail_no) {
+		this.detail_no = detail_no;
+	}
+
 	public Branch getBranch() {
 		return branch;
 	}
@@ -123,4 +154,5 @@ public class CupSchedule {
 	public void setBranch(Branch branch) {
 		this.branch = branch;
 	}
+
 }

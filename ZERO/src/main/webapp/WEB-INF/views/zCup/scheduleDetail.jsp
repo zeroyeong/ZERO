@@ -32,7 +32,7 @@
       <div class="topVideo">
         <h2>Z-CUP</h2>
         <video id="video2" autoplay playsinline loop muted>
-          <source src="resources/videos/point.mp4" type="video/mp4" />
+          <source src="../resources/videos/point.mp4" type="video/mp4" />
         </video>
       </div>
       <input type="radio" name="scheduleDetail" id="teamList" checked />

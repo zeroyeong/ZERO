@@ -154,11 +154,11 @@
                   <div class="player">
                     <span class="playerImage">
                       <!--선수 사진-->
-                      <img src="../images/person.png" alt="">
+                      <img src="../resources/images/${player.player_photo}" alt="" />
                     </span>
                     <span>${player.player_name}</span>
                   </div>
-                </td>
+                </td>     
                 <td class="score">0</td>
                 <td class="score">0</td>
                 <td class="score">0</td>
