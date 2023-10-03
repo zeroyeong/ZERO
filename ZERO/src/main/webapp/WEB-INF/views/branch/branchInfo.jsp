@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/reservation.css?123"/>">
 
     <!-- js 연결-->
-    <script src="<c:url value="/resources/js/resInfo.js?12"/>" defer></script>
+    <script src="<c:url value="/resources/js/resInfo.js?123"/>" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
@@ -129,7 +129,7 @@
                             <span class="select">
                                 <label for="selectStadium">구장을 선택해주세요</label>
                                 <i class="fa-solid fa-caret-down"></i>
-                                <form:select path="re_stadium">
+                                <form:select path="re_stadium" onchange="getTime();">
                                     <option>구장 선택</option>
                                     <form:option value="1">A구장 (크기:40X20)</form:option>
                                     <form:option value="2">B구장 (크기:40X20)</form:option>
@@ -239,46 +239,44 @@
 
 </body>
 
-</html> 
+</html>
 <script>
-$(document).ready(function() {
-    $("#re_stadium").change(function() {
-        var reStadium = $("#re_stadium").val();
-        var reBranch = $("#re_branch").val();
-        var reDate = $("#re_date").val();
+function getTime() {
+    var reStadium = $("#re_stadium").val();
+    var reBranch = $("#re_branch").val();
+    var reDate = $("#re_date").val();
 
-        $.ajax({
-            type: "POST",
-            url: `${branch.branch_code}/timeCheck`,
-            data: {
-            	re_stadium: reStadium,
-            	re_branch: reBranch,
-            	re_date: reDate
-            },
-            dataType: "json",
-            success: function(response) {
-                var timeList = response.timeList;
-                var $timeButton = $("#timeButton");
-                $timeButton.empty();
+    $.ajax({
+        type: "POST",
+        url: `${branch.branch_code}/timeCheck`,
+        data: {
+            re_stadium: reStadium,
+            re_branch: reBranch,
+            re_date: reDate
+        },
+        dataType: "json",
+        success: function(response) {
+            var timeList = response.timeList;
+            var $timeButton = $("#timeButton");
+            $timeButton.empty();
 
-                $.each(timeList, function(index, item) {
-                    var TIME_NO = item.time_no;
-                    var TIME_START = item.time_start;
-                    var TIME_END = item.time_end;
+            $.each(timeList, function(index, item) {
+                var TIME_NO = item.time_no;
+                var TIME_START = item.time_start;
+                var TIME_END = item.time_end;
 
-                    var html = '<li><button type="button" onclick="setTime(this);">' + TIME_START + ' ~ ' + TIME_END + 
-                        '<br>80000원 <input type="hidden" id="restime" value="' + TIME_START + ' ~ ' + TIME_END + '"> ' +
-                        '<input type="checkbox" style="display: none;" name="re_time" id="re_time" value="' + TIME_NO + '" alt="80000" class="time_check"/>' +
-                        '</button></li>';
-                    $timeButton.append(html);
-                });
-            },
-            error: function() {
-                alert("오류가 발생했습니다.");
-            }
-        });
+                var html = '<li><button type="button" onclick="setTime(this);">' + TIME_START + ' ~ ' + TIME_END + 
+                    '<br>80000원 <input type="hidden" id="restime" value="' + TIME_START + ' ~ ' + TIME_END + '"> ' +
+                    '<input type="checkbox" style="display: none;" name="re_time" id="re_time" value="' + TIME_NO + '" alt="80000" class="time_check"/>' +
+                    '</button></li>';
+                $timeButton.append(html);
+            });
+        },
+        error: function() {
+            alert("오류가 발생했습니다.");
+        }
     });
-});
+}
 </script>
 <script>
     $('#kakaopay').click(function () {
