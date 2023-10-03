@@ -44,9 +44,11 @@ WHERE R.RE_NAME = #{re_name} AND R.RE_PWD = #{re_pwd}
 ORDER BY R.RE_NO DESC
 </select>
 
-<delete id="rDelete">
-DELETE FROM RESERVATION WHERE RE_NO = #{re_no} 
+<update id="rDelete">
+UPDATE RESERVATION
+SET RE_PAYMENT = '취소요청'
+WHERE RE_NO = #{re_no} 
 AND RE_PWD = #{re_pwd}
-</delete>
+</update>
  
  </mapper>

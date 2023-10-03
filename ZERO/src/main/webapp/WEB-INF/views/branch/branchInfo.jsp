@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/reservation.css?123"/>">
 
     <!-- js 연결-->
-    <script src="<c:url value="/resources/js/resInfo.js?123112222zz"/>" defer></script>
+    <script src="<c:url value="/resources/js/resInfo.js?12"/>" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 

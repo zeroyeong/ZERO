@@ -121,11 +121,7 @@ function nextCalendar() {
 
 // input값이 한자리 숫자인 경우 앞에 '0' 붙혀주는 함수
 function leftPad(value) {
-    if (value < 10) {
-        value = "0" + value;
-        return value;
-    }
-    return value;
+    return String(value).padStart(2, '0');
 }
 
 const selectStadium = document.getElementById("re_stadium");
