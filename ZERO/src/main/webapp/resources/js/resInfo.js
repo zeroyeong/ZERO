@@ -84,7 +84,7 @@ function choiceDate(nowColumn) {
     }
 }
 
-// 선택된 날짜를 업데이트하는 함수
+// 선택된 날짜를 업데이트하는 함수 
 function updateSelectedDate(dateString) {
     const dateSpan = document.querySelector(".date");
     dateSpan.innerText = dateString;

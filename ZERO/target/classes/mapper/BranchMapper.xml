@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  </select>
  
  <select id="readInfo" resultType="Branch">
- SELECT * FROM BRANCH WHERE BRANCH_CODE = #{branch_code}
+ SELECT * FROM BRANCH WHERE BRANCH_CODE = #{branch_code} 
  </select>
  
 <insert id="insertRes">
