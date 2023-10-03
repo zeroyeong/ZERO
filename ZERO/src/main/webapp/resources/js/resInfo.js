@@ -106,7 +106,7 @@ function getFormattedDate(nowColumn) {
     const day = leftPad(nowColumn.innerText);
 
     return `${year}-${month}-${day}`; 
-}
+} 
 
 // 이전달 버튼 클릭
 function prevCalendar() {
