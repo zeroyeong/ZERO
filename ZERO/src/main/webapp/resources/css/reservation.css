@@ -344,7 +344,7 @@ p.name {
 }
 
 .pastDay {
-  color: lightgray;
+  color: lightgray !important;
 }
 
 .futureDay {

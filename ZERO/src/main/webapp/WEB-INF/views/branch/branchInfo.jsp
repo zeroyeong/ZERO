@@ -12,10 +12,10 @@
     <title>ZERO FUTSAL</title>
 
     <!-- css 연결-->
-    <link rel="stylesheet" href="<c:url value="/resources/css/reservation.css?123"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/reservation.css?1123"/>">
 
     <!-- js 연결-->
-    <script src="<c:url value="/resources/js/resInfo.js?123"/>" defer></script>
+    <script src="<c:url value="/resources/js/resInfo.js?1231"/>" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
@@ -241,6 +241,48 @@
 
 </html>
 <script>
+$('#kakaopay').click(function () {
+    var IMP = window.IMP;
+    IMP.init('imp25752164');
+    var reName = $("#re_name").val();
+    var reTel1 = $("#re_tel1").val();
+    var reTel2 = $("#re_tel2").val();
+    var reTel3 = $("#re_tel3").val();
+    var rePwd = $("#re_pwd").val();
+    var totalPay = $("#re_totalpay").val();
+
+    if (!reName || !reTel1 || !reTel2 || !reTel3 || !rePwd) {
+        alert('대관 예약자정보를 모두 입력해주세요.');
+        return;
+    }
+
+    console.log(totalPay);
+
+    IMP.request_pay({
+        pg: 'kakaopay',
+        merchant_uid: 'merchant_' + new Date().getTime(),
+
+        name: 'ZERO FUTSAL',
+        amount: totalPay,
+        //buyer_email: '로그인이메일',
+        buyer_name: reName,
+        //buyer_tel: '회원번호',
+        //buyer_addr: '회원주소',
+        //buyer_postcode: '회원집POST코드'
+    }, function (rsp) {
+        console.log(rsp);
+        if (rsp.success) {
+            var msg = '예약이 완료되었습니다.\n';
+            msg += '결제 금액 : ' + rsp.paid_amount;
+            $('#reservation').submit();
+        } else {
+            var msg = '결제에 실패하였습니다.\n';
+            msg += '에러내용 : ' + rsp.error_msg;
+        }
+        alert(msg);
+    });
+});
+
 function getTime() {
     var reStadium = $("#re_stadium").val();
     var reBranch = $("#re_branch").val();
@@ -273,41 +315,8 @@ function getTime() {
             });
         },
         error: function() {
-            alert("오류가 발생했습니다.");
+            //alert("오류가 발생했습니다.");
         }
     });
 }
-</script>
-<script>
-    $('#kakaopay').click(function () {
-        var IMP = window.IMP;
-        IMP.init('imp25752164');
-        var reName = $("#re_name").val();
-        var totalPay = $("#re_totalpay").val();
-        console.log(totalPay);
-
-        IMP.request_pay({
-            pg: 'kakaopay',
-            merchant_uid: 'merchant_' + new Date().getTime(),
-
-            name: 'ZERO FUTSAL',
-            amount: totalPay,
-            //buyer_email: '로그인이메일',
-            buyer_name: reName,
-            //buyer_tel: '회원번호',
-            //buyer_addr: '회원주소',
-            //buyer_postcode: '회원집POST코드'
-        }, function (rsp) {
-            console.log(rsp);
-            if (rsp.success) {
-                var msg = '결제가 완료되었습니다.\n';
-                msg += '결제 금액 : ' + rsp.paid_amount;
-                $('#reservation').submit();
-            } else {
-                var msg = '결제에 실패하였습니다.\n';
-                msg += '에러내용 : ' + rsp.error_msg;
-            }
-            alert(msg);
-        });
-    });
 </script>

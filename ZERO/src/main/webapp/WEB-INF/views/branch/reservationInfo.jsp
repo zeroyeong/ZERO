@@ -38,8 +38,16 @@
         <div class="container">
 
             <h1>예약확인</h1>
+            <c:choose>
+   			<c:when test="${empty reservationList}">
+        	<script>
+            alert('예약정보가 없습니다.');
+            window.location.href = '${pageContext.request.contextPath}/reservation';
+       		</script>
+    </c:when>
+        <c:otherwise>
 		<c:forEach items="${reservationList}" var="reservation">
-		<form action="${pageContext.request.contextPath}/reservation/cancel" method="post">
+		<form id="cancelForm" action="${pageContext.request.contextPath}/reservation/cancel" method="post">
             <div class="reserInfoTable">
                 <table>
                     <colgroup>
@@ -94,10 +102,12 @@
             </div>
             <input type="hidden" name="re_no" value="${reservation.re_no }">
             <div class="btnWrap">
-                <button class="btnCancel">예약취소하기</button>
+                <button type="button" class="btnCancel" onclick="cancel();">예약취소하기</button>
             </div>	
             </form>
           </c:forEach>
+          </c:otherwise>
+          </c:choose>
         </div>
     </main>
 
@@ -107,3 +117,13 @@
 </body>
 
 </html>
+<script>
+function cancel() {
+    if (confirm("예약을 취소하시겠습니까?")) {
+        document.getElementById("cancelForm").submit();
+    	alert("예약취소신청이 완료되었습니다.");
+    } else {
+    	alert("취소되었습니다.");
+    }
+}
+</script>

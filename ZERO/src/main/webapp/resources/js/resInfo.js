@@ -54,12 +54,16 @@ function buildCalendar() {
         }
         else if (nowDay.getFullYear() == today.getFullYear() && nowDay.getMonth() == today.getMonth() && nowDay.getDate() == today.getDate()) {
             nowColumn.className = "today choiceDay"; // 오늘인 경우 choiceDay 클래스 추가
-            nowColumn.onclick = function () { choiceDate(this); }
+            nowColumn.onclick = function () { 
+                choiceDate(this); 
+                getTime(); }
             todayColumn = nowColumn; // 오늘 날짜 열을 저장
         }
         else {
             nowColumn.className = "futureDay";
-            nowColumn.onclick = function () { choiceDate(this); }
+            nowColumn.onclick = function () { 
+                choiceDate(this); 
+                getTime(); }
         }
     }
 
@@ -69,19 +73,13 @@ function buildCalendar() {
 
 // 날짜 선택
 function choiceDate(nowColumn) {
-    if (nowColumn.classList.contains("choiceDay")) { // 이미 선택된 날짜인 경우
-        nowColumn.classList.remove("choiceDay"); // 선택을 해제합니다.
-        updateSelectedDate(""); // 날짜를 선택 해제할 때 내용을 비웁니다.
-    } else {
 
-        // 다른 선택된 날짜가 있는지 확인하고 있으면 선택을 해제합니다.
-        let selectedDates = document.querySelectorAll(".choiceDay");
-        for (let i = 0; i < selectedDates.length; i++) {
-            selectedDates[i].classList.remove("choiceDay");
-        }
-        nowColumn.classList.add("choiceDay"); // 새로운 날짜를 선택합니다.
-        updateSelectedDate(getFormattedDate(nowColumn)); // 선택된 날짜를 업데이트합니다.
-    }
+     let selectedDates = document.querySelectorAll(".choiceDay");
+     for (let i = 0; i < selectedDates.length; i++) {
+         selectedDates[i].classList.remove("choiceDay");
+     }
+     nowColumn.classList.add("choiceDay"); // 새로운 날짜를 선택합니다.
+     updateSelectedDate(getFormattedDate(nowColumn)); // 선택된 날짜를 업데이트합니다.
 }
 
 // 선택된 날짜를 업데이트하는 함수 
@@ -143,15 +141,24 @@ function setTime(e) {
     var timeCheck = e.parentElement.querySelector(".time_check");
     var restime = e.querySelector("#restime").value; 
     
-    if (timeCheck.checked) {
-        e.classList.remove("on");
-        timeCheck.checked = false;
-        updateSelectedTimes(); 
-    } else {
+    var checkboxes = document.querySelectorAll(".time_check");
+    checkboxes.forEach(function (checkbox) {
+        var parentButton = checkbox.parentElement;
+        if (parentButton !== e) {
+            parentButton.classList.remove("on");
+            checkbox.checked = false;
+        }
+    });
+
+    if (!timeCheck.checked) {
         e.classList.add("on");
         timeCheck.checked = true;
-        updateSelectedTimes();
+    } else {
+        e.classList.remove("on");
+        timeCheck.checked = false;
     }
+    
+    updateSelectedTimes();
     updateTotalPay();
 }
 

@@ -48,34 +48,34 @@
                         <li>
                             <a>서울, 경기 지역</a>
                             <ul class="areaList">
-                                <li><a href="">더피치 인하점</a></li>
-                                <li><a href="">더피치 평택점</a></li>
+                                <li><a href="<c:url value="/branch/HM0048"/>">더피치 인하점</a></li>
+                                <li><a href="<c:url value="/branch/HM0053"/>">더피치 평택점</a></li>
                             </ul>
                         </li>
                         <li>
                             <a>대전, 충청 지역</a>
                             <ul class="areaList">
-                                <li><a href="">더피치 천안신방점</a></li>
-                                <li><a href="">아산인주풋살장</a></li>
+                                <li><a href="<c:url value="/branch/HM0049"/>">더피치 천안신방점</a></li>
+                                <li><a href="<c:url value="/branch/HM0052"/>">아산인주풋살장</a></li>
                             </ul>
                         </li>
                         <li>
                             <a>부산, 경상 지역</a>
                             <ul class="areaList">
-                                <li><a href="">부산 북구점</a></li>
-                                <li><a href="">울산 남구점</a></li>
+                                <li><a href="<c:url value="/branch/HM0031"/>">부산 북구점</a></li>
+                                <li><a href="<c:url value="/branch/HM0008"/>">울산 남구점</a></li>
                             </ul>
                         </li>
                         <li>
                             <a>광주, 전라 지역</a>
                             <ul class="areaList">
-                                <li><a href="">전주 완산점</a></li>
+                                <li><a href="<c:url value="/branch/HM0010"/>">전주 완산점</a></li>
                             </ul>
                         </li>
                         <li>
                             <a>제주 지역</a>
                             <ul class="areaList">
-                                <li><a href="">제주 서귀포점</a></li>
+                                <li><a href="<c:url value="/branch/HM0032"/>">제주 서귀포점</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -57,7 +57,7 @@ public class BranchController {
     @PostMapping("/branch/{branch_code}/reservation")
     public String addReservation(@ModelAttribute("reservation") Reservation reservation) {
 		branchService.addReservation(reservation); 
-        return "redirect:/branch";
+        return "redirect:/branch/{branch_code}";
     }	
 
 	@PostMapping("/branch/{branch_code}/timeCheck")
@@ -100,8 +100,6 @@ public class BranchController {
 								  @RequestParam("re_pwd") String re_pwd , Model model) {
 	    List<Reservation> list = branchService.reservationList(re_name, re_pwd);
 	    model.addAttribute("reservationList", list);
-	    System.out.println(re_name);
-	    System.out.println(re_pwd);
 	    return "branch/reservationInfo";
 	}
 	@PostMapping("/reservation/cancel")
