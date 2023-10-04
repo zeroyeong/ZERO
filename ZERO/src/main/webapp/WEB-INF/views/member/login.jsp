@@ -16,9 +16,11 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/login.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/member.js" />" defer></script>
-   <!-- facebook 로그인 -->
-   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+   <script src="<c:url value="/resources/js/member.js?a" />" defer></script>
+   <!-- naver 로그인 -->
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
    <!-- 카카오톡 로그인 -->
    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
@@ -61,6 +63,7 @@
 
       <div class="snsLogin">
         <p>SNS 간편로그인</p>
+        <div id="naver_id_login"></div>
         <button type="button" class="kakao" onClick="kakaoLogin();">
           <span>
             <img src="<c:url value="/resources/images/kakao.png" />" alt="" />
@@ -77,7 +80,7 @@
           <span>
             <img src="<c:url value="/resources/images/facebook.png" />" alt="" />
           </span>
-          페이스북 계정으로 로그인
+          구글 계정으로 로그인
         </button>
       </div>
 
