@@ -76,7 +76,7 @@
 		
 		<input type="checkbox" name="" id="toggleMenu" /> 
 		<label for="toggleMenu" class="toggleMenu"> 
-			<i class="fa-solid fa-bars" style="color: #ffffff"></i>
+			<i class="fa-solid fa-bars" style="color: #ffffff"></i> 
 		</label>
 		
 		<nav class="slideMenu">
