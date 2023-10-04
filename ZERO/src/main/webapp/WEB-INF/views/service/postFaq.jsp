@@ -146,7 +146,9 @@
 
         <div class="addButtons">
           <button type="button" class="notAddBtns">수정</button>
-          <button type="button" class="notAddBtns">삭제</button>
+    		<form method="get" action="deleteFaq">
+    			<input type="hidden" name="faqNo" value="${faq.faqNo}">
+    			<input type="submit" value="삭제">
           <button type="button" class="notAddBtns">목록으로</button>
         </div>
 

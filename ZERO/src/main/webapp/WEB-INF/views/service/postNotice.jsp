@@ -144,8 +144,11 @@
         </table>
 
         <div class="addButtons">
-          <button type="button" class="notAddBtns">수정</button>
-          <button type="button" class="notAddBtns">삭제</button>
+			<a href="<c:url value="updateNotice?notNo=${notice.notNo}" />"> 수정</a>
+    		<form method="get" action="deleteNotice">
+    			<input type="hidden" name="notNo" value="${notice.notNo}">
+    			<input type="submit" value="삭제">
+    		</form>  
           <button type="button" class="notAddBtns">목록으로</button>
         </div>
 

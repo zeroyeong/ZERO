@@ -4,8 +4,8 @@
 
 <mapper namespace="Notice">
     <insert id="insertNotice" parameterType="Notice">
-        insert into Notice(notTitle, notContent, notPass, notFile)
-        values(#{notTitle}, #{notContent}, #{notPass}, #{notFile})
+        insert into Notice(notTitle, notContent, notPass, notFile, notHit, notDate)
+        values(#{notTitle}, #{notContent}, #{notPass}, #{notFile}, #{notHit}, #{notDate})
     </insert>
      <select id="selectNotice" resultType="Notice">
         select * from Notice
@@ -21,8 +21,8 @@
     </delete>
     
     <insert id="insertFaq" parameterType="Faq">
-        insert into Faq(faqTitle, faqContent)
-        values(#{faqTitle}, #{faqContent})
+        insert into Faq(faqTitle, faqContent, faqHit, faqDate)
+        values(#{faqTitle}, #{faqContent}, #{faqHit}, #{faqDate})
     </insert>
      <select id="selectFaq" resultType="Faq">
         select * from Faq

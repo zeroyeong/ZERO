@@ -143,6 +143,7 @@
           </thead>
           <tbody>
 			 <c:forEach items="${noticeList}" var="notice"> 
+			 <tr>
 			  <td>${notice.notNo}</td>
 		      <td>
 		       <div class="noticeTitle">
@@ -151,6 +152,7 @@
 		      </td> 
 			  <td>${notice.notDate}</td>
 			  <td>${notice.notHit}</td>
+			  </tr>
 			 </c:forEach>
           </tbody>
         </table>
@@ -184,6 +186,7 @@
           </thead>
           <tbody>
 			 <c:forEach items="${faqList}" var="faq"> 
+			 <tr>
 			  <td>${faq.faqNo}</td>
 		      <td>
 		       <div class="faqTitle">
@@ -192,6 +195,7 @@
 		      </td> 
 			  <td>${faq.faqDate}</td>
 			  <td>${faq.faqHit}</td>
+			  </tr>
 			 </c:forEach>
           </tbody>
         </table>

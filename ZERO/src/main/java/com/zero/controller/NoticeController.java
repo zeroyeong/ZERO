@@ -8,10 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zero.domain.Faq;
-import com.zero.domain.Notice; 
+import com.zero.domain.Notice;
 import com.zero.service.NoticeService;
 
 @Controller
@@ -109,18 +110,18 @@ public class NoticeController {
 	}
 	
 	
-	@GetMapping("/delete/notice")
+	@GetMapping("/service/deleteNotice")
 	public String noticeDelete(@RequestParam("notNo") int notNo) {
 		
 		noticeService.deleteNotice(notNo);
-		return "redirect:/notice/read";
+		return "redirect:/service";
 	}
 	
-	@GetMapping("/delete/faq")
+	@GetMapping("/service/deleteFaq")
 	public String faqDelete(@RequestParam("faqNo") int faqNo) {
 		
 		noticeService.deleteFaq(faqNo);
-		return "redirect:/notice/read";
+		return "redirect:/service";
 	}
 
 }

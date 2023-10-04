@@ -2,10 +2,15 @@ package com.zero.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.zero.domain.Faq;
 import com.zero.domain.Notice;
@@ -43,14 +48,46 @@ public class NoticeRepositoryImpl implements NoticeRepository {
 	@Override
 	public void setNewNotice(Notice notice) {
 		// TODO Auto-generated method stub
+		
+		//real DATE
+	    Date currentDate = new Date();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(currentDate);
+		
+		notice.setNotDate(formattedDate);
+		notice.setNotHit(0);
+		
+		if(notice.getFileName() != null) {
+			
+			MultipartFile file = notice.getFileName();
+			String saveName = file.getOriginalFilename();
+			File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName);
+		try {
+				file.transferTo(saveFile);
+				notice.setNotFile(saveName);
+		} catch (Exception e) {
+			throw new RuntimeException("file saving failed", e);
+		}
+			notice.setNotFile(saveName);
+		}else {
+			notice.setNotFile("");
+		}
 
     	sql.insert("Notice.insertNotice", notice);
 	}
 
 	@Override
 	public void setNewFaq(Faq faq) {
-		// TODO Auto-generated method stub
 		
+		//real DATE
+	    Date currentDate = new Date();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(currentDate);
+		
+		faq.setFaqDate(formattedDate);
+		faq.setFaqHit(0);
 		sql.insert("Notice.insertFaq", faq);
 
 	}

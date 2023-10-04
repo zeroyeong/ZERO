@@ -11,16 +11,18 @@ public class Notice {
 	private String notContent;
 	private int notHit;
 	private String notDate;
-	private MultipartFile notImage;
 	private String notFile;
+	private MultipartFile fileName;
+	
 	
 	public Notice() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	
 	public Notice(int notNo, String notTitle, String notWriter, String notPass, String notContent, int notHit,
-			String notDate, MultipartFile notImage, String notFile) {
+			String notDate, String notFile, MultipartFile fileName) {
 		super();
 		this.notNo = notNo;
 		this.notTitle = notTitle;
@@ -29,12 +31,11 @@ public class Notice {
 		this.notContent = notContent;
 		this.notHit = notHit;
 		this.notDate = notDate;
-		this.notImage = notImage;
 		this.notFile = notFile;
+		this.fileName = fileName;
 	}
 
-	
-	
+
 	public int getNotNo() {
 		return notNo;
 	}
@@ -77,18 +78,20 @@ public class Notice {
 	public void setNotDate(String notDate) {
 		this.notDate = notDate;
 	}
-	public MultipartFile getNotImage() {
-		return notImage;
-	}
-	public void setNotImage(MultipartFile notImage) {
-		this.notImage = notImage;
-	}
 	public String getNotFile() {
 		return notFile;
 	}
 	public void setNotFile(String notFile) {
 		this.notFile = notFile;
 	}
+	public MultipartFile getFileName() {
+		return fileName;
+	}
+	public void setFileName(MultipartFile fileName) {
+		this.fileName = fileName;
+	}
+	
+	
 
 
 }

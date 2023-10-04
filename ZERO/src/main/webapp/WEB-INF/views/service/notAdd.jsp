@@ -126,7 +126,7 @@
         <div class="container">
             <h1 class="pageTitle notice">공지사항</h1>
 
-			<form:form modelAttribute = "NewNotice" method="post" action="service/notice">
+			<form:form modelAttribute = "NewNotice" method="post" action="service/notice" enctype="multipart/form-data">
 			<div>
 	 		 <label>제목</label>
 	   	 	 <form:input  path="notTitle"/>  
@@ -135,10 +135,6 @@
 		  	  <label>비밀번호</label>
 	    	  <form:input  path="notPass"/>  
 			 </div>
-			 <div>
-			  <label>날짜</label>
-			  <form:input path="notDate"/>
-			 </div>
 	 		 <div>
 			  <label>내용</label>
 	    	  <form:input  path="notContent"/>  
@@ -146,22 +142,15 @@
 			 <div>
 			  <label>이미지</label>
 			  <div class="search">
-			  <form:input class="fileName" path="notImage"/>
+			  <form:input class="fileName" path="notFile"/>
 			  <input type="file" id="fileInput">
 			  <label for="fileInput">이미지 찾기</label>
 			  </div>
 			 </div>
-			 <div>
-			  <label>파일</label>
-			  <div class="search">
-			  <form:input class="fileName2" path="notFile"/>
-			  <input type="file" id="fileInput2">
-			  <label for="fileInput2">파일 찾기</label>
-			 </div>
 			 </div>
 			<input type="submit" value ="작성"/>
-			<a href="<c:url value="revice?notNo=${notice.notNo}" />"> 수정</a>
-    		<a href="<c:url value="delete?notNo=${notice.notNo}"  />"> 삭제</a>    
+			<a href="<c:url value="updateNotice?notNo=${notice.notNo}" />"> 수정</a>
+    		<a href="<c:url value="deleteNotice?notNo=${notice.notNo}"  />"> 삭제</a>    
 			</form:form>
 
 

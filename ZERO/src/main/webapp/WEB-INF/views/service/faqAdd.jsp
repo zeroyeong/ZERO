@@ -126,28 +126,22 @@
 
         <div class="container">
             <h1 class="pageTitle notice">FAQ</h1>
+            
+            <form:form modelAttribute = "NewFaq" method="post" action="service/faq">
+			<div>
+	 		 <label>제목</label>
+	   	 	 <form:input  path="faqTitle"/>  
+			 </div>
+	 		 <div>
+			  <label>내용</label>
+	    	  <form:input  path="faqContent"/>  
+			 </div>
 
-            <table class="postAdd">
-                <thead>
-                    <tr>
-                        <th class="title" colspan="4">제목</th>
-                        <td><input type="text" class="titleInput" placeholder="제목내용"></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th class="title" colspan="4">본문</th>
-                        <td><textarea class="contentInput" placeholder="본문"></textarea></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="addButtons">
-                <input type="button" value="수정" class="notAddBtns">
-                <input type="button" value="삭제" class="notAddBtns">
-                <input type="button" value="작성" class="notAddBtns">
-            </div>
-        </div>
+			<input type="submit" value ="작성"/>
+			<a href="<c:url value="updateFaq?faqNo=${faq.faqNo}" />"> 수정</a>
+    		<a href="<c:url value="deleteFaq?faqNo=${faq.faqNo}"  />"> 삭제</a>  
+             </form:form>
+       </div> 
     </main>
 
     <footer>
