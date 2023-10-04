@@ -44,10 +44,10 @@
                         <td>
                             <div class="teamName">
                                 <div class="teamImage">
-                                    <img src="../images/팀2.jpg" alt="" />
+                                    <img src="<c:url value="resources/images/team1.PNG"/>" alt="">
                                 </div>
                                 <div class="teamTitle">
-                                    <a href="">팀 1</a>
+                                    <a href="#">스피드러너</a>
                                 </div>
                             </div>
                         </td>
@@ -67,10 +67,10 @@
                         <td>
                             <div class="teamName">
                                 <div class="teamImage">
-                                    <img src="../images/팀2.jpg" alt="" />
+                                    <img src="<c:url value="resources/images/team1.PNG"/>" alt="">
                                 </div>
                                 <div class="teamTitle">
-                                    <a href="">팀 1</a>
+                                    <a href="#">스피드러너</a>
                                 </div>
                             </div>
                         </td>

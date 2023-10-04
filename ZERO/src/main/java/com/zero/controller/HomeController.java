@@ -40,9 +40,4 @@ public class HomeController {
 	public String customer() {
 		return "service/service";
 	}
-
-	@RequestMapping("/manager")
-	public String manager() {
-		return "manager/manager";
-	}
 }

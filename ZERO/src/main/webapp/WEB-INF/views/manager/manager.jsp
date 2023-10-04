@@ -87,7 +87,7 @@
                                       	<img src="<c:url value="resources/images/team1.PNG"/>" alt="">
                                     </div>
                                     <div class="teamTitle">
-                                        <a href="mgrPlaerList.jsp">스피드러너</a>
+                                 	   <a href="<c:url value="/mgrPlayerList" />">스피드러너</a>
                                     </div>
                                 </div>
                             </td>
@@ -107,7 +107,7 @@
                                 		<img src="<c:url value="resources/images/team2.PNG"/>" alt="">
                                     </div>
                                     <div class="teamTitle">
-                                        <a href="mgrPlaerList.jsp">동그라미</a>
+                                	    <a href="<c:url value="/mgrPlayerList" />">동그라미</a>
                                     </div>
                                 </div>
                             </td>
