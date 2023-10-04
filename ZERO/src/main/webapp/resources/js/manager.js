@@ -23,8 +23,9 @@ function openPlayerPopup() {
     openPopup(playerPopup);
 }
 
-function openTeamPopup() {
-    openPopup(teamPopup);
+function openTeamPopup(index) {
+    const popupId = `teamPopup${index}`;
+    openPopup(document.getElementById(popupId));
 }
 
 function openSchPopup() {

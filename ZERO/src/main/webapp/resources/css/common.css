@@ -235,7 +235,8 @@ header .webNav .rightMenu .loginMenu::before {
   left: 3px;
 }
 
-header .webNav .rightMenu .loginMenu a {
+header .webNav .rightMenu .loginMenu a,
+header .webNav .rightMenu .logout a {
   text-transform: uppercase;
 }
 

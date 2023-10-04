@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common.css' />" />
 
 <!-- JS 연결 -->
-<script src="<c:url value='/resources/js/common.js?11' />" defer></script>
+<script src="<c:url value='/resources/js/common.js' />" defer></script>
 
 <!-- 아이콘 -->
 <script src="https://kit.fontawesome.com/a923b8b28f.js" crossorigin="anonymous"></script>
@@ -50,25 +50,57 @@
 						 <i class="fa-brands fa-instagram"></i>
 					</a>
 				</li>
+				<c:if test="${sessionScope.mem_id==null}">
 				<li class="loginMenu">
 					<a href="<c:url value="/login"/>">
 						memberLogin<i class="fa-solid fa-user"></i>
 					</a>
 				</li>
+				</c:if>
+				
+				<c:if test="${sessionScope.mem_id!=null}">
+				<li class="loginMenu">
+					<a href="<c:url value="/mypage"/>">
+						my page<i class="fa-solid fa-user"></i>
+					</a>
+				</li>
+				<li class="logout">
+					<a href="<c:url value="/logout"/>">
+						log out
+						<i class="fa-solid fa-arrow-right-from-bracket"></i>
+					</a>
+				</li>
+				</c:if>
 			</ul>
 		</nav>
 		
 		<input type="checkbox" name="" id="toggleMenu" /> 
 		<label for="toggleMenu" class="toggleMenu"> 
-			<i class="fa-solid fa-bars" style="color: #ffffff"></i>
+			<i class="fa-solid fa-bars" style="color: #ffffff"></i> 
 		</label>
 		
 		<nav class="slideMenu">
+		
+			<c:if test="${sessionScope.mem_id==null}">
 			<button type="button" class="memberLogin">
 				<a href="<c:url value="/login"/>">
 					MEMBER LOGIN <i class="fa-solid fa-user"></i>
 				</a>
 			</button>
+			</c:if>
+			
+			<c:if test="${sessionScope.mem_id!=null}">
+			<button type="button" class="memberLogin">
+				<a href="<c:url value="/mypage"/>">
+					MYPAGE <i class="fa-solid fa-user"></i>
+				</a>
+			</button>
+			<button type="button" class="memberLogin">
+				<a href="<c:url value="/logout"/>">
+					LOGOUT <i class="fa-solid fa-arrow-right-from-bracket"></i>
+				</a>
+			</button>
+			</c:if>
 			<ul class="navMenu">
 				<li id="point"><a>지점<span class="nav-bar hover-bar"></span></a>
 				</li>

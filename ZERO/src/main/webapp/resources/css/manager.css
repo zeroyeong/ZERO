@@ -224,18 +224,34 @@ section#mgrTeamContent table .col1 {
 }
 
 section#mgrTeamContent table .col2 {
-    width: 20%;
-}
-
-section#mgrTeamContent table .col4 {
     width: 15%;
 }
 
+section#mgrTeamContent table .col3 {
+    width: 15%;
+}
+
+section#mgrTeamContent table .col4 {
+    width: 8%;
+}
+
 section#mgrTeamContent table .col5 {
-    width: 12%;
+    width: 11%;
 }
 
 section#mgrTeamContent table .col6 {
+    width: 10%;
+}
+
+section#mgrTeamContent table .col7 {
+    width: 8%;
+}
+
+section#mgrTeamContent table .col8 {
+    width: 11%;
+}
+
+section#mgrTeamContent table .col9 {
     width: 100px;
 }
 
@@ -614,7 +630,7 @@ section#mgrUserContent table tbody td a.userBtn:hover {
     background-color: var(--beforeColor);
 }
 
-/*삭제버튼*/
+
 section#mgrTeamContent table tbody td a.teamDelBtn,
 section#addPlayerContent table tbody td a.playerDelBtn,
 section#mgrSchContent a.schDelBtn {
@@ -651,11 +667,11 @@ section#mgrSchContent a.schDelBtn:hover {
     section#mgrTeamContent table th,
     section#mgrTeamContent table td,
     section#mgrTeamContent table td a {
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
 
     section#mgrSchContent ul li .button {
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
 
     section#addPlayerContent table thead th:first-child,

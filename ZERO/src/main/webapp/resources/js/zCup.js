@@ -105,6 +105,17 @@ function teamEditPassword(team_no) {
   }
 }
 
+function enter(team_no) {
+    if(document.getElementById("enterBtn") != null){ 
+	    // keyCode 13은 엔터이다.
+	    if(event.keyCode === 13) {
+	       teamEditPassword(team_no)
+	      return false;
+	    }
+	    return true;
+    }
+}
+
 function teamEdit(team_no) {
    var teamForm = document.getElementById('teamForm');
    teamForm.submit();
