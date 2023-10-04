@@ -32,7 +32,7 @@
     
     <!-- ________________________________________________________ -->
     
-    <!-- 마이페이지 -->
+    <!-- 마이페이지 -->    
     <update id="updateMember" parameterType="Member">
     	update member set mem_pw = #{mem_pw}, mem_phone = #{mem_phone} where mem_id = #{mem_id}
     </update>
@@ -41,7 +41,7 @@
     
     <!-- 탈퇴 -->
     <delete id="deleteMember">
-    	delete form member where mem_id = #{mem_id}
+    	delete from member where mem_id = #{mem_id}
     </delete>  
           
 </mapper>

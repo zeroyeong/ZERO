@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
@@ -15,26 +14,27 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/myPage.css" />" />
 
    <!-- js 연결 -->
-   
+   <script src="<c:url value = "/resources/js/member.js?dd" />"></script>
 </head>
 <body>
 	<section class="container">
-      <h1 class="logo" onclick="document.location.href='/';">zero futsal</h1>
-      <form action="" method="post">
+      <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
+      
         <ul>
           <li>
             <label for="mem_id">이메일</label>
-            <span>mem_id</span>
+            <span>${member.mem_id}</span>
           </li>
           <li>
             <label for="mem_name">이름</label>
             <div>
-              <span>mem_name</span>
-              <button type="button">회원탈퇴</button>
+              <span>${member.mem_name}</span>
+              <button type="button" onClick="location.href='/delete'">회원탈퇴</button>
             </div>
           </li>
+          <form action="" method="post" name="updateMember">
           <li>
-            <label for="mem_pw">비밀번호</label>
+            <label for="mem_pw">비밀번호 변경</label>
             <input type="password" id="mem_pw" name="mem_pw" />
           </li>
           <li>
@@ -43,12 +43,13 @@
           </li>
           <li>
             <label for="mem_phone">휴대전화</label>
-            <input type="text" id="mem_phone" name="mem_phone" placeholder="-포함해서 입력" value="mem_phone" />
+            <input type="text" id="mem_phone" name="mem_phone" value="${member.mem_phone}" placeholder="-포함해서 입력" />
           </li>
           <li><button class="button">예약확인 바로가기</button></li>
-          <li class="btns"><button>정보수정</button> <button type="reset">취소하기</button></li>
+          <li class="btns"><button type="submit">정보수정</button> <button type="reset">취소하기</button></li>
+         </form>
         </ul>
-      </form>
+
 
       <div class="footer">
         <h3 class="logo">zero futsal</h3>

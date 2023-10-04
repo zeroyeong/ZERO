@@ -55,7 +55,7 @@ public class MemberController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		
 		if(mem_id != null) { //로그인이 되어있는 상태라면
-			return "redirect:/";
+			return "redirect:/zero";
 		}
 		return "member/login"; //로그인이 되어있지 않다면 로그인페이지로
 	}
@@ -69,6 +69,7 @@ public class MemberController {
 		}
 		
 		session.setAttribute("mem_name", mem_name);
+		session.setAttribute("mem_id", mem_id);
 		return "redirect:/";
 	}
 
@@ -76,10 +77,15 @@ public class MemberController {
 	@GetMapping("/mypage")
 	public String mypage(HttpSession session, Model model) {
 		String mem_id = (String) session.getAttribute("mem_id");
-		Member member = memberService.getMemberInfo(mem_id);
-		model.addAttribute("member", member);
 		
-		return "member/mypage";
+		if(mem_id != null) {
+			Member member = memberService.getMemberInfo(mem_id);
+			model.addAttribute("member", member);
+			
+			return "member/myPage";
+		}
+		
+		return "redirect:/login";
 	}
 	
 	@PostMapping("/mypage")
@@ -92,14 +98,20 @@ public class MemberController {
 	}
 	
 	/*________ 로그아웃 ________*/
-	@PostMapping("/logout")
+	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/login";
 	}
 	
 	/*______탈퇴______*/
-	/*public String withraw(HttpSession session) {
-		String mem_id = (String) 
-	}*/
+	@GetMapping("/delete")
+	public String withraw(HttpSession session) {
+		String mem_id = (String) session.getAttribute("mem_id");
+		if(mem_id != null) {
+			memberService.withdraw(mem_id);
+		}
+		session.invalidate();
+		return "redirect:/";
+	}
 }

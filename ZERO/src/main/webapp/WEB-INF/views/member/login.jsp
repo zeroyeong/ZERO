@@ -16,7 +16,7 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/login.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/login.js?3" />" defer></script>
+   <script src="<c:url value="/resources/js/member.js" />" defer></script>
    <!-- facebook 로그인 -->
    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
    <!-- 카카오톡 로그인 -->

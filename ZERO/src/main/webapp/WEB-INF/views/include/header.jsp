@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common.css' />" />
 
 <!-- JS 연결 -->
-<script src="<c:url value='/resources/js/common.js?11' />" defer></script>
+<script src="<c:url value='/resources/js/common.js' />" defer></script>
 
 <!-- 아이콘 -->
 <script src="https://kit.fontawesome.com/a923b8b28f.js" crossorigin="anonymous"></script>
@@ -55,6 +55,18 @@
 						memberLogin<i class="fa-solid fa-user"></i>
 					</a>
 				</li>
+				
+				<li class="loginMenu">
+					<a href="<c:url value="/mypage"/>">
+						my page<i class="fa-solid fa-user"></i>
+					</a>
+				</li>
+				
+				<li class="logout">
+					<a href="<c:url value="/logout"/>">
+						log out
+					</a>
+				</li>
 			</ul>
 		</nav>
 		
@@ -67,6 +79,16 @@
 			<button type="button" class="memberLogin">
 				<a href="<c:url value="/login"/>">
 					MEMBER LOGIN <i class="fa-solid fa-user"></i>
+				</a>
+			</button>
+			<button type="button" class="memberLogin">
+				<a href="<c:url value="/mypage"/>">
+					MYPAGE <i class="fa-solid fa-user"></i>
+				</a>
+			</button>
+			<button type="button" class="memberLogin">
+				<a href="<c:url value="/logout"/>">
+					LOGOUT <i class="fa-solid fa-user"></i>
 				</a>
 			</button>
 			<ul class="navMenu">
