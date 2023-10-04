@@ -84,10 +84,10 @@
                             <td>
                                 <div class="teamName">
                                     <div class="teamImage">
-                                        <img src="../images/팀2.jpg" alt="" />
+                                      	<img src="<c:url value="resources/images/team1.PNG"/>" alt="">
                                     </div>
                                     <div class="teamTitle">
-                                        <a href="mgrPlayerList.html">팀1</a>
+                                        <a href="mgrPlaerList.jsp">스피드러너</a>
                                     </div>
                                 </div>
                             </td>
@@ -104,10 +104,10 @@
                             <td>
                                 <div class="teamName">
                                     <div class="teamImage">
-                                        <img src="../images/팀2.jpg" alt="" />
+                                		<img src="<c:url value="resources/images/team2.PNG"/>" alt="">
                                     </div>
                                     <div class="teamTitle">
-                                        <a href="mgrPlayerList.html">팀2</a>
+                                        <a href="mgrPlaerList.jsp">동그라미</a>
                                     </div>
                                 </div>
                             </td>
@@ -380,32 +380,20 @@
             <h2>사용자 정보</h2>
             <table class="mgrUserInfo">
                 <tr>
-                    <th>지점</th>
-                    <td>더피치 평택점</td>
+                    <th>이름</th>
+                    <td><input class="schSelect" type="text" value="사용자1"></td>
                 </tr>
                 <tr>
-                    <th>팀명</th>
-                    <td>팀1</td>
+                    <th>전화번호</th>
+                    <td><input class="schSelect" type="text" value="010-0101-0101"></td>
                 </tr>
                 <tr>
-                    <th>선수명</th>
-                    <td>선수명</td>
+                    <th>ID</th>
+                    <td><input class="schSelect" type="text" value="id123"></td>
                 </tr>
                 <tr>
-                    <th>출전</th>
-                    <td>출전</td>
-                </tr>
-                <tr>
-                    <th>득점</th>
-                    <td>득점</td>
-                </tr>
-                <tr>
-                    <th>경고</th>
-                    <td>경고</td>
-                </tr>
-                <tr>
-                    <th>퇴장</th>
-                    <td>퇴장</td>
+                    <th>PW</th>
+                    <td><input class="schSelect" type="text" value="pw123"></td>
                 </tr>
             </table>
 
@@ -416,7 +404,7 @@
 
         </section>
     </div>
-
+    
     <!--경기일정추가 팝업-->
     <div class="schAddPopup" id="schAddPopup">
         <section class="schAddInfo">

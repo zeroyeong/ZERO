@@ -167,7 +167,6 @@ main .container section table tbody tr:last-child {
 .mgrReserInfo,
 .mgrTeamInfo,
 .mgrPlayerInfo,
-.schPopup,
 .mgrUserInfo,
 .mgrSchAddInfo {
     padding: 20px 20px;
@@ -523,14 +522,14 @@ section.schInfo .closeBtn {
 }
 
 .schPopup {
-    max-width: 620px;
+    max-width: 600px;
     width: 100%;
     background-color: #fff;
     border-radius: 10px;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -51%);
 }
 
 .schPopup caption span {
@@ -638,7 +637,7 @@ section#mgrSchContent a.schDelBtn:hover {
 /*media*/
 @media screen and (max-width:1100px) {
     main .harlfButton li label {
-        font-size: 17px;
+        font-size: 17px !important;
     }
 }
 
@@ -650,7 +649,12 @@ section#mgrSchContent a.schDelBtn:hover {
     }
 
     section#mgrTeamContent table th,
-    section#mgrTeamContent table td {
+    section#mgrTeamContent table td,
+    section#mgrTeamContent table td a {
+        font-size: 0.9em;
+    }
+
+    section#mgrSchContent ul li .button {
         font-size: 0.9em;
     }
 
@@ -671,7 +675,8 @@ section#mgrSchContent a.schDelBtn:hover {
     }
 
     section#addPlayerContent table th,
-    section#addPlayerContent table td {
+    section#addPlayerContent table td,
+    section#addPlayerContent table td a {
         font-size: 0.9em;
     }
 
@@ -681,7 +686,8 @@ section#mgrSchContent a.schDelBtn:hover {
     }
 
     section#mgrUserContent table th,
-    section#mgrUserContent table td {
+    section#mgrUserContent table td,
+    section#mgrUserContent table td a {
         font-size: 0.9em;
     }
 }
