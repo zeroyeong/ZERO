@@ -72,12 +72,16 @@
                             <th class="col1">순번</th>
                             <th class="col2">지점명</th>
                             <th class="col3">팀명</th>
-                            <th class="col4">등록선수</th>
-                            <th class="col5">등록년도</th>
-                            <th colspan="2" class="col6">관리</th>
+                            <th class="col4">팀리더</th>
+                            <th class="col5">팀전화번호</th>
+                            <th class="col6">팀이메일</th>
+                            <th class="col7">팀코드</th>
+                            <th class="col8">팀비밀번호</th>
+                            <th class="col9">관리</th>
                         </tr>
                     </thead>
-                    <tbody>
+            	    <c:forEach items="${mgrTeamList}" var="mgrTeam" varStatus="status">
+                      <tbody>
                         <tr>
                             <td>1</td>
                             <td>더피치 평택점</td>
@@ -91,34 +95,18 @@
                                     </div>
                                 </div>
                             </td>
-                            <td><span>0</span> 명</td>
-                            <td>2023.09.08</td>
+                            <td>팀리더</td>
+                            <td>팀전화번호</td>
+                            <td>팀이메일</td>
+                            <td>팀코드</td>
+                            <td>팀비밀번호</td>
                             <td>
-                                <a class="teamBtn" onclick="openTeamPopup()">수정</a>
+                                <a class="teamBtn" onclick="openTeamPopup('${status.index}')">수정</a>
                                 <a class="teamDelBtn" onclick="">삭제</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>더피치 평택점</td>
-                            <td>
-                                <div class="teamName">
-                                    <div class="teamImage">
-                                		<img src="<c:url value="resources/images/team2.PNG"/>" alt="">
-                                    </div>
-                                    <div class="teamTitle">
-                                	    <a href="<c:url value="/mgrPlayerList" />">동그라미</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span>0</span> 명</td>
-                            <td>2023.09.08</td>
-                            <td>
-                                <a class="teamBtn" onclick="openTeamPopup()">수정</a>
-                                <a class="teamDelBtn" onclick="">삭제</a>
-                            </td>
-                        </tr>
-                    </tbody>
+				   	   </tbody>
+			        </c:forEach>
                 </table>
             </section>
 
@@ -284,38 +272,63 @@
         </section>
     </div>
 
-    <!--팀관리 팝업-->
-    <div class="teamPopup" id="teamPopup">
+ 	<!--팀관리 팝업-->
+    <div class="teamPopup" id="teamPopup${status.index}">
         <section class="teamInfo">
             <span class="closeBtn" onclick="closePopup(teamPopup)">x</span>
             <h2>팀 정보</h2>
-            <table class="mgrTeamInfo">
-                <tr>
-                    <th>지점</th>
-                    <td><input class="schSelect" type="text" value="더피치 평택점"></td>
-                </tr>
-                <tr>
-                    <th>팀명</th>
-                    <td><input class="schSelect" type="text" value="스피드러너"></td>
-                </tr>
-                <tr>
-                    <th>등록선수</th>
-                    <td><input class="schSelect" type="text" value="0명"></td>
-                </tr>
-                <tr>
-                    <th>등록년도</th>
-                    <td><input class="schSelect" type="text" value="2020.03.05"></td>
-                </tr>
-            </table>
-
+				<table class="mgrTeamInfo">
+				    <tr>
+				        <th>지점</th>
+				        <td>
+				            <form action="#">
+				                <select class=schSelect name="" id="" required>
+				                    <option value>지점선택</option>
+				                    <option value>더피치 인하점</option>
+				                    <option value>더피치 평택점</option>
+				                    <option value>더피치 천안신방점</option>
+				                    <option value>아산인주풋살장</option>
+				                    <option value>부산 북구점</option>
+				                    <option value>울산 남구점</option>
+				                    <option value>전주 완산점</option>
+				                    <option value>제주 서귀포점</option>
+				                </select>
+				            </form>
+				        </td>
+				    </tr>
+				    <tr>
+				        <th>팀명</th>
+				        <td><input class="schSelect" type="text" value="스피드러너"></td>
+				    </tr>
+				    <tr>
+				        <th>팀 리더</th>
+				        <td><input class="schSelect" type="text" value="0명"></td>
+				    </tr>
+				    <tr>
+				        <th>팀전화번호</th>
+				        <td><input class="schSelect" type="text" value="010-0102-1234"></td>
+				    </tr>
+				    <tr>
+				        <th>팀 메일</th>
+				        <td><input class="schSelect" type="text" value="123@naver.com"></td>
+				    </tr>
+				    <tr>
+				        <th>팀 코드</th>
+				        <td><input class="schSelect" type="text" value="code1111"></td>
+				    </tr>
+				    <tr>
+				        <th>팀비밀번호</th>
+				        <td><input class="schSelect" type="text" value="1111"></td>
+				    </tr>
+				</table>
             <div class="mgrBtn">
                 <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('teamPopup')">
                 <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('teamPopup')">
             </div>
-
+            
         </section>
     </div>
-
+    
     <!--경기일정 팝업-->
     <div class="schPopup" id="schPopup">
         <section class="schInfo">
