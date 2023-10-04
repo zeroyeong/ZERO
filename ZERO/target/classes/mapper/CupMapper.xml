@@ -192,8 +192,10 @@
     	    d.*, 
 			h.TEAM_NO,
 			h.TEAM_NAME AS HOME_NAME,
+			h.TEAM_EMBLEM AS HOME_EMBLEM,
 			a.TEAM_NO,
-			a.TEAM_NAME AS AWAY_NAME
+			a.TEAM_NAME AS AWAY_NAME,
+			a.TEAM_EMBLEM AS AWAY_EMBLEM
 	    FROM
 	        cup_match_schedule s
 		JOIN

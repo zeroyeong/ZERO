@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 
 	<article class="tournament">
       <input type="checkbox" name="" id="checkBox" />
@@ -130,48 +131,23 @@
               </tr>
             </thead>
             <tbody>
+        	  <c:forEach items="${player_rank_list}" var="cupPlayer" begin="0" end="2" step="1"> 
+              <c:set var="rankNum" value="${rankNum + 1}" />          
               <tr>
-                <td><span class="rank">1</span></td>
+                <td><span class="rank">${rankNum}</span></td>
                 <td>
                   <div class="player">
-                    <img src="images/person.png" alt="" />
-                    <span class="playerName">홍길동</span>
+                    <img src="${pageContext.request.contextPath}/resources/images/${cupPlayer.player_photo}" alt="" />
+                    <span class="playerName">${cupPlayer.player_name}</span>
                   </div>
                 </td>
-                <td>소속 팀 1</td>
-                <td>5</td>
-                <td>5</td>
-                <td>5</td>
-                <td>5</td>
+                <td>${cupPlayer.cup_team.team_name}</td>
+                <td>${cupPlayer.player_games}</td>
+                <td>${cupPlayer.player_goal}</td>
+                <td>${cupPlayer.player_yellow_card}</td>
+                <td>${cupPlayer.player_red_card}</td>
               </tr>
-              <tr>
-                <td><span class="rank">2</span></td>
-                <td>
-                  <div class="player">
-                    <img src="images/person.png" alt="" />
-                    <span class="playerName">홍길동</span>
-                  </div>
-                </td>
-                <td>소속 팀 1</td>
-                <td>5</td>
-                <td>5</td>
-                <td>5</td>
-                <td>5</td>
-              </tr>
-              <tr>
-                <td><span class="rank">3</span></td>
-                <td>
-                  <div class="player">
-                    <img src="images/person.png" alt="" />
-                    <span class="playerName">홍길동</span>
-                  </div>
-                </td>
-                <td>소속 팀 1</td>
-                <td>5</td>
-                <td>5</td>
-                <td>5</td>
-                <td>5</td>
-              </tr>
+              </c:forEach>
             </tbody>
           </table>
         </div>

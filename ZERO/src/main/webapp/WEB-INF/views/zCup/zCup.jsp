@@ -329,7 +329,7 @@
                 <td>
                   <div class="teamName">
                     <div class="teamImage">
-                      <img src="resources/images/${cupTeam.team_emblem}" alt="" />
+                      <img src="${pageContext.request.contextPath}/resources/images/${cupTeam.team_emblem}" alt="" />
                     </div>
                     <div class="teamTitle">
                    			<a href="<c:url value="/zCup/teamDetail?team_no=${cupTeam.team_no}" />">${cupTeam.team_name}</a>
@@ -444,13 +444,13 @@
                   	${cupSchedule.cup_home_team.team_name}
                   </a>
                   <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_home_team.team_no}" />">
-                    <img src="resources/images/${cupSchedule.cup_home_team.team_emblem}" alt=""/>
+                    <img src="${pageContext.request.contextPath}/resources/images/${cupSchedule.cup_home_team.team_emblem}" alt=""/>
                   </a>
                 </li>       
                 <li class="score">${cupSchedule.schedule_home_goal} : ${cupSchedule.schedule_away_goal}</li>
                 <li class="team rightTeam">
                   <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
-  				    <img src="resources/images/${cupSchedule.cup_away_team.team_emblem}" alt=""/>
+  				    <img src="${pageContext.request.contextPath}/resources/images/${cupSchedule.cup_away_team.team_emblem}" alt=""/>
                   </a>
                   <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
                  	${cupSchedule.cup_away_team.team_name}
@@ -551,7 +551,7 @@
                   <td>
                     <div class="player">
                       <span class="img">
-                        <img src="resources/images/${cupPlayer.player_photo}" alt="" />
+                        <img src="${pageContext.request.contextPath}/resources/images/${cupPlayer.player_photo}" alt="" />
                       </span>
                       <span class="name">${cupPlayer.player_name}</span>
                     </div>

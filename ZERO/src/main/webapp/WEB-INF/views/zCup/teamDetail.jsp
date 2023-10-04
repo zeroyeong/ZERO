@@ -51,7 +51,7 @@
 
           <tr>
             <td rowspan="4" class="teamImg">
-               <img src="<c:url value="/resources/images/${branch.branch_pic}"/>" alt="">
+ 			<img src="${pageContext.request.contextPath}/resources/images/${team_detail_list[0].cup_team.team_emblem}" alt="" />     
             </td>
             <th>지점</th>
             <td>${team_detail_list[0].cup_team.branch.branch_name}</td>
@@ -90,11 +90,11 @@
               </li>
               <li class="team leftTeam">
                 <span class="teamName">${cupSchedule.cup_home_team.team_name}</span>
-                <img src="../images/팀1.jpg" alt="" />
-              </li>
+                <img src="${pageContext.request.contextPath}/resources/images/${cupSchedule.cup_home_team.team_emblem}" alt="" />
+                </li>
               <li class="score">${cupSchedule.schedule_home_goal} : ${cupSchedule.schedule_away_goal}</li>
               <li class="team rightTeam">
-                <img src="../images/팀1.jpg" alt="" />
+ 				<img src="${pageContext.request.contextPath}/resources/images/${cupSchedule.cup_away_team.team_emblem}" alt="" />
                 <span class="teamName">${cupSchedule.cup_away_team.team_name}</span>
               </li>
               <li class="button">
@@ -182,7 +182,7 @@
                   <td>${playerlist.player_no}</td>
                   <td>
                     <div class="player">
-                      <img src="../images/person.png" alt="" />
+  					  <img src="${pageContext.request.contextPath}/resources/images/${playerlist.player_photo}" alt="" />
                       <span>${playerlist.player_name}</span>
                     </div>
                   </td>

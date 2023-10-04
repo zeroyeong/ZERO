@@ -32,7 +32,7 @@ public class CupController {
 		List<CupPlayer> player_rank_list = cupService.getPlayerRanking();
 		List<CupSchedule> cup_schedule_list = cupService.getCupScheduleList();
 		List<Branch> branch_List = cupService.getBranchList();
-			
+					
 		model.addAttribute("cupTeamList", cup_team_list);
 		model.addAttribute("player_rank_list", player_rank_list);
 		model.addAttribute("cupScheduleList", cup_schedule_list);
@@ -72,9 +72,12 @@ public class CupController {
     	
     	List<CupPlayer> team_detail_list = cupService.getTeamDetail(team_no);
     	List<CupSchedule> cup_schedule_list = cupService.getTeamSchedule(team_no);
-    	
+		List<CupPlayer> player_rank_list = cupService.getPlayerRanking();
+		
+		model.addAttribute("player_rank_list", player_rank_list);
     	model.addAttribute("team_detail_list", team_detail_list);
     	model.addAttribute("cup_schedule_list", cup_schedule_list);
+    	
         return "zCup/teamDetail";
     }
 	
@@ -82,6 +85,8 @@ public class CupController {
 	public String teamSetting(@RequestParam("team_no") int team_no, Model model) {
 		
 		CupTeam team = cupService.getCupTeamOne(team_no);
+		List<CupPlayer> player_rank_list = cupService.getPlayerRanking();
+		model.addAttribute("player_rank_list", player_rank_list);
 		model.addAttribute("team",team);		
 		return "zCup/teamSetting";
 	}
@@ -92,6 +97,8 @@ public class CupController {
 		
 		List<CupPlayer> team_detail_list = cupService.getTeamDetail(team_no);
 		List<Branch> branch_List = cupService.getBranchList();
+		List<CupPlayer> player_rank_list = cupService.getPlayerRanking();
+		model.addAttribute("player_rank_list", player_rank_list);
 		model.addAttribute("team_detail_list", team_detail_list);
 		model.addAttribute("branch_List", branch_List);
 		return "zCup/editorTeam";

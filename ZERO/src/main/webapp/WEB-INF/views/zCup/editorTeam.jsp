@@ -48,7 +48,7 @@
 		<form:input type="hidden" path="team_no" value="${team_detail_list[0].cup_team.team_no}"/>         
           <div class="teamImage">
             <!--팀 사진-->
-            <img src="<c:url value="../resources/images/HM0008.jpg"/>" alt="">
+			<img src="${pageContext.request.contextPath}/resources/images/team1.PNG" alt="" /> 
             <label class="modify">변경</label>
           </div>
           <table class="teamDetail">

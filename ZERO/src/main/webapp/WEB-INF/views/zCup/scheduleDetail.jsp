@@ -43,45 +43,6 @@
       </ul>
       <div class="container">
         <section class="teamList">
-          <h3>
-            <span></span>
-         	 출전 팀 List
-          </h3>
-          <table class="teamList">
-            <colgroup>
-              <col class="col1" />
-              <col class="col2" />
-              <col class="col3" />
-              <col class="col4" />
-            </colgroup>
-
-            <thead>
-              <tr>
-       			<th>지점명</th>
-                <th>팀명</th>
-                <th>등록선수</th>
-                <th>상세정보</th>
-              </tr>
-            </thead>
-            <tbody>             
-              <c:forEach items="${cupTeamList}" var="cupTeam"> 
-	              <tr>
-	                <td>${cupTeam.branch.branch_name}</td>
-	                <td>
-	                  <div class="teamName">
-	                    <img src="../images/í2.jpg" alt="" />
-	                    <span class="teamName">${cupTeam.team_name}</span>
-	                  </div>
-	                </td>
-	                <td>${cupTeam.team_member_cnt} 명</td>
-	                <td>
-	                  <button type="button" class="detailBtn" onclick="teamDetail(${cupTeam.team_no})">상세정보</button>
-	                </td>
-	              </tr>
-              </c:forEach>      
-            </tbody>
-          </table>
-
           <h3 class="tournamentTitle">
             <span></span>
             경기 대진표
@@ -171,6 +132,45 @@
               </li>
             </ul>
           </div>
+        
+          <h3>
+            <span></span>
+         	 출전 팀 List
+          </h3>
+          <table class="teamList">
+            <colgroup>
+              <col class="col1" />
+              <col class="col2" />
+              <col class="col3" />
+              <col class="col4" />
+            </colgroup>
+
+            <thead>
+              <tr>
+       			<th>지점명</th>
+                <th>팀명</th>
+                <th>등록선수</th>
+                <th>상세정보</th>
+              </tr>
+            </thead>
+            <tbody>             
+              <c:forEach items="${cupTeamList}" var="cupTeam"> 
+	              <tr>
+	                <td>${cupTeam.branch.branch_name}</td>
+	                <td>
+	                  <div class="teamName">
+ 					  <img src="${pageContext.request.contextPath}/resources/images/${cupTeam.team_emblem}" alt="" />    
+	                    <span class="teamName">${cupTeam.team_name}</span>
+	                  </div>
+	                </td>
+	                <td>${cupTeam.team_member_cnt} 명</td>
+	                <td>
+	                  <button type="button" class="detailBtn" onclick="teamDetail(${cupTeam.team_no})">상세정보</button>
+	                </td>
+	              </tr>
+              </c:forEach>      
+            </tbody>
+          </table>
         </section>
 
         <section class="playschedule">
@@ -194,18 +194,13 @@
                     	${cupSchedule.cup_home_team.team_name}
                     </a>
                     <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_home_team.team_no}" />">
-                      <img
-                        src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg"
-                        alt=""
-                      />
+					<img src="${pageContext.request.contextPath}/resources/images/${cupSchedule.cup_home_team.team_emblem}" alt="" />    
                     </a>
                   </li>
                   <li class="score">${cupSchedule.schedule_home_goal} : ${cupSchedule.schedule_away_goal}</li>
                   <li class="team rightTeam">
                     <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
-                      <img
-                        src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg"
-                      />
+					<img src="${pageContext.request.contextPath}/resources/images/${cupSchedule.cup_away_team.team_emblem}" alt="" /> 
                     </a>
                      <a href="<c:url value="/zCup/teamDetail?team_no=${cupSchedule.cup_away_team.team_no}" />">
                  		${cupSchedule.cup_away_team.team_name}

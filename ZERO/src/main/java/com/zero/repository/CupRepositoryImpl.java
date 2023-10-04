@@ -23,8 +23,6 @@ public class CupRepositoryImpl implements CupRepository {
 	@Autowired
 	private SqlSessionTemplate sql;
 	
-	private List<CupTeam> list = new ArrayList<CupTeam>();
-	
 	@Override
 	public List<CupTeam> getCupTeamList(){
 
