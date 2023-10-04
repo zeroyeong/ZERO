@@ -80,18 +80,18 @@
                             <th class="col9">관리</th>
                         </tr>
                     </thead>
-            	    <c:forEach items="${mgrTeamList}" var="mgrTeam" varStatus="status">
+            	    <c:forEach items="${cupTeamList}" var="cupTeam">
                       <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>더피치 평택점</td>
+                            <td>${cupTeam.team_no}</td>
+                            <td>${cupTeam.branch.branch_name}</td>
                             <td>
                                 <div class="teamName">
                                     <div class="teamImage">
-                                      	<img src="<c:url value="resources/images/team1.PNG"/>" alt="">
+                                      	<img src="<c:url value="${pageContext.request.contextPath}/resources/images/${cupTeam.team_emblem}"/>" alt="">
                                     </div>
                                     <div class="teamTitle">
-                                 	   <a href="<c:url value="/mgrPlayerList" />">스피드러너</a>
+                                 	   <a href="<c:url value="/mgrPlayerList" />">${cupTeam.team_name}</a>
                                     </div>
                                 </div>
                             </td>
@@ -101,7 +101,7 @@
                             <td>팀코드</td>
                             <td>팀비밀번호</td>
                             <td>
-                                <a class="teamBtn" onclick="openTeamPopup('${status.index}')">수정</a>
+                                <a class="teamBtn" onclick="openTeamPopup('${cupTeam.team_no}')">수정</a>
                                 <a class="teamDelBtn" onclick="">삭제</a>
                             </td>
                         </tr>
@@ -273,7 +273,8 @@
     </div>
 
  	<!--팀관리 팝업-->
-    <div class="teamPopup" id="teamPopup${status.index}">
+ 	<c:forEach items="${cupTeamList}" var="cupTeam">
+    <div class="teamPopup" id="teamPopup${cupTeam.team_no}">
         <section class="teamInfo">
             <span class="closeBtn" onclick="closePopup(teamPopup)">x</span>
             <h2>팀 정보</h2>
@@ -298,7 +299,7 @@
 				    </tr>
 				    <tr>
 				        <th>팀명</th>
-				        <td><input class="schSelect" type="text" value="스피드러너"></td>
+				        <td><input class="schSelect" type="text" value="${cupTeam.team_name}"></td>
 				    </tr>
 				    <tr>
 				        <th>팀 리더</th>
@@ -324,11 +325,10 @@
             <div class="mgrBtn">
                 <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('teamPopup')">
                 <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('teamPopup')">
-            </div>
-            
+            </div>          
         </section>
-    </div>
-    
+    	</div>
+    </c:forEach>
     <!--경기일정 팝업-->
     <div class="schPopup" id="schPopup">
         <section class="schInfo">

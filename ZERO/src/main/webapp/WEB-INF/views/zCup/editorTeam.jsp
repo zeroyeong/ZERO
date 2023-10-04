@@ -55,7 +55,7 @@
             </div>
 			      
               <div class="new">
-                <img src="../images/아산인풋살장.jpg" alt="" id="newTeamImage">
+                <img src="${pageContext.request.contextPath}/resources/images/basic.PNG" alt="" id="newTeamImage">
                 <div class="search">
                   <input type="file" id="fileInput" onchange="readImage(this)">
                   <label for="fileInput" class="modify">찾아보기</label>

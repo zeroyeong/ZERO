@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css?123" />" />
     
     <!-- js 연결 -->
-	<script src="<c:url value="/resources/js/zCup.js?ddfdg" />" defer></script>
+	<script src="<c:url value="/resources/js/zCup.js?dddg" />" defer></script>
 	
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous" ></script>
@@ -41,12 +41,12 @@
         <div class="settingBox">
           <p><i class="fa-solid fa-location-dot"></i>팀관리에 앞서 정보를 입력해 주세요.</p>
           <div class="settingFrom">
-            <form action="#">
+          <form>
               <label>비밀번호</label>
-              <input type="password" id="password" name="" />
-            </form>
+              <input type="password" id="password" name="" onkeydown="return enter(${team.team_no})" />
+          </form> 
             <div class="btns">
-              <button type="button" class="accept" onclick="teamEditPassword(${team.team_no})">인증하기</button>
+              <button type="button" id="enterBtn" class="accept" onclick="teamEditPassword(${team.team_no})">인증하기</button>
               <a href="">취소하기</a>
             </div>
           </div>
