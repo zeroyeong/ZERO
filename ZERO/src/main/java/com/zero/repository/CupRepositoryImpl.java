@@ -134,6 +134,26 @@ public class CupRepositoryImpl implements CupRepository {
 	
 	@Override
 	public void updateCupTeam(CupTeam cup_team) {
+		
+		System.out.println("getTeam_name = " + cup_team.getTeam_name());		
+		System.out.println("getTeam_uniform_home = " + cup_team.getTeam_uniform_home());
+		System.out.println("getTeam_uniform_away = " + cup_team.getTeam_uniform_away());
+		
+		if(cup_team.getEmblem_file() != null) {
+	    	
+		       MultipartFile image = cup_team.getEmblem_file();  
+		       String saveName = image.getOriginalFilename();  
+		       File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
+		    try {
+		    		image.transferTo(saveFile);
+		    		cup_team.setTeam_emblem(saveName);
+				} catch (Exception e) {
+	                throw new RuntimeException("Image saving failed", e);
+	            }
+		    	cup_team.setTeam_emblem(saveName);
+		    }else {
+		    	cup_team.setTeam_emblem("basic.PNG");
+		    }				
 		sql.update("Cup.updateTeam", cup_team);
 	}
 	

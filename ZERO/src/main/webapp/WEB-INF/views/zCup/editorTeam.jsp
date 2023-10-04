@@ -50,14 +50,14 @@
             <!--팀 사진-->
             <input type="checkbox" id="teamImage" class="checkBotInput">
             <div class="origin image">
-              <img src="${pageContext.request.contextPath}/resources/images/team1.PNG" alt="" /> 
+              <img src="${pageContext.request.contextPath}/resources/images/${team_detail_list[0].cup_team.team_emblem}" alt="" /> 
               <label class="modify" for="teamImage">변경</label>
             </div>
 			      
               <div class="new">
                 <img src="${pageContext.request.contextPath}/resources/images/basic.PNG" alt="" id="newTeamImage">
                 <div class="search">
-                  <input type="file" id="fileInput" onchange="readImage(this)">
+                  <form:input type="file" id="fileInput" onchange="readImage(this)" path="emblem_file" value="${team_detail_list[0].cup_team.team_emblem}"/>
                   <label for="fileInput" class="modify">찾아보기</label>
                 </div>
               </div>
@@ -73,7 +73,7 @@
                   <!--변경버튼 클릭하면 div.orgin이 감춰지고 div.new가 보인다.-->
                 </div>
                 <div class="new">
-                  <form:input type="text" path="team_name" />
+                  <form:input type="text" path="team_name" value="${team_detail_list[0].cup_team.team_name}"/>
                 </div>
               </td>
             </tr>
@@ -94,7 +94,17 @@
                 <div class="new">
                    <form:select path="branch_no">
                     <c:forEach var="branch" items="${branch_List}">
-                      <form:option value="${branch.branch_no}">${branch.branch_name}</form:option>
+
+					<c:choose>
+						<c:when test="${team_detail_list[0].cup_team.branch.branch_name eq branch.branch_name}"> 
+							<form:option value="${branch.branch_no}" selected="true">${branch.branch_name}</form:option>
+						</c:when>
+
+						<c:otherwise> 
+		                	<form:option value="${branch.branch_no}">${branch.branch_name}</form:option>					
+						</c:otherwise>
+					</c:choose>
+					
 					</c:forEach>
                    </form:select>
                 </div>
@@ -113,8 +123,15 @@
                 <div class="new">
                    <form:select path="team_leader">
                     <c:forEach var="team_detail_list" items="${team_detail_list}">
-                      <form:option value="${team_detail_list.player_name}">${team_detail_list.player_name}</form:option>
-					</c:forEach>
+					<c:choose>
+						<c:when test="${team_detail_list.cup_team.team_leader eq team_detail_list.player_name}"> 
+						  <form:option value="${team_detail_list.player_name}" selected="true">${team_detail_list.player_name}</form:option>	
+						</c:when>
+						<c:otherwise> 
+	                      <form:option value="${team_detail_list.player_name}">${team_detail_list.player_name}</form:option>		                						
+						</c:otherwise>
+					</c:choose>  
+					</c:forEach>		
                    </form:select>
                 </div>
               </td>
@@ -130,10 +147,10 @@
                 </div>
                 <div class="new uniform">
                   <label>홈: </label>
-                  <form:input type="text" path="team_uniform_home" />
+                  <form:input type="text" path="team_uniform_home" value="${team_detail_list[0].cup_team.team_uniform_home}" />
                   /
                   <label>원정: </label>
-                  <form:input type="text" path="team_uniform_away" />
+                  <form:input type="text" path="team_uniform_away" value="${team_detail_list[0].cup_team.team_uniform_away}"/>
                 </div>
               </td>
             </tr>
