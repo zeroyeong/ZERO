@@ -21,7 +21,7 @@
     <!-- header include -->
     <jsp:include page="../include/header.jsp" />
 
-    <main>
+      <main>
         <section id="addPlayerContent">
             <table>
                 <thead>
@@ -95,31 +95,54 @@
                 <table class="mgrPlayerInfo">
                     <tr>
                         <th>지점</th>
-                        <td>더피치 평택점</td>
+                        <td>
+                            <form action="#">
+                                <select class=schSelect name="" id="" required>
+                                    <option value>지점선택</option>
+                                    <option value>더피치 인하점</option>
+                                    <option value>더피치 평택점</option>
+                                    <option value>더피치 천안신방점</option>
+                                    <option value>아산인주풋살장</option>
+                                    <option value>부산 북구점</option>
+                                    <option value>울산 남구점</option>
+                                    <option value>전주 완산점</option>
+                                    <option value>제주 서귀포점</option>
+                                </select>
+                            </form>
+                        </td>
                     </tr>
                     <tr>
                         <th>팀명</th>
-                        <td>팀1</td>
+                        <td>
+                            <form action="#">
+                                <select class=schSelect name="" id="" required>
+                                    <option value>팀 선택</option>
+                                    <option value>스피드러너</option>
+                                    <option value>동그라미</option>
+                                    <option value>3</option>
+                                </select>
+                            </form>
+                        </td>
                     </tr>
                     <tr>
                         <th>선수명</th>
-                        <td>선수명</td>
+                        <td><input class="schSelect" type="text" value="김용독"></td>
                     </tr>
                     <tr>
                         <th>출전</th>
-                        <td>출전</td>
+                        <td><input class="schSelect" type="text" value="0"></td>
                     </tr>
                     <tr>
                         <th>득점</th>
-                        <td>득점</td>
+                        <td><input class="schSelect" type="text" value="0"></td>
                     </tr>
                     <tr>
                         <th>경고</th>
-                        <td>경고</td>
+                        <td><input class="schSelect" type="text" value="0"></td>
                     </tr>
                     <tr>
                         <th>퇴장</th>
-                        <td>퇴장</td>
+                        <td><input class="schSelect" type="text" value="0"></td>
                     </tr>
                 </table>
 

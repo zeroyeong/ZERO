@@ -167,7 +167,7 @@ main .container section table tbody tr:last-child {
 .mgrReserInfo,
 .mgrTeamInfo,
 .mgrPlayerInfo,
-.mgrSchInfo,
+.schPopup,
 .mgrUserInfo,
 .mgrSchAddInfo {
     padding: 20px 20px;
@@ -176,7 +176,6 @@ main .container section table tbody tr:last-child {
 .mgrReserInfo td,
 .mgrTeamInfo td,
 .mgrPlayerInfo td,
-.mgrSchInfo td,
 .mgrUserInfo td,
 .mgrSchAddInfo td {
     width: 250px;
@@ -185,7 +184,6 @@ main .container section table tbody tr:last-child {
 .mgrReserInfo tr,
 .mgrTeamInfo tr,
 .mgrPlayerInfo tr,
-.mgrSchInfo tr,
 .mgrUserInfo tr,
 .mgrSchAddInfo tr {
     line-height: 55px;
@@ -288,8 +286,6 @@ section#mgrTeamContent table tbody td .teamName .teamTitle a:hover {
     text-decoration: underline;
 }
 
-
-
 /*addPlayerContent*/
 section#addPlayerContent table {
     width: 100%;
@@ -344,10 +340,18 @@ section#addPlayerContent table tbody td {
     text-align: center;
 }
 
+section#addPlayerContent table tbody td {
+    border-top: 1px solid var(--pointColor);
+}
+
 section#addPlayerContent table tbody td:first-child,
 section#addPlayerContent table tbody td:last-child {
     border-right: none;
     border-left: none;
+}
+
+section#addPlayerContent table tbody tr:last-child {
+    border-bottom: 1px solid var(--pointColor);
 }
 
 section#addPlayerContent table tbody td .teamName {
@@ -376,8 +380,6 @@ section#addPlayerContent table tbody td .teamName .teamTitle a {
 section#addPlayerContent table tbody td .teamName .teamTitle a:hover {
     text-decoration: underline;
 }
-
-
 
 /*userContent*/
 .mgrUserTableTop {
@@ -412,8 +414,6 @@ section#mgrUserContent table .col3 {
 section#mgrUserContent table .col4 {
     width: 8%;
 }
-
-
 
 /*  mgrSchContent */
 section#mgrSchContent .schAddBtn {
@@ -504,7 +504,15 @@ section#mgrSchContent .schAddBtn {
     padding-left: 10px;
 }
 
-.mgrSchInfo caption {
+section.schInfo .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.schPopup caption {
     text-transform: uppercase;
     text-align: left;
     font-size: 30px;
@@ -514,25 +522,23 @@ section#mgrSchContent .schAddBtn {
     padding-left: 26px;
 }
 
-.mgrSchInfo {
-    max-width: 800px;
+.schPopup {
+    max-width: 620px;
     width: 100%;
     background-color: #fff;
     border-radius: 10px;
-    padding: 0 22px 48px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000000;
 }
 
-.mgrSchInfo caption span {
+.schPopup caption span {
     font-weight: 600;
     position: relative;
 }
 
-.mgrSchInfo caption span::before {
+.schPopup caption span::before {
     content: "";
     display: block;
     position: absolute;
@@ -543,7 +549,7 @@ section#mgrSchContent .schAddBtn {
     background-color: var(--pointColor);
 }
 
-.mgrSchInfo caption span::after {
+.schPopup caption span::after {
     content: "";
     display: block;
     position: absolute;
@@ -554,23 +560,40 @@ section#mgrSchContent .schAddBtn {
     background-color: #aec8f4;
 }
 
-.mgrSchInfo table {
+.schPopup table {
     width: 100%;
     background-color: #fff;
 }
 
-.mgrSchInfo table th {
-    padding: 21px 0;
-    background-color: var(--backgroundColor);
+.schPopup table tr {
     border: 1px solid #d7d7d7;
 }
 
-.mgrSchInfo table:first-child td {
+.schPopup table,
+.schPopup th,
+.schPopup td {
+    border-collapse: collapse;
+}
+
+.schPopup table th {
+    padding: 21px 0;
+    background-color: #f2f2f2;
+    border: 1px solid #d7d7d7;
+}
+
+.schPopup table:first-child td {
     text-align: left;
     padding-left: 10px;
 }
 
+.schSelect {
+    width: 90%;
+    border: 3px solid #eee;
+}
 
+.schSelect:hover {
+    border: 5px solid #eee;
+}
 
 /*수정버튼*/
 section#mgrTeamContent table tbody td a.teamBtn,

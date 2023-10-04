@@ -135,17 +135,17 @@
                             </div>
                         </li>
                         <li class="team leftTeam">
-                            <a href="teamDetail.html">팀 스피드러너</a>
-                            <a href="teamDetail.html">
+                            <a href="#">팀 스피드러너</a>
+                            <a href="#">
                                 <img src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg" alt="" />
                             </a>
                         </li>
                         <li class="score">1 : 2</li>
                         <li class="team rightTeam">
-                            <a href="teamDetail.html">
+                            <a href="#">
                                 <img src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg" />
                             </a>
-                            <a href="teamDetail.html">team 동그라미</a>
+                            <a href="#">team 동그라미</a>
                         </li>
                         <li class="button">
                             <a class="schBtn" onclick="openSchPopup()">수정</a>
@@ -164,17 +164,17 @@
                             </div>
                         </li>
                         <li class="team leftTeam">
-                            <a href="teamDetail.html">팀 스피드러너</a>
-                            <a href="teamDetail.html">
+                            <a href="#">팀 스피드러너</a>
+                            <a href="#">
                                 <img src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg" alt="" />
                             </a>
                         </li>
                         <li class="score">1 : 2</li>
                         <li class="team rightTeam">
-                            <a href="teamDetail.html">
+                            <a href="#">
                                 <img src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg" />
                             </a>
-                            <a href="teamDetail.html">team 동그라미</a>
+                            <a href="#">team 동그라미</a>
                         </li>
                         <li class="button">
                             <a class="schBtn" onclick="openSchPopup()">수정</a>
@@ -292,15 +292,19 @@
             <table class="mgrTeamInfo">
                 <tr>
                     <th>지점</th>
-                    <td>더피치 평택점</td>
+                    <td><input class="schSelect" type="text" value="더피치 평택점"></td>
                 </tr>
                 <tr>
                     <th>팀명</th>
-                    <td>팀1</td>
+                    <td><input class="schSelect" type="text" value="스피드러너"></td>
                 </tr>
                 <tr>
                     <th>등록선수</th>
-                    <td>0명</td>
+                    <td><input class="schSelect" type="text" value="0명"></td>
+                </tr>
+                <tr>
+                    <th>등록년도</th>
+                    <td><input class="schSelect" type="text" value="2020.03.05"></td>
                 </tr>
             </table>
 
@@ -316,62 +320,55 @@
     <div class="schPopup" id="schPopup">
         <section class="schInfo">
             <span class="closeBtn" onclick="closePopup(schPopup)">x</span>
-            <h2>경기 일정관리</h2>
-            <div class="mgrSchInfo">
-                <table>
-                    <caption>
-                        <span></span>
-                        기본정보
-                    </caption>
-                    <tr>
-                        <th>지점</th>
-                        <td>시흥점</td>
-                    </tr>
-                    <tr>
-                        <th>컵 명</th>
-                        <td>그날 리그 그 그날리그</td>
-                    </tr>
-                    <tr>
-                        <th>경기일자</th>
-                        <td>2021.04.25(월) 21:30 C구장</td>
-                    </tr>
-                </table>
+            <table>
+                <caption>
+                    <span></span>
+                    기본정보
+                </caption>
+                <tr>
+                    <th>지점</th>
+                    <td>시흥점</td>
+                </tr>
+                <tr>
+                    <th>경기일자</th>
+                    <td>2021.04.25(월) 21:30 C구장</td>
+                </tr>
+            </table>
 
-                <table>
-                    <caption>
-                        <span></span>
-                        경기기록
-                    </caption>
-                    <tr>
-                        <th>팀 스피드러너(1)</th>
-                        <th>팀명</th>
-                        <th>team 동그라미(2)</th>
-                    </tr>
-                    <tr>
-                        <td>백태양 (1쿼터/5')</td>
-                        <th>득점현황</th>
-                        <td>
-                            장승연 (1쿼터/6')
-                            <br />
-                            주영웅 (2쿼터/6')
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <th>경고</th>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <th>퇴장</th>
-                        <td>0</td>
-                    </tr>
-                </table>
+            <table>
+                <caption>
+                    <span></span>
+                    경기기록
+                </caption>
+                <tr>
+                    <th>팀 스피드러너(1)</th>
+                    <th>팀명</th>
+                    <th>team 동그라미(2)</th>
+                </tr>
+                <tr>
+                    <td><input class="schSelect" type="text" value="백태양 (1쿼터/5')"></td>
+                    <th>득점현황</th>
+                    <td>
+                        <input class="schSelect" type="text" value="장승연 (1쿼터/6')">
+                        <br />
+                        <input class="schSelect" type="text" value="주영웅 (2쿼터/6')">
+                    </td>
+                </tr>
+                <tr>
+                    <td><input class="schSelect" type="text" value="0"></td>
+                    <th>경고</th>
+                    <td><input class="schSelect" type="text" value="0"></td>
+                </tr>
+                <tr>
+                    <td><input class="schSelect" type="text" value="0"></td>
+                    <th>퇴장</th>
+                    <td><input class="schSelect" type="text" value="0"></td>
+                </tr>
+            </table>
 
-                <div class="mgrBtn">
-                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup')">
-                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup')">
-                </div>
+            <div class="mgrBtn">
+                <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup')">
+                <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup')">
             </div>
         </section>
     </div>
@@ -428,15 +425,78 @@
             <table class="mgrSchAddInfo">
                 <tr>
                     <th>지점</th>
-                    <td>시흥점</td>
+                    <td>
+                        <form action="#">
+                            <select class=schSelect name="" id="" required>
+                                <option value>지점선택</option>
+                                <option value>더피치 인하점</option>
+                                <option value>더피치 평택점</option>
+                                <option value>더피치 천안신방점</option>
+                                <option value>아산인주풋살장</option>
+                                <option value>부산 북구점</option>
+                                <option value>울산 남구점</option>
+                                <option value>전주 완산점</option>
+                                <option value>제주 서귀포점</option>
+                            </select>
+                        </form>
+                    </td>
                 </tr>
                 <tr>
-                    <th>컵 명</th>
-                    <td>zCup</td>
+                    <th>팀 명 (1)</th>
+                    <td>
+                        <form action="#">
+                            <select class=schSelect name="" id="" required>
+                                <option value>팀1 선택</option>
+                                <option value>스피드러너</option>
+                                <option value>동그라미</option>
+                                <option value>3</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <th>팀 명 (2)</th>
+                    <td>
+                        <form action="#">
+                            <select class=schSelect name="" id="" required>
+                                <option value>팀2 선택</option>
+                                <option value>팀1 선택</option>
+                                <option value>스피드러너</option>
+                                <option value>동그라미</option>
+                                <option value>3</option>
+                            </select>
+                        </form>
+                    </td>
                 </tr>
                 <tr>
                     <th>경기일자</th>
-                    <td>2023.09.25(월) 21:00 A구장</td>
+                    <td><input class="schSelect" type="date"></td>
+                </tr>
+                <tr>
+                    <th>경기시간</th>
+                    <td>
+                        <form action="#">
+                            <select class=schSelect name="" id="" required>
+                                <option value>경기시간 선택</option>
+                                <option value>18:00</option>
+                                <option value>20:00</option>
+                                <option value>22:00</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <th>구장</th>
+                    <td>
+                        <form action="#">
+                            <select class=schSelect name="" id="" required>
+                                <option value>구장 선택</option>
+                                <option value>A구장</option>
+                                <option value>B구장</option>
+                                <option value>C구장</option>
+                            </select>
+                        </form>
+                    </td>
                 </tr>
             </table>
 
