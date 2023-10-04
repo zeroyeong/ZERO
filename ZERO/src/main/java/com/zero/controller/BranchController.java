@@ -80,7 +80,7 @@ public class BranchController {
 	    response.put("timeList", timeList);
 	    return response;
 	}
-	@GetMapping("/reservation")
+	@GetMapping("/reservation") 
 	public String reservation(Model model) {
 		List<Reservation> list = new ArrayList<>();
 		model.addAttribute("reservationList", list);

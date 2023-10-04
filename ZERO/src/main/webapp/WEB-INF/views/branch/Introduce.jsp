@@ -255,7 +255,7 @@
                     </ol>
                 </div>
 
-                <h4 class="hBar">환불규정</h4>
+                <h4 class="hBar">환불규정</h4> 
                 <div class="list_wrap">
                     <ol type="1">
                         <li>1. 대관 예약 취소 및 변경은 아래의 규정에 따라 가능합니다.</li>

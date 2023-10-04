@@ -169,7 +169,7 @@ function updateSelectedTimes() {
     checkboxes.forEach(function (checkbox) {
         if (checkbox.checked) {
             var restime = checkbox.parentElement.querySelector("#restime").value;
-            selectedTimes.push(restime);
+            selectedTimes.push(restime); 
         }
     });
 

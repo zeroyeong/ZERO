@@ -297,7 +297,7 @@ function getTime() {
             re_date: reDate
         },
         dataType: "json",
-        success: function(response) {
+        success: function(response) { 
             var timeList = response.timeList;
             var $timeButton = $("#timeButton");
             $timeButton.empty();

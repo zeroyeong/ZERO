@@ -84,7 +84,7 @@
         </div>
         <div class="contentList">
         <c:forEach items="${branchList}" var="branch">
-            <div class="list">
+            <div class="list"> 
                 <span class="pointImg">
                     <img src="<c:url value="/resources/images/${branch.branch_pic}"/>" alt="">
                 </span>
