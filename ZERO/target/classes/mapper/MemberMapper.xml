@@ -12,7 +12,8 @@
     <select id="memberRead" parameterType="int" resultType="Member">
     	select * from member where mem_no = #{mem_no}
     </select>
-
+    
+    <!-- 회원가입 -->
     <insert id="insertMember" parameterType="Member">
         insert into member(mem_id, mem_pw, mem_name, mem_phone)
         values(#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_phone})
@@ -22,23 +23,26 @@
     	select count(1) mem_id from member where mem_id = #{mem_id}
     </select>
     
-    <select id="login" parameterType="String" resultType="Member">
+    <!-- ________________________________________________________ -->
+    
+    <!-- 로그인 -->
+    <select id="getMemberLoginInfo" parameterType="Member" resultType="Member">
     	select * from member where mem_id = #{mem_id}
     </select>
-
-    <select id="findId" parameterType="Member" resultType="Member">
-    	select mem_id from member where mem_name = #{mem_name} and mem_phone = #{mem_phone} 
-    </select>    
     
-    <select id="changePw" parameterType="Member" resultType="Member">
-    	update member set mem_pw = #{mem_pw}
-    	where mem_name = #{mem_name} and mem_id = #{mem_id} and mem_phone = #{mem_phone} 
-    </select>
-
+    <!-- ________________________________________________________ -->
+    
+    <!-- 마이페이지 -->
     <update id="updateMember" parameterType="Member">
-    	 update member set mem_pw = #{mem_pw}, mem_name = #{mem_name}, mem_phone = #{mem_phone}
-    	 where mem_no = #{mem_no}
+    	update member set mem_pw = #{mem_pw}, mem_phone = #{mem_phone} where mem_id = #{mem_id}
     </update>
     
+    <!-- ________________________________________________________ -->
+    
+    <!-- 탈퇴 -->
+    <delete id="deleteMember">
+    	delete form member where mem_id = #{mem_id}
+    </delete>  
+          
 </mapper>
 

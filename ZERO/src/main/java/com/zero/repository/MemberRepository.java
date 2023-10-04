@@ -9,5 +9,12 @@ public interface MemberRepository {
 	
 	
 	/*______로그인______*/
-	Member loginMember(String mem_id);
+	Member getMemberLoginInfo(String mem_id); //로그인
+	
+	/*______마이페이지______*/
+	Member getMemberInfo(String mem_id); //마이페이지
+	void updateMember(Member member); //회원정보 수정
+
+	/*______탈퇴______*/
+	void deleteMember(String mem_id);
 }

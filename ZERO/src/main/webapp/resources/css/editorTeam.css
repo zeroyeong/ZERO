@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root {
   --pointColor: #2c3c57;
 
@@ -14,7 +16,7 @@
   --thFontColor: var(--pointColor);
 }
 
-/* ÀüÃ¼¼³Á¤ */
+/* ì „ì²´ì„¤ì • */
 table {
   width: 100%;
 }
@@ -118,17 +120,17 @@ button.playerOut:hover {
 
 /* ________________________________________________________________ */
 
-.container{
-	position: relative;
+.container {
+  position: relative;
 }
 
 /* FORM TEAM */
-form.team {
+form#teamForm {
   width: 100%;
-  
 }
 
-form.team div.teamImage {
+/* TEAM IMAGE */
+div.teamImage {
   width: 300px;
   height: 300px;
   padding: 10px;
@@ -142,14 +144,43 @@ form.team div.teamImage {
   position: relative;
 }
 
-form.team div.teamImage img {
+div.teamImage img {
   max-width: 100%;
   max-height: 100%;
   width: 100%;
   height: 100%;
 }
 
-form.team div.teamImage label.modify {
+div.teamImage label.modify {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* input[id=teamImage] */
+.teamImage input[id='teamImage'] {
+  display: none;
+}
+
+.teamImage input[id='teamImage'] ~ div.new {
+  display: none;
+}
+
+.teamImage input[id='teamImage']:checked ~ div.origin {
+  display: none;
+}
+
+.teamImage input[id='teamImage']:checked ~ div.new {
+  display: block;
+}
+
+/* FILE INPUT */
+
+.teamImage input#fileInput {
+  display: none;
+}
+
+.teamImage label[for='fileInput'] {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -249,11 +280,6 @@ table.playerList tbody td:last-child {
   text-align: center;
 }
 
-table.playerList td.score{
-	text-align:center;
-	width:8%;
-}
-
 table.playerList td div.player {
   display: flex;
   align-items: center;
@@ -271,15 +297,15 @@ table.playerList td div.player span.playerImage img {
 }
 
 div.btnBox {
-	position:absolute;
-	top:50px;
-	right:100px;
+  position: absolute;
+  top: 50px;
+  right: 100px;
   margin: 20px 0;
 }
 
 div.btnBox button {
-  padding:15px;
-  border-radius:10px;
-  font-size:1.1rem;
-  font-weight:bold;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
 }

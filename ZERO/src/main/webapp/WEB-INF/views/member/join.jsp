@@ -12,10 +12,10 @@
     <title>회원가입</title>
 
    <!-- css 연결 -->
-    <link rel="stylesheet" href="<c:url value="/resources/css/join.css?123" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/join.css" />" />
     
    <!-- js 연결 -->
-    <script src="<c:url value="/resources/js/join.js?121" />" defer></script>
+    <script src="<c:url value="/resources/js/join.js" />" defer></script>
     
     
   </head>

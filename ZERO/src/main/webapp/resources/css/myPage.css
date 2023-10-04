@@ -1,0 +1,201 @@
+@charset "UTF-8";
+:root {
+  --bodyColor: #f5f6f7;
+  --mainColor: #003e94;
+  --pointColor: #2c3c57;
+  --hoverColor: #003f96;
+
+  /* font */
+  --allFontColor: #383838;
+  --logoFontfamlily: 'KBO-Dia-Gothic_bold';
+
+  /* form */
+  --formWidth: 460px;
+
+  /* input */
+  --inputBorder: 1px solid #ddd;
+  --focusBorder: 1px solid rgb(112, 146, 203);
+  --inputHeight: 60px;
+  --inputPadding: 3px 9px;
+
+  /* button */
+  --loginHeight: 68px;
+  --loginButtonFontSize: 1.5rem;
+  --buttonColor: #2389d8;
+
+  /* SNS LOGIN */
+  --snsButtonHeight: 68px;
+  --kakaoColor: #fff200;
+  --kakaoFontColor: #412e34;
+  --naverColor: #1ec800;
+  --faceBookColor: #475993;
+  --socialFontColor: #fff;
+
+  /* FOOTER */
+  --footerFontSize: 10px;
+  --footerFontColor: #959595;
+}
+
+@font-face {
+  font-family: 'KBO-Dia-Gothic_bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 전체 세팅 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--allFontColor);
+  font-family: 'S-CoreDream-3Light';
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: #d1d0d0;
+}
+
+input {
+  outline: none;
+}
+
+/* 시작 */
+body {
+  background-color: var(--bodyColor);
+}
+
+section.container {
+  width: var(--formWidth);
+  margin: 0 auto;
+  padding: 60px 0 0;
+}
+
+section.container h1.logo {
+  font-size: 2rem;
+  text-align: center;
+  font-family: var(--logoFontfamlily);
+  text-transform: uppercase;
+}
+
+section.container ul {
+  width: 100%;
+  margin: 36px 0 48px;
+}
+
+section.container ul li {
+  margin-bottom: 23px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+section.container ul li label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+section.container ul li span {
+  font-size: 1.1rem;
+}
+
+section.container ul li input {
+  width: 100%;
+  height: var(--inputHeight);
+  padding: var(--inputPadding);
+  border: var(--inputBorder);
+  font-size: 1rem;
+}
+
+section.container ul li input:focus {
+  border: var(--focusBorder);
+}
+
+section.container ul li div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section.container ul li div button {
+  font-size: 1rem;
+  background-color: rgb(146, 9, 43);
+  color: #fff;
+  padding: 7px 40px;
+  transition: 0.3s;
+}
+
+section.container ul li div button:hover {
+  background-color: rgb(83, 7, 26);
+}
+
+section.container ul li .button {
+  width: 100%;
+  background-color: var(--buttonColor);
+  color: #fff;
+  font-size: var(--loginButtonFontSize);
+  height: var(--loginHeight);
+  /* margin-top: 10px; */
+}
+
+section.container ul li.btns {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+section.container ul li.btns button {
+  background-color: #959595;
+  color: #fff;
+  font-size: var(--loginButtonFontSize);
+  height: var(--loginHeight);
+  width: 49.3%;
+  transition: 0.3s;
+}
+
+section.container ul li.btns button:nth-child(1) {
+  background-color: var(--pointColor);
+}
+
+section.container ul li.btns button:hover {
+  background-color: var(--mainColor);
+}
+
+section.container div.footer {
+  margin-top: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: var(--footerFontSize);
+  color: var(--footerFontColor);
+}
+
+section.container div.footer h3.logo {
+  font-size: 1.1rem;
+  font-family: var(--logoFontfamlily);
+  margin-bottom: 7px;
+}

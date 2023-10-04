@@ -28,29 +28,19 @@
  <body>
     <section class="container">
       <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
-      
-      <c:if test="${not empty error}"> <!-- 인증에 실패했을 때 모델속성 error에 저장된 값이 있다면 오류를 출력한다. -->
-      	<div> 
-      		이메일과 비밀번호가 올바르지 않습니다.
-      	</div>
-      </c:if>
-      <form:form modelAttribute = "LoginMember" name="loginFrm" method="post" action="login_proc">  
-<!--       <c:if test="${message == 'error'}">
-		  <div style="color:red;"> 아이디 또는 비밀번호가 일치하지 않습니다.
-		  </div>
-		</c:if> -->
+      <form name="loginFrm" method="post" action="login">
         <dl>
           <dt>
             <label for="userId">아이디</label>
           </dt>
           <dd>
-            <form:input type="email" path="mem_id" id="userId" placeholder="이메일" />
+            <input type="email" name="mem_id" id="userId" placeholder="이메일" required />
           </dd>
           <dt>
             <label for="userPw">비밀번호</label>
           </dt>
           <dd>
-            <form:input type="password" path="mem_pw" id="userPw" placeholder="비밀번호" />
+            <input type="password" name="mem_pw" id="userPw" placeholder="비밀번호" required />
           </dd>
         </dl>
 
@@ -60,8 +50,8 @@
           아이디 저장
         </label>
 
-        <button type="button" onClick="loginCheck()">로그인</button>
-      </form:form>
+        <button type="submit">로그인</button>
+      </form>
 
       <ul class="acBtn">
         <li><label for="findId">아이디 찾기</label></li>
@@ -136,14 +126,4 @@
     </section>
   </body>
 </html>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : 'your-app-id',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v18.0'
-    });
-  };
-</script>
 

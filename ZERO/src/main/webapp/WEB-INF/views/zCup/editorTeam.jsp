@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>팀관리(수정)</title>
     <!-- css 연결 -->
-   <link rel="stylesheet" href="<c:url value="/resources/css/editorTeam.css?1" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/editorTeam.css?s1" />" />
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css?123" />" />
     <!-- js 연결 -->
    <script src="<c:url value="/resources/js/zCup.js?ad" />" defer></script>
@@ -48,8 +48,19 @@
 		<form:input type="hidden" path="team_no" value="${team_detail_list[0].cup_team.team_no}"/>         
           <div class="teamImage">
             <!--팀 사진-->
-			<img src="${pageContext.request.contextPath}/resources/images/team1.PNG" alt="" /> 
-            <label class="modify">변경</label>
+            <input type="checkbox" id="teamImage" class="checkBotInput">
+            <div class="origin image">
+              <img src="${pageContext.request.contextPath}/resources/images/team1.PNG" alt="" /> 
+              <label class="modify" for="teamImage">변경</label>
+            </div>
+			      
+              <div class="new">
+                <img src="../images/아산인풋살장.jpg" alt="" id="newTeamImage">
+                <div class="search">
+                  <input type="file" id="fileInput" onchange="readImage(this)">
+                  <label for="fileInput" class="modify">찾아보기</label>
+                </div>
+              </div>
           </div>
           <table class="teamDetail">
             <tr>

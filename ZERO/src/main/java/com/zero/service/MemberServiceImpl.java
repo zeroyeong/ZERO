@@ -26,12 +26,27 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	/*______로그인______*/
-	public Member loginMember(String mem_id) {
-		return memberRepository.loginMember(mem_id);
+	public String login(String mem_id, String mem_pw) {
+		System.out.println("서비스 아이디= "+mem_id);
+		Member member = memberRepository.getMemberLoginInfo(mem_id);
+		
+		if(member.getMem_pw().equals(mem_pw)) //입력한 패스워드와 저장된 패스워드가 동일하면
+			return member.getMem_name(); //이름 반환
+		
+		return null;
 	}
 	
-	@Override
-	public void logOut(HttpSession session) {
-		session.invalidate(); //세션 초기화
+	/*______마이페이지______*/
+	public Member getMemberInfo(String mem_id) {
+		return memberRepository.getMemberInfo(mem_id);
+	}
+	
+	public void modifyInfo(Member member) {
+		memberRepository.updateMember(member);
+	}
+	
+	/*______탈퇴______*/
+	public void withdraw(String mem_id) {
+		memberRepository.deleteMember(mem_id);
 	}
 }

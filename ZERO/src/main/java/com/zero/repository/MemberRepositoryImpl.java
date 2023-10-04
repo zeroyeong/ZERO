@@ -29,8 +29,24 @@ public class MemberRepositoryImpl implements MemberRepository {
 	}
 	
 	/*______로그인______*/
-	@Override
-	 public Member loginMember(String mem_id){
-		 return sql.selectOne("Member.login",mem_id);
-	 }
+	public Member getMemberLoginInfo(String mem_id) {
+		Member member = sql.selectOne("Member.getMemberLoginInfo", mem_id);
+		System.out.println(member);
+		return member;
+	}
+	
+	/*______마이페이지______*/
+	public Member getMemberInfo(String mem_id) {
+		Member member = sql.selectOne("Member.getMemberLoginInfo", mem_id);
+		return member;
+	}
+
+	public void updateMember(Member member) {
+		sql.update("Member.updateMember", member);
+	}
+	
+	/*______탈퇴______*/
+	public void deleteMember(String mem_id) {
+		sql.delete("Member.deleteMember", mem_id);
+	}
 }

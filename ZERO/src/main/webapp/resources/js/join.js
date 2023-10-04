@@ -57,7 +57,7 @@ function joinFrmSubmit(){
 	const mailCheck = document.getElementById("checkMail").value;
 	
 	if(id == "" || checkId != "true" || name == "" || confirm == "" ||
-		pwd1 == "" || pwd2 == "" || pwd1 != pwd2 || mailCheck != "true"){
+		pwd1 == "" || pwd2 == "" || pwd1 != pwd2){
 		if(id == ""){
 			alert("아이디(이메일)를 입력해 주세요.");
 			document.joinFrm.mem_id.focus();
@@ -74,10 +74,8 @@ function joinFrmSubmit(){
 			document.joinFrm.mem_name.focus();
 		}else if(confirm == ""){
 			alert("이메일 인증을 완료해주세요.");
-		}else if(pwd1 != pwd2){
-			alert("입력한 비밀번호가 일치하지 않습니다. 확인해주세요!");
 		}else{
-			alert("이메일 인증을 해주세요!");
+			alert("입력한 비밀번호가 일치하지 않습니다. 확인해주세요!");
 		}
 	}else{
 		alert("환영합니다. 회원가입이 완료되었습니다.");
