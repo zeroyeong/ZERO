@@ -10,10 +10,10 @@
     <title>ZERO FUTSAL</title>
 
     <!-- CSS 연결 -->
-    <link rel="stylesheet" href="<c:url value='/resources/css/manager.css?q' />" />
+    <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
     <!-- JS 연결 -->
-    <script src="<c:url value='/resources/js/manager.js?qwqqadwwasdeq' />" defer></script>
+    <script src="<c:url value='/resources/js/manager.js?eww' />" defer></script>
 
 </head>
 
@@ -139,7 +139,7 @@
                                 <a href="#">team 동그라미</a>
                             </li>
                             <li class="button">
-                                <a class="schBtn" onclick="openSchPopup()">수정</a>
+                                <a class="schBtn" onclick="openSchPopup('${cupTeam.team_no}')">수정</a>
                             </li>
                             <li class="button">
                                 <a class="schDelBtn" onclick="">삭제</a>
@@ -172,7 +172,7 @@
                                 <td>010-0101-0101</td>
                                 <td>id123</td>
                                 <td>pw123</td>
-                                <td><a class="userBtn" onclick="openUserPopup()">수정</a></td>
+                                <td><a class="userBtn" onclick="openUserPopup('${cupTeam.team_no}')">수정</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -275,10 +275,10 @@
                         <td><input class="schSelect" type="text" value="1111"></td>
                     </tr>
                 </table>
-                <div class="mgrBtn">
-                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('teamPopup',${cupTeam.team_no})">
-                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('teamPopup${cupTeam.team_no}')">
-                </div>
+				<div class="mgrBtn">
+				    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('teamPopup', ${cupTeam.team_no})">
+				    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('teamPopup', ${cupTeam.team_no})">
+				</div>
             </section>
         </div>
     </c:forEach>
@@ -288,7 +288,7 @@
     <c:forEach items="${cupTeamList}" var="cupTeam">
         <div class="schPopup" id="schPopup${cupTeam.team_no}">
             <section class="schInfo">
-                <span class="closeBtn" onclick="closePopup(schPopup)">x</span>
+                <span class="closeBtn" onclick="closePopup(schPopup${cupTeam.team_no})">x</span>
                 <table>
                     <caption>
                         <span></span>
@@ -334,8 +334,8 @@
                 </table>
 
                 <div class="mgrBtn">
-                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup')">
-                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup')">
+                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup', ${cupTeam.team_no})">
+                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup', ${cupTeam.team_no})">
                 </div>
             </section>
         </div>
@@ -345,7 +345,7 @@
     <c:forEach items="${cupTeamList}" var="cupTeam">
         <div class="userPopup" id="userPopup${cupTeam.team_no}">
             <section class="userInfo">
-                <span class="closeBtn" onclick="closePopup(userPopup)">x</span>
+                <span class="closeBtn" onclick="closePopup(userPopup${cupTeam.team_no})">x</span>
                 <h2>사용자 정보</h2>
                 <table class="mgrUserInfo">
                     <tr>
@@ -367,8 +367,8 @@
                 </table>
 
                 <div class="mgrBtn">
-                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('userPopup${cupTeam.team_no}')">
-                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('userPopup${cupTeam.team_no}')">
+                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('userPopup', ${cupTeam.team_no})">
+                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('userPopup', ${cupTeam.team_no})">
                 </div>
 
             </section>

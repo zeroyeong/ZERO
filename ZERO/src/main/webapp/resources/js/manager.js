@@ -1,11 +1,9 @@
 const reserPopup = document.getElementById("reserPopup");
-const teamPopup = document.getElementById("teamPopup");
-const playerPopup = document.getElementById("playerPopup");
 const schPopup = document.getElementById("schPopup");
 const userPopup = document.getElementById("userPopup");
+const teamPopup = document.getElementById("teamPopup");
 const schAddPopup = document.getElementById("schAddPopup");
 
-//팝업 여닫기
 function openPopup(popup) {
     popup.style.display = "block";
 }
@@ -14,30 +12,22 @@ function closePopup(popup) {
     popup.style.display = "none";
 }
 
-//오픈 팝업 아이디
 function openReserPopup() {
     openPopup(reserPopup);
 }
 
-function openPlayerPopup() {
-    openPopup(playerPopup);
-}
-
-function openTeamPopup(index) {
-    const popupId = `teamPopup${index}`;
-    const teamPopup = document.getElementById(popupId);
+function openTeamPopup(num) {
+    const teamPopup = document.getElementById(`teamPopup${num}`);
     openPopup(teamPopup);
 }
 
-function openSchPopup() {
-    const popupId = `schPopup${index}`;
-    const teamPopup = document.getElementById(popupId);
+function openSchPopup(num) {
+    const schPopup = document.getElementById(`schPopup${num}`);
     openPopup(schPopup);
 }
 
-function openUserPopup() {
-    const popupId = `userPopup${index}`;
-    const teamPopup = document.getElementById(popupId);
+function openUserPopup(num) {
+    const userPopup = document.getElementById(`userPopup${num}`);
     openPopup(userPopup);
 }
 
@@ -45,24 +35,22 @@ function openSchAddPopup() {
     openPopup(schAddPopup);
 }
 
-//닫힘 팝업 아이디
 function closeReserPopup() {
     closePopup(reserPopup);
 }
 
-function closePlayerPopup() {
-    closePopup(playerPopup);
-}
-
-function closeTeamPopup() {
+function closeTeamPopup(num) {
+    const teamPopup = document.getElementById(`teamPopup${num}`);
     closePopup(teamPopup);
 }
 
-function closeSchPopup() {
+function closeSchPopup(num) {
+    const schPopup = document.getElementById(`schPopup${num}`);
     closePopup(schPopup);
 }
 
-function closeUserPopup() {
+function closeUserPopup(num) {
+    const userPopup = document.getElementById(`userPopup${num}`);
     closePopup(userPopup);
 }
 
@@ -70,59 +58,44 @@ function closeSchAddPopup() {
     closePopup(schAddPopup);
 }
 
-//클릭 이벤트 설정
-document.querySelector(".popUp").addEventListener("click", openReserPopup);
-document.querySelector(".playerBtn").addEventListener("click", openPlayerPopup);
-document.querySelector(".teamBtn").addEventListener("click", openTeamPopup);
-document.querySelector(".schBtn").addEventListener("click", openSchPopup);
-document.querySelector(".userBtn").addEventListener("click", openUserPopup);
-document.querySelector(".schAddBtn").addEventListener("click", openSchAddPopup);
 
-document.querySelector("#reserPopup .closeBtn").addEventListener("click", closeReserPopup);
-document.querySelector("#playerPopup .closeBtn").addEventListener("click", closePlayerPopup);
-document.querySelector("#teamPopup .closeBtn").addEventListener("click", closeTeamPopup);
-document.querySelector("#schPopup .closeBtn").addEventListener("click", closeSchPopup);
-document.querySelector("#userPopup .closeBtn").addEventListener("click", closeUserPopup);
-document.querySelector("#schAddPopup .closeBtn").addEventListener("click", closeSchAddPopup);
-
-// 예약 승인 처리
+//섹션 새로고침 처리
 function refreshSection(sectionId) {
     const section = document.getElementById(sectionId);
-    section.innerHTML = section.innerHTML; // 섹션 내용을 갱신
 }
 
-function okBtnPop(popupId , num) {
+function okBtnPop(popupId, num) {
     let message;
-console.log("popupId="+popupId);
+
     switch (popupId) {
         case 'teamPopup':
             message = "팀 정보가 수정 처리 되었습니다.";
-            closeTeamPopup();
+            closeTeamPopup(num);
             refreshSection('mgrTeamContent');
             break;
         case 'playerPopup':
             message = "선수 정보가 수정 처리 되었습니다.";
-            closePlayerPopup();
+            closePlayerPopup(num);
             location.reload();
             break;
         case 'reserPopup':
             message = "예약 승인 처리 되었습니다.";
-            closeReserPopup();
+            closePopup(reserPopup);
             refreshSection('mgrReserContent');
             break;
         case 'schPopup':
             message = "경기 일정 수정 처리 되었습니다.";
-            closeSchPopup();
+            closeSchPopup(num);
             refreshSection('mgrSchContent');
             break;
         case 'userPopup':
             message = "사용자 정보 수정 처리 되었습니다.";
-            closeUserPopup();
+            closeUserPopup(num);
             refreshSection('mgrUserContent');
             break;
         case 'schAddPopup':
             message = "경기일정이 추가 되었습니다.";
-            closeSchAddPopup();
+            closePopup(schAddPopup);
             refreshSection('mgrSchContent');
             break;
         default:
@@ -133,19 +106,19 @@ console.log("popupId="+popupId);
     alert(message);
 }
 
-// 예약 취소 처리
-function cancelBtnPop(popupId) {
+
+function cancelBtnPop(popupId, num) {
     let message;
-console.log("popupId="+popupId);
+
     switch (popupId) {
-        case 'teamPopup'+'popupId':
+        case 'teamPopup':
             message = "팀 정보가 수정 취소처리 되었습니다.";
-            closeTeamPopup();
+            closeTeamPopup(num);
             refreshSection('mgrTeamContent');
             break;
         case 'playerPopup':
             message = "선수 정보가 수정 취소처리 되었습니다.";
-            closePlayerPopup();
+            closePlayerPopup(num);
             location.reload();
             break;
         case 'reserPopup':
@@ -155,12 +128,12 @@ console.log("popupId="+popupId);
             break;
         case 'schPopup':
             message = "경기 일정 수정 취소 처리 되었습니다.";
-            closeSchPopup();
+            closeSchPopup(num);
             refreshSection('mgrSchContent');
             break;
         case 'userPopup':
             message = "사용자 정보 수정 취소 처리 되었습니다.";
-            closeUserPopup();
+            closeUserPopup(num);
             refreshSection('mgrUserContent');
             break;
         case 'schAddPopup':
