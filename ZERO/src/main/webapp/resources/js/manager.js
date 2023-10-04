@@ -25,14 +25,19 @@ function openPlayerPopup() {
 
 function openTeamPopup(index) {
     const popupId = `teamPopup${index}`;
-    openPopup(document.getElementById(popupId));
+    const teamPopup = document.getElementById(popupId);
+    openPopup(teamPopup);
 }
 
 function openSchPopup() {
+    const popupId = `schPopup${index}`;
+    const teamPopup = document.getElementById(popupId);
     openPopup(schPopup);
 }
 
 function openUserPopup() {
+    const popupId = `userPopup${index}`;
+    const teamPopup = document.getElementById(popupId);
     openPopup(userPopup);
 }
 
@@ -86,9 +91,9 @@ function refreshSection(sectionId) {
     section.innerHTML = section.innerHTML; // 섹션 내용을 갱신
 }
 
-function okBtnPop(popupId) {
+function okBtnPop(popupId , num) {
     let message;
-
+console.log("popupId="+popupId);
     switch (popupId) {
         case 'teamPopup':
             message = "팀 정보가 수정 처리 되었습니다.";
@@ -131,9 +136,9 @@ function okBtnPop(popupId) {
 // 예약 취소 처리
 function cancelBtnPop(popupId) {
     let message;
-
+console.log("popupId="+popupId);
     switch (popupId) {
-        case 'teamPopup':
+        case 'teamPopup'+'popupId':
             message = "팀 정보가 수정 취소처리 되었습니다.";
             closeTeamPopup();
             refreshSection('mgrTeamContent');

@@ -606,10 +606,6 @@ section.schInfo .closeBtn {
     border: 3px solid #eee;
 }
 
-.schSelect:hover {
-    border: 5px solid #eee;
-}
-
 /*수정버튼*/
 section#mgrTeamContent table tbody td a.teamBtn,
 section#addPlayerContent table tbody td a.playerBtn,
@@ -648,8 +644,6 @@ section#mgrSchContent a.schDelBtn:hover {
     background-color: var(--beforeColor);
 }
 
-
-
 /*media*/
 @media screen and (max-width:1100px) {
     main .harlfButton li label {
@@ -660,14 +654,18 @@ section#mgrSchContent a.schDelBtn:hover {
 @media screen and (max-width: 960px) {
 
     section#mgrTeamContent table thead th:first-child,
-    section#mgrTeamContent table tbody td:first-child {
+    section#mgrTeamContent table tbody td:first-child,
+    section#mgrTeamContent table thead th:nth-child(5),
+    section#mgrTeamContent table thead th:nth-child(6),
+    section#mgrTeamContent table tbody td:nth-child(5),
+    section#mgrTeamContent table tbody td:nth-child(6) {
         display: none;
     }
 
     section#mgrTeamContent table th,
     section#mgrTeamContent table td,
     section#mgrTeamContent table td a {
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
 
     section#mgrSchContent ul li .button {
