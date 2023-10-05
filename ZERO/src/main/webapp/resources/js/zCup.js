@@ -95,7 +95,6 @@ function playerAdd() {
 function teamEditPassword(team_no) {
   var password = document.getElementById('password');
   var team_password = document.getElementById('team_password');
-  console.log('password = ' + password.value);
 
   if (team_password.value === password.value) {
     alert('인증되었습니다.');
@@ -122,18 +121,19 @@ function teamEdit(team_no) {
 }
 
 function deletePlayer(player_no, team_no) {
-   var playerForm = document.getElementById('playerForm');
-   console.log("player_no = " + player_no);
-   console.log("team_no = " + team_no);
-   
-   location.href = 'playerDelete?player_no=' + player_no +'&team_no=' + team_no;
-   //playerForm.submit();
+	
+	const response = confirm("퇴출 하시겠습니까?");
+
+	if(response){
+		var playerForm = document.getElementById('playerForm');
+   		location.href = 'playerDelete?player_no=' + player_no +'&team_no=' + team_no;
+	}	
 }
 
 //Z-CUP SCHEDULE 경기정보 박스
 function showPlayInfo(label) {
   let idName = label.getAttribute('for');
-  console.log(idName);
+
   let coverLabel = document.querySelector(`label.${idName}`);
   let playInfo = document.querySelector(`section.${idName}`);
   let closeBtn = document.querySelector(`section.${idName} label.closeBtn`);

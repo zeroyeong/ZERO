@@ -91,7 +91,12 @@ public class CupRepositoryImpl implements CupRepository {
 		if(cupPlayer.getPhoto_file() != null && cupPlayer.getPlayer_photo() != null) {
 	    	
 		       MultipartFile image = cupPlayer.getPhoto_file();  
-		       String saveName = image.getOriginalFilename();  
+		       String saveName = image.getOriginalFilename();
+		       
+		       if(saveName == "") {
+		    	   return;
+		       }
+		       
 		       File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
 		    try {
 		    		image.transferTo(saveFile);
@@ -135,14 +140,15 @@ public class CupRepositoryImpl implements CupRepository {
 	@Override
 	public void updateCupTeam(CupTeam cup_team) {
 		
-		System.out.println("getTeam_name = " + cup_team.getTeam_name());		
-		System.out.println("getTeam_uniform_home = " + cup_team.getTeam_uniform_home());
-		System.out.println("getTeam_uniform_away = " + cup_team.getTeam_uniform_away());
-		
 		if(cup_team.getEmblem_file() != null) {
 	    	
 		       MultipartFile image = cup_team.getEmblem_file();  
-		       String saveName = image.getOriginalFilename();  
+		       String saveName = image.getOriginalFilename(); 
+
+		       if(saveName == "") {
+		    	   return;
+		       }
+		       
 		       File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
 		    try {
 		    		image.transferTo(saveFile);
@@ -172,6 +178,11 @@ public class CupRepositoryImpl implements CupRepository {
 		detail.setDetail_away_yellow_card("");
 		detail.setDetail_home_red_card("");
 		detail.setDetail_away_red_card("");
+		
+		int cnt = 0;
+		cnt = sql.selectOne("Cup.selectScheduleCnt");
+		
+		cup_schedule.setDetail_no(cnt+1);
 		
 		sql.insert("Cup.insertSchedule", cup_schedule);
 		sql.insert("Cup.insertScheduleDetail", detail);

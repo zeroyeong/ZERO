@@ -245,7 +245,9 @@
         values(#{detail_home_goal}, #{detail_away_goal}, #{detail_home_yellow_card}, #{detail_away_yellow_card}, #{detail_home_red_card}, #{detail_away_red_card})
     </insert>
     
-   
+   	<select id="selectScheduleCnt" resultType="int">
+   		SELECT COUNT(*) as schedule_no FROM cup_match_schedule;
+   	</select>
     
     <delete id="deleteSchedule" parameterType="int">
         DELETE FROM cup_match_schedule WHERE SCHEDULE_NO = #{schedule_no} 

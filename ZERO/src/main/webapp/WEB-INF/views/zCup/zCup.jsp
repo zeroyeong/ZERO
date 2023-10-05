@@ -353,20 +353,20 @@
             <div class="tonerment">
               <div class="teamGroup">
                 <div class="teamGroup1 group1">
-                  <img src="../images/팀1.jpg" alt="" />
-                  <a href="">팀 이름 1</a>
+					<img src="${pageContext.request.contextPath}/resources/images/${cupTeamList[0].team_emblem}" alt=""/>
+                  <a href="">${cupTeamList[0].team_name}</a>
                 </div>
                 <div class="teamGroup1 group2">
-                  <img src="../images/팀1.jpg" alt="" />
-                  <a href="">팀 이름 1</a>
+					<img src="${pageContext.request.contextPath}/resources/images/${cupTeamList[1].team_emblem}" alt=""/>              
+                  <a href="">${cupTeamList[1].team_name}</a>
                 </div>
                 <div class="teamGroup1 group3">
-                  <img src="../images/팀1.jpg" alt="" />
-                  <a href="">팀 이름 1</a>
+   					<img src="${pageContext.request.contextPath}/resources/images/${cupTeamList[2].team_emblem}" alt=""/>
+                  <a href="">${cupTeamList[2].team_name}</a>
                 </div>
                 <div class="teamGroup1 group4">
-                  <img src="../images/팀1.jpg" alt="" />
-                  <a href="">팀 이름 1</a>
+					<img src="${pageContext.request.contextPath}/resources/images/${cupTeamList[3].team_emblem}" alt=""/>
+                  <a href="">${cupTeamList[3].team_name}</a>
                 </div>
               </div>
 
@@ -495,8 +495,6 @@
                     <th>득점현황</th>
                     <td>
                       ${cupSchedule.detail.detail_away_goal}
-                      <br />
-                      주영웅 (2쿼터/6')
                     </td>
                   </tr>
                   <tr>

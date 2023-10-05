@@ -178,18 +178,19 @@
             </thead>
             <tbody>
               <c:forEach items="${team_detail_list}" var="playerlist">
+              <c:set var="num" value="${num + 1}" />
                 <tr>
-                  <td>${playerlist.player_no}</td>
+                  <td>${num}</td>
                   <td>
                     <div class="player">
   					  <img src="${pageContext.request.contextPath}/resources/images/${playerlist.player_photo}" alt="" />
                       <span>${playerlist.player_name}</span>
                     </div>
                   </td>
-                  <td>${playerlist.player_name}</td>
-                  <td>${playerlist.player_name}</td>
-                  <td>${playerlist.player_name}</td>
-                  <td>${playerlist.player_name}</td>
+                  <td>${playerlist.player_games}</td>
+                  <td>${playerlist.player_goal}</td>
+                  <td>${playerlist.player_yellow_card}</td>
+                  <td>${playerlist.player_red_card}</td>
                 </tr>
               </c:forEach>
             </tbody>
