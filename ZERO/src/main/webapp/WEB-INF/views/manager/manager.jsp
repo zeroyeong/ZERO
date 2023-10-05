@@ -55,7 +55,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="popUp" data-popup="reserPopup">
+                        <tr class="popUp" data-popup="reserPopup" onclick="openReserPopup()">
                             <td>1</td>
                             <td>예약확인</td>
                             <td>2023.09.13</td>
