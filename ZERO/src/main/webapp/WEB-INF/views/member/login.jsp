@@ -5,6 +5,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+ 
+<!-- naver 소셜로그인 --> 
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.math.BigInteger" %>
+
 <html lang="ko">
 <head>
    <meta charset="UTF-8" />
@@ -16,10 +22,11 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/login.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/member.js?a" />" defer></script>
+   <script src="<c:url value="/resources/js/member.js?b" />" defer></script>
+   
    <!-- naver 로그인 -->
-	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!-- <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
 
    <!-- 카카오톡 로그인 -->
    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
@@ -28,6 +35,20 @@
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
 </head> 
  <body>
+ 
+<!-- naver 소셜로그인 -->   
+<%
+String clientId = "YOUR_CLIENT_ID";//애플리케이션 클라이언트 아이디값";
+String redirectURI = URLEncoder.encode("http://localhost:8080/zero/navercallback", "UTF-8"); //콜백주소
+SecureRandom random = new SecureRandom();
+String state = new BigInteger(130, random).toString();
+String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code"
+     + "&client_id=" + "ftP2BpWPuD8yQyXqmdlO"
+     + "&redirect_uri=" + "http://localhost:8080/zero/navercallback"
+     + "&state=" + state;
+session.setAttribute("state", state);
+%>
+ 
     <section class="container">
       <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
       <form name="loginFrm" method="post" action="login">
@@ -63,7 +84,8 @@
 
       <div class="snsLogin">
         <p>SNS 간편로그인</p>
-        <div id="naver_id_login"></div>
+          <a href="<%=apiURL%>"><img height="68" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
+
         <button type="button" class="kakao" onClick="kakaoLogin();">
           <span>
             <img src="<c:url value="/resources/images/kakao.png" />" alt="" />
@@ -95,15 +117,25 @@
     <section class="findId">
       <label for="findId" class="closeBtn">×</label>
       <h3>회원정보를 입력해 주세요.</h3>
-      <form action="">
+      <form action="login/findId" name="findId" method="post">
         <dl>
           <dt><label for="userName">이름</label></dt>
-          <dd><input type="text" id="userName" placeholder="이름입력" /></dd>
+          <dd><input type="text" id="userName" placeholder="이름입력" name="mem_name" required /></dd>
           <dt><label for="userPhone">휴대전화</label></dt>
-          <dd><input type="text" id="userPhone" placeholder="휴대전화번호 입력" /></dd>
+          <dd><input type="text" id="userPhone" placeholder="휴대전화번호 입력" name="mem_phone" required /></dd>
         </dl>
         <div class="button">
-          <button type="button">확인</button>
+          <button type="button" onclick="findIdSubmit()">확인</button>
+          <script>
+	        function refreshSection(sectionId) {
+        	    const section = document.getElementById(sectionId);
+          	}
+          
+          	function findIdSubmit(){
+          		document.findId.submit();
+          		refreshSection('findId');
+          	}
+          </script>
         </div>
       </form>
     </section>
@@ -113,20 +145,28 @@
     <section class="findPw">
       <label for="findPw" class="closeBtn">×</label>
       <h3>회원정보를 입력해 주세요.</h3>
-      <form action="">
+      <form action="" name="findPw" method="post">
         <dl>
           <dt><label for="userId">아이디</label></dt>
-          <dd><input type="text" id="userId" placeholder="아이디 입력" /></dd>
+          <dd><input type="text" id="userId" placeholder="아이디 입력" name="mem_id" required /></dd>
           <dt><label for="userName">이름</label></dt>
-          <dd><input type="text" id="userName" placeholder="이름입력" /></dd>
+          <dd><input type="text" id="userName" placeholder="이름입력" name="mem_name" required /></dd>
           <dt><label for="userPhone">휴대전화</label></dt>
-          <dd><input type="text" id="userPhone" placeholder="휴대전화번호 입력" /></dd>
+          <dd><input type="text" id="userPhone" placeholder="휴대전화번호 입력" name="mem_phone" required /></dd>
         </dl>
         <div class="button">
-          <button type="button">확인</button>
+          <button>확인</button>
         </div>
       </form>
     </section>
+    
+<script type="text/javascript">
+
+function refreshSection() {
+    const section = document.getElementById('findId');
+    section.innerHTML = section.innerHTML; // 섹션 내용을 갱신
+}
+</script>
   </body>
 </html>
 
