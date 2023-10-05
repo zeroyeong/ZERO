@@ -70,6 +70,45 @@ public class MemberController {
 		session.setAttribute("mem_id", mem_id);
 		return "redirect:/";
 	}
+	
+	/*______계정찾기______*/	
+	@PostMapping("/login/findId")
+	public String test() {
+		System.out.println("sadf");
+		return "member/login";
+	}
+	
+	//아이디 찾기
+	@GetMapping("/findId")
+	public String findId() {
+			return "member/findId";
+	}
+	
+	@PostMapping("/findId")
+	public String findMemberId(@RequestParam("mem_name") String mem_name, @RequestParam("mem_phone") String mem_phone, Model model) {
+		System.out.println("Controller 이름: "+mem_name);
+		System.out.println("Controller 전화번호: "+mem_phone);
+		String mem_id = memberService.findMemberId(mem_name, mem_phone);
+
+		model.addAttribute("mem_id", mem_id);
+		return "member/findId";
+	}
+	
+	//비밀번호 찾기
+	@GetMapping("/findPw")
+	public String findPw() {
+			return "member/findPw";
+	}
+	
+	@PostMapping("/findPw")
+	public String findMemberPw(@RequestParam("mem_name") String mem_name, @RequestParam("mem_id") String mem_id, Model model) {
+		System.out.println("Controller 이름: "+mem_name);
+		System.out.println("Controller 아이디: "+mem_id);
+		String mem_pw = memberService.findMemberId(mem_name, mem_id);
+
+		model.addAttribute("mem_pw", mem_pw);
+		return "member/findPw";
+	}
 
 	/*______마이페이지______*/
 	@GetMapping("/mypage")
@@ -111,45 +150,6 @@ public class MemberController {
 		}
 		session.invalidate();
 		return "redirect:/";
-	}
-	
-	/*______계정찾기______*/	
-	@PostMapping("/login/findId")
-	public String test() {
-		System.out.println("sadf");
-		return "member/login";
-	}
-	
-	//아이디 찾기
-	@GetMapping("/findId")
-	public String findId() {
-			return "member/findId";
-	}
-	
-	@PostMapping("/findId")
-	public String findMemberId(@RequestParam("mem_name") String mem_name, @RequestParam("mem_phone") String mem_phone, Model model) {
-		System.out.println("이름: "+mem_name);
-		System.out.println("전화번호: "+mem_phone);
-		String mem_id = memberService.findMemberId(mem_name, mem_phone);
-
-		model.addAttribute("mem_id", mem_id);
-		return "member/findId";
-	}
-	
-	//비밀번호 찾기
-	@GetMapping("/findPw")
-	public String findPw() {
-			return "member/findPw";
-	}
-	
-	@PostMapping("/findPw")
-	public String findMemberPw(@RequestParam("mem_name") String mem_name, @RequestParam("mem_id") String mem_id, Model model) {
-		System.out.println("이름: "+mem_name);
-		System.out.println("아이디: "+mem_id);
-		String mem_pw = memberService.findMemberId(mem_name, mem_id);
-
-		model.addAttribute("mem_pw", mem_pw);
-		return "member/findPw";
 	}
 	
 	/*_______________소셜로그인_______________*/

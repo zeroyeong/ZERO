@@ -33,6 +33,23 @@ public class MemberRepositoryImpl implements MemberRepository {
 		return member;
 	}
 	
+	/*______계정찾기______*/
+	// 아이디 찾기
+	@Override
+	public Member findMemberId(String mem_name, String mem_phone) {
+		Member member = sql.selectOne(mem_name, mem_phone);
+		System.out.println("Repository: "+member);
+		return member;
+	}; 
+	
+	// 비밀번호 찾기
+	@Override
+	public Member findMemberPw(String mem_name, String mem_id) {
+		Member member = sql.selectOne(mem_name, mem_id);
+		System.out.println("Repository: "+member);
+		return member;
+	}; 
+	
 	/*______마이페이지______*/
 	@Override
 	public Member getMemberInfo(String mem_id) {
@@ -50,21 +67,4 @@ public class MemberRepositoryImpl implements MemberRepository {
 	public void deleteMember(String mem_id) {
 		sql.delete("Member.deleteMember", mem_id);
 	}
-	
-	/*______계정찾기______*/
-	// 아이디 찾기
-	@Override
-	public Member findMemberId(String mem_name, String mem_phone) {
-		Member member = sql.selectOne(mem_name, mem_phone);
-		System.out.println("Repository: "+member);
-		return member;
-	}; 
-	
-	// 비밀번호 찾기
-	@Override
-	public Member findMemberPw(String mem_name, String mem_id) {
-		Member member = sql.selectOne(mem_name, mem_id);
-		System.out.println("Repository: "+member);
-		return member;
-	}; 
 }

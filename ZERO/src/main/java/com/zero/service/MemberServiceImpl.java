@@ -35,23 +35,6 @@ public class MemberServiceImpl implements MemberService {
 		return null;
 	}
 	
-	/*______마이페이지______*/
-	@Override
-	public Member getMemberInfo(String mem_id) {
-		return memberRepository.getMemberInfo(mem_id);
-	}
-	
-	@Override
-	public void modifyInfo(Member member) {
-		memberRepository.updateMember(member);
-	}
-	
-	/*______탈퇴______*/
-	@Override
-	public void withdraw(String mem_id) {
-		memberRepository.deleteMember(mem_id);
-	}
-	
 	/*______계정찾기______*/
 	//아이디 찾기
 	@Override
@@ -76,5 +59,22 @@ public class MemberServiceImpl implements MemberService {
 			return member.getMem_pw();
 		
 		return null;
+	}
+	
+	/*______마이페이지______*/
+	@Override
+	public Member getMemberInfo(String mem_id) {
+		return memberRepository.getMemberInfo(mem_id);
+	}
+	
+	@Override
+	public void modifyInfo(Member member) {
+		memberRepository.updateMember(member);
+	}
+	
+	/*______탈퇴______*/
+	@Override
+	public void withdraw(String mem_id) {
+		memberRepository.deleteMember(mem_id);
 	}
 }
