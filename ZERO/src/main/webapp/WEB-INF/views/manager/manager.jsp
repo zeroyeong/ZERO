@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
     <!-- JS 연결 -->
-    <script src="<c:url value='/resources/js/manager.js?eww' />" defer></script>
+    <script src="<c:url value='/resources/js/manager.js?d' />" defer></script>
 
 </head>
 
@@ -142,7 +142,7 @@
                                 <a class="schBtn" onclick="openSchPopup('${cupSchedule.schedule_no}')">수정</a>
                             </li>
                             <li class="button">
-                                <a class="schDelBtn" onclick="">삭제</a>
+                                <a class="schDelBtn" onclick="scheduleDelete(${cupSchedule.schedule_no})">삭제</a>
                             </li>
                         </ul>
                     </c:forEach>
@@ -430,9 +430,9 @@
                     </td>
                 </tr>
             </table>
-            <form:input type="hidden" path="detail_no" value="1"/>
-            <form:input type="hidden" path="schedule_home_goal" value="1"/>
-            <form:input type="hidden" path="schedule_away_goal" value="1"/>           
+            <form:input type="hidden" path="detail_no" value="0"/>
+            <form:input type="hidden" path="schedule_home_goal" value="0"/>
+            <form:input type="hidden" path="schedule_away_goal" value="0"/>           
 			</form:form>
             <div class="mgrBtn">
                 <input type="button" class="okAddBtn" value="추가" onclick="okBtnPop('schAddPopup')">

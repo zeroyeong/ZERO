@@ -147,6 +147,14 @@ function cancelBtnPop(popupId, num) {
             message = "알 수 없는 팝업 ID입니다.";
             break;
     }
-
     alert(message);
+}
+
+//schedule 
+function scheduleDelete(schedule_no){
+	const response = confirm("삭제 하시겠습니까?");
+
+	if(response){
+		location.href = 'manager/scheduleDelete?schedule_no=' + schedule_no;
+	}	
 }

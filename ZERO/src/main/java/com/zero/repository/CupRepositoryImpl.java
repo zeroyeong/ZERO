@@ -2,7 +2,6 @@ package com.zero.repository;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.zero.domain.Branch;
+import com.zero.domain.CupMatchDetail;
 import com.zero.domain.CupPlayer;
 import com.zero.domain.CupSchedule;
 import com.zero.domain.CupTeam;
@@ -164,7 +164,21 @@ public class CupRepositoryImpl implements CupRepository {
 
 	@Override
 	public void setCupSchedule(CupSchedule cup_schedule) {
+		
+		CupMatchDetail detail = new CupMatchDetail();
+		detail.setDetail_home_goal("");
+		detail.setDetail_away_goal("");
+		detail.setDetail_home_yellow_card("");
+		detail.setDetail_away_yellow_card("");
+		detail.setDetail_home_red_card("");
+		detail.setDetail_away_red_card("");
+		
 		sql.insert("Cup.insertSchedule", cup_schedule);
+		sql.insert("Cup.insertScheduleDetail", detail);
 	}
 	
+	@Override
+	public void scheduleDelete(int schedule_no) {
+		sql.delete("Cup.deleteSchedule", schedule_no);
+	}
 }

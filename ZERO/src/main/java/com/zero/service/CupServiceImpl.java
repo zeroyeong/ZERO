@@ -87,5 +87,10 @@ public class CupServiceImpl implements CupService {
 	public void setCupSchedule(CupSchedule cup_schedule) {
 		cupRepository.setCupSchedule(cup_schedule);
 	}
+	
+	@Override
+	public void scheduleDelete(int schedule_no) {
+		cupRepository.scheduleDelete(schedule_no);
+	}
 }
  

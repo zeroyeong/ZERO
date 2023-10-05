@@ -239,6 +239,17 @@
         insert into CUP_MATCH_SCHEDULE(TEAM_HOME_NO, TEAM_AWAY_NO, SCHEDULE_LOCATION, SCHEDULE_DATE, SCHEDULE_TIME, SCHEDULE_HOME_GOAL, SCHEDULE_AWAY_GOAL, BRANCH_NO, DETAIL_NO)
         values(#{team_home_no}, #{team_away_no}, #{schedule_location}, #{schedule_date}, #{schedule_time}, #{schedule_home_goal}, #{schedule_away_goal}, #{branch_no}, #{detail_no})
     </insert>
+    
+    <insert id="insertScheduleDetail" parameterType="CupMatchDetail">
+        insert into cup_match_detail(DETAIL_TEAM_HOME_GOAL, DETAIL_TEAM_AWAY_GOAL, DETAIL_HOME_YELLOW_CARD, DETAIL_AWAY_YELLOW_CARD, DETAIL_HOME_RED_CARD, DETAIL_AWAY_RED_CARD)
+        values(#{detail_home_goal}, #{detail_away_goal}, #{detail_home_yellow_card}, #{detail_away_yellow_card}, #{detail_home_red_card}, #{detail_away_red_card})
+    </insert>
+    
+   
+    
+    <delete id="deleteSchedule" parameterType="int">
+        DELETE FROM cup_match_schedule WHERE SCHEDULE_NO = #{schedule_no} 
+    </delete>
 </mapper>
 
 
