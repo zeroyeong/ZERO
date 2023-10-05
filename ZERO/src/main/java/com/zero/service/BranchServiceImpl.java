@@ -26,7 +26,7 @@ public class BranchServiceImpl implements BranchService {
         return branch;
     }
 
-    @Override
+    @Override 
     public void addReservation(Reservation reservation) {
         branchRepository.addReservation(reservation);
     }

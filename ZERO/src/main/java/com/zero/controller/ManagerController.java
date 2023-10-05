@@ -44,7 +44,7 @@ public class ManagerController {
 		model.addAttribute("cup_schedule", cup_schedule);
 		
 		model.addAttribute("cupTeamList", cup_team_list);
-		model.addAttribute("branch_List", branch_List);
+		model.addAttribute("branch_List", branch_List); 
 		return "manager/manager"; 
 	}
 	

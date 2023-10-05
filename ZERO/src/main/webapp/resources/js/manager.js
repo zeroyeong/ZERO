@@ -144,7 +144,7 @@ function cancelBtnPop(popupId, num) {
             closeSchAddPopup();
             refreshSection('mgrSchContent');
             break;
-        default:
+        default: 
             message = "알 수 없는 팝업 ID입니다.";
             break;
     }

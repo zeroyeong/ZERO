@@ -21,4 +21,4 @@ public interface BranchRepository {
     
     List<Reservation> ReservationList();
 
-} 
+}  

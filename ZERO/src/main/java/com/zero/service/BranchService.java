@@ -20,4 +20,4 @@ public interface BranchService {
     void deleteReservation(int re_no, String re_pwd);
     
     List<Reservation> ReservationList();
-} 
+}  

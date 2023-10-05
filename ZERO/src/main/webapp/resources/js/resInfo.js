@@ -191,7 +191,7 @@ function updateTotalPay() {
     checkboxes.forEach(function (checkbox) {
         if (checkbox.checked) {
             totalPay += parseInt(checkbox.getAttribute("alt"));
-        }
+        } 
     });
 
     totalPaySpan.textContent = totalPay.toLocaleString();

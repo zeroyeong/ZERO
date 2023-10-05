@@ -204,7 +204,7 @@
                     <td>${Res.re_tel1 }-${Res.re_tel2 }-${Res.re_tel3 }</td>
                 </tr>
                 <tr>
-                    <th>예약일자</th>
+                    <th>예약일자</th> 
                     <td>${Res.re_date }</td>
                 </tr>
                 <tr>

@@ -34,7 +34,7 @@ public class BranchRepositoryImpl implements BranchRepository {
     
 	@Override
 	public List<Reservation> timeList(int re_stadium, int re_branch, String re_date) {
-	    Map<String, Object> parameters = new HashMap<>();
+	    Map<String, Object> parameters = new HashMap<>(); 
 	    parameters.put("re_stadium", re_stadium);
 	    parameters.put("re_branch", re_branch);
 	    parameters.put("re_date", re_date);
