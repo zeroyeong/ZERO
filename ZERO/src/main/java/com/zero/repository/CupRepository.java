@@ -35,5 +35,5 @@ public interface CupRepository {
 	
 	void deletePlayer(int player_no);
 	
-	public void setTest(CupSchedule cup_schedule);
+	void setCupSchedule(CupSchedule cup_schedule);
 }

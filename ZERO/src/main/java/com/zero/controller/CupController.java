@@ -127,15 +127,7 @@ public class CupController {
 		return "home";
 	}
 
-	@PostMapping("/zCup/home2")
-	public String homeTest2(@ModelAttribute("NewSchedule") CupSchedule cup_schedule, Model model) {
-		
-		cupService.setTest(cup_schedule);
-		List<CupSchedule> cup_schedule_list = cupService.getCupScheduleList();
-		model.addAttribute("cup_schedule_list", cup_schedule_list);
-		model.addAttribute("cup_schedule", cup_schedule);
-		return "home";
-	}
+
 	
 }
  

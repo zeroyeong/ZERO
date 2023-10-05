@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -115,31 +115,31 @@
             <section id="mgrSchContent" class="mgrPage">
                 <input type="button" value="경기일정추가" class="schAddBtn" onclick="openSchAddPopup()">
                 <div class="mgrSch">
-                    <c:forEach items="${cupTeamList}" var="cupTeam">
+                    <c:forEach items="${cup_schedule_list}" var="cupSchedule">
                         <ul>
                             <li class="place">시흥점</li>
                             <li class="playInfo">
                                 <div class="schInfoDiv">
-                                    <span>04.26(월)</span>
-                                    <span>21:30</span>
-                                    <span>A구장</span>
+                                    <span>${cupSchedule.schedule_date}</span>
+                                    <span>${cupSchedule.schedule_time}</span>
+                                    <span>${cupSchedule.schedule_location}</span>
                                 </div>
                             </li>
                             <li class="team leftTeam">
-                                <a href="#">팀 스피드러너</a>
+                                <a href="#">${cupSchedule.cup_home_team.team_name}</a>
                                 <a href="#">
-                                    <img src="http://www.hmfutsalpark.com/files/team/emblem_1798.jpg" alt="" />
+                 	             <img src="${pageContext.request.contextPath}/resources/images/${cupSchedule.cup_home_team.team_emblem}" alt=""/> 
                                 </a>
                             </li>
-                            <li class="score">1 : 2</li>
+                            <li class="score">${cupSchedule.schedule_home_goal} : ${cupSchedule.schedule_away_goal}</li>
                             <li class="team rightTeam">
                                 <a href="#">
-                                    <img src="http://www.hmfutsalpark.com/files/team/emblem_1843.jpg" />
-                                </a>
-                                <a href="#">team 동그라미</a>
+                                 <img src="${pageContext.request.contextPath}/resources/images/${cupSchedule.cup_away_team.team_emblem}" alt=""/>
+                                </a> 
+                                <a href="#">${cupSchedule.cup_away_team.team_name}</a>
                             </li>
                             <li class="button">
-                                <a class="schBtn" onclick="openSchPopup('${cupTeam.team_no}')">수정</a>
+                                <a class="schBtn" onclick="openSchPopup('${cupSchedule.schedule_no}')">수정</a>
                             </li>
                             <li class="button">
                                 <a class="schDelBtn" onclick="">삭제</a>
@@ -235,19 +235,17 @@
                     <tr>
                         <th>지점</th>
                         <td>
-                            <form action="#">
-                                <select class=schSelect name="" id="" required>
-                                    <option value>지점선택</option>
-                                    <option value>더피치 인하점</option>
-                                    <option value>더피치 평택점</option>
-                                    <option value>더피치 천안신방점</option>
-                                    <option value>아산인주풋살장</option>
-                                    <option value>부산 북구점</option>
-                                    <option value>울산 남구점</option>
-                                    <option value>전주 완산점</option>
-                                    <option value>제주 서귀포점</option>
-                                </select>
-                            </form>
+                          <select class=schSelect name="" id="" required>
+                              <option value>지점선택</option>
+                              <option value>더피치 인하점</option>
+                              <option value>더피치 평택점</option>
+                              <option value>더피치 천안신방점</option>
+                              <option value>아산인주풋살장</option>
+                              <option value>부산 북구점</option>
+                              <option value>울산 남구점</option>
+                              <option value>전주 완산점</option>
+                              <option value>제주 서귀포점</option>
+                          </select>
                         </td>
                     </tr>
                     <tr>
@@ -285,10 +283,10 @@
 
 
     <!--경기일정 팝업-->
-    <c:forEach items="${cupTeamList}" var="cupTeam">
-        <div class="schPopup" id="schPopup${cupTeam.team_no}">
+    <c:forEach items="${cup_schedule_list}" var="cupSchedule">
+        <div class="schPopup" id="schPopup${cupSchedule.schedule_no}">
             <section class="schInfo">
-                <span class="closeBtn" onclick="closePopup(schPopup${cupTeam.team_no})">x</span>
+                <span class="closeBtn" onclick="closePopup(schPopup${cupSchedule.schedule_no})">x</span>
                 <table>
                     <caption>
                         <span></span>
@@ -296,11 +294,11 @@
                     </caption>
                     <tr>
                         <th>지점</th>
-                        <td>시흥점</td>
+                        <td>${cupSchedule.branch.branch_name}</td>
                     </tr>
                     <tr>
                         <th>경기일자</th>
-                        <td>2021.04.25(월) 21:30 C구장</td>
+                        <td>${cupSchedule.schedule_date} ${cupSchedule.schedule_time} ${cupSchedule.schedule_location}</td>
                     </tr>
                 </table>
 
@@ -310,32 +308,32 @@
                         경기기록
                     </caption>
                     <tr>
-                        <th>팀 스피드러너(1)</th>
+                        <th>${cupSchedule.cup_home_team.team_name}</th>
                         <th>팀명</th>
-                        <th>team 동그라미(2)</th>
+                        <th>${cupSchedule.cup_away_team.team_name}</th>
                     </tr>
                     <tr>
-                        <td><input class="schSelect" type="text" value="백태양 (1쿼터/5')"></td>
+                        <td><input class="schSelect" type="text" value="${cupSchedule.detail.detail_home_goal}"></td>
                         <th>득점현황</th>
                         <td>
-                            <input class="schSelect" type="text" value="주영웅 (2쿼터/6')">
+                            <input class="schSelect" type="text" value="${cupSchedule.detail.detail_away_goal}">
                         </td>
                     </tr>
                     <tr>
-                        <td><input class="schSelect" type="text" value="0"></td>
+                        <td><input class="schSelect" type="text" value="${cupSchedule.detail.detail_home_yellow_card}"></td>
                         <th>경고</th>
-                        <td><input class="schSelect" type="text" value="0"></td>
+                        <td><input class="schSelect" type="text" value="${cupSchedule.detail.detail_away_yellow_card}"></td>
                     </tr>
                     <tr>
-                        <td><input class="schSelect" type="text" value="0"></td>
+                        <td><input class="schSelect" type="text" value="${cupSchedule.detail.detail_home_red_card}"></td>
                         <th>퇴장</th>
-                        <td><input class="schSelect" type="text" value="0"></td>
+                        <td><input class="schSelect" type="text" value="${cupSchedule.detail.detail_away_red_card}"></td>
                     </tr>
                 </table>
 
                 <div class="mgrBtn">
-                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup', ${cupTeam.team_no})">
-                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup', ${cupTeam.team_no})">
+                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup', ${cupSchedule.schedule_no})">
+                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup', ${cupSchedule.schedule_no})">
                 </div>
             </section>
         </div>
@@ -380,84 +378,62 @@
         <section class="schAddInfo">
             <span class="closeBtn" onclick="closePopup(schAddPopup)">x</span>
             <h2>경기일정 추가</h2>
+            <form:form id="scheduleForm" modelAttribute = "NewSchedule" method="post" action="manager/schedule">
             <table class="mgrSchAddInfo">
                 <tr>
-                    <th>지점</th>
+                    <th>지점명</th>
                     <td>
-                        <form action="#">
-                            <select class=schSelect name="" id="" required>
-                                <option value>지점선택</option>
-                                <option value>더피치 인하점</option>
-                                <option value>더피치 평택점</option>
-                                <option value>더피치 천안신방점</option>
-                                <option value>아산인주풋살장</option>
-                                <option value>부산 북구점</option>
-                                <option value>울산 남구점</option>
-                                <option value>전주 완산점</option>
-                                <option value>제주 서귀포점</option>
-                            </select>
-                        </form>
+                      <form:select class="schSelect" path="branch_no" id="" required="true">
+                      	<c:forEach var="branch" items="${branch_List}">	
+	                      <form:option value="${branch.branch_no}">${branch.branch_name}</form:option>
+						</c:forEach>
+                      </form:select>
                     </td>
                 </tr>
                 <tr>
                     <th>팀 명 (1)</th>
                     <td>
-                        <form action="#">
-                            <select class=schSelect name="" id="" required>
-                                <option value>팀1 선택</option>
-                                <option value>스피드러너</option>
-                                <option value>동그라미</option>
-                                <option value>3</option>
-                            </select>
-                        </form>
+                      <form:select class="schSelect" path="team_home_no" id="" required="true">
+                      	<c:forEach var="cupTeam" items="${cupTeamList}">	
+	                      <form:option value="${cupTeam.team_no}">${cupTeam.team_name}</form:option>
+					 	 </c:forEach>
+					  </form:select>
                     </td>
                 </tr>
                 <tr>
                     <th>팀 명 (2)</th>
                     <td>
-                        <form action="#">
-                            <select class=schSelect name="" id="" required>
-                                <option value>팀2 선택</option>
-                                <option value>팀1 선택</option>
-                                <option value>스피드러너</option>
-                                <option value>동그라미</option>
-                                <option value>3</option>
-                            </select>
-                        </form>
+                      <form:select class="schSelect" path="team_away_no" id="" required="true">
+                      	<c:forEach var="cupTeam" items="${cupTeamList}">	
+	                      <form:option value="${cupTeam.team_no}">${cupTeam.team_name}</form:option>
+					 	 </c:forEach>
+					  </form:select>
                     </td>
                 </tr>
                 <tr>
-                    <th>경기일자</th>
-                    <td><input class="schSelect" type="date"></td>
+                   <th>경기일자</th>
+                   <td><form:input class="schSelect" type="date" path="schedule_date"/></td>
                 </tr>
                 <tr>
                     <th>경기시간</th>
-                    <td>
-                        <form action="#">
-                            <select class=schSelect name="" id="" required>
-                                <option value>경기시간 선택</option>
-                                <option value>18:00</option>
-                                <option value>20:00</option>
-                                <option value>22:00</option>
-                            </select>
-                        </form>
-                    </td>
+                   <td><form:input class="schSelect" type="time" path="schedule_time"/></td>
                 </tr>
                 <tr>
                     <th>구장</th>
                     <td>
-                        <form action="#">
-                            <select class=schSelect name="" id="" required>
-                                <option value>구장 선택</option>
-                                <option value>A구장</option>
-                                <option value>B구장</option>
-                                <option value>C구장</option>
-                            </select>
-                        </form>
+                      <form:select class="schSelect" path="schedule_location" id="" required="true">
+						  <option value="구장선택">구장선택</option>	                      	
+                          <option value="A구장">A구장</option>
+                          <option value="B구장">B구장</option>
+                          <option value="C구장">C구장</option>
+					  </form:select>
                     </td>
                 </tr>
             </table>
-
+            <form:input type="hidden" path="detail_no" value="1"/>
+            <form:input type="hidden" path="schedule_home_goal" value="1"/>
+            <form:input type="hidden" path="schedule_away_goal" value="1"/>           
+			</form:form>
             <div class="mgrBtn">
                 <input type="button" class="okAddBtn" value="추가" onclick="okBtnPop('schAddPopup')">
                 <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schAddPopup')">

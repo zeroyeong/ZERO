@@ -97,6 +97,8 @@ function okBtnPop(popupId, num) {
             message = "경기일정이 추가 되었습니다.";
             closePopup(schAddPopup);
             refreshSection('mgrSchContent');
+			var scheduleForm = document.getElementById('scheduleForm');
+  			scheduleForm.submit();           
             break;
         default:
             message = "알 수 없는 팝업 ID입니다.";

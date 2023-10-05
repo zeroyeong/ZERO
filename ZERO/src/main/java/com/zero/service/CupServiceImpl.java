@@ -84,8 +84,8 @@ public class CupServiceImpl implements CupService {
 	}
 	
 	@Override
-	public void setTest(CupSchedule cup_schedule) {
-		cupRepository.setTest(cup_schedule);
+	public void setCupSchedule(CupSchedule cup_schedule) {
+		cupRepository.setCupSchedule(cup_schedule);
 	}
 }
  

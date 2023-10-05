@@ -163,7 +163,8 @@ public class CupRepositoryImpl implements CupRepository {
 	}
 
 	@Override
-	public void setTest(CupSchedule cup_schedule) {
+	public void setCupSchedule(CupSchedule cup_schedule) {
 		sql.insert("Cup.insertSchedule", cup_schedule);
 	}
+	
 }
