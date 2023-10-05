@@ -49,4 +49,16 @@ public class MemberServiceImpl implements MemberService {
 	public void withdraw(String mem_id) {
 		memberRepository.deleteMember(mem_id);
 	}
+	
+	/*______계정찾기______*/
+	//아이디 찾기
+	public String findMemberId(String mem_name, String mem_phone) {
+		System.out.println("아이디찾기 입력한 이름: "+ mem_name +" / 전화번호: "+ mem_phone);
+		Member member = memberRepository.findMemberId(mem_name, mem_phone);
+		
+		if(member.getMem_id() != null)
+			return member.getMem_id();
+		
+		return null;
+	}
 }

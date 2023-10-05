@@ -10,12 +10,15 @@ public interface MemberService {
 	int checkId(String mem_id);
 	
 	/*________ 로그인 ________*/
-	public String login(String mem_id, String mem_pw);
+	String login(String mem_id, String mem_pw);
 	
 	/*______마이페이지______*/
-	public Member getMemberInfo(String mem_id);
-	public void modifyInfo(Member member);
+	Member getMemberInfo(String mem_id);
+	void modifyInfo(Member member);
 	
 	/*______탈퇴______*/
-	public void withdraw(String mem_id);
+	void withdraw(String mem_id);
+	
+	/*______계정찾기______*/
+	String findMemberId(String mem_name, String mem_phone); //아이디 찾기
 }

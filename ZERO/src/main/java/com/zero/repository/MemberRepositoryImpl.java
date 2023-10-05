@@ -49,4 +49,11 @@ public class MemberRepositoryImpl implements MemberRepository {
 	public void deleteMember(String mem_id) {
 		sql.delete("Member.deleteMember", mem_id);
 	}
+	
+	/*______계정찾기______*/
+	// 아이디 찾기
+	public Member findMemberId(String mem_name, String mem_phone) {
+		Member member = sql.selectOne(mem_name, mem_phone);
+		return member;
+	}; 
 }

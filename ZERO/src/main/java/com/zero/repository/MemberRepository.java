@@ -1,5 +1,9 @@
 package com.zero.repository;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.zero.domain.Member; 
 
 public interface MemberRepository {
@@ -17,4 +21,7 @@ public interface MemberRepository {
 
 	/*______탈퇴______*/
 	void deleteMember(String mem_id);
+	
+	/*______계정찾기______*/
+	Member findMemberId(String mem_name, String mem_phone); //아이디 찾기
 }

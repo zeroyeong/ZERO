@@ -114,4 +114,26 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
+	/*______계정찾기______*/
+	//아이디 찾기
+//	@PostMapping("/login/findId")
+//	public String findMemberId(String mem_name, String mem_phone) {
+//		String mem_id = memberService.findMemberId(mem_name, mem_phone);
+		
+//		return " 
+//	}
+	
+	@PostMapping("/login/findId")
+	public String test() {
+		System.out.println("sadf");
+		return "member/login";
+	}
+	/*_______________소셜로그인_______________*/
+	
+	/*______네이버______*/
+	@GetMapping("/navercallback")
+	public String navercallback() {
+		return "member/navercallback";
+	}
 }
