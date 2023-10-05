@@ -71,21 +71,38 @@ main .container table {
 
 main .container table th,
 main .container table td {
-  padding: 13px 7px;
+  padding: 15px;
 }
 
 /* CONTAINER - TABLE - post */
-main .container table.post thead {
+main .container table.post thead tr:nth-child(2) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+main .container table.post tbody tr {
+  line-height: 200px;
+  padding-left: 30px;
+}
+
+main .container table.post thead,
+main .container table.post tbody {
   border-top: 1px solid var(--pointColor);
   color: var(--pointColor);
 }
 
-main .container table.post thead th {
+main .container table.post thead th:first-child,
+main .container table.post tbody th:first-child {
   text-align: left;
+  padding-left: 40px;
+}
+
+main .container table.post tbody tr td.content {
+  width: 55%;
 }
 
 main .container table.post thead .date {
-  width: 7%;
+  width: 9%;
 }
 
 main .container table.post thead .dateInput {
@@ -95,17 +112,17 @@ main .container table.post thead .dateInput {
 }
 
 main .container table.post thead .show {
-  width: 5%;
+  width: 7%;
 }
 
 main .container table.post thead .showInput {
   color: var(--infoColor);
   font-weight: 100;
+  width: 0;
 }
 
-main .container table.post tbody td {
-  border-top: 1px solid var(--beforeColor);
-  border-bottom: 1px solid var(--beforeColor);
+main .container table.post tbody tr {
+  border-bottom: 1px solid var(--pointColor);
   padding: 50px 30px;
 }
 
@@ -144,8 +161,7 @@ main .container table.postAdd th {
 }
 
 main .container table.postAdd tbody td {
-  padding: 0 !important;
-  line-height: 300px;
+  line-height: 30px;
 }
 
 main .container table.postAdd .title {
@@ -166,7 +182,7 @@ main .container table.postAdd .contentInput {
 
 main .container table.postAdd .contentInput {
   position: relative;
-  top: 50px;
+  top: 20px;
   height: 300px;
   outline: none;
 }
@@ -184,14 +200,32 @@ main .container .addButtons {
 }
 
 main .container .addButtons .notAddBtns {
-  width: 110px;
+  width: 90px;
   background-color: var(--pointColor);
   color: #fff;
   font-size: 1rem;
   border-radius: 5px;
-  margin: 0 10px;
+  margin: 8px 10px;
 }
 
 main .container .addButtons .notAddBtns:hover {
   background-color: var(--beforeColor);
+}
+
+@media screen and (max-width:900px) {
+  .container table.post {
+    font-size: 0.8rem;
+  }
+
+  main .container table.post tbody tr td.content {
+    width: 25%;
+  }
+
+  main .container table.post thead .date {
+    width: 15%;
+  }
+
+  main .container table.post thead .show {
+    width: 12%;
+  }
 }

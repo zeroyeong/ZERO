@@ -3,8 +3,7 @@
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
-   
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,11 +12,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ</title>
+    <title>NOTICE</title>
 
     <!-- css 연결 -->
    <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-   <link rel="stylesheet" href="<c:url value="/resources/css/post.css" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/post.css?9999" />" />
 
     <!-- js 연결 -->
     <script src="../js/common.js" defer></script>
@@ -120,35 +119,46 @@
         </div>
 
         <ul class="harlfButton">
-            <li><a href="service.html">공지사항</a></li>
-            <li class="active"><a href="service.html">FAQ</a></li>
+            <li class="active"><a href="service.jsp">공지사항</a></li>
+            <li><a href="service.html">FAQ</a></li>
         </ul>
-
-
+		
         <div class="container">
-            <h1 class="pageTitle notice">FAQ</h1>
-
+            <h1 class="pageTitle notice">공지사항</h1>
+            
             <table class="postAdd">
+            <form:form modelAttribute = "NewNotice" method="post" action="service/notice" enctype="multipart/form-data">
                 <thead>
+                
                     <tr>
                         <th class="title" colspan="4">제목</th>
-                        <td><input type="text" class="titleInput" placeholder="제목내용" path="faqTitle"></td>
+                        <td><input type="text" class="titleInput" placeholder="제목내용" path="notTitle"></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th class="title" colspan="4">본문</th>
-                        <td><textarea class="contentInput" placeholder="본문" path="faqContent"></textarea></td>
+                        <td><textarea class="contentInput" placeholder="본문" path="notContent"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th class="title" colspan="4">이미지</th>
+                        <td>
+                            <form:input class="fileName" path="notFile" />
+                            <input type="file" id="fileInput">
+                            <label for="fileInput">이미지 찾기</label>
+                        </td>
                     </tr>
                 </tbody>
+               </form:form>
             </table>
-
-            <div class="addButtons">
+		    <div class="addButtons">
+                <input type="button" value="수정" class="notAddBtns">
                 <input type="button" value="삭제" class="notAddBtns">
                 <input type="button" value="작성" class="notAddBtns">
             </div>
         </div>
-        
+        </div>
+
     </main>
 
     <footer>

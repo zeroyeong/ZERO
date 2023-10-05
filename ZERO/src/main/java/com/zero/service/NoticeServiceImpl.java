@@ -58,18 +58,18 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 
 	@Override
-	public void updateNotice(Notice notice) {
+	public void updateNotice(int notNo) {
 		// TODO Auto-generated method stub
 		
-		noticeRepository.updateNotice(notice);
+		noticeRepository.updateNotice(notNo);
 
 	}
 
 	@Override
-	public void updateFaq(Faq faq) {
+	public void updateFaq(int faqNo) {
 		// TODO Auto-generated method stub
 		
-		noticeRepository.updateFaq(faq);
+		noticeRepository.updateFaq(faqNo);
 
 	}
 

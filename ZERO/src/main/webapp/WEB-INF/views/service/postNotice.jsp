@@ -14,7 +14,7 @@
 
     <!-- css 연결 -->
    <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-   <link rel="stylesheet" href="<c:url value="/resources/css/post.css" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/post.css?66666" />" />
 
     <!-- js 연결 -->
     <script src="../js/common.js" defer></script>
@@ -144,10 +144,11 @@
         </table>
 
         <div class="addButtons">
-			<a href="<c:url value="updateNotice?notNo=${notice.notNo}" />"> 수정</a>
+    		 <form method="post" action="updateNotice">
+				<button type="button" class="notAddBtns" name="notNo" value="${notice.notNo}">수정</button>
+    		</form> 
     		<form method="get" action="deleteNotice">
-    			<input type="hidden" name="notNo" value="${notice.notNo}">
-    			<input type="submit" value="삭제">
+    			<button type="button" class="notAddBtns" name="notNo" value="${notice.notNo}">삭제</button>
     		</form>  
           <button type="button" class="notAddBtns">목록으로</button>
         </div>

@@ -93,17 +93,17 @@ public class NoticeRepositoryImpl implements NoticeRepository {
 	}
 
 	@Override
-	public void updateNotice(Notice notice) {
+	public void updateNotice(int notNo) {
 		// TODO Auto-generated method stub
 
-		sql.update("Notice.updateNotice", notice);
+		sql.update("Notice.updateNotice", notNo);
 	}
 
 	@Override
-	public void updateFaq(Faq faq) {
+	public void updateFaq(int faqNo) {
 		// TODO Auto-generated method stub
 		
-		sql.update("Notice.updateFaq", faq);
+		sql.update("Notice.updateFaq", faqNo);
 
 	}
 

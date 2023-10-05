@@ -91,22 +91,22 @@ public class NoticeController {
 		return "NoticeRevice"; 
 	}
 	
-	@PostMapping("/revice/notice")//게시글 내용 수정하기
-	public String updateNotice(@ModelAttribute("UpdateNotice") Notice notice, Model model) {
+	@PostMapping("/service/updateNotice")//게시글 내용 수정하기
+	public String updateNotice(@RequestParam("notNo") int notNo, Model model) {
 		
-		noticeService.updateNotice (notice);
+		noticeService.updateNotice(notNo);
 		List<Notice> noticeList = noticeService.getNoticeList();
 		model.addAttribute("noticeList", noticeList);
-		return "redirect:/notice/read";
+		return "redirect:/notRevise";
 	}
 	
-	@PostMapping("/revice/faq")
-	public String updateFaq(@ModelAttribute("UpdateFaq") Faq faq, Model model) {
+	@PostMapping("/service/updateFaq")
+	public String updateFaq(@ModelAttribute("faqNo") int faqNo, Model model) {
 		
-		noticeService.updateFaq(faq);
+		noticeService.updateFaq(faqNo);
 		List<Faq> faqList = noticeService.getFaqList();
 		model.addAttribute("faqList", faqList);
-		return "redirect:/notice/read";
+		return "redirect:/faqRevise";
 	}
 	
 	

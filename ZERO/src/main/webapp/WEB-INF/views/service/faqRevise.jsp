@@ -148,7 +148,7 @@
                 <input type="button" value="작성" class="notAddBtns">
             </div>
         </div>
-        
+ 
     </main>
 
     <footer>

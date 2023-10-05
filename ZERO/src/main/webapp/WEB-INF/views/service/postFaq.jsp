@@ -145,10 +145,12 @@
         </table>
 
         <div class="addButtons">
-          <button type="button" class="notAddBtns">수정</button>
+    		 <form method="post" action="updateFaq">
+				<button type="button" class="notAddBtns" name="faqNo" value="${faq.faqNo}">수정</button>
+    		</form> 
     		<form method="get" action="deleteFaq">
-    			<input type="hidden" name="faqNo" value="${faq.faqNo}">
-    			<input type="submit" value="삭제">
+    			<button type="button" class="notAddBtns" name="faqNo" value="${faq.faqNo}">삭제</button>
+    		</form>  
           <button type="button" class="notAddBtns">목록으로</button>
         </div>
 

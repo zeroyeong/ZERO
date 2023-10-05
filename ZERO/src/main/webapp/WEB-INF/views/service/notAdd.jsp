@@ -16,7 +16,7 @@
 
     <!-- css 연결 -->
    <link rel="stylesheet" href="<c:url value="/resources/css/common.css" />" />
-   <link rel="stylesheet" href="<c:url value="/resources/css/post.css" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/post.css?99999" />" />
 
     <!-- js 연결 -->
     <script src="../js/common.js" defer></script>
@@ -122,38 +122,41 @@
             <li class="active"><a href="service.jsp">공지사항</a></li>
             <li><a href="service.html">FAQ</a></li>
         </ul>
-
+		
         <div class="container">
             <h1 class="pageTitle notice">공지사항</h1>
-
-			<form:form modelAttribute = "NewNotice" method="post" action="service/notice" enctype="multipart/form-data">
-			<div>
-	 		 <label>제목</label>
-	   	 	 <form:input  path="notTitle"/>  
-			 </div>
-			 <div>
-		  	  <label>비밀번호</label>
-	    	  <form:input  path="notPass"/>  
-			 </div>
-	 		 <div>
-			  <label>내용</label>
-	    	  <form:input  path="notContent"/>  
-			 </div>
-			 <div>
-			  <label>이미지</label>
-			  <div class="search">
-			  <form:input class="fileName" path="notFile"/>
-			  <input type="file" id="fileInput">
-			  <label for="fileInput">이미지 찾기</label>
-			  </div>
-			 </div>
-			 </div>
-			<input type="submit" value ="작성"/>
-			<a href="<c:url value="updateNotice?notNo=${notice.notNo}" />"> 수정</a>
-    		<a href="<c:url value="deleteNotice?notNo=${notice.notNo}"  />"> 삭제</a>    
-			</form:form>
-
-
+            
+            <table class="postAdd">
+            <form:form modelAttribute = "NewNotice" method="post" action="service/notice" enctype="multipart/form-data">
+                <thead>
+                
+                    <tr>
+                        <th class="title" colspan="4">제목</th>
+                        <td><input type="text" class="titleInput" placeholder="제목내용"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="title" colspan="4">본문</th>
+                        <td><textarea class="contentInput" placeholder="본문"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th class="title" colspan="4">이미지</th>
+                        <td>
+                            <form:input class="fileName" path="notFile" />
+                            <input type="file" id="fileInput">
+                            <label for="fileInput">이미지 찾기</label>
+                        </td>
+                    </tr>
+                </tbody>
+               </form:form>
+            </table>
+		
+        </div>
+         <div class="addButtons">
+                <input type="button" value="삭제" class="notAddBtns">
+                <input type="submit" value="작성" class="notAddBtns">
+            </div>
         </div>
     </main>
 

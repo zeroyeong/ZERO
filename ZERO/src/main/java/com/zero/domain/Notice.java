@@ -7,7 +7,6 @@ public class Notice {
 	private int notNo;
 	private String notTitle;
 	private String notWriter;
-	private String notPass;
 	private String notContent;
 	private int notHit;
 	private String notDate;
@@ -21,13 +20,12 @@ public class Notice {
 	}
 	
 	
-	public Notice(int notNo, String notTitle, String notWriter, String notPass, String notContent, int notHit,
+	public Notice(int notNo, String notTitle, String notWriter, String notContent, int notHit,
 			String notDate, String notFile, MultipartFile fileName) {
 		super();
 		this.notNo = notNo;
 		this.notTitle = notTitle;
 		this.notWriter = notWriter;
-		this.notPass = notPass;
 		this.notContent = notContent;
 		this.notHit = notHit;
 		this.notDate = notDate;
@@ -53,12 +51,6 @@ public class Notice {
 	}
 	public void setNotWriter(String notWriter) {
 		this.notWriter = notWriter;
-	}
-	public String getNotPass() {
-		return notPass;
-	}
-	public void setNotPass(String notPass) {
-		this.notPass = notPass;
 	}
 	public String getNotContent() {
 		return notContent;

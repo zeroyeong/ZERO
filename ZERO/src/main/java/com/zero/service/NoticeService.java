@@ -19,9 +19,9 @@ public interface NoticeService {
 	
 	public void setNewFaq(Faq faq);
 	
-	public void updateNotice(Notice notice);
+	public void updateNotice(int notNo);
 	
-	public void updateFaq(Faq faq);
+	public void updateFaq(int faqNo);
 	
 	public void deleteNotice(int notNo);
 	
