@@ -55,4 +55,8 @@ public class BranchRepositoryImpl implements BranchRepository {
 	    parameters.put("re_pwd", re_pwd);
 		sql.delete("Branch.rDelete", parameters);
 	}
+	@Override
+	public List<Reservation> ReservationList() {
+		return sql.selectList("Branch.mList");
+	}
 }

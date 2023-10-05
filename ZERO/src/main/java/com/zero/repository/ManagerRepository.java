@@ -8,6 +8,8 @@ import com.zero.domain.CupSchedule;
 import com.zero.domain.CupTeam;
 
 public interface ManagerRepository {
+	
+	void cancleReservation(int re_no);
 
 
 }

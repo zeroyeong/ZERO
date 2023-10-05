@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
     <!-- JS 연결 -->
-    <script src="<c:url value='/resources/js/manager.js?d' />" defer></script>
+    <script src="<c:url value='/resources/js/manager.js?d1' />" defer></script>
 
 </head>
 
@@ -49,18 +49,20 @@
                     <thead>
                         <tr>
                             <th class="no">번호</th>
-                            <th class="title">제목</th>
-                            <th class="date">작성일</th>
+                            <th class="title">지점</th>
+                            <th class="date">예약일</th>
                             <th class="state">상태</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="popUp" data-popup="reserPopup" onclick="openReserPopup()">
-                            <td>1</td>
-                            <td>예약확인</td>
-                            <td>2023.09.13</td>
-                            <td>승인</td>
+                    <c:forEach items="${ReservationList}" var="Res">
+                        <tr class="popUp" data-popup="reserPopup" onclick="openReserPopup(${Res.re_no})">
+                            <td>${Res.re_no }</td>
+                            <td>${Res.branch_name }</td>
+                            <td>${Res.re_date }</td>
+                            <td>${Res.re_payment }</td>
                         </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </section>
@@ -186,44 +188,48 @@
     </main>
 
     <!--예약승인 팝업-->
-    <div class="reserPopup" id="reserPopup">
+    <c:forEach items="${ReservationList}" var="Res">
+    <form:form id="cancelForm${Res.re_no}" action="manager/cancel" method="post">
+    <div class="reserPopup" id="reserPopup${Res.re_no }">
         <section class="reservationInfo">
-            <span class="closeBtn" onclick="closePopup(reserPopup)">x</span>
+            <span class="closeBtn" onclick="closePopup(reserPopup${Res.re_no})">x</span>
             <h2>예약 정보</h2>
             <table class="mgrReserInfo">
                 <tr>
                     <th>신청자</th>
-                    <td>김대영</td>
+                    <td>${Res.re_name }</td>
                 </tr>
                 <tr>
                     <th>연락처</th>
-                    <td>010-0909-1515</td>
+                    <td>${Res.re_tel1 }-${Res.re_tel2 }-${Res.re_tel3 }</td>
                 </tr>
                 <tr>
                     <th>예약일자</th>
-                    <td>2023-09-15</td>
+                    <td>${Res.re_date }</td>
                 </tr>
                 <tr>
-                    <th>구장</th>
-                    <td>A구장</td>
+                    <th>지점/구장</th>
+                    <td>${Res.branch_name }/${Res.stadium_name }</td>
                 </tr>
                 <tr>
                     <th>Time</th>
-                    <td>14:00 - 16:00</td>
+                    <td>${Res.time_start } - ${Res.time_end }</td>
                 </tr>
                 <tr>
                     <th>메모</th>
-                    <td>메모내용</td>
+                    <td>${Res.re_memo }</td>
                 </tr>
             </table>
-
+             <input type="hidden" name="re_no" value="${Res.re_no}"/>
+	
             <div class="mgrBtn">
-                <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('reserPopup')">
-                <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('reserPopup')">
+                <input type="button" class="okBtnPop" value="예약취소" onclick="cancel(${Res.re_no});">
             </div>
 
         </section>
     </div>
+    </form:form>
+    </c:forEach>
 
     <!--팀관리 팝업-->
     <c:forEach items="${cupTeamList}" var="cupTeam">

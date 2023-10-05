@@ -50,5 +50,25 @@ SET RE_PAYMENT = '취소요청'
 WHERE RE_NO = #{re_no} 
 AND RE_PWD = #{re_pwd}
 </update>
+
+<select id="mList" resultType="Reservation">
+SELECT
+    R.*,
+    B.BRANCH_NAME,
+    S.STADIUM_NAME,
+    T.TIME_START,
+    T.TIME_END
+FROM RESERVATION R
+JOIN BRANCH B ON R.RE_BRANCH = B.BRANCH_NO
+JOIN STADIUM S ON R.RE_STADIUM = S.STADIUM_NO
+JOIN TIME T ON R.RE_TIME = T.TIME_NO
+ORDER BY R.RE_NO DESC
+</select>
+
+<update id="rCancel">
+UPDATE RESERVATION
+SET RE_PAYMENT = '예약취소'
+WHERE RE_NO = #{re_no} 
+</update>
  
  </mapper>

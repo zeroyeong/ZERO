@@ -23,6 +23,11 @@ public class ManagerRepositoryImpl implements ManagerRepository {
 	@Autowired
 	private SqlSessionTemplate sql;
 	
+	@Override
+	public void cancleReservation (int re_no) {
+		sql.update("Branch.rCancel", re_no);
+	}
+	
 	
 
 }

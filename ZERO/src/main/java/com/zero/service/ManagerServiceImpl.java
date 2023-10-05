@@ -11,5 +11,10 @@ public class ManagerServiceImpl implements ManagerService {
 	@Autowired
 	private ManagerRepository managerRepository;
 	
+	@Override
+	public void cancleReservation(int re_no) {
+		managerRepository.cancleReservation(re_no);
+	}
+	
 }
  

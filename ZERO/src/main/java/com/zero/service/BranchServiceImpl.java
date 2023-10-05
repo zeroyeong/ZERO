@@ -44,5 +44,10 @@ public class BranchServiceImpl implements BranchService {
     public void deleteReservation(int re_no,String re_pwd) {
     	branchRepository.deleteReservation(re_no, re_pwd);
     }
+    
+    @Override
+    public List<Reservation> ReservationList() {
+    	return branchRepository.ReservationList();
+    }
 
 }

@@ -12,7 +12,8 @@ function closePopup(popup) {
     popup.style.display = "none";
 }
 
-function openReserPopup() {
+function openReserPopup(num) {
+	const reserPopup = document.getElementById(`reserPopup${num}`);
     openPopup(reserPopup);
 }
 
@@ -157,4 +158,13 @@ function scheduleDelete(schedule_no){
 	if(response){
 		location.href = 'manager/scheduleDelete?schedule_no=' + schedule_no;
 	}	
+}
+
+function cancel(reNo) {
+    if (confirm("예약을 취소하시겠습니까?")) {
+        document.getElementById(`cancelForm${reNo}`).submit();
+        alert("예약을 취소했습니다.");
+    } else {
+        alert("취소되었습니다.");
+    }
 }

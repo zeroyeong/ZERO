@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.zero.domain.Branch;
 import com.zero.domain.CupSchedule;
 import com.zero.domain.CupTeam;
+import com.zero.domain.Reservation;
 import com.zero.service.CupService;
 import com.zero.service.ManagerService;
+import com.zero.service.BranchService;
 
 @Controller
 public class ManagerController {
@@ -24,6 +26,9 @@ public class ManagerController {
 
 	@Autowired
 	private CupService cupService;
+	
+	@Autowired
+	private BranchService branchService;
 
 	@GetMapping("/manager")
 	public String manager(@ModelAttribute("NewSchedule") CupSchedule cup_schedule, Model model) {
@@ -31,6 +36,9 @@ public class ManagerController {
 		List<CupTeam> cup_team_list = cupService.getCupTeamList();
 		List<CupSchedule> cup_schedule_list = cupService.getCupScheduleList();
 		List<Branch> branch_List = cupService.getBranchList();
+		
+		List<Reservation> rlist = branchService.ReservationList();
+		model.addAttribute("ReservationList", rlist);
 		
 		model.addAttribute("cup_schedule_list", cup_schedule_list);
 		model.addAttribute("cup_schedule", cup_schedule);
@@ -58,6 +66,12 @@ public class ManagerController {
 	@GetMapping("/mgrPlayerList")
 	public String mgrPlayerList() {
 		return "manager/mgrPlayerList";
+	}
+	
+	@PostMapping("/manager/cancel")
+	public String cancelReservation(@RequestParam("re_no") int re_no) {
+		managerService.cancleReservation(re_no);
+		return "redirect:/manager";
 	}
 }
  

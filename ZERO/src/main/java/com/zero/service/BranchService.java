@@ -18,4 +18,6 @@ public interface BranchService {
     List<Reservation> reservationList(String re_name, String re_pwd);
     
     void deleteReservation(int re_no, String re_pwd);
+    
+    List<Reservation> ReservationList();
 }
