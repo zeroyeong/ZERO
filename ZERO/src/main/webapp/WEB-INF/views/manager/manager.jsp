@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
     <!-- JS 연결 -->
-    <script src="<c:url value='/resources/js/manager.js?d1' />" defer></script>
+    <script src="<c:url value='/resources/js/manager.js' />" defer></script>
 
 </head>
 
@@ -65,6 +65,10 @@
                     </c:forEach>
                     </tbody>
                 </table>
+            	<ul class="pagination">
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
             </section>
 
             <section id="mgrTeamContent" class="mgrPage">

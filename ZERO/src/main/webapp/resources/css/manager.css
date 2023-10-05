@@ -62,6 +62,7 @@ main .container section table td a {
 main .container section table thead {
     border-top: 1px solid var(--pointColor);
     color: var(--pointColor);
+    border-bottom: 1px solid var(--pointColor);
 }
 
 main .container section table thead .no {
@@ -69,7 +70,7 @@ main .container section table thead .no {
 }
 
 main .container section table thead .date {
-    width: 1%;
+    width: 16%;
 }
 
 main .container section table thead .state {
@@ -746,6 +747,10 @@ section#mgrSchContent a.schDelBtn:hover {
 }
 
 @media screen and (max-width:880px) {
+	main .container section table thead .date {
+	    width: 20%;
+	}
+	
     .mgrSch ul li.team {
         width: 40%;
     }
@@ -765,6 +770,10 @@ section#mgrSchContent a.schDelBtn:hover {
 }
 
 @media screen and (max-width:645px) {
+	main .container section table thead .date {
+	    width: 30%;
+	}
+	
     .mgrSch ul li.team {
         width: 35%;
     }
