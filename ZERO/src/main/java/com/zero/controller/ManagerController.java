@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zero.domain.Branch;
 import com.zero.domain.CupSchedule;
@@ -44,6 +45,13 @@ public class ManagerController {
  
 		cupService.setCupSchedule(cup_schedule);		
 		
+		return "redirect:/manager";
+	}
+	
+	@GetMapping("/manager/scheduleDelete")
+	public String scheduleDelete(@RequestParam("schedule_no") int schedule_no) {
+		
+		cupService.scheduleDelete(schedule_no);		
 		return "redirect:/manager";
 	}
 	

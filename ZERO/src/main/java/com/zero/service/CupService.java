@@ -36,4 +36,6 @@ public interface CupService {
 	void deletePlayer(int player_no);
 
 	void setCupSchedule(CupSchedule cup_schedule);
+	
+	void scheduleDelete(int schedule_no);
 }
