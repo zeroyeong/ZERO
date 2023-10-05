@@ -77,8 +77,8 @@ session.setAttribute("state", state);
       </form>
 
       <ul class="acBtn">
-        <li><label for="findId">아이디 찾기</label></li>
-        <li><label for="findPw">비밀번호 찾기</label></li>
+        <li><label for="findId" onclick="findId()">아이디 찾기</label></li>
+        <li><label for="findPw" onclick="findPw()">비밀번호 찾기</label></li>
         <li><a href="<c:url value="/join_agree"/>">회원가입</a></li>
       </ul>
 
@@ -112,7 +112,7 @@ session.setAttribute("state", state);
       </div>
     </section>
 
-    <input type="checkbox" id="findId" />
+<!--     <input type="checkbox" id="findId" />
     <label for="findId" class="background"></label>
     <section class="findId">
       <label for="findId" class="closeBtn">×</label>
@@ -128,13 +128,14 @@ session.setAttribute("state", state);
           <button type="button" onclick="findIdSubmit()">확인</button>
           <script>
 	        function refreshSection(sectionId) {
-        	    const section = document.getElementById(sectionId);
-          	}
+	               const section = document.querySelector(sectionId);
+	               section.innerHTML = section.innerHTML; 
+	             }
           
-          	function findIdSubmit(){
-          		document.findId.submit();
-          		refreshSection('findId');
-          	}
+	        function findIdSubmit(){
+                document.findId.submit();
+                refreshSection('findId');
+             }
           </script>
         </div>
       </form>
@@ -158,7 +159,7 @@ session.setAttribute("state", state);
           <button>확인</button>
         </div>
       </form>
-    </section>
+    </section> -->
     
 <script type="text/javascript">
 

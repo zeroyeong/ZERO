@@ -1,7 +1,5 @@
 package com.zero.service;
 
-import javax.servlet.http.HttpSession;
-
 import com.zero.domain.Member;
 
 public interface MemberService { 
@@ -21,4 +19,5 @@ public interface MemberService {
 	
 	/*______계정찾기______*/
 	String findMemberId(String mem_name, String mem_phone); //아이디 찾기
+	String findMemberPw(String mem_name, String mem_id); //비밀번호 찾기
 }

@@ -106,15 +106,25 @@ function loginCheck(){
 	document.loginFrm.submit();	
 }
 
+//아이디찾기
+function findId(){
+	window.open("findId","findId", "width=670, height=500");
+}
+
+//비밀번호 찾기
+function findPw(){
+	window.open("findPw","findId", "width=670, height=500");
+}
+
 /*______네이버 로그인______*/
 
-var naver_id_login = new naver_id_login("ftP2BpWPuD8yQyXqmdlO", "http://localhost:8080/zero/navercallback");
-var state = naver_id_login.getUniqState();
-naver_id_login.setButton("green", 15,70);
-naver_id_login.setDomain("http://localhost:8080/zero");
-naver_id_login.setState(state);
-naver_id_login.setPopup();
-naver_id_login.init_naver_id_login();
+//var naver_id_login = new naver_id_login("ftP2BpWPuD8yQyXqmdlO", "http://localhost:8080/zero/navercallback");
+//var state = naver_id_login.getUniqState();
+//naver_id_login.setButton("green", 15,70);
+//naver_id_login.setDomain("http://localhost:8080/zero");
+//naver_id_login.setState(state);
+//naver_id_login.setPopup();
+//naver_id_login.init_naver_id_login();
 	  
 /*____________________________________________________________________________________________*/
 

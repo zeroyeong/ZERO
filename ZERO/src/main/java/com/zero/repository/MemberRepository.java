@@ -1,9 +1,5 @@
 package com.zero.repository;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.zero.domain.Member; 
 
 public interface MemberRepository {
@@ -24,4 +20,5 @@ public interface MemberRepository {
 	
 	/*______계정찾기______*/
 	Member findMemberId(String mem_name, String mem_phone); //아이디 찾기
+	Member findMemberPw(String mem_name, String mem_id); //비밀번호 찾기
 }
