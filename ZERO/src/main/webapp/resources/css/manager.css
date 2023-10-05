@@ -178,7 +178,7 @@ main .container section table tbody tr:last-child {
 .mgrPlayerInfo td,
 .mgrUserInfo td,
 .mgrSchAddInfo td {
-    width: 250px;
+    width: 235px;
 }
 
 .mgrReserInfo tr,
@@ -480,7 +480,7 @@ section#mgrSchContent .schAddBtn {
 }
 
 .mgrSch ul li.playInfo div span {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .mgrSch ul li.team {
@@ -767,6 +767,10 @@ section#mgrSchContent a.schDelBtn:hover {
     .mgrSch ul li.playInfo .schInfoDiv span:nth-child(3) {
         display: none;
     }
+    
+    .mgrSch ul li.leftTeam {
+    	justify-content: center;
+	}
 }
 
 @media screen and (max-width:645px) {
@@ -785,11 +789,7 @@ section#mgrSchContent a.schDelBtn:hover {
 	.mgrSch ul li a img {
 		display:none;
 	}
-	
-	.mgrSch ul li.leftTeam {
-    	justify-content: center;
-	}
-	
+
 	.mgrSch ul li.playInfo {
     	width: 30%;
 	}
