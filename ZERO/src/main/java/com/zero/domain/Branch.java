@@ -9,7 +9,7 @@ public class Branch {
 	private String branch_tell;
 	private String branch_pic;
 	
-	private Reservation reservation;
+	private Reservation reservation; 
 
 	public Branch() {
 		super();

@@ -211,7 +211,7 @@
                     <th>지점/구장</th>
                     <td>${Res.branch_name }/${Res.stadium_name }</td>
                 </tr>
-                <tr>
+                <tr> 
                     <th>Time</th>
                     <td>${Res.time_start } - ${Res.time_end }</td>
                 </tr>

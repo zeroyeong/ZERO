@@ -84,7 +84,7 @@ public class BranchController {
 	public String reservation(Model model) {
 		List<Reservation> list = new ArrayList<>();
 		model.addAttribute("reservationList", list);
-		return "branch/reservation";
+		return "branch/reservation"; 
 	}
 	@PostMapping("/reservation")
 	public String reservationInfo(@RequestParam("branch_code") String branch_code, Model model) {

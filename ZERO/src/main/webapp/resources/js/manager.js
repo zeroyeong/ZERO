@@ -125,7 +125,7 @@ function cancelBtnPop(popupId, num) {
             location.reload();
             break;
         case 'reserPopup':
-            message = "예약 취소 처리 되었습니다.";
+            message = "예약 취소 처리 되었습니다."; 
             closeReserPopup();
             refreshSection('mgrReserContent');
             break;

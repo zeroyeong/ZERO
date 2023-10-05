@@ -45,7 +45,7 @@ public class ManagerController {
 		
 		model.addAttribute("cupTeamList", cup_team_list);
 		model.addAttribute("branch_List", branch_List);
-		return "manager/manager";
+		return "manager/manager"; 
 	}
 	
 	@PostMapping("/manager/schedule")

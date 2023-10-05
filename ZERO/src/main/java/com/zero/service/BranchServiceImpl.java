@@ -32,7 +32,7 @@ public class BranchServiceImpl implements BranchService {
     }
     @Override
     public List<Reservation> timeList(int re_stadium, int re_branch, String re_date) {
-    	return branchRepository.timeList(re_stadium, re_branch, re_date);
+    	return branchRepository.timeList(re_stadium, re_branch, re_date); 
     }
     
     @Override

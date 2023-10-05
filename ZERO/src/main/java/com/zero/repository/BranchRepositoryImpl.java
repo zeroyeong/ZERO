@@ -47,7 +47,7 @@ public class BranchRepositoryImpl implements BranchRepository {
 	    parameters.put("re_name", re_name);
 	    parameters.put("re_pwd", re_pwd);
 		return sql.selectList("Branch.rList", parameters);
-	}
+	} 
 	@Override
 	public void deleteReservation(int re_no, String re_pwd) {
 	    Map<String, Object> parameters = new HashMap<>();

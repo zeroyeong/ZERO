@@ -180,7 +180,7 @@ function updateSelectedTimes() {
         timeElement.textContent = "예약시간 선택 없음";
     }
 }
-
+ 
 function updateTotalPay() {
     var totalPaySpan = document.getElementById("totalPay");
     var totalPriceSpan = document.getElementById("totalPrice");

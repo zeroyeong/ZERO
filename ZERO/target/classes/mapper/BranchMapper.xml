@@ -53,7 +53,7 @@ AND RE_PWD = #{re_pwd}
 
 <select id="mList" resultType="Reservation">
 SELECT
-    R.*,
+    R.*, 
     B.BRANCH_NAME,
     S.STADIUM_NAME,
     T.TIME_START,
