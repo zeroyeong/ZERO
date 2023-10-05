@@ -552,7 +552,7 @@ section.schInfo .closeBtn {
     content: "";
     display: block;
     position: absolute;
-    top: 10px; 
+    top: 10px;
     left: -26px;
     height: 30px;
     width: 5px;
@@ -640,13 +640,19 @@ section#mgrSchContent a.schDelBtn:hover {
 }
 
 /*media*/
+@media screen and (max-width:1160px) {
+    section#mgrTeamContent table .col3 {
+        width: 17%;
+    }
+}
+
 @media screen and (max-width:1100px) {
     main .harlfButton li label {
         font-size: 17px !important;
     }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width:1045px) {
 
     section#mgrTeamContent table thead th:first-child,
     section#mgrTeamContent table tbody td:first-child,
@@ -657,12 +663,50 @@ section#mgrSchContent a.schDelBtn:hover {
         display: none;
     }
 
+    section#mgrTeamContent table .col4,
+    section#mgrTeamContent table .col7,
+    section#mgrTeamContent table .col8 {
+        width: 13%;
+    }
+
     section#mgrTeamContent table th,
     section#mgrTeamContent table td,
     section#mgrTeamContent table td a {
         font-size: 0.9em;
     }
 
+    section#mgrTeamContent table .col3 {
+        width: 25%;
+    }
+
+    section#mgrTeamContent table .col8,
+    section#mgrTeamContent table tbody tr td:nth-child(8) {
+        display: none;
+    }
+
+    section#mgrTeamContent table .col4,
+    section#mgrTeamContent table .col7 {
+        width: 17%;
+    }
+
+    .mgrSch ul li:first-child {
+        display: none;
+    }
+
+    .mgrSch ul li {
+        font-size: 15px;
+    }
+
+    .mgrSch ul li.playInfo .schInfoDiv span {
+        font-size: 15px;
+    }
+
+    .mgrSch ul li.team {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 1030px) {
     section#mgrSchContent ul li .button {
         font-size: 0.8em;
     }
@@ -701,24 +745,6 @@ section#mgrSchContent a.schDelBtn:hover {
     }
 }
 
-@media screen and (max-width:1045px) {
-    .mgrSch ul li:first-child {
-        display: none;
-    }
-
-    .mgrSch ul li {
-        font-size: 15px;
-    }
-
-    .mgrSch ul li.playInfo .schInfoDiv span {
-        font-size: 15px;
-    }
-
-    .mgrSch ul li.team {
-        width: 25%;
-    }
-}
-
 @media screen and (max-width:880px) {
     .mgrSch ul li.team {
         width: 40%;
@@ -747,8 +773,28 @@ section#mgrSchContent a.schDelBtn:hover {
         width: 20%;
     }
 
+	.mgrSch ul li a img {
+		display:none;
+	}
+	
+	.mgrSch ul li.leftTeam {
+    	justify-content: center;
+	}
+	
+	.mgrSch ul li.playInfo {
+    	width: 30%;
+	}
+	
     #mgrTeamContent table thead tr th.col4,
     #mgrTeamContent table tbody tr td:nth-child(4) {
         display: none;
+    }
+
+    section#mgrTeamContent table .col2 {
+        width: 20%;
+    }
+
+    section#mgrTeamContent table .col3 {
+        width: 35%;
     }
 }
