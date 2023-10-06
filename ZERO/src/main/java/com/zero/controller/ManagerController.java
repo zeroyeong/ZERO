@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zero.domain.Branch;
+import com.zero.domain.CupMatchDetail;
 import com.zero.domain.CupSchedule;
 import com.zero.domain.CupTeam;
 import com.zero.domain.Reservation;
+import com.zero.service.BranchService;
 import com.zero.service.CupService;
 import com.zero.service.ManagerService;
-import com.zero.service.BranchService;
 
 @Controller
 public class ManagerController {
@@ -31,7 +32,8 @@ public class ManagerController {
 	private BranchService branchService;
 
 	@GetMapping("/manager")
-	public String manager(@ModelAttribute("NewSchedule") CupSchedule cup_schedule, Model model) {
+	public String manager(@ModelAttribute("NewSchedule") CupSchedule cup_schedule, 
+						  @ModelAttribute("detail") CupMatchDetail cup_detail, Model model) {
 		
 		List<CupTeam> cup_team_list = cupService.getCupTeamList();
 		List<CupSchedule> cup_schedule_list = cupService.getCupScheduleList();
@@ -41,7 +43,6 @@ public class ManagerController {
 		model.addAttribute("ReservationList", rlist);
 		
 		model.addAttribute("cup_schedule_list", cup_schedule_list);
-		model.addAttribute("cup_schedule", cup_schedule);
 		
 		model.addAttribute("cupTeamList", cup_team_list);
 		model.addAttribute("branch_List", branch_List); 
@@ -52,6 +53,19 @@ public class ManagerController {
 	public String setSchedule(@ModelAttribute("NewSchedule") CupSchedule cup_schedule) {
  
 		cupService.setCupSchedule(cup_schedule);		
+		
+		return "redirect:/manager";
+	}
+	
+	@PostMapping("/manager/scheduleDetail")
+	public String setSchedule(@ModelAttribute("detail") CupMatchDetail cup_detail) {
+		System.out.println("sdf");
+		System.out.println("sdf =  " + cup_detail);
+		System.out.println("cup_detail =  " + cup_detail.getDetail_no());
+		System.out.println("cup_detail =  " + cup_detail.getDetail_home_goal());
+		System.out.println("cup_detail =  " + cup_detail.getDetail_no());
+		System.out.println("cup_detail =  " + cup_detail.getDetail_no());
+		cupService.updateScheduleDetail(cup_detail);		
 		
 		return "redirect:/manager";
 	}

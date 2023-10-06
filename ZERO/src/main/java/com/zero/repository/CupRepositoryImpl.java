@@ -192,4 +192,9 @@ public class CupRepositoryImpl implements CupRepository {
 	public void scheduleDelete(int schedule_no) {
 		sql.delete("Cup.deleteSchedule", schedule_no);
 	}
+	
+	@Override
+	public void updateScheduleDetail(CupMatchDetail cup_detail) {
+		sql.update("Cup.updateScheduleDetail", cup_detail);
+	}
 }

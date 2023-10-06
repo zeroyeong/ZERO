@@ -3,6 +3,7 @@ package com.zero.service;
 import java.util.List;
 
 import com.zero.domain.Branch;
+import com.zero.domain.CupMatchDetail;
 import com.zero.domain.CupPlayer;
 import com.zero.domain.CupSchedule;
 import com.zero.domain.CupTeam;
@@ -38,4 +39,6 @@ public interface CupService {
 	void setCupSchedule(CupSchedule cup_schedule);
 	
 	void scheduleDelete(int schedule_no);
+	
+	void updateScheduleDetail(CupMatchDetail cup_detail);
 }

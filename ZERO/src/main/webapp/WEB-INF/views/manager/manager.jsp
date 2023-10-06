@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
     <!-- JS 연결 -->
-    <script src="<c:url value='/resources/js/manager.js' />" defer></script>
+    <script src="<c:url value='/resources/js/manager.js?d' />" defer></script>
 
 </head>
 
@@ -293,6 +293,7 @@
 
 
     <!--경기일정 팝업-->
+    <form:form id="scheduleDetailForm" modelAttribute = "detail" method="post" action="manager/scheduleDetail">       
     <c:forEach items="${cup_schedule_list}" var="cupSchedule">
         <div class="schPopup" id="schPopup${cupSchedule.schedule_no}">
             <section class="schInfo">
@@ -323,24 +324,24 @@
                         <th>${cupSchedule.cup_away_team.team_name}</th>
                     </tr>
                     <tr>
-                        <td><input class="schSelect" type="text" value="${cupSchedule.detail.detail_home_goal}"></td>
+                        <td><form:input path="detail_home_goal" class="schSelect" type="text" value="${cupSchedule.detail.detail_home_goal}"/></td>
                         <th>득점현황</th>
                         <td>
-                            <input class="schSelect" type="text" value="${cupSchedule.detail.detail_away_goal}">
+                            <form:input path="detail_away_goal" class="schSelect" type="text" value="${cupSchedule.detail.detail_away_goal}"/>
                         </td>
                     </tr>
                     <tr>
-                        <td><input class="schSelect" type="text" value="${cupSchedule.detail.detail_home_yellow_card}"></td>
+                        <td><form:input path="detail_home_yellow_card" class="schSelect" type="text" value="${cupSchedule.detail.detail_home_yellow_card}"/></td>
                         <th>경고</th>
-                        <td><input class="schSelect" type="text" value="${cupSchedule.detail.detail_away_yellow_card}"></td>
+                        <td><form:input path="detail_away_yellow_card" class="schSelect" type="text" value="${cupSchedule.detail.detail_away_yellow_card}"/></td>
                     </tr>
                     <tr>
-                        <td><input class="schSelect" type="text" value="${cupSchedule.detail.detail_home_red_card}"></td>
+                        <td><form:input path="detail_home_red_card" class="schSelect" type="text" value="${cupSchedule.detail.detail_home_red_card}"/></td>
                         <th>퇴장</th>
-                        <td><input class="schSelect" type="text" value="${cupSchedule.detail.detail_away_red_card}"></td>
+                        <td><form:input path="detail_away_red_card" class="schSelect" type="text" value="${cupSchedule.detail.detail_away_red_card}"/></td>
                     </tr>
                 </table>
-
+				<form:input type="hidden" path="detail_no" value="${cupSchedule.schedule_no}"/>
                 <div class="mgrBtn">
                     <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup', ${cupSchedule.schedule_no})">
                     <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup', ${cupSchedule.schedule_no})">
@@ -348,7 +349,7 @@
             </section>
         </div>
     </c:forEach>
-
+	</form:form>
     <!--사용자 팝업-->
     <c:forEach items="${cupTeamList}" var="cupTeam">
         <div class="userPopup" id="userPopup${cupTeam.team_no}">

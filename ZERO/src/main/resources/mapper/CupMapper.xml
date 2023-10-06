@@ -252,6 +252,17 @@
     <delete id="deleteSchedule" parameterType="int">
         DELETE FROM cup_match_schedule WHERE SCHEDULE_NO = #{schedule_no} 
     </delete>
+    
+    <update id="updateScheduleDetail" parameterType="CupMatchDetail">
+    	 update cup_match_detail set 
+    	 	DETAIL_TEAM_HOME_GOAL = #{detail_home_goal}, 
+    	 	DETAIL_TEAM_AWAY_GOAL = #{detail_away_goal}, 
+    	 	DETAIL_HOME_YELLOW_CARD = #{detail_home_yellow_card},
+    	 	DETAIL_AWAY_YELLOW_CARD = #{detail_away_yellow_card},
+    	  	DETAIL_HOME_RED_CARD = #{detail_home_red_card},  
+			DETAIL_AWAY_RED_CARD = #{detail_away_red_card} 
+    	 	where DETAIL_NO = #{detail_no}
+    </update>
 </mapper>
 
 

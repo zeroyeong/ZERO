@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zero.domain.Branch;
+import com.zero.domain.CupMatchDetail;
 import com.zero.domain.CupPlayer;
 import com.zero.domain.CupSchedule;
 import com.zero.domain.CupTeam;
@@ -91,6 +92,11 @@ public class CupServiceImpl implements CupService {
 	@Override
 	public void scheduleDelete(int schedule_no) {
 		cupRepository.scheduleDelete(schedule_no);
+	}
+	
+	@Override
+	public void updateScheduleDetail(CupMatchDetail cup_detail) {
+		cupRepository.updateScheduleDetail(cup_detail);
 	}
 }
  
