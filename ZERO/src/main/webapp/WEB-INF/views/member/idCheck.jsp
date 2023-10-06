@@ -49,7 +49,6 @@
       	
       	<c:choose>
       		<c:when test="${result != 0}">
-      		
 				<div class="no">
 		          <p>입력하신 <span>${mem_id}</span> 는(은)<br>
 		          	 이미 존재하는 이메일 주소입니다.</p>

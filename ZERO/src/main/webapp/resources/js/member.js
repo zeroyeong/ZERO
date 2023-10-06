@@ -50,15 +50,14 @@ function idCheck(id){
 
 //회원가입 버튼 클릭했을 때
 function joinFrmSubmit(){
+console.log("click함");
 	const id = document.getElementById("user_id").value;
 	const pwd1 = document.getElementById("user_pwd").value;
 	const pwd2 = document.getElementById("user_pwd_check").value;
 	const name = document.getElementById("user_name").value;
-	const confirm = document.getElementById("emailConfirm").value;
 	const idCheck = document.getElementById("checkId").value;
-	const mailCheck = document.getElementById("checkMail").value;
 	
-	if(id == "" || checkId != "true" || name == "" || confirm == "" ||
+	if(id == "" || checkId != "true" || name == "" || 
 		pwd1 == "" || pwd2 == "" || pwd1 != pwd2){
 		if(id == ""){
 			alert("아이디(이메일)를 입력해 주세요.");
@@ -74,38 +73,19 @@ function joinFrmSubmit(){
 		} else if(name == ""){
 			alert("이름을 입력해 주세요.");
 			document.joinFrm.mem_name.focus();
-		}else if(confirm == ""){
-			alert("이메일 인증을 완료해주세요.");
-		}else{
+		}else if(pwd1 != pwd2){
 			alert("입력한 비밀번호가 일치하지 않습니다. 확인해주세요!");
 		}
-	}else{
-		alert("환영합니다. 회원가입이 완료되었습니다.");
-		document.joinFrm.submit();	
+		else{
+			alert("환영합니다. 회원가입이 완료되었습니다.");
+			document.joinFrm.submit();	
+		}
 	}
 }
 
 /*____________________________________________________________________________________________*/
 
 /*______로그인______*/
-function loginCheck(){
-	const id = document.getElementById("userid");
-	const pw = document.getElementById("userPw");
-	
-	if(id.value == ""){
-		alert("아이디를 입력해 주세요.");
-		document.loginFrm.mem_id.focus();
-		return;
-	}
-	
-	if(pw.value == ""){
-		alert("비밀번호를 입력해 주세요.");
-		document.loginFrm.mem_pw.focus();
-		return;
-	}
-	document.loginFrm.submit();	
-}
-
 //아이디찾기
 function findId(){
 	window.open("findId","findId", "width=670, height=500");

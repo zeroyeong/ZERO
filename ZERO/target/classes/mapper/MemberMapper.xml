@@ -26,8 +26,8 @@
     <!-- ________________________________________________________ -->
     
     <!-- 로그인 -->
-    <select id="getMemberLoginInfo" parameterType="Member" resultType="Member">
-    	select * from member where mem_id = #{mem_id}
+    <select id="login" parameterType="Member" resultType="String">
+    	select mem_name from member where mem_id = #{mem_id} and mem_pw = #{mem_pw}
     </select>
     
     <!-- 아이디 찾기 -->
@@ -52,7 +52,18 @@
     <!-- 탈퇴 -->
     <delete id="deleteMember">
     	delete from member where mem_id = #{mem_id}
-    </delete>  
+    </delete> 
+    
+     <!-- ________________________________________________________ -->
+     
+     <!-- 마이페이지 예약확인 
+     <select id="myReserInfo" parameterType="Reservation" resultType="Resevation">
+     	SELECT * FROM reservation reser
+		JOIN branch bran ON reser.RE_BRANCH=bran.BRANCH_NO
+		JOIN stadium sta ON reser.RE_STADIUM=sta.STADIUM_NO
+		JOIN time t ON reser.RE_TIME=t.TIME_NO
+		WHERE RE_NAME = #{RE_NAME} AND RE_PWD = #{RE_PWD}
+     </select>-->
           
 </mapper>
 

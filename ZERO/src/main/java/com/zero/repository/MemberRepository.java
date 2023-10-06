@@ -9,7 +9,7 @@ public interface MemberRepository {
 	
 	
 	/*______로그인______*/
-	Member getMemberLoginInfo(String mem_id); //로그인
+	String login(Member member); //로그인
 	
 	/*______계정찾기______*/
 	String findMemberId(Member member); //아이디 찾기

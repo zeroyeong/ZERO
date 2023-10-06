@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/join.css" />" />
     
    	<!-- js 연결 -->
-    <script src="<c:url value="/resources/js/member.js" />" defer></script>
+    <script src="<c:url value="/resources/js/member.js?ver4" />" defer></script>
     
   </head>
   <body>
@@ -58,7 +58,7 @@
             </div>
           </li>
         </ul>
-        <button type="submit" class="joinBtn" onclick ="joinFrmSubmit()">가입하기</button>
+        <button type="button" class="joinBtn" onClick ="joinFrmSubmit();">가입하기</button>
         
         <!-- [중복확인] 버튼을 눌렀나 확인하는 hidden input -->
          <input type="hidden" name="checkId" id="checkId">

@@ -8,7 +8,7 @@ public interface MemberService {
 	int checkId(String mem_id);
 	
 	/*________ 로그인 ________*/
-	String login(String mem_id, String mem_pw);
+	String login(Member member);
 	
 	/*______계정찾기______*/
 	String findMemberId(Member member); //아이디 찾기

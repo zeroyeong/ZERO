@@ -51,7 +51,6 @@ public class MemberController {
 	@GetMapping("/login")
 	public String toLoginPage(HttpSession session) {
 		String mem_id = (String) session.getAttribute("mem_id");
-		
 		if(mem_id != null) { //로그인이 되어있는 상태라면
 			return "redirect:/zero";
 		}
@@ -59,10 +58,17 @@ public class MemberController {
 	}
 	
 	@PostMapping("/login")
-	public String login(String mem_id, String mem_pw, HttpSession session) {
-		String mem_name = memberService.login(mem_id, mem_pw);
+	public String login(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
+			Member member, HttpSession session, Model model) {
+		
+		member.setMem_id(mem_id);
+		member.setMem_pw(mem_pw);
+		
+		String mem_name = memberService.login(member);
+		System.out.println("Controller mem_name: "+mem_name);
 		
 		if(mem_name == null) {//로그인 실패
+			model.addAttribute("mem_name", mem_name);
 			return "redirect:/login";
 		}
 		
@@ -71,13 +77,7 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	/*______계정찾기______*/	
-	@PostMapping("/login/findId")
-	public String test() {
-		System.out.println("sadf");
-		return "member/login";
-	}
-	
+	/*______계정찾기______*/
 	//아이디 찾기
 	@GetMapping("/findId")
 	public String findId() {
@@ -85,12 +85,9 @@ public class MemberController {
 	}
 	
 	@PostMapping("/findId")
-	public String findMemberId(
-			@RequestParam("mem_name") String mem_name,
+	public String findMemberId(@RequestParam("mem_name") String mem_name, 
 			@RequestParam("mem_phone") String mem_phone,
-			Member member, Model model) {
-		
-		System.out.println("Controller > "+mem_name+" / "+mem_phone);		
+			Member member, Model model) {		
 		
 		member.setMem_name(mem_name);
 		member.setMem_phone(mem_phone);
@@ -98,8 +95,6 @@ public class MemberController {
 		String mem_id = memberService.findMemberId(member);
 		
 		model.addAttribute("mem_id", mem_id);
-
-		System.out.println("controller> "+mem_id);
 		return "member/findIdResult";
 	}
 	
@@ -129,6 +124,13 @@ public class MemberController {
 		System.out.println("controller> "+mem_pw);
 		return "member/findPwResult";
 	}
+	
+	/*________ 로그아웃 ________*/
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/login";
+	}
 
 	/*______마이페이지______*/
 	@GetMapping("/mypage")
@@ -154,10 +156,17 @@ public class MemberController {
 		return "redirect:/mypage";
 	}
 	
-	/*________ 로그아웃 ________*/
-	@GetMapping("/logout")
-	public String logout(HttpSession session) {
-		session.invalidate();
+	@GetMapping("/mypage_reservation")
+	public String mypage_reservation(HttpSession session, Model model) {
+		String mem_id = (String) session.getAttribute("mem_id");
+		
+		if(mem_id != null) {
+			Member member = memberService.getMemberInfo(mem_id);
+			model.addAttribute("member", member);
+			
+			return "member/mypage_reservation";
+		}
+		
 		return "redirect:/login";
 	}
 	

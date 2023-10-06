@@ -27,10 +27,8 @@ public class MemberRepositoryImpl implements MemberRepository {
 	
 	/*______로그인______*/
 	@Override
-	public Member getMemberLoginInfo(String mem_id) {
-		Member member = sql.selectOne("Member.getMemberLoginInfo", mem_id);
-		System.out.println(member);
-		return member;
+	public String login(Member member) {
+		return sql.selectOne("Member.login", member);
 	}
 	
 	/*______계정찾기______*/

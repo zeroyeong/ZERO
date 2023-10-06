@@ -23,6 +23,7 @@
 
    <!-- js 연결 -->
    <script src="<c:url value="/resources/js/member.js?b" />" defer></script>
+   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
    
    <!-- naver 로그인 -->
 	<!-- <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
@@ -51,7 +52,10 @@ session.setAttribute("state", state);
  
     <section class="container">
       <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
-      <form name="loginFrm" method="post" action="login">
+      <form name="loginFrm" method="post" action="login" onsubmit="return frm_check();">
+      <!--<c:if test="${mem_name == null }">
+      	<p style="color:red; text-align:center;">로그인에 실패했습니다.</p>
+      </c:if>-->
         <dl>
           <dt>
             <label for="userId">아이디</label>
@@ -67,12 +71,12 @@ session.setAttribute("state", state);
           </dd>
         </dl>
 
-        <label for="remembreId" class="remId">
-          <input type="checkbox" name="remembreId" id="remembreId" />
+
+        <label for="saveId" class="remId">
+          <input type="checkbox" name="checkId" id="saveId" />
           <span class="icon"></span>
           아이디 저장
         </label>
-
         <button type="submit">로그인</button>
       </form>
 
@@ -111,55 +115,61 @@ session.setAttribute("state", state);
         <p class="copy">COPYRIGHT© zero futsal. ALLRIGHT RESERVED</p>
       </div>
     </section>
+    
+<script>	
+/*Remember ID */
+$(document).ready(function () {
+    var key = getCookie("idChk");
+    if (key != "") {
+        $("#userId").val(key);
+    }
 
-<!--     <input type="checkbox" id="findId" />
-    <label for="findId" class="background"></label>
-    <section class="findId">
-      <label for="findId" class="closeBtn">×</label>
-      <h3>회원정보를 입력해 주세요.</h3>
-      <form action="login/findId" name="findId" method="post">
-        <dl>
-          <dt><label for="userName">이름</label></dt>
-          <dd><input type="text" id="userName" placeholder="이름입력" name="mem_name" required /></dd>
-          <dt><label for="userPhone">휴대전화</label></dt>
-          <dd><input type="text" id="userPhone" placeholder="휴대전화번호 입력" name="mem_phone" required /></dd>
-        </dl>
-        <div class="button">
-          <button type="button" onclick="findIdSubmit()">확인</button>
-          <script>
-	        function refreshSection(sectionId) {
-	               const section = document.querySelector(sectionId);
-	               section.innerHTML = section.innerHTML; 
-	             }
-          
-	        function findIdSubmit(){
-                document.findId.submit();
-                refreshSection('findId');
-             }
-          </script>
-        </div>
-      </form>
-    </section>
+    if ($("#userId").val() != "") {
+        $("#saveId").attr("checked", true);
+    }
 
-    <input type="checkbox" id="findPw" />
-    <label for="findPw" class="background"></label>
-    <section class="findPw">
-      <label for="findPw" class="closeBtn">×</label>
-      <h3>회원정보를 입력해 주세요.</h3>
-      <form action="" name="findPw" method="post">
-        <dl>
-          <dt><label for="userId">아이디</label></dt>
-          <dd><input type="text" id="userId" placeholder="아이디 입력" name="mem_id" required /></dd>
-          <dt><label for="userName">이름</label></dt>
-          <dd><input type="text" id="userName" placeholder="이름입력" name="mem_name" required /></dd>
-          <dt><label for="userPhone">휴대전화</label></dt>
-          <dd><input type="text" id="userPhone" placeholder="휴대전화번호 입력" name="mem_phone" required /></dd>
-        </dl>
-        <div class="button">
-          <button>확인</button>
-        </div>
-      </form>
-    </section> -->
+    $("#saveId").change(function () {
+        if ($("#saveId").is(":checked")) {
+            setCookie("idChk", $("#userId").val(), 7);
+        } else {
+            deleteCookie("idChk");
+        }
+    });
+
+    $("#userId").keyup(function () {
+        if ($("#saveId").is(":checked")) {
+            setCookie("idChk", $("#logId").val(), 7);
+        }
+    });
+});
+function setCookie(cookieName, value, exdays) {
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var cookieValue = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toGMTString());
+    document.cookie = cookieName + "=" + cookieValue;
+}
+
+function deleteCookie(cookieName) {
+    var expireDate = new Date();
+    expireDate.setDate(expireDate.getDate() - 1);
+    document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+}
+
+function getCookie(cookieName) {
+    cookieName = cookieName + '=';
+    var cookieData = document.cookie;
+    var start = cookieData.indexOf(cookieName);
+    var cookieValue = '';
+    if (start != -1) {
+        start += cookieName.length;
+        var end = cookieData.indexOf(';', start);
+        if (end == -1) end = cookieData.length;
+        cookieValue = cookieData.substring(start, end);
+    }
+    return unescape(cookieValue);
+}
+</script>
+
     
 <script type="text/javascript">
 

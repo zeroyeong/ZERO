@@ -25,14 +25,8 @@ public class MemberServiceImpl implements MemberService {
 	
 	/*______로그인______*/
 	@Override
-	public String login(String mem_id, String mem_pw) {
-		System.out.println("서비스 아이디= "+mem_id);
-		Member member = memberRepository.getMemberLoginInfo(mem_id);
-		
-		if(member.getMem_pw().equals(mem_pw)) //입력한 패스워드와 저장된 패스워드가 동일하면
-			return member.getMem_name(); //이름 반환
-		
-		return null;
+	public String login(Member member) {
+		return memberRepository.login(member);
 	}
 	
 	/*______계정찾기______*/
