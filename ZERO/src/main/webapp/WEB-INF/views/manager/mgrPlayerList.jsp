@@ -27,8 +27,6 @@
                 <thead>
                     <tr>
                         <th class="col1">순번</th>
-                        <th class="col2">지점명</th>
-                        <th class="col3">팀명</th>
                         <th class="col4">선수명</th>
                         <th class="col5">출전</th>
                         <th class="col6">득점</th>
@@ -40,17 +38,6 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>더피치 평택점</td>
-                        <td>
-                            <div class="teamName">
-                                <div class="teamImage">
-                                    <img src="<c:url value="resources/images/team1.PNG"/>" alt="">
-                                </div>
-                                <div class="teamTitle">
-                                    <a href="#">스피드러너</a>
-                                </div>
-                            </div>
-                        </td>
                         <td>선수명</td>
                         <td>출전</td>
                         <td>득점</td>
@@ -61,29 +48,21 @@
                             <a class="playerDelBtn" onclick="">삭제</a>
                         </td>
                     </tr>
+                    <c:forEach items="${player_list}" var="player_list">
+                    <c:set var="num" value="${num + 1}" />
                     <tr>
-                        <td>1</td>
-                        <td>더피치 평택점</td>
-                        <td>
-                            <div class="teamName">
-                                <div class="teamImage">
-                                    <img src="<c:url value="resources/images/team1.PNG"/>" alt="">
-                                </div>
-                                <div class="teamTitle">
-                                    <a href="#">스피드러너</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>선수명</td>
-                        <td>출전</td>
-                        <td>득점</td>
-                        <td>경고</td>
-                        <td>퇴장</td>
+                        <td>${num}</td>
+                        <td>${player_list.player_name}</td>
+                        <td>${player_list.player_games}</td>
+                        <td>${player_list.player_goal}</td>
+                        <td>${player_list.player_yellow_card}</td>
+                        <td>${player_list.player_red_card}</td>
                         <td colspan="2">
                             <a class="playerBtn" onclick="openPlayerPopup()">수정</a>
                             <a class="playerDelBtn" onclick="">삭제</a>
                         </td>
                     </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </section>
