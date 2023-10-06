@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
     <!-- JS 연결 -->
-    <script src="<c:url value='/resources/js/manager.js?dfjddd' />" defer></script>
+    <script src="<c:url value='/resources/js/manager.js?jdddd' />" defer></script>
 
 </head>
 
@@ -110,7 +110,7 @@
                                 <td>팀비밀번호</td>
                                 <td>
                                	    <a class="teamBtn" onclick="openTeamPopup('${cupTeam.team_no}')">수정</a>
-                                    <a class="teamDelBtn" onclick="">삭제</a>
+                                    <a class="teamDelBtn" onclick="teamDelete('${cupTeam.team_no}')">삭제</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -237,51 +237,56 @@
 
     <!--팀관리 팝업-->
     <c:forEach items="${cupTeamList}" var="cupTeam">
+    <form:form id="updateTeamForm${cupTeam.team_no}" modelAttribute = "updateTeam" method="post" action="manager/updateTeam" enctype="multipart/form-data">
         <div class="teamPopup" id="teamPopup${cupTeam.team_no}">
             <section class="teamInfo">
                 <span class="closeBtn" onclick="closePopup(teamPopup${cupTeam.team_no})">x</span>
                 <h2>팀 정보</h2>
                 <table class="mgrTeamInfo">
                     <tr>
-                        <th>지점</th>
-                        <td>
-                          <select class=schSelect name="" id="" required>
-                              <option value>지점선택</option>
-                              <option value>더피치 인하점</option>
-                              <option value>더피치 평택점</option>
-                              <option value>더피치 천안신방점</option>
-                              <option value>아산인주풋살장</option>
-                              <option value>부산 북구점</option>
-                              <option value>울산 남구점</option>
-                              <option value>전주 완산점</option>
-                              <option value>제주 서귀포점</option>
-                          </select>
-                        </td>
+                       <th>지점</th>
+	                   <td>
+	                   <form:select path="branch_no" class="schSelect">
+	                    <c:forEach var="branch" items="${branch_List}">
+						<c:choose>
+							<c:when test="${cupTeam.branch.branch_name eq branch.branch_name}"> 
+								<form:option value="${branch.branch_no}" selected="true">${branch.branch_name}</form:option>
+							</c:when>
+	
+							<c:otherwise> 
+			                	<form:option value="${branch.branch_no}">${branch.branch_name}</form:option>					
+							</c:otherwise>
+						</c:choose>
+						</c:forEach>
+	                   </form:select>
+	                   </td>
                     </tr>
+                    <form:input type="hidden" path="team_no" value="${cupTeam.team_no}"/>
                     <tr>
                         <th>팀명</th>
-                        <td><input class="schSelect" type="text" value="${cupTeam.team_name}"></td>
+                        <td><form:input path="team_name" class="schSelect" type="text" value="${cupTeam.team_name}"/></td>
                     </tr>
                     <tr>
                         <th>팀 리더</th>
-                        <td><input class="schSelect" type="text" value="0명"></td>
+                        <td><form:input path="team_leader" class="schSelect" type="text" value="${cupTeam.team_leader}"/></td>
                     </tr>
                     <tr>
                         <th>팀전화번호</th>
-                        <td><input class="schSelect" type="text" value="010-0102-1234"></td>
+                        <td><form:input path="team_phone" class="schSelect" type="text" value="${cupTeam.team_phone}"/></td>
                     </tr>
                     <tr>
                         <th>팀 메일</th>
-                        <td><input class="schSelect" type="text" value="123@naver.com"></td>
+                        <td><form:input path="team_mail" class="schSelect" type="text" value="${cupTeam.team_mail}"/></td>
                     </tr>
                     <tr>
                         <th>팀 코드</th>
-                        <td><input class="schSelect" type="text" value="code1111"></td>
+                        <td><form:input path="team_code" class="schSelect" type="text" value="${cupTeam.team_code}"/></td>
                     </tr>
                     <tr>
                         <th>팀비밀번호</th>
-                        <td><input class="schSelect" type="text" value="1111"></td>
+                        <td><form:input path="team_password" class="schSelect" type="text" value="${cupTeam.team_password}"/></td>
                     </tr>
+                    
                 </table>
 				<div class="mgrBtn">
 				    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('teamPopup', ${cupTeam.team_no})">
@@ -289,14 +294,15 @@
 				</div>
             </section>
         </div>
+     </form:form> 
     </c:forEach>
 
 
     <!--경기일정 팝업-->
     <c:forEach items="${cup_schedule_list}" var="cupSchedule">
-    <form:form id="scheduleDetailForm${cupSchedule.schedule_no}" modelAttribute = "detail" method="post" action="manager/scheduleDetail">       
         <div class="schPopup" id="schPopup${cupSchedule.schedule_no}">
             <section class="schInfo">
+   			<form:form id="scheduleGoalForm${cupSchedule.schedule_no}" modelAttribute = "updateSchedule" method="post" action="manager/updateSchedule">       
                 <span class="closeBtn" onclick="closePopup(schPopup${cupSchedule.schedule_no})">x</span>
                 <table>
                     <caption>
@@ -311,8 +317,22 @@
                         <th>경기일자</th>
                         <td>${cupSchedule.schedule_date} ${cupSchedule.schedule_time} ${cupSchedule.schedule_location}</td>
                     </tr>
+                    <tr>
+                        <th>홈 골</th>
+                        <td><form:input path="schedule_home_goal" class="schSelect" type="text" value="${cupSchedule.schedule_home_goal}"/></td>
+                    </tr>
+                     <tr>
+                        <th>어웨이 골</th>
+                        <td><form:input path="schedule_away_goal" class="schSelect" type="text" value="${cupSchedule.schedule_away_goal}"/></td>
+                    </tr>
                 </table>
-
+                <form:input type="hidden" path="schedule_no" value="${cupSchedule.schedule_no}"/>
+            </form:form>    
+ 			<div class="mgrBtn">
+               <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup', ${cupSchedule.schedule_no})">
+               <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup', ${cupSchedule.schedule_no})">
+            </div>
+			<form:form id="scheduleDetailForm${cupSchedule.schedule_no}" modelAttribute = "detail" method="post" action="manager/scheduleDetail">  
                 <table>
                     <caption>
                         <span></span>
@@ -342,13 +362,14 @@
                     </tr>
                 </table>
 				<form:input type="hidden" path="detail_no" value="${cupSchedule.schedule_no}"/>
+				</form:form>
                 <div class="mgrBtn">
-                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup', ${cupSchedule.schedule_no})">
-                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup', ${cupSchedule.schedule_no})">
+                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schDetailPopup', ${cupSchedule.schedule_no})">
+                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schDetailPopup', ${cupSchedule.schedule_no})">
                 </div>
             </section>
         </div>
-	</form:form>
+	
     </c:forEach>
     <!--사용자 팝업-->
     <c:forEach items="${cupTeamList}" var="cupTeam">

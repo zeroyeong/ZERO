@@ -61,6 +61,14 @@ function closePlayerPopup(num) {
     closePopup(playerPopup);
 }
 
+function openSchAddPopup(){
+	const schAddPopup = document.getElementById('schAddPopup');
+    openPopup(schAddPopup);
+}
+
+function closeSchAddPopup() {
+    closePopup(schAddPopup);
+}
 
 //섹션 새로고침 처리
 function refreshSection(sectionId) {
@@ -73,13 +81,17 @@ function okBtnPop(popupId, num) {
     switch (popupId) {
         case 'teamPopup':
             message = "팀 정보가 수정 처리 되었습니다.";
+            var updateTeamForm = document.getElementById(`updateTeamForm${num}`);
+  			updateTeamForm.submit(); 
             closeTeamPopup(num);
             refreshSection('mgrTeamContent');
             break;
         case 'playerPopup':
             message = "선수 정보가 수정 처리 되었습니다.";
             closePlayerPopup(num);
-            location.reload();
+            //location.reload();
+            var playerForm = document.getElementById(`playerForm${num}`);
+  			playerForm.submit(); 
             break;
         case 'reserPopup':
             message = "예약 승인 처리 되었습니다.";
@@ -88,13 +100,18 @@ function okBtnPop(popupId, num) {
             break;
         case 'schPopup':
             message = "경기 일정 수정 처리 되었습니다.";
+            var scheduleGoalForm = document.getElementById(`scheduleGoalForm${num}`);
+  			scheduleGoalForm.submit(); 
             closeSchPopup(num);
             refreshSection('mgrSchContent');
-            console.log("num = " + num);
-            var scheduleDetailForm = document.getElementById('scheduleDetailForm${num}');
-            console.log("scheduleDetailForm = "+scheduleDetailForm);
-  			//scheduleDetailForm.submit(); 
             break;
+        case 'schDetailPopup':
+            message = "경기 일정 수정 처리 되었습니다.";
+            var scheduleDetailForm = document.getElementById(`scheduleDetailForm${num}`);
+  			scheduleDetailForm.submit(); 
+            closeSchPopup(num);
+            refreshSection('mgrSchContent');
+            break;    
         case 'userPopup':
             message = "사용자 정보 수정 처리 되었습니다.";
             closeUserPopup(num);
@@ -102,10 +119,10 @@ function okBtnPop(popupId, num) {
             break;
         case 'schAddPopup':
             message = "경기일정이 추가 되었습니다.";
-            closePopup(schAddPopup);
-            refreshSection('mgrSchContent');
 			var scheduleForm = document.getElementById('scheduleForm');
   			scheduleForm.submit();           
+            closePopup(schAddPopup);
+            refreshSection('mgrSchContent');
             break;
         default:
             message = "알 수 없는 팝업 ID입니다.";
@@ -140,6 +157,11 @@ function cancelBtnPop(popupId, num) {
             closeSchPopup(num);
             refreshSection('mgrSchContent');
             break;
+        case 'schDetailPopup':
+            message = "경기 일정 수정 취소 처리 되었습니다.";
+            closeSchPopup(num);
+            refreshSection('mgrSchContent');
+            break;    
         case 'userPopup':
             message = "사용자 정보 수정 취소 처리 되었습니다.";
             closeUserPopup(num);
@@ -163,6 +185,22 @@ function scheduleDelete(schedule_no){
 
 	if(response){
 		location.href = 'manager/scheduleDelete?schedule_no=' + schedule_no;
+	}	
+}
+
+function playerDelete(player_no, team_no){
+	const response = confirm("퇴출 하시겠습니까?");
+
+	if(response){
+		location.href = 'playerDelete?player_no=' + player_no +'&team_no=' + team_no;
+	}	
+}
+
+function teamDelete(team_no){
+	const response = confirm("삭제 하시겠습니까?");
+
+	if(response){
+		location.href = 'manager/deleteTeam?team_no=' + team_no;
 	}	
 }
 

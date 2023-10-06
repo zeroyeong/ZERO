@@ -34,13 +34,21 @@ public interface CupService {
 	
 	void updateCupTeam(CupTeam cup_team);
 	
+	void deleteTeam(int team_no);
+	
 	void deletePlayer(int player_no);
 
 	void setCupSchedule(CupSchedule cup_schedule);
 	
-	void scheduleDelete(int schedule_no);
+	void updateCupSchedule(CupSchedule cup_schedule);
+	
+	void deleteSchedule(int schedule_no);
 	
 	void updateScheduleDetail(CupMatchDetail cup_detail);
 	
 	List<CupPlayer> getCupTeamByPlayerList(int team_no);
+	
+	void updateManagerByCupTeam(CupTeam cup_team);
+	
+	void updateManagerByCupPlayer(CupPlayer cup_player);
 }

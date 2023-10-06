@@ -7,10 +7,10 @@ public class CupPlayer {
 	private int player_no;
 	private String player_name;
 	private String player_photo;
-	private String player_games;
-	private String player_goal;
-	private String player_yellow_card;
-	private String player_red_card;	
+	private int player_games;
+	private int player_goal;
+	private int player_yellow_card;
+	private int player_red_card;	
 	private int team_no;	
 	private CupTeam cup_team;
 	private MultipartFile photo_file;
@@ -19,10 +19,9 @@ public class CupPlayer {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public CupPlayer(int player_no, String player_name, String player_photo, String player_games, String player_goal,
-			String player_yellow_card, String player_red_card, int team_no, CupTeam cup_team,
-			MultipartFile photo_file) {
+	
+	public CupPlayer(int player_no, String player_name, String player_photo, int player_games, int player_goal,
+			int player_yellow_card, int player_red_card, int team_no, CupTeam cup_team, MultipartFile photo_file) {
 		super();
 		this.player_no = player_no;
 		this.player_name = player_name;
@@ -60,35 +59,35 @@ public class CupPlayer {
 		this.player_photo = player_photo;
 	}
 
-	public String getPlayer_games() {
+	public int getPlayer_games() {
 		return player_games;
 	}
 
-	public void setPlayer_games(String player_games) {
+	public void setPlayer_games(int player_games) {
 		this.player_games = player_games;
 	}
 
-	public String getPlayer_goal() {
+	public int getPlayer_goal() {
 		return player_goal;
 	}
 
-	public void setPlayer_goal(String player_goal) {
+	public void setPlayer_goal(int player_goal) {
 		this.player_goal = player_goal;
 	}
 
-	public String getPlayer_yellow_card() {
+	public int getPlayer_yellow_card() {
 		return player_yellow_card;
 	}
 
-	public void setPlayer_yellow_card(String player_yellow_card) {
+	public void setPlayer_yellow_card(int player_yellow_card) {
 		this.player_yellow_card = player_yellow_card;
 	}
 
-	public String getPlayer_red_card() {
+	public int getPlayer_red_card() {
 		return player_red_card;
 	}
 
-	public void setPlayer_red_card(String player_red_card) {
+	public void setPlayer_red_card(int player_red_card) {
 		this.player_red_card = player_red_card;
 	}
 
@@ -114,5 +113,6 @@ public class CupPlayer {
 
 	public void setPhoto_file(MultipartFile photo_file) {
 		this.photo_file = photo_file;
-	}	
+	}
+
 }

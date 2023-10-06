@@ -83,10 +83,10 @@ public class CupRepositoryImpl implements CupRepository {
 	@Override
 	public void setNewCupPlayer(CupPlayer cupPlayer) {
 		
-		cupPlayer.setPlayer_games("0");
-		cupPlayer.setPlayer_goal("0");
-		cupPlayer.setPlayer_yellow_card("0");
-		cupPlayer.setPlayer_red_card("0");
+		cupPlayer.setPlayer_games(0);
+		cupPlayer.setPlayer_goal(0);
+		cupPlayer.setPlayer_yellow_card(0);
+		cupPlayer.setPlayer_red_card(0);
 		
 		if(cupPlayer.getPhoto_file() != null && cupPlayer.getPlayer_photo() != null) {
 	    	
@@ -140,8 +140,7 @@ public class CupRepositoryImpl implements CupRepository {
 	@Override
 	public void updateCupTeam(CupTeam cup_team) {
 		
-		if(cup_team.getEmblem_file() != null) {
-	    	
+		if(cup_team.getEmblem_file() != null) {    	
 		       MultipartFile image = cup_team.getEmblem_file();  
 		       String saveName = image.getOriginalFilename(); 
 
@@ -161,6 +160,11 @@ public class CupRepositoryImpl implements CupRepository {
 		    	cup_team.setTeam_emblem("basic.PNG");
 		    }				
 		sql.update("Cup.updateTeam", cup_team);
+	}
+	
+	@Override
+	public void deleteTeam(int team_no) {
+		sql.delete("Cup.deleteTeam",team_no);
 	}
 	
 	@Override
@@ -189,17 +193,33 @@ public class CupRepositoryImpl implements CupRepository {
 	}
 	
 	@Override
-	public void scheduleDelete(int schedule_no) {
+	public void updateCupSchedule(CupSchedule cup_schedule) {
+		sql.update("Cup.updateSchedule", cup_schedule);
+	}
+	
+	@Override
+	public void deleteSchedule(int schedule_no) {
 		sql.delete("Cup.deleteSchedule", schedule_no);
 	}
 	
 	@Override
 	public void updateScheduleDetail(CupMatchDetail cup_detail) {
+
 		sql.update("Cup.updateScheduleDetail", cup_detail);
 	}
 	
 	@Override
 	public List<CupPlayer> getCupTeamByPlayerList(int team_no){
 		return sql.selectList("Cup.CupTeamByPlayerList", team_no);
+	}
+	
+	@Override
+	public void updateManagerByCupTeam(CupTeam cup_team) {
+		sql.update("Cup.updateManagerByCupTeam", cup_team);
+	}
+	
+	@Override
+	public void updateManagerByCupPlayer(CupPlayer cup_player) {
+		sql.update("Cup.updateManagerByCupPlayer", cup_player);
 	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -13,7 +14,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/manager.css?qq' />" />
 
 <!-- JS 연결 -->
-<script src="<c:url value='/resources/js/manager.js?qqwwqwqweeqq' />" defer></script>
+<script src="<c:url value='/resources/js/manager.js?qdd' />" defer></script>
 
 </head>
 
@@ -47,7 +48,7 @@
                         <td>${player_list.player_red_card}</td>
                         <td colspan="2">
                             <a class="playerBtn" onclick="openPlayerPopup('${player_list.player_no}')">수정</a>
-                            <a class="playerDelBtn" onclick="">삭제</a>
+                            <a class="playerDelBtn" onclick="playerDelete('${player_list.player_no}',${team_no})">퇴출</a>
                         </td>
                     </tr>
                     </c:forEach>
@@ -57,60 +58,32 @@
 
         <!--선수관리 팝업-->
         <c:forEach items="${player_list}" var="player_list">
+        <form:form id="playerForm${player_list.player_no}" modelAttribute = "playerUpdate" method="post" action="mgrPlayerList" enctype="multipart/form-data">
         <div class="playerPopup" id="playerPopup${player_list.player_no}">
             <section class="playerInfo">
                 <span class="closeBtn" onclick="closePopup(playerPopup${player_list.player_no})">x</span>
                 <table class="mgrPlayerInfo">
-                    <tr>
-                        <th>지점</th>
-                        <td>
-                            <form action="#">
-                                <select class=schSelect name="" id="" required>
-                                    <option value>지점선택</option>
-                                    <option value>더피치 인하점</option>
-                                    <option value>더피치 평택점</option>
-                                    <option value>더피치 천안신방점</option>
-                                    <option value>아산인주풋살장</option>
-                                    <option value>부산 북구점</option>
-                                    <option value>울산 남구점</option>
-                                    <option value>전주 완산점</option>
-                                    <option value>제주 서귀포점</option>
-                                </select>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>팀명</th>
-                        <td>
-                            <form action="#">
-                                <select class=schSelect name="" id="" required>
-                                    <option value>팀 선택</option>
-                                    <option value>스피드러너</option>
-                                    <option value>동그라미</option>
-                                    <option value>3</option>
-                                </select>
-                            </form>
-                        </td>
-                    </tr>
+              		<form:input type="hidden" path="team_no" value="${team_no}"/>
+					<form:input type="hidden" path="player_no" value="${player_list.player_no}"/>
                     <tr>
                         <th>선수명</th>
-                        <td><input class="schSelect" type="text" value="김용독"></td>
+                        <td><form:input class="schSelect" type="text" path="player_name" value="${player_list.player_name}"/></td>
                     </tr>
                     <tr>
                         <th>출전</th>
-                        <td><input class="schSelect" type="text" value="0"></td>
+                        <td><form:input class="schSelect" type="text" path="player_games" value="${player_list.player_games}"/></td>
                     </tr>
                     <tr>
                         <th>득점</th>
-                        <td><input class="schSelect" type="text" value="0"></td>
+                        <td><form:input class="schSelect" type="text" path="player_goal" value="${player_list.player_goal}"/></td>
                     </tr>
                     <tr>
                         <th>경고</th>
-                        <td><input class="schSelect" type="text" value="0"></td>
+                        <td><form:input class="schSelect" type="text" path="player_yellow_card" value="${player_list.player_yellow_card}"/></td>
                     </tr>
                     <tr>
                         <th>퇴장</th>
-                        <td><input class="schSelect" type="text" value="0"></td>
+                        <td><form:input class="schSelect" type="text" path="player_red_card" value="${player_list.player_red_card}"/></td>
                     </tr>
                 </table>
 
@@ -121,6 +94,7 @@
 
             </section>
         </div>
+        </form:form>
         </c:forEach>
     </main>
 

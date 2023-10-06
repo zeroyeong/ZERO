@@ -80,6 +80,11 @@ public class CupServiceImpl implements CupService {
 	}
 	
 	@Override
+	public void deleteTeam(int team_no) {
+		cupRepository.deleteTeam(team_no);
+	}
+	
+	@Override
 	public void deletePlayer(int player_no) {
 		cupRepository.deletePlayer(player_no);
 	}
@@ -90,8 +95,13 @@ public class CupServiceImpl implements CupService {
 	}
 	
 	@Override
-	public void scheduleDelete(int schedule_no) {
-		cupRepository.scheduleDelete(schedule_no);
+	public void updateCupSchedule(CupSchedule cup_schedule) {
+		cupRepository.updateCupSchedule(cup_schedule);
+	}
+	
+	@Override
+	public void deleteSchedule(int schedule_no) {
+		cupRepository.deleteSchedule(schedule_no);
 	}
 	
 	@Override
@@ -102,6 +112,16 @@ public class CupServiceImpl implements CupService {
 	@Override
 	public List<CupPlayer> getCupTeamByPlayerList(int team_no){
 		return cupRepository.getCupTeamByPlayerList(team_no);
+	}
+	
+	@Override
+	public void updateManagerByCupTeam(CupTeam cup_team) {
+		cupRepository.updateManagerByCupTeam(cup_team);
+	}
+	
+	@Override
+	public void updateManagerByCupPlayer(CupPlayer cup_player) {
+		cupRepository.updateManagerByCupPlayer(cup_player);
 	}
 }
  

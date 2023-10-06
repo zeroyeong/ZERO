@@ -226,8 +226,8 @@
 		ORDER BY 
 	    	s.SCHEDULE_DATE DESC; 	    			
 	</select>
-	
-	<update id="updateTeam" parameterType="CupTeam">
+	    
+    <update id="updateTeam" parameterType="CupTeam">
     	 update CUP_TEAM set 
     	 	TEAM_NAME = #{team_name}, 
     	 	TEAM_LEADER = #{team_leader}, 
@@ -240,6 +240,22 @@
    			BRANCH_NO = #{branch_no}
     	 	where TEAM_NO = #{team_no}
     </update>
+ 
+    <update id="updateManagerByCupTeam" parameterType="CupTeam">
+    	 update CUP_TEAM set 
+   			BRANCH_NO = #{branch_no},
+    	 	TEAM_NAME = #{team_name}, 
+    	 	TEAM_LEADER = #{team_leader}, 
+    	 	TEAM_PHONE = #{team_phone}, 
+    	 	TEAM_MAIL = #{team_mail},  
+   			TEAM_PASSWORD = #{team_password},
+   			TEAM_CODE = #{team_code}	
+    	 	where TEAM_NO = #{team_no}
+    </update> 
+    
+    <delete id="deleteTeam" parameterType="int">
+        DELETE FROM CUP_TEAM WHERE TEAM_NO = #{team_no} 
+    </delete>
     
     <delete id="deletePlayer" parameterType="int">
         DELETE FROM CUP_PLAYER WHERE PLAYER_NO = #{player_no} 
@@ -250,6 +266,12 @@
         insert into CUP_MATCH_SCHEDULE(TEAM_HOME_NO, TEAM_AWAY_NO, SCHEDULE_LOCATION, SCHEDULE_DATE, SCHEDULE_TIME, SCHEDULE_HOME_GOAL, SCHEDULE_AWAY_GOAL, BRANCH_NO, DETAIL_NO)
         values(#{team_home_no}, #{team_away_no}, #{schedule_location}, #{schedule_date}, #{schedule_time}, #{schedule_home_goal}, #{schedule_away_goal}, #{branch_no}, #{detail_no})
     </insert>
+    <update id="updateSchedule">
+    	 update cup_match_schedule set 
+    	 	SCHEDULE_HOME_GOAL = #{schedule_home_goal}, 
+    	 	SCHEDULE_AWAY_GOAL = #{schedule_away_goal} 
+    	 	WHERE SCHEDULE_NO = #{schedule_no}
+    </update>
     
     <insert id="insertScheduleDetail" parameterType="CupMatchDetail">
         insert into cup_match_detail(DETAIL_TEAM_HOME_GOAL, DETAIL_TEAM_AWAY_GOAL, DETAIL_HOME_YELLOW_CARD, DETAIL_AWAY_YELLOW_CARD, DETAIL_HOME_RED_CARD, DETAIL_AWAY_RED_CARD)
@@ -271,8 +293,18 @@
     	 	DETAIL_HOME_YELLOW_CARD = #{detail_home_yellow_card},
     	 	DETAIL_AWAY_YELLOW_CARD = #{detail_away_yellow_card},
     	  	DETAIL_HOME_RED_CARD = #{detail_home_red_card},  
-			DETAIL_AWAY_RED_CARD = #{detail_away_red_card} 
-    	 	where DETAIL_NO = #{detail_no}
+			DETAIL_AWAY_RED_CARD = #{detail_away_red_card}
+    	 	WHERE DETAIL_NO = #{detail_no}
+    </update>
+    
+    <update id="updateManagerByCupPlayer" parameterType="CupPlayer">
+    	 update CUP_PLAYER set 
+    	 	PLAYER_NAME = #{player_name}, 
+    	 	PLAYER_GAMES = #{player_games}, 
+    	 	PLAYER_GOAL = #{player_goal},
+    	 	PLAYER_YELLOW_CARD = #{player_yellow_card},
+    	  	PLAYER_RED_CARD = #{player_red_card}  
+    	 	WHERE PLAYER_NO = #{player_no}
     </update>
 </mapper>
 
