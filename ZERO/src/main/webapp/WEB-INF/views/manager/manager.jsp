@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
     <!-- JS 연결 -->
-    <script src="<c:url value='/resources/js/manager.js?fd' />" defer></script>
+    <script src="<c:url value='/resources/js/manager.js?dfjddd' />" defer></script>
 
 </head>
 
@@ -293,8 +293,8 @@
 
 
     <!--경기일정 팝업-->
-    <form:form id="scheduleDetailForm" modelAttribute = "detail" method="post" action="manager/scheduleDetail">       
     <c:forEach items="${cup_schedule_list}" var="cupSchedule">
+    <form:form id="scheduleDetailForm${cupSchedule.schedule_no}" modelAttribute = "detail" method="post" action="manager/scheduleDetail">       
         <div class="schPopup" id="schPopup${cupSchedule.schedule_no}">
             <section class="schInfo">
                 <span class="closeBtn" onclick="closePopup(schPopup${cupSchedule.schedule_no})">x</span>
@@ -343,13 +343,13 @@
                 </table>
 				<form:input type="hidden" path="detail_no" value="${cupSchedule.schedule_no}"/>
                 <div class="mgrBtn">
-                    <input type="submit" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup', ${cupSchedule.schedule_no})">
+                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup', ${cupSchedule.schedule_no})">
                     <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup', ${cupSchedule.schedule_no})">
                 </div>
             </section>
         </div>
-    </c:forEach>
 	</form:form>
+    </c:forEach>
     <!--사용자 팝업-->
     <c:forEach items="${cupTeamList}" var="cupTeam">
         <div class="userPopup" id="userPopup${cupTeam.team_no}">

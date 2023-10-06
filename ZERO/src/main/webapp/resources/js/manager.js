@@ -88,7 +88,9 @@ function okBtnPop(popupId, num) {
             message = "경기 일정 수정 처리 되었습니다.";
             closeSchPopup(num);
             refreshSection('mgrSchContent');
-            //var scheduleDetailForm = document.getElementById('scheduleDetailForm');
+            console.log("num = " + num);
+            var scheduleDetailForm = document.getElementById('scheduleDetailForm${num}');
+            console.log("scheduleDetailForm = "+scheduleDetailForm);
   			//scheduleDetailForm.submit(); 
             break;
         case 'userPopup':
