@@ -41,4 +41,6 @@ public interface CupService {
 	void scheduleDelete(int schedule_no);
 	
 	void updateScheduleDetail(CupMatchDetail cup_detail);
+	
+	List<CupPlayer> getCupTeamByPlayerList(int team_no);
 }

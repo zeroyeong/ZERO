@@ -197,4 +197,9 @@ public class CupRepositoryImpl implements CupRepository {
 	public void updateScheduleDetail(CupMatchDetail cup_detail) {
 		sql.update("Cup.updateScheduleDetail", cup_detail);
 	}
+	
+	@Override
+	public List<CupPlayer> getCupTeamByPlayerList(int team_no){
+		return sql.selectList("Cup.CupTeamByPlayerList", team_no);
+	}
 }

@@ -98,5 +98,10 @@ public class CupServiceImpl implements CupService {
 	public void updateScheduleDetail(CupMatchDetail cup_detail) {
 		cupRepository.updateScheduleDetail(cup_detail);
 	}
+	
+	@Override
+	public List<CupPlayer> getCupTeamByPlayerList(int team_no){
+		return cupRepository.getCupTeamByPlayerList(team_no);
+	}
 }
  

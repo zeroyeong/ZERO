@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zero.domain.Branch;
 import com.zero.domain.CupMatchDetail;
+import com.zero.domain.CupPlayer;
 import com.zero.domain.CupSchedule;
 import com.zero.domain.CupTeam;
 import com.zero.domain.Reservation;
@@ -77,10 +78,14 @@ public class ManagerController {
 		return "redirect:/manager";
 	}
 	
-	@GetMapping("/mgrPlayerList")
-	public String mgrPlayerList() {
+	@GetMapping("/manager/mgrPlayerList")
+	public String mgrPlayerList(@RequestParam("team_no") int team_no, Model model) {
+		List<CupPlayer> player_list = cupService.getCupTeamByPlayerList(team_no);
+		
+		model.addAttribute("player_list", player_list);
 		return "manager/mgrPlayerList";
 	}
+	
 	
 	@PostMapping("/manager/cancel")
 	public String cancelReservation(@RequestParam("re_no") int re_no) {

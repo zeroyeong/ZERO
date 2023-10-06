@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
     <!-- JS 연결 -->
-    <script src="<c:url value='/resources/js/manager.js?d' />" defer></script>
+    <script src="<c:url value='/resources/js/manager.js?fd' />" defer></script>
 
 </head>
 
@@ -99,7 +99,7 @@
                                             alt="">
                                         </div>
                                         <div class="teamTitle">
-                                            <a href="<c:url value=" /mgrPlayerList" />">${cupTeam.team_name}</a>
+                                            <a href="<c:url value="manager/mgrPlayerList?team_no=${cupTeam.team_no}" />">${cupTeam.team_name}</a>
                                         </div>
                                     </div>
                                 </td>
@@ -343,7 +343,7 @@
                 </table>
 				<form:input type="hidden" path="detail_no" value="${cupSchedule.schedule_no}"/>
                 <div class="mgrBtn">
-                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup', ${cupSchedule.schedule_no})">
+                    <input type="submit" class="okBtnPop" value="확인" onclick="okBtnPop('schPopup', ${cupSchedule.schedule_no})">
                     <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('schPopup', ${cupSchedule.schedule_no})">
                 </div>
             </section>

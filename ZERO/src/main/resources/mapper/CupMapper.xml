@@ -21,7 +21,7 @@
         values(#{player_name}, #{player_photo}, #{player_games}, #{player_goal}, #{player_yellow_card}, #{player_red_card}, #{team_no})
     </insert>
     
-     <select id="selectPlayer" resultType="CupPlayer">
+    <select id="selectPlayer" resultType="CupPlayer">
         select * from cup_player
     </select>
 
@@ -115,7 +115,18 @@
 	    WHERE 
 	    	t.TEAM_NO = #{player_no}
 	</select>
-
+	<select id="CupTeamByPlayerList" resultMap="CupPlayerResultMap">
+		SELECT
+	         p.*, t.*
+	    FROM
+	        Cup_Player p
+	    JOIN
+	        Cup_Team t
+	    ON
+	        p.TEAM_NO = t.TEAM_NO
+	    WHERE
+		 	t.TEAM_NO = #{player_no};    
+	</select>
  	<resultMap id="CupScheduleResultMap" type="CupSchedule">  
         <id property="schedule_no" column="SCHEDULE_NO"/>
         <result property="schedule_location" column="SCHEDULE_LOCATION"/>
