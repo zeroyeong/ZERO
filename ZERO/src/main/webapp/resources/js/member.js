@@ -113,7 +113,7 @@ function findId(){
 
 //비밀번호 찾기
 function findPw(){
-	window.open("findPw","findId", "width=670, height=500");
+	window.open("findPw","findId", "width=670, height=560");
 }
 
 /*______네이버 로그인______*/

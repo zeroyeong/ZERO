@@ -36,18 +36,14 @@ public class MemberRepositoryImpl implements MemberRepository {
 	/*______계정찾기______*/
 	// 아이디 찾기
 	@Override
-	public Member findMemberId(String mem_name, String mem_phone) {
-		Member member = sql.selectOne(mem_name, mem_phone);
-		System.out.println("Repository: "+member);
-		return member;
+	public String findMemberId(Member member) {
+		return sql.selectOne("Member.findMemberId", member);
 	}; 
 	
 	// 비밀번호 찾기
 	@Override
-	public Member findMemberPw(String mem_name, String mem_id) {
-		Member member = sql.selectOne(mem_name, mem_id);
-		System.out.println("Repository: "+member);
-		return member;
+	public String findMemberPw(Member member) {
+		return sql.selectOne("Member.findMemberPw", member);
 	}; 
 	
 	/*______마이페이지______*/

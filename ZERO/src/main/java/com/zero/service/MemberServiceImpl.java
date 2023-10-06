@@ -38,27 +38,14 @@ public class MemberServiceImpl implements MemberService {
 	/*______계정찾기______*/
 	//아이디 찾기
 	@Override
-	public String findMemberId(String mem_name, String mem_phone) {
-		Member member = memberRepository.findMemberId(mem_name, mem_phone);
-		
-		System.out.println("아이디찾기 입력한 이름: "+ mem_name +" / 전화번호: "+ mem_phone);
-		System.out.println("service: "+member);
-		
-		if(member.getMem_id() != null)
-			return member.getMem_id();
-		
-		return null;
+	public String findMemberId(Member member) {
+		return memberRepository.findMemberId(member);
 	}
 	
 	//비밀번호 찾기
 	@Override
-	public String findMemberPw(String mem_name, String mem_id) {
-		Member member = memberRepository.findMemberPw(mem_name, mem_id);
-		
-		if(member.getMem_pw() != null)
-			return member.getMem_pw();
-		
-		return null;
+	public String findMemberPw(Member member) {
+		return memberRepository.findMemberPw(member);
 	}
 	
 	/*______마이페이지______*/

@@ -11,14 +11,14 @@ public interface MemberRepository {
 	/*______로그인______*/
 	Member getMemberLoginInfo(String mem_id); //로그인
 	
+	/*______계정찾기______*/
+	String findMemberId(Member member); //아이디 찾기
+	String findMemberPw(Member member); //비밀번호 찾기
+	
 	/*______마이페이지______*/
 	Member getMemberInfo(String mem_id); //마이페이지
 	void updateMember(Member member); //회원정보 수정
 
 	/*______탈퇴______*/
 	void deleteMember(String mem_id);
-	
-	/*______계정찾기______*/
-	Member findMemberId(String mem_name, String mem_phone); //아이디 찾기
-	Member findMemberPw(String mem_name, String mem_id); //비밀번호 찾기
 }

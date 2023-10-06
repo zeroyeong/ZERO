@@ -85,13 +85,22 @@ public class MemberController {
 	}
 	
 	@PostMapping("/findId")
-	public String findMemberId(@RequestParam("mem_name") String mem_name, @RequestParam("mem_phone") String mem_phone, Model model) {
-		System.out.println("Controller 이름: "+mem_name);
-		System.out.println("Controller 전화번호: "+mem_phone);
-		String mem_id = memberService.findMemberId(mem_name, mem_phone);
-
+	public String findMemberId(
+			@RequestParam("mem_name") String mem_name,
+			@RequestParam("mem_phone") String mem_phone,
+			Member member, Model model) {
+		
+		System.out.println("Controller > "+mem_name+" / "+mem_phone);		
+		
+		member.setMem_name(mem_name);
+		member.setMem_phone(mem_phone);
+		
+		String mem_id = memberService.findMemberId(member);
+		
 		model.addAttribute("mem_id", mem_id);
-		return "member/findId";
+
+		System.out.println("controller> "+mem_id);
+		return "member/findIdResult";
 	}
 	
 	//비밀번호 찾기
@@ -101,13 +110,24 @@ public class MemberController {
 	}
 	
 	@PostMapping("/findPw")
-	public String findMemberPw(@RequestParam("mem_name") String mem_name, @RequestParam("mem_id") String mem_id, Model model) {
-		System.out.println("Controller 이름: "+mem_name);
-		System.out.println("Controller 아이디: "+mem_id);
-		String mem_pw = memberService.findMemberId(mem_name, mem_id);
+	public String findMemberPw(
+			@RequestParam("mem_name") String mem_name,
+			@RequestParam("mem_id") String mem_id,
+			@RequestParam("mem_phone") String mem_phone,
+			Member member, Model model) {
+		
+		System.out.println("Controller > "+mem_name+" / "+mem_phone+" / "+mem_id);		
+		
+		member.setMem_id(mem_id);
+		member.setMem_name(mem_name);
+		member.setMem_phone(mem_phone);
 
+		String mem_pw = memberService.findMemberPw(member);
+		
 		model.addAttribute("mem_pw", mem_pw);
-		return "member/findPw";
+		
+		System.out.println("controller> "+mem_pw);
+		return "member/findPwResult";
 	}
 
 	/*______마이페이지______*/

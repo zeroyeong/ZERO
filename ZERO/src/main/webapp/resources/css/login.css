@@ -335,17 +335,13 @@ label.background {
 
 section.findId,
 section.findPw {
-  width: fit-content;
+  width: 626px;
   background-color: #fff;
   padding: 78px 90px;
   border-radius: 10px;
 
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  display: none;
+  margin:20px auto;
+  position:relative;
 }
 
 section.findId label.closeBtn,
