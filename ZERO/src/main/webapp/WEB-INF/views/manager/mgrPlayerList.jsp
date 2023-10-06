@@ -10,10 +10,10 @@
 <title>ZERO FUTSAL</title>
 
 <!-- CSS 연결 -->
-<link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
+<link rel="stylesheet" href="<c:url value='/resources/css/manager.css?qq' />" />
 
 <!-- JS 연결 -->
-<script src="<c:url value='/resources/js/manager.js' />" defer></script>
+<script src="<c:url value='/resources/js/manager.js?qq' />" defer></script>
 
 </head>
 
@@ -36,18 +36,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>선수명</td>
-                        <td>출전</td>
-                        <td>득점</td>
-                        <td>경고</td>
-                        <td>퇴장</td>
-                        <td colspan="2">
-                            <a class="playerBtn" onclick="openPlayerPopup()">수정</a>
-                            <a class="playerDelBtn" onclick="">삭제</a>
-                        </td>
-                    </tr>
                     <c:forEach items="${player_list}" var="player_list">
                     <c:set var="num" value="${num + 1}" />
                     <tr>
