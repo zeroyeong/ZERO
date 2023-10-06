@@ -32,7 +32,7 @@ function openUserPopup(num) {
     openPopup(userPopup);
 }
 
-function openPlayerPopup() {
+function openPlayerPopup(num) {
   const playerPopup = document.getElementById(`playerPopup${num}`);
     openPopup(playerPopup);
 }
@@ -56,8 +56,8 @@ function closeUserPopup(num) {
     closePopup(userPopup);
 }
 
-function closePlayerPopup() {
-    const userPopup = document.getElementById(`playerPopup${num}`);
+function closePlayerPopup(num) {
+    const playerPopup = document.getElementById(`playerPopup${num}`);
     closePopup(playerPopup);
 }
 

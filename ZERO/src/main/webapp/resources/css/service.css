@@ -8,32 +8,16 @@ input[type="radio"] {
   display: none;
 }
 
-input[id="notice"]:checked~.harlfButton label[for="notice"] {
-  background-color: var(--pointColor);
-  color: #fff;
-}
-
-input[id="notice"]:checked~.container h1.faq {
-  display: none;
-}
-
-input[id="notice"]:checked~.container section.faq {
-  display: none;
-}
-
+input[id="notice"]:checked~.harlfButton label[for="notice"],
 input[id="faq"]:checked~.harlfButton label[for="faq"] {
   background-color: var(--pointColor);
   color: #fff;
 }
 
-input[id="faq"]:checked~.container h1.notice {
-  display: none;
-}
-
-input[id="notice"]:checked~.container section.faq {
-  display: none;
-}
-
+input[id="notice"]:checked~.container h1.faq,
+input[id="notice"]:checked~.container section.faq,
+input[id="faq"]:checked~.container h1.notice,
+input[id="notice"]:checked~.container section.faq,
 input[id="faq"]:checked~.container section.notice {
   display: none;
 }

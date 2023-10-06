@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/manager.css?qq' />" />
 
 <!-- JS 연결 -->
-<script src="<c:url value='/resources/js/manager.js?qq' />" defer></script>
+<script src="<c:url value='/resources/js/manager.js?qqwwqwqweeqq' />" defer></script>
 
 </head>
 
@@ -46,7 +46,7 @@
                         <td>${player_list.player_yellow_card}</td>
                         <td>${player_list.player_red_card}</td>
                         <td colspan="2">
-                            <a class="playerBtn" onclick="openPlayerPopup()">수정</a>
+                            <a class="playerBtn" onclick="openPlayerPopup('${player_list.player_no}')">수정</a>
                             <a class="playerDelBtn" onclick="">삭제</a>
                         </td>
                     </tr>
@@ -56,9 +56,10 @@
         </section>
 
         <!--선수관리 팝업-->
-        <div class="playerPopup" id="playerPopup">
+        <c:forEach items="${player_list}" var="player_list">
+        <div class="playerPopup" id="playerPopup${player_list.player_no}">
             <section class="playerInfo">
-                <span class="closeBtn" onclick="closePopup(playerPopup)">x</span>
+                <span class="closeBtn" onclick="closePopup(playerPopup${player_list.player_no})">x</span>
                 <table class="mgrPlayerInfo">
                     <tr>
                         <th>지점</th>
@@ -114,12 +115,13 @@
                 </table>
 
                 <div class="mgrBtn">
-                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('playerPopup')">
-                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('playerPopup')">
+                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('playerPopup', ${player_list.player_no})">
+                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('playerPopup', ${player_list.player_no})">
                 </div>
 
             </section>
         </div>
+        </c:forEach>
     </main>
 
     <!-- footer include -->
