@@ -53,9 +53,11 @@ session.setAttribute("state", state);
     <section class="container">
       <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
       <form name="loginFrm" method="post" action="login" onsubmit="return frm_check();">
+      
       <!--<c:if test="${mem_name == null }">
       	<p style="color:red; text-align:center;">로그인에 실패했습니다.</p>
       </c:if>-->
+      
         <dl>
           <dt>
             <label for="userId">아이디</label>
