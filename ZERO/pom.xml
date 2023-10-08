@@ -64,6 +64,8 @@
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<!-- PJY
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -88,6 +90,24 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
+		 -->
+
+
+		<!-- new email -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>5.3.9</version>
+		</dependency>
+		<!-- new email -->
+	
+
 
 		<!-- @Inject -->
 		<dependency>

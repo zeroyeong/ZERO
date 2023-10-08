@@ -9,10 +9,23 @@
 </head>
 <body>
 <h1>
-	Hello world!  알로항122222222222222222222222 
+	Hello world!  알로항1222222222222222222222223 
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
 
+<h1>이메일 인증</h1>
+
+<h2>이메일 인증 상태  -> ${emailcheck}</h2>
+
+
+<form action="/zero/email" method="post">
+   <input type="text" name="email" placeholder="이메일">
+   <input type="submit" value="인증코드보내기">
+</form>
+
+    <input type="text" name="verificationCode" placeholder="인증 코드">
+    <input type="submit" value="확인">
+    
 </body>
 </html>
