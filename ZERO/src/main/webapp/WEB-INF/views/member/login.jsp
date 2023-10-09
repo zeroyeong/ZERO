@@ -74,23 +74,19 @@
 
       <div class="snsLogin">
         <p>SNS 간편로그인</p>
-          <div id="naver_id_login" style="text-align:center">
-			<a href="${url}"><img width="223" src="${pageContext.request.contextPath}/resources/img/naver_Bn_Green.PNG"/></a>
-  		  </div>
-
-        <button type="button" class="kakao" onClick="kakaoLogin();">
+        <button type="button" class="kakao" onClick="location.href='{kakaoAuthUrl}'">
           <span>
             <img src="<c:url value="/resources/images/kakao.png" />" alt="" />
           </span>
           카카오 계정으로 로그인
         </button>
-        <button type="button" class="naver">
+        <button type="button" class="naver" onClick="location.href='{naverAuthUrl}'">
           <span>
             <img src="<c:url value="/resources/images/naver.png" />" alt="" />
           </span>
           네이버 계정으로 로그인
         </button>
-        <button type="button" class="faceBook" onClick="fnFbCustomLogin();">
+        <button type="button" class="faceBook" onClick="location.href='{naverAuthUrl}'">
           <span>
             <img src="<c:url value="/resources/images/facebook.png" />" alt="" />
           </span>
