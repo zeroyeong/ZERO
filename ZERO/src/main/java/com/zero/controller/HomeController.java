@@ -71,7 +71,7 @@ public class HomeController {
     try {
     	 MimeMessage message = javaMailSender.createMimeMessage();
          MimeMessageHelper helper = new MimeMessageHelper(message, true);
-         helper.setFrom("wmun5122@naver.com");
+         helper.setFrom("choiyj9812@naver.com");
          helper.setTo(email);
          helper.setSubject(subject);
          helper.setText(body);

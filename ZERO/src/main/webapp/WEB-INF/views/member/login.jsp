@@ -25,30 +25,14 @@
    <script src="<c:url value="/resources/js/member.js?b" />" defer></script>
    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
    
-   <!-- naver 로그인 -->
-	<!-- <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
-
-   <!-- 카카오톡 로그인 -->
-   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+   <!-- 네이버 로그인 -->
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
 </head> 
  <body>
- 
-<!-- naver 소셜로그인 -->   
-<%
-String clientId = "YOUR_CLIENT_ID";//애플리케이션 클라이언트 아이디값";
-String redirectURI = URLEncoder.encode("http://localhost:8080/zero/navercallback", "UTF-8"); //콜백주소
-SecureRandom random = new SecureRandom();
-String state = new BigInteger(130, random).toString();
-String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code"
-     + "&client_id=" + "ftP2BpWPuD8yQyXqmdlO"
-     + "&redirect_uri=" + "http://localhost:8080/zero/navercallback"
-     + "&state=" + state;
-session.setAttribute("state", state);
-%>
  
     <section class="container">
       <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
@@ -90,7 +74,9 @@ session.setAttribute("state", state);
 
       <div class="snsLogin">
         <p>SNS 간편로그인</p>
-          <a href="<%=apiURL%>"><img height="68" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
+          <div id="naver_id_login" style="text-align:center">
+			<a href="${url}"><img width="223" src="${pageContext.request.contextPath}/resources/img/naver_Bn_Green.PNG"/></a>
+  		  </div>
 
         <button type="button" class="kakao" onClick="kakaoLogin();">
           <span>

@@ -29,52 +29,7 @@
         <beans:property name="maxUploadSize" value="10240000" /><!-- 업로드파일 최대 크기 -->
     </beans:bean>
     
-    <!-- 소셜로그인을 위한 라이브러리 추가 -->
-    <!-- 네이버 시작 -->
-    <beans:bean id="naverClientID" class="java.lang.String">
-    	<beans:constructor-arg value="ftP2BpWPuD8yQyXqmdlO" />
-    </beans:bean>
-    <beans:bean id="naverClientSecret" class="java.lang.String">
-    	<beans:constructor-arg value="q9P7LP0yWR" />
-    </beans:bean>
-    <beans:bean id="naverRedirectUrl" class="java.lang.String">
-    	<beans:constructor-arg value="http://localhost:8080/zero/auth/naver/callback" />
-    </beans:bean>
-    
-    <beans:bean id="naverSns" class="com.zero.auth.SnsValue">
-    	<beans:constructor-arg value="naver" />
-    	<beans:constructor-arg ref="naverClientID" />
-    	<beans:constructor-arg ref="naverClientSecret" />
-    	<beans:constructor-arg ref="naverRedirectUrl" />
-    </beans:bean>
-    <!-- 네이버 끝 -->
-    
-    <!-- 구글 시작 -->
-    <beans:bean id="googleClientID" class="java.lang.String">
-    	<beans:constructor-arg value="330363450460-a3bqtl9hpsrjn282co74ilv1avtjj3up.apps.googleusercontent.com" />
-    </beans:bean>
-    <beans:bean id="googleClientSecret" class="java.lang.String">
-    	<beans:constructor-arg value="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" />
-    </beans:bean>
-    <beans:bean id="googleRedirectUrl" class="java.lang.String">
-    	<beans:constructor-arg value="http://localhost:8080/zero/auth/google/callback" />
-    </beans:bean>
-    
-    <beans:bean id="googleSns" class="com.zero.auth.SnsValue">
-    	<beans:constructor-arg value="naver" />
-    	<beans:constructor-arg ref="googleClientID" />
-    	<beans:constructor-arg ref="googleClientSecret" />
-    	<beans:constructor-arg ref="googleRedirectUrl" />
-    </beans:bean>
-    
-    <beans:bean id="googleConnectionFactory" class="org.springframework.social.google.connect.GoogleConnectionFactory">
-    	<beans:constructor-arg ref="googleClientID" />
-    	<beans:constructor-arg ref="googleClientSecret" />
-    </beans:bean>
-    <beans:bean id="googleOAuth2Parameters" class="org.springframework.social.oauth2.OAuth2Parameters">
-    	<beans:property name="scope" value="https://www.googleapis.com/auth/userinfo.email" />
-    	<beans:property name="redirectUri" ref="googleRedirectUrl" />
-    </beans:bean>
-    <!-- 구글 끝 -->
+    <!-- NaverLoginBO class에 대한 Bean설정 추가 
+    <beans:bean id="naverLgoinBO" class="com.zero.auth.NaverLoginBo" />-->
     
 </beans:beans>

@@ -2,14 +2,20 @@ package com.zero.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.github.scribejava.core.model.OAuth2AccessToken;
+import com.zero.auth.NaverLoginBO;
 import com.zero.domain.Member;
 import com.zero.service.MemberService;
 
@@ -17,9 +23,12 @@ import com.zero.service.MemberService;
 
 public class MemberController {
 	
+	/* NaverLoginBe */
+	private NaverLoginBO naverLoginBo;
+	private String apiResult = null;
+	
 	@Autowired
 	private MemberService memberService;
-	
 	
 	/*________ 회원가입 ________*/
 	@GetMapping("/join_agree")
@@ -125,6 +134,59 @@ public class MemberController {
 		return "member/findPwResult";
 	}
 	
+	/*________ 네이버 로그인 ________*/
+	@RequestMapping(value="/login", method= {RequestMethod.GET, RequestMethod.POST})
+	public String NaverLogin(Model model, HttpSession session){
+		/* 네아로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl 메소드 호출 */
+		String naverAuthUrl = naverLoginBo.getAuthorizationUrl(session);
+		
+		/* 인증요청문 확인 */
+		System.out.println("네이버: "+naverAuthUrl);
+		
+		/* 객체 바인딩 */
+		model.addAttribute("urlNaver", naverAuthUrl);
+		
+		/* 생성한 인증 URL을 View로 전달 */
+		return "member/login";
+	}
+	
+	//네이버 로그인 성공시 callback호출 메서드
+	@RequestMapping(value="/auth/naver/callback", method= {RequestMethod.GET, RequestMethod.POST})
+	public String callbackNaver(Model model, @RequestParam String code, @RequestParam String state,
+			HttpSession session) throws Exception {
+		System.out.println("로그인 성공 callbackNaver");
+		OAuth2AccessToken oauthToken;
+		oauthToken = naverLoginBo.getAccessToken(session, code, state);
+		
+		//로그인 사용자 정보를 읽어온다.
+		apiResult = naverLoginBo.getUserProfile(oauthToken);
+		
+		JSONParser jsonParser = new JSONParser();
+		JSONObject jsonObj;
+		
+		jsonObj = (JSONObject) jsonParser.parse(apiResult);
+		JSONObject response_obj = (JSONObject) jsonObj.get("response");
+		
+		//프로필 조회
+		String email = (String) response_obj.get("email");
+		String name = (String) response_obj.get("name");
+		
+		//세션에 사용자 정보 등록
+		//session.setAttribute("islogin_r", "Y");
+		session.setAttribute("signIn", apiResult);
+		session.setAttribute("email", email);
+		session.setAttribute("name", name);
+		
+		/* 네이버 로그인 서공 페이지 View 호출 */
+		return "redirect:/";
+	}
+	
+	//소셜 로그인 성공 페이지
+	@RequestMapping("/loginSuccess")
+	public String loginSuccess() {
+		return "member/loginSuccess";
+	}
+	
 	/*________ 로그아웃 ________*/
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
@@ -179,13 +241,5 @@ public class MemberController {
 		}
 		session.invalidate();
 		return "redirect:/";
-	}
-	
-	/*_______________소셜로그인_______________*/
-	
-	/*______네이버______*/
-	@GetMapping("/navercallback")
-	public String navercallback() {
-		return "member/navercallback";
 	}
 }
