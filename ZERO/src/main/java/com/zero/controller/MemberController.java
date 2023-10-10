@@ -1,7 +1,7 @@
 package com.zero.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
-import com.zero.auth.KakaoLoginBO;
 import com.zero.auth.NaverLoginBO;
 import com.zero.domain.Member;
 import com.zero.service.MemberService;
@@ -56,15 +55,24 @@ public class MemberController {
 	
 	
 	/*________ 로그인 ________*/
-	@GetMapping("/login")
-	public String toLoginPage(HttpSession session) {
-		String mem_id = (String) session.getAttribute("mem_id");
-		if(mem_id != null) { //로그인이 되어있는 상태라면
-			return "redirect:/zero";
-		}
-		return "member/login"; //로그인이 되어있지 않다면 로그인페이지로
+	
+	private NaverLoginBO naverLoginBO;
+	private String apiResult = null;
+	
+	@Autowired
+	private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
+		this.naverLoginBO = naverLoginBO;
 	}
 	
+	@GetMapping("/login")
+	public ModelAndView toLoginPage(HttpSession session) {
+		/* 네아로 인증 URL을 생성하기 위하여 getQuthorizationUrl을 호출 */
+		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+		
+		/* 생성한 인증 URL을 View로 전달 */
+		return new ModelAndView("member/login", "url", naverAuthUrl);
+	}
+		
 	@PostMapping("/login")
 	public String login(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
 			Member member, HttpSession session, Model model) {
@@ -84,6 +92,20 @@ public class MemberController {
 		session.setAttribute("mem_id", mem_id);
 		return "redirect:/";
 	}
+	 
+		//네이버 로그인 성공시 callback호출 메소드
+		@RequestMapping("/auth/naver/callback")
+		public ModelAndView callback(Model model,
+								@RequestParam String code,
+								@RequestParam String state,
+								HttpSession session) throws Exception {
+			/* 네아로 인증이 성공적으로 완료되면 code 파라미터가 전달되며 이를 통해 access token을 발급 */
+    		OAuth2AccessToken oauthToken = naverLoginBO.getAccessToken(session, code, state);
+    		String apiResult = naverLoginBO.getUserProfile(oauthToken);
+        	return new ModelAndView("member/navercallback", "result", apiResult);
+		}
+
+
 	
 	/*______계정찾기______*/
 	//아이디 찾기
@@ -133,115 +155,6 @@ public class MemberController {
 		return "member/findPwResult";
 	}
 	
-	/*________ 소셜 로그인 ________*/
-	@Autowired
-	NaverLoginBO naverLoginBO;
-	KakaoLoginBO kakaoLoginBO;
-	
-	// 로그인 화면
-	@RequestMapping(value = "/login.do")
-	public String login(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) {
-
-		String serverUrl = request.getScheme()+"://"+request.getServerName();
-		if(request.getServerPort() != 80) {
-			serverUrl = serverUrl + ":" + request.getServerPort();
-		}
-		
-		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session, serverUrl);
-		model.addAttribute("naverAuthUrl", naverAuthUrl);
-		
-		String kakaoAuthUrl = kakaoLoginBO.getAuthorizationUrl(session, serverUrl);
-		model.addAttribute("kakaoAuthUrl", kakaoAuthUrl);
-
-		return "/login/login";
-	}
-
-	// 네이버 로그인 성공시 callback
-	@RequestMapping(value = "/naverOauth2ClientCallback.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String naverOauth2ClientCallback(HttpServletRequest request, HttpServletResponse response, Model model, @RequestParam String code, @RequestParam String state, HttpSession session) throws Exception {
-
-		String serverUrl = request.getScheme()+"://"+request.getServerName();
-		if(request.getServerPort() != 80) {
-			serverUrl = serverUrl + ":" + request.getServerPort();
-		}
-
-		OAuth2AccessToken oauthToken;
-		oauthToken = naverLoginBO.getAccessToken(session, code, state, serverUrl);
-		if(oauthToken == null) {
-			model.addAttribute("msg", "네이버 로그인 access 토큰 발급 오류 입니다.");
-			model.addAttribute("url", "/");
-			return "/common/redirect";
-		}
-		
-		// 로그인 사용자 정보를 읽어온다
-		String apiResult = naverLoginBO.getUserProfile(oauthToken, serverUrl);
-		
-		JSONParser jsonParser = new JSONParser();
-		Object obj = jsonParser.parse(apiResult);
-		JSONObject jsonObj = (JSONObject) obj;
-		
-		JSONObject response_obj = (JSONObject) jsonObj.get("response");
-
-		// 프로필 조회
-		String id = (String) response_obj.get("id");
-		String gender = (String) response_obj.get("gender");
-		
-		// 세션에 사용자 정보 등록
-		session.setAttribute("islogin_r", "Y");
-		session.setAttribute("id", id);
-		session.setAttribute("gender", gender);
-		
-		return "redirect:/";
-	}
-	
-	// 카카오 로그인 성공시 callback
-	@RequestMapping(value = "/kakaoOauth2ClientCallback.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String kakaoOauth2ClientCallback(HttpServletRequest request, HttpServletResponse response, Model model, @RequestParam String code, @RequestParam String state, HttpSession session) throws Exception {
-
-		String serverUrl = request.getScheme() + "://" + request.getServerName();
-		if (request.getServerPort() != 80) {
-			serverUrl = serverUrl + ":" + request.getServerPort();
-		}
-
-		OAuth2AccessToken oauthToken;
-		oauthToken = kakaoLoginBO.getAccessToken(session, code, state, serverUrl);
-		if (oauthToken == null) {
-			model.addAttribute("msg", "카카오 로그인 access 토큰 발급 오류 입니다.");
-			model.addAttribute("url", "/");
-			return "/common/redirect";
-		}
-
-		// 로그인 사용자 정보를 읽어온다
-		String apiResult = kakaoLoginBO.getUserProfile(oauthToken, serverUrl);
-
-		JSONParser jsonParser = new JSONParser();
-		Object obj = jsonParser.parse(apiResult);
-		JSONObject jsonObj = (JSONObject) obj;
-
-		JSONObject response_obj = (JSONObject) jsonObj.get("kakao_account");
-		
-		// 프로필 조회
-		String id = (String) response_obj.get("id");
-		String gender = (String) response_obj.get("gender");
-		
-		// 세션에 사용자 정보 등록
-		session.setAttribute("islogin_r", "Y");
-		session.setAttribute("id", id);
-		session.setAttribute("gender", gender);	
-
-		return "redirect:/";
-	}
-
-	// 로그아웃
-	@RequestMapping(value = "/logout.do")
-	public String logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
-
-		// 세션 삭제
-		session.invalidate();
-		
-		return "redirect:/";
-	}	
-
 	
 	/*________ 로그아웃 ________*/
 	@GetMapping("/logout")

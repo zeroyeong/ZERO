@@ -15,7 +15,9 @@ import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
  
 @Component
-public class NaverLoginBO {// 네이버 로그인 정보
+public class NaverLoginBO {
+	
+	// 네이버 로그인 정보
 	private final static String NAVER_CLIENT_ID = "ftP2BpWPuD8yQyXqmdlO";
 	private final static String NAVER_CLIENT_SECRET = "q9P7LP0yWR";
 	private final static String NAVER_REDIRECT_URI = "http://localhost:8080/zero/auth/naver/callback";
@@ -23,38 +25,28 @@ public class NaverLoginBO {// 네이버 로그인 정보
 	private final static String SESSION_STATE = "naver_oauth_state";
 	private final static String PROFILE_API_URL = "https://openapi.naver.com/v1/nid/me";
 
-	public String getAuthorizationUrl(HttpSession session, String serverUrl) {
+	public String getAuthorizationUrl(HttpSession session) {
 		String state = generateRandomString();
 		setSession(session, state);
 		OAuth20Service oauthService = new ServiceBuilder(NAVER_CLIENT_ID)
 				.apiSecret(NAVER_CLIENT_SECRET)
-				.callback(serverUrl + NAVER_REDIRECT_URI)
+				.callback(NAVER_REDIRECT_URI)
 				.build(NaverOAuthApi.instance());
+		
 		return oauthService.getAuthorizationUrl();
 	}
 
-	public OAuth2AccessToken getAccessToken(HttpSession session, String code, String state, String serverUrl) throws Exception {
+	public OAuth2AccessToken getAccessToken(HttpSession session,
+			String code, String state) throws Exception {
 		String sessionState = getSession(session);
 		if (StringUtils.pathEquals(sessionState, state)) {
 			OAuth20Service oauthService = new ServiceBuilder(NAVER_CLIENT_ID)
 					.apiSecret(NAVER_CLIENT_SECRET)
-					.callback(serverUrl + NAVER_REDIRECT_URI)
+					.callback(NAVER_REDIRECT_URI)
 					.build(NaverOAuthApi.instance());
 			OAuth2AccessToken accessToken = oauthService.getAccessToken(code);
 			return accessToken;
 		}
-		return null;
-	}
-
-	public String getUserProfile(OAuth2AccessToken oauthToken, String serverUrl) throws Exception {
-		OAuth20Service oauthService = new ServiceBuilder(NAVER_CLIENT_ID)
-				.apiSecret(NAVER_CLIENT_SECRET)
-				.callback(serverUrl + NAVER_REDIRECT_URI)
-				.build(NaverOAuthApi.instance());
-		OAuthRequest request = new OAuthRequest(Verb.GET, PROFILE_API_URL);
-		oauthService.signRequest(oauthToken, request);
-//		Response response = request.send();
-//		return response.getBody();
 		return null;
 	}
 	
@@ -68,5 +60,17 @@ public class NaverLoginBO {// 네이버 로그인 정보
 
 	private String getSession(HttpSession session) {
 		return (String) session.getAttribute(SESSION_STATE);
+	}
+	
+	public String getUserProfile(OAuth2AccessToken oauthToken) throws Exception {
+		OAuth20Service oauthService = new ServiceBuilder(NAVER_CLIENT_ID)
+				.apiSecret(NAVER_CLIENT_SECRET)
+				.callback(NAVER_REDIRECT_URI)
+				.build(NaverOAuthApi.instance());
+		
+		OAuthRequest request = new OAuthRequest(Verb.GET, PROFILE_API_URL);
+		oauthService.signRequest(oauthToken, request);
+		Response response = oauthService.execute(request);
+		return response.getBody();
 	}
 }

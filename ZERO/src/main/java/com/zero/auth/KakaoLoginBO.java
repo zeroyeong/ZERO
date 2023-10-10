@@ -18,9 +18,9 @@ import com.github.scribejava.core.oauth.OAuth20Service;
 public class KakaoLoginBO {
 
 	// 카카오 로그인 정보
-	private final static String KAKAO_CLIENT_ID = "2112f2d3884100169e130e968f11c394";
-	private final static String KAKAO_CLIENT_SECRET = "시크리트 키";
-	private final static String KAKAO_REDIRECT_URI = "/login/kakaoOauth2ClientCallback.do";
+	private final static String KAKAO_CLIENT_ID = "25024f8312dac8b31c5a26b08e1fcaa0";
+	private final static String KAKAO_CLIENT_SECRET = "cvZiVczKDsG82j0Pl88xldn4OuqNlnAu";
+	private final static String KAKAO_REDIRECT_URI = "http://localhost:8080/zero/auth/kakao/callback";
 	
 	private final static String SESSION_STATE = "kakao_oauth_state";
 	private final static String PROFILE_API_URL = "https://kapi.kakao.com/v2/user/me";
@@ -32,32 +32,21 @@ public class KakaoLoginBO {
 				.apiSecret(KAKAO_CLIENT_SECRET)
 				.callback(serverUrl + KAKAO_REDIRECT_URI)
 				.build(KakaoOAuthApi20.instance());
+		
 		return oauthService.getAuthorizationUrl();
 	}
 
-	public OAuth2AccessToken getAccessToken(HttpSession session, String code,
-			String state, String serverUrl) throws Exception {
+	public OAuth2AccessToken getAccessToken(HttpSession session,
+			String code, String state) throws Exception {
 		String sessionState = getSession(session);
 		if (StringUtils.pathEquals(sessionState, state)) {
 			OAuth20Service oauthService = new ServiceBuilder(KAKAO_CLIENT_ID)
 					.apiSecret(KAKAO_CLIENT_SECRET)
-					.callback(serverUrl + KAKAO_REDIRECT_URI)
+					.callback(KAKAO_REDIRECT_URI)
 					.build(KakaoOAuthApi20.instance());
 			OAuth2AccessToken accessToken = oauthService.getAccessToken(code);
 			return accessToken;
 		}
-		return null;
-	}
-
-	public String getUserProfile(OAuth2AccessToken oauthToken, String serverUrl) throws Exception {
-		OAuth20Service oauthService = new ServiceBuilder(KAKAO_CLIENT_ID)
-				.apiSecret(KAKAO_CLIENT_SECRET)
-				.callback(serverUrl + KAKAO_REDIRECT_URI)
-				.build(KakaoOAuthApi20.instance());
-		OAuthRequest request = new OAuthRequest(Verb.GET, PROFILE_API_URL);
-		oauthService.signRequest(oauthToken, request);
-//		Response response = request.send();
-//		return response.getBody();
 		return null;
 	}
 	
@@ -71,5 +60,17 @@ public class KakaoLoginBO {
 
 	private String getSession(HttpSession session) {
 		return (String) session.getAttribute(SESSION_STATE);
+	}
+	
+	public String getUserProfile(OAuth2AccessToken oauthToken) throws Exception {
+		OAuth20Service oauthService = new ServiceBuilder(KAKAO_CLIENT_ID)
+				.apiSecret(KAKAO_CLIENT_SECRET)
+				.callback(KAKAO_REDIRECT_URI)
+				.build(KakaoOAuthApi20.instance());
+		
+		OAuthRequest request = new OAuthRequest(Verb.GET, PROFILE_API_URL);
+		oauthService.signRequest(oauthToken, request);
+		Response response = oauthService.execute(request);
+		return response.getBody();
 	}
 }
