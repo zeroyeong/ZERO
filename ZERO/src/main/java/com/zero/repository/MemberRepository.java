@@ -10,6 +10,7 @@ public interface MemberRepository {
 	
 	/*______로그인______*/
 	String login(Member member); //로그인
+	Member getBySns(Member snsMember);
 	
 	/*______계정찾기______*/
 	String findMemberId(Member member); //아이디 찾기

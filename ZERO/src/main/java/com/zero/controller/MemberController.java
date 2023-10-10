@@ -1,32 +1,50 @@
 package com.zero.controller;
 
-import java.io.IOException;
-
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.google.connect.GoogleConnectionFactory;
+import org.springframework.social.oauth2.GrantType;
+import org.springframework.social.oauth2.OAuth2Operations;
+import org.springframework.social.oauth2.OAuth2Parameters;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.github.scribejava.core.model.OAuth2AccessToken;
-import com.zero.auth.NaverLoginBO;
 import com.zero.domain.Member;
+import com.zero.oauth.SNSLogin;
+import com.zero.oauth.SnsValue;
 import com.zero.service.MemberService;
 
 @Controller 
 
 public class MemberController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	
 	@Autowired
 	private MemberService memberService;
+	
+	@Inject
+	private SnsValue naverSns;
+	
+	@Inject
+	private SnsValue googleSns;
+	
+	@Inject
+	private GoogleConnectionFactory googleConnectionFactory;
+	
+	@Inject
+	private OAuth2Parameters googleOAuth2Parameters;
 	
 	/*________ 회원가입 ________*/
 	@GetMapping("/join_agree")
@@ -47,30 +65,25 @@ public class MemberController {
 		return "member/idCheck";
 	}
 	
+
 	@PostMapping("/member")
 	public String addMember(@ModelAttribute("NewMember") Member member) {
 		memberService.addMember(member);
 		return "member/login";
 	}
 	
-	
-	/*________ 로그인 ________*/
-	
-	private NaverLoginBO naverLoginBO;
-	private String apiResult = null;
-	
-	@Autowired
-	private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
-		this.naverLoginBO = naverLoginBO;
-	}
-	
+	/*________ 로그인 ________*/	
 	@GetMapping("/login")
-	public ModelAndView toLoginPage(HttpSession session) {
-		/* 네아로 인증 URL을 생성하기 위하여 getQuthorizationUrl을 호출 */
-		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+	public void login(Model model) throws Exception {
 		
-		/* 생성한 인증 URL을 View로 전달 */
-		return new ModelAndView("member/login", "url", naverAuthUrl);
+		SNSLogin snsLogin = new SNSLogin(naverSns);
+		model.addAttribute("naver_url", snsLogin.getNaverAuthUrl());
+		
+		/* 구글code 발행을 위한 URL 생성 */
+		OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
+		String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
+
+		model.addAttribute("google_url", url);
 	}
 		
 	@PostMapping("/login")
@@ -92,20 +105,36 @@ public class MemberController {
 		session.setAttribute("mem_id", mem_id);
 		return "redirect:/";
 	}
-	 
-		//네이버 로그인 성공시 callback호출 메소드
-		@RequestMapping("/auth/naver/callback")
-		public ModelAndView callback(Model model,
-								@RequestParam String code,
-								@RequestParam String state,
-								HttpSession session) throws Exception {
-			/* 네아로 인증이 성공적으로 완료되면 code 파라미터가 전달되며 이를 통해 access token을 발급 */
-    		OAuth2AccessToken oauthToken = naverLoginBO.getAccessToken(session, code, state);
-    		String apiResult = naverLoginBO.getUserProfile(oauthToken);
-        	return new ModelAndView("member/navercallback", "result", apiResult);
+	
+	@RequestMapping("/auth/{service}/callback")
+	public String snsLoginCallback(@PathVariable String snsService,
+			Model model, @RequestParam String code, HttpSession session) throws Exception {
+		logger.info("snsLoginCallback: service={}", snsService);
+		SnsValue sns = null;
+		if(StringUtils.equals("naver", snsService))
+			sns = naverSns;
+		else if (StringUtils.equals("google", snsService))
+			sns = googleSns;
+		
+		SNSLogin snsLogin = new SNSLogin(googleSns);
+		Member snsMember = snsLogin.getUserProfile(code);
+		System.out.println("Profile>>" + snsMember);
+		
+		Member member = memberService.getBySns(snsMember);
+		if(member == null) {
+			model.addAttribute("result", "존재하지 않는 사용자입니다. 가입해 주세요.");
+
+			//미존재시 가입페이지로 가게끔 해야함
+		} else {
+			model.addAttribute("result", member.getMem_name() + "님, 반갑습니다.");
+			
+			//sns로그인했을 때 아이디가 존재하면 로그인되도록
+			session.setAttribute("mem_name", member.getMem_name());
 		}
-
-
+		
+		return "member/loginResult";
+	}
+	
 	
 	/*______계정찾기______*/
 	//아이디 찾기

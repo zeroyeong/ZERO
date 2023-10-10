@@ -9,6 +9,7 @@ public interface MemberService {
 	
 	/*________ 로그인 ________*/
 	String login(Member member);
+	Member getBySns(Member snsMember);
 	
 	/*______계정찾기______*/
 	String findMemberId(Member member); //아이디 찾기

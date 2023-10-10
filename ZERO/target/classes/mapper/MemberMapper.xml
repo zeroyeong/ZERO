@@ -30,6 +30,16 @@
     	select mem_name from member where mem_id = #{mem_id} and mem_pw = #{mem_pw}
     </select>
     
+    <!-- 네이버 아이디로 로그인하는 사람 확인 -->
+    <select id="getBySnsNaver" parameterType="Member" resultType="Member">
+    	select * from member where naverId = #{naverId}
+    </select>
+    
+    <!-- 구글 아이디로 로그인하는 사람 확인 -->
+    <select id="getBySnsGoogle" parameterType="Member" resultType="Member">
+    	select * from member where googleId = #{googleId}
+    </select>
+    
     <!-- 아이디 찾기 -->
     <select id="findMemberId" parameterType="Member" resultType="String">
     	select mem_id from member where mem_phone = #{mem_phone} and mem_name = #{mem_name} 
@@ -53,17 +63,6 @@
     <delete id="deleteMember">
     	delete from member where mem_id = #{mem_id}
     </delete> 
-    
-     <!-- ________________________________________________________ -->
-     
-     <!-- 마이페이지 예약확인 
-     <select id="myReserInfo" parameterType="Reservation" resultType="Resevation">
-     	SELECT * FROM reservation reser
-		JOIN branch bran ON reser.RE_BRANCH=bran.BRANCH_NO
-		JOIN stadium sta ON reser.RE_STADIUM=sta.STADIUM_NO
-		JOIN time t ON reser.RE_TIME=t.TIME_NO
-		WHERE RE_NAME = #{RE_NAME} AND RE_PWD = #{RE_PWD}
-     </select>-->
           
 </mapper>
 

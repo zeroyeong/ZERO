@@ -80,13 +80,13 @@
           </span>
           카카오 계정으로 로그인
         </button>
-        <button type="button" class="naver" onClick="location.href='${url}'">
+        <button type="button" class="naver" onClick="location.href='${naver_url}'">
           <span>
             <img src="<c:url value="/resources/images/naver.png" />" alt="" />
           </span>
           네이버 계정으로 로그인
         </button>
-        <button type="button" class="faceBook" onClick="location.href='navercallback'">
+        <button type="button" class="faceBook" onClick="location.href='${google_url}'">
           <span>
             <img src="<c:url value="/resources/images/facebook.png" />" alt="" />
           </span>

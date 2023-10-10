@@ -1,5 +1,6 @@
 package com.zero.repository; 
 
+import org.apache.commons.lang3.StringUtils;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -29,6 +30,15 @@ public class MemberRepositoryImpl implements MemberRepository {
 	@Override
 	public String login(Member member) {
 		return sql.selectOne("Member.login", member);
+	}
+
+	@Override
+	public Member getBySns(Member snsMember) {
+		if(StringUtils.isNotEmpty(snsMember.getNaverId())) {
+			return sql.selectOne("Member.getBySnsNaver", snsMember);
+		} else {
+			return sql.selectOne("Member.getBySnsGoogle", snsMember);
+		}
 	}
 	
 	/*______계정찾기______*/

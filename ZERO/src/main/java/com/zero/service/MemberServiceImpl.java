@@ -28,6 +28,11 @@ public class MemberServiceImpl implements MemberService {
 	public String login(Member member) {
 		return memberRepository.login(member);
 	}
+
+	@Override
+	public Member getBySns(Member snsMember) {
+		return memberRepository.getBySns(snsMember);
+	}
 	
 	/*______계정찾기______*/
 	//아이디 찾기
