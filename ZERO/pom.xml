@@ -185,26 +185,33 @@
 		</dependency>	
 			
 		<!-- 소셜로그인을 위한 라이브러리 추가 -->
-		<!-- OAuth2.0 -->
 		<dependency>
-		    <groupId>com.github.scribejava</groupId>
-		    <artifactId>scribejava-apis</artifactId>
-		    <version>8.3.3</version>
+			<groupId>com.github.scribejava</groupId>		    
+			<artifactId>scribejava-apis</artifactId>
+			<version>5.6.0</version>
 		</dependency>
 		
-		<dependency>
-		    <groupId>com.github.scribejava</groupId>
-		    <artifactId>scribejava-core</artifactId>
-		    <version>8.3.3</version>
-		</dependency>
+        <dependency>
+			<groupId>com.github.scribejava</groupId>		    
+			<artifactId>scribejava-core</artifactId>
+			<version>5.6.0</version>
+        </dependency>
 		
-		<!-- JSON 파싱 -->
 		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-		    <artifactId>json-simple</artifactId>
-		    <version>1.1.1</version>
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-google</artifactId>
+		    <version>1.0.0.RELEASE</version>
+		</dependency>	
+		<!-- 소셜로그인 라이브러리 종료 -->
+		
+		<!-- lombok 라이브러리 -->
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.30</version>
 		</dependency>
-
+		<!-- lombok 라이브러리 종료 -->
 		    
 	</dependencies>
     <build>
