@@ -136,9 +136,15 @@ public class NoticeController {
 	
 	@GetMapping("/service/noticesearch")
 	public String noticeSearch(@RequestParam("keyword") String keyword, Model model) {
-		List<Notice> list = noticeService.titleSerchNotice(keyword);
-		
-		model.addAttribute("list", list);
+		List<Notice> nlist = noticeService.titleSearchNotice(keyword);
+		model.addAttribute("noticeList", nlist);
+		return "service/service";
+	}
+	
+	@GetMapping("/service/faqsearch")
+	public String faqSearch(@RequestParam("keyword") String keyword, Model model) {
+		List<Faq> flist = noticeService.titleSearchFaq(keyword);
+		model.addAttribute("faqList", flist);
 		return "service/service";
 	}
 	

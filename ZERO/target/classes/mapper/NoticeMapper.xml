@@ -81,8 +81,13 @@
 </select>
 
 <select id="titleSearchNotice" resultType="Notice">
-	SELECT * FROM NOTICE
-	WHERE NOTICE_TITLE LIKE '%' || #{keyword} || '%'
+	SELECT * FROM NOTICE 
+	WHERE NOTICE_TITLE LIKE CONCAT('%', #{keyword}, '%') ORDER BY NOTICE_NO DESC
+</select>
+
+<select id="titleSearchFaq" resultType="Faq">
+	SELECT * FROM FAQ 
+	WHERE FAQ_TITLE LIKE CONCAT('%', #{keyword}, '%') ORDER BY FAQ_NO DESC
 </select>
 
 </mapper>

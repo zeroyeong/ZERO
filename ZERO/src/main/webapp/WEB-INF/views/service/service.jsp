@@ -109,11 +109,11 @@
 	          </tbody>
 	        </table>
 	
-	        <form action="service/noticesearch" method="get">
+	        <form action="service/faqsearch" method="get">
 	          <select>
 	            <option>제목</option>
 	          </select>
-	          <input type="text" name="notice_title" />
+	          <input type="text" name="keyword" />
 	          <button type="submit" class="searchButton">
 	            <i class="fa-solid fa-magnifying-glass"></i>
 	          </button>

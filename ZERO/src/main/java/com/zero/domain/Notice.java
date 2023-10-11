@@ -95,6 +95,5 @@ public class Notice {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-
 	
 }

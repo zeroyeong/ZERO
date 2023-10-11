@@ -85,8 +85,13 @@ public class NoticeRepositoryImpl implements NoticeRepository{
 	 }
 	 
 	 @Override
-	 public List<Notice> titleSerchNotice(String keyword) {
+	 public List<Notice> titleSearchNotice(String keyword) {
 		 return sql.selectList("Notice.titleSearchNotice", keyword);
+	 }
+	 
+	 @Override
+	 public List<Faq> titleSearchFaq(String keyword) {
+		 return sql.selectList("Notice.titleSearchFaq", keyword);
 	 }
 
 }

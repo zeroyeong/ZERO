@@ -35,5 +35,7 @@ public interface NoticeService {
 	
 	List<Faq> faqPrevNext(int faq_no);
 	
-	List<Notice> titleSerchNotice(String keyword);
+	List<Notice> titleSearchNotice(String keyword);
+	
+	List<Faq> titleSearchFaq(String keyword);
 }

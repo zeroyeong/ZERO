@@ -86,8 +86,13 @@ public class NoticeServiceImpl implements NoticeService {
     }
     
     @Override
-    public List<Notice> titleSerchNotice(String keyword) {
-    	return noticeRepository.titleSerchNotice(keyword);
+    public List<Notice> titleSearchNotice(String keyword) {
+    	return noticeRepository.titleSearchNotice(keyword);
+    }
+    
+    @Override
+    public List<Faq> titleSearchFaq(String keyword) {
+    	return noticeRepository.titleSearchFaq(keyword);
     }
 
 }
