@@ -4,86 +4,97 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Notice {
 	
-	private int notNo;
-	private String notTitle;
-	private String notWriter;
-	private String notContent;
-	private int notHit;
-	private String notDate;
-	private String notFile;
-	private MultipartFile fileName;
+	private int notice_no;
+	private String notice_title;
+	private String notice_content;
+	private int notice_hit;
+	private String notice_date;
+	private MultipartFile notice_imagefile;
+	private String notice_imagename;
 	
+	private String keyword;
 	
 	public Notice() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	public Notice(int notNo, String notTitle, String notWriter, String notContent, int notHit,
-			String notDate, String notFile, MultipartFile fileName) {
+
+	public Notice(int notice_no, String notice_title, String notice_content, int notice_hit, String notice_date,
+			MultipartFile notice_imagefile, String notice_imagename, String keyword) {
 		super();
-		this.notNo = notNo;
-		this.notTitle = notTitle;
-		this.notWriter = notWriter;
-		this.notContent = notContent;
-		this.notHit = notHit;
-		this.notDate = notDate;
-		this.notFile = notFile;
-		this.fileName = fileName;
+		this.notice_no = notice_no;
+		this.notice_title = notice_title;
+		this.notice_content = notice_content;
+		this.notice_hit = notice_hit;
+		this.notice_date = notice_date;
+		this.notice_imagefile = notice_imagefile;
+		this.notice_imagename = notice_imagename;
+		this.keyword = keyword;
 	}
 
+	public int getNotice_no() {
+		return notice_no;
+	}
 
-	public int getNotNo() {
-		return notNo;
+	public void setNotice_no(int notice_no) {
+		this.notice_no = notice_no;
 	}
-	public void setNotNo(int notNo) {
-		this.notNo = notNo;
+
+	public String getNotice_title() {
+		return notice_title;
 	}
-	public String getNotTitle() {
-		return notTitle;
+
+	public void setNotice_title(String notice_title) {
+		this.notice_title = notice_title;
 	}
-	public void setNotTitle(String notTitle) {
-		this.notTitle = notTitle;
+
+	public String getNotice_content() {
+		return notice_content;
 	}
-	public String getNotWriter() {
-		return notWriter;
+
+	public void setNotice_content(String notice_content) {
+		this.notice_content = notice_content;
 	}
-	public void setNotWriter(String notWriter) {
-		this.notWriter = notWriter;
+
+	public int getNotice_hit() {
+		return notice_hit;
 	}
-	public String getNotContent() {
-		return notContent;
+
+	public void setNotice_hit(int notice_hit) {
+		this.notice_hit = notice_hit;
 	}
-	public void setNotContent(String notContent) {
-		this.notContent = notContent;
+
+	public String getNotice_date() {
+		return notice_date;
 	}
-	public int getNotHit() {
-		return notHit;
+
+	public void setNotice_date(String notice_date) {
+		this.notice_date = notice_date;
 	}
-	public void setNotHit(int notHit) {
-		this.notHit = notHit;
+
+	public MultipartFile getNotice_imagefile() {
+		return notice_imagefile;
 	}
-	public String getNotDate() {
-		return notDate;
+
+	public void setNotice_imagefile(MultipartFile notice_imagefile) {
+		this.notice_imagefile = notice_imagefile;
 	}
-	public void setNotDate(String notDate) {
-		this.notDate = notDate;
+
+	public String getNotice_imagename() {
+		return notice_imagename;
 	}
-	public String getNotFile() {
-		return notFile;
+
+	public void setNotice_imagename(String notice_imagename) {
+		this.notice_imagename = notice_imagename;
 	}
-	public void setNotFile(String notFile) {
-		this.notFile = notFile;
+
+	public String getKeyword() {
+		return keyword;
 	}
-	public MultipartFile getFileName() {
-		return fileName;
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
-	public void setFileName(MultipartFile fileName) {
-		this.fileName = fileName;
-	}
+
 	
-	
-
-
 }

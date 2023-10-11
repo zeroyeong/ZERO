@@ -3,39 +3,87 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Notice">
-    <insert id="insertNotice" parameterType="Notice">
-        insert into Notice(notTitle, notContent, notFile, notHit, notDate)
-        values(#{notTitle}, #{notContent}, #{notFile}, #{notHit}, #{notDate})
-    </insert>
-     <select id="selectNotice" resultType="Notice">
-        select * from Notice
-    </select>
-    <select id="byNotNo" parameterType="int" resultType="Notice">
-    	select * from Notice where notNo = #{notNo}
-    </select>
-    <update id="updateNotice" parameterType="int">
-    	 update Notice set notTitle = #{notTitle}, notContent = #{notContent}, notPass = #{notPass}, notFile = #{notFile} where notNo = #{notNo}
-    </update>
-    <delete id="deleteNotice" parameterType="int">
-        DELETE FROM Notice WHERE notNo = #{notNo} 
-    </delete>
-    
-    <insert id="insertFaq" parameterType="Faq">
-        insert into Faq(faqTitle, faqContent, faqHit, faqDate)
-        values(#{faqTitle}, #{faqContent}, #{faqHit}, #{faqDate})
-    </insert>
-     <select id="selectFaq" resultType="Faq">
-        select * from Faq
-    </select>
-    <select id="byFaqNo" parameterType="int" resultType="Faq">
-    	select * from Faq where faqNo = #{faqNo}
-    </select>
-    <update id="updateFaq" parameterType="int">
-    	 update Faq set faqTitle = #{faqTitle}, faqContent = #{faqContent} where faqNo = #{faqNo}
-    </update>
-    <delete id="deleteFaq" parameterType="int">
-        DELETE FROM Faq WHERE faqNo = #{faqNo} 
-    </delete>
-    
-</mapper>
 
+ <select id="nList" resultType="Notice">
+	SELECT * FROM NOTICE
+	ORDER BY NOTICE_NO DESC
+ </select>
+ 
+  <select id="fList" resultType="Faq">
+	SELECT * FROM FAQ
+	ORDER BY FAQ_NO DESC
+ </select>
+
+<select id="getNotice" resultType="Notice">
+	SELECT * FROM NOTICE WHERE NOTICE_NO = #{notice_no} 
+</select>
+
+<select id="getFaq" resultType="Faq">
+	SELECT * FROM FAQ WHERE FAQ_NO = #{faq_no}
+</select>
+
+<update id="updateNotice">
+	UPDATE NOTICE
+	SET NOTICE_TITLE = #{notice_title},
+	NOTICE_CONTENT = #{notice_content}
+	WHERE NOTICE_NO = #{notice_no}
+</update>
+
+<update id="updateFaq">
+	UPDATE FAQ
+	SET FAQ_TITLE = #{faq_title},
+    FAQ_CONTENT = #{faq_content}
+	WHERE FAQ_NO = #{faq_no}
+</update>
+
+<delete id="deleteNotice">
+	DELETE FROM NOTICE WHERE NOTICE_NO = #{notice_no}
+</delete>
+
+<delete id="deleteFaq">
+	DELETE FROM FAQ WHERE FAQ_NO = #{faq_no}
+</delete>
+
+<insert id="addNotice">
+ 	INSERT INTO NOTICE(NOTICE_TITLE, NOTICE_CONTENT, NOTICE_HIT, NOTICE_DATE, NOTICE_IMAGENAME) 
+ 	VALUES (#{notice_title}, #{notice_content}, '0', CURDATE(), #{notice_imagename})
+</insert>
+
+<insert id="addFaq">
+	INSERT INTO FAQ(FAQ_TITLE, FAQ_CONTENT, FAQ_HIT, FAQ_DATE) 
+	VALUES (#{faq_title}, #{faq_content}, '0', CURDATE())
+</insert>
+
+<update id="countNoticeHit">
+	UPDATE NOTICE SET NOTICE_HIT = NOTICE_HIT + 1 WHERE NOTICE_NO = #{notice_no}
+</update>
+
+<update id="countFaqHit">
+	UPDATE FAQ SET FAQ_HIT = FAQ_HIT + 1 WHERE FAQ_NO = #{faq_no}
+</update>
+
+<select id="noticePrevNext" resultType="Notice">
+	<![CDATA[
+		SELECT *FROM NOTICE 
+  		WHERE NOTICE_NO IN (
+	    (SELECT NOTICE_NO FROM NOTICE WHERE NOTICE_NO <#{notice_no} ORDER BY NOTICE_NO DESC LIMIT 1),
+  		(SELECT NOTICE_NO FROM NOTICE WHERE NOTICE_NO>#{notice_no} LIMIT 1))
+  		ORDER BY NOTICE_NO DESC]]>
+</select>
+
+<select id="faqPrevNext" resultType="Faq">
+	<![CDATA[
+		SELECT *FROM FAQ 
+  		WHERE FAQ_NO IN (
+	    (SELECT FAQ_NO FROM FAQ WHERE FAQ_NO <#{faq_no} ORDER BY FAQ_NO DESC LIMIT 1),
+  		(SELECT FAQ_NO FROM FAQ WHERE FAQ_NO>#{faq_no} LIMIT 1))
+  		ORDER BY FAQ_NO DESC]]>
+</select>
+
+<select id="titleSearchNotice" resultType="Notice">
+	SELECT * FROM NOTICE
+	WHERE NOTICE_TITLE LIKE '%' || #{keyword} || '%'
+</select>
+
+</mapper>
+ 

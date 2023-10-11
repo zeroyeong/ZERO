@@ -15,7 +15,7 @@
     <!-- css 연결 -->
     <link rel="stylesheet" href="<c:url value="/resources/css/post.css?q" />" />
 
-</head>
+</head> 
 
 <body>
   	<!-- header include -->
@@ -25,7 +25,7 @@
 	     <div class="topVideo">
 	         <h2>고객센터</h2>
 	         <video id="video2" autoplay playsinline loop muted>
-	             <source src="resources/videos/point.mp4" type="video/mp4" />
+	             <source src="<c:url value="/resources/videos/point.mp4"/>" type="video/mp4" />
 	         </video>
 	     </div>
 
@@ -37,26 +37,26 @@
         <div class="container">
             <h1 class="pageTitle notice">FAQ</h1>
 
+		<form:form modelAttribute = "faq" method="post" action="../service/faqAdd">
             <table class="postAdd">
                 <thead>
                     <tr>
                         <th class="title" colspan="4">제목</th>
-                        <td><input type="text" class="titleInput" placeholder="제목내용" path="faqTitle"></td>
+                        <td><form:input type="text" class="titleInput" placeholder="제목내용" path="faq_title"/></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th class="title" colspan="4">본문</th>
-                        <td><textarea class="contentInput" placeholder="본문" path="faqContent"></textarea></td>
+                        <td><form:textarea class="contentInput" placeholder="본문" path="faq_content" /></td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="addButtons">
-                <input type="button" value="수정" class="notAddBtns">
-                <input type="button" value="삭제" class="notAddBtns">
-                <input type="button" value="작성" class="notAddBtns">
+				<button class="notAddBtns">작성</button>
             </div>
+          </form:form>
         </div>
     </main>
 

@@ -11,9 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NOTICE</title>
-    
-	<!-- css 연결 -->
-	<link rel="stylesheet" href="<c:url value="/resources/css/post.css?qweqwe"/>">
+
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="<c:url value="/resources/css/post.css?q" />" />
     
 </head>
 
@@ -25,7 +25,7 @@
 	     <div class="topVideo">
 	         <h2>고객센터</h2>
 	         <video id="video2" autoplay playsinline loop muted>
-	             <source src="resources/videos/point.mp4" type="video/mp4" />
+	             <source src="<c:url value="/resources/videos/point.mp4"/>" type="video/mp4" />
 	         </video>
 	     </div>
 	
@@ -39,36 +39,35 @@
             <h1 class="pageTitle notice">공지사항</h1>
             
             <table class="postAdd">
-            <form:form modelAttribute = "NewNotice" method="post" action="service/notice" enctype="multipart/form-data">
+            <form:form modelAttribute ="notice" enctype="multipart/form-data">
                 <thead>
-                
+                 
                     <tr>
                         <th class="title" colspan="4">제목</th>
-                        <td><input type="text" class="titleInput" placeholder="제목내용"></td>
+                        <td><form:input type="text" class="titleInput" path="notice_title" placeholder="${notice.notice_title}"/></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th class="title" colspan="4">본문</th>
-                        <td><textarea class="contentInput" placeholder="본문"></textarea></td>
+                        <td><form:textarea class="contentInput" path="notice_content" placeholder="${notice.notice_content}"/></td>
                     </tr>
                     <tr>
                         <th class="title" colspan="4">이미지</th>
                         <td>
-                            <form:input class="fileName" path="notFile" />
+                            <input class="fileName"/>
                             <input type="file" id="fileInput">
                             <label for="fileInput">이미지 찾기</label>
                         </td>
                     </tr>
                 </tbody>
-               </form:form>
             </table>
-        
-            <div class="addButtons">
-                <input type="button" value="수정" class="notAddBtns">
-                <input type="button" value="삭제" class="notAddBtns">
-                <input type="button" value="작성" class="notAddBtns">
+            <form:hidden path="notice_no" value="${notice.notice_no}" />
+		    <div class="addButtons">
+                <button type="submit" class="notAddBtns" formaction="../notice_${notice.notice_no}/update" formmethod="post">수정</button>
+                <button type="submit" class="notAddBtns" formaction="../notice_${notice.notice_no}/delete" formmethod="post">삭제</button>
             </div>
+            </form:form>
         </div>
     </main>
 

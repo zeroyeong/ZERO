@@ -2,55 +2,67 @@ package com.zero.domain;
 
 public class Faq {
 	
-	private int faqNo;
-	private String faqTitle;
-	private String faqContent;
-	private int faqHit;
-	private String faqDate;
+	private int faq_no;
+	private String faq_title;
+	private String faq_content;
+	private int faq_hit;
+	private String faq_date;
 	
-	public int getFaqNo() {
-		return faqNo;
-	}
-	public void setFaqNo(int faqNo) {
-		this.faqNo = faqNo;
-	}
-	public String getFaqTitle() {
-		return faqTitle;
-	}
-	public void setFaqTitle(String faqTitle) {
-		this.faqTitle = faqTitle;
-	}
-	public String getFaqContent() {
-		return faqContent;
-	}
-	public void setFaqContent(String faqContent) {
-		this.faqContent = faqContent;
-	}
-	public int getFaqHit() {
-		return faqHit;
-	}
-	public void setFaqHit(int faqHit) {
-		this.faqHit = faqHit;
-	}
-	public String getFaqDate() {
-		return faqDate;
-	}
-	public void setFaqDate(String faqDate) {
-		this.faqDate = faqDate;
-	}
-	public Faq(int faqNo, String faqTitle, String faqContent, int faqHit, String faqDate) {
-		super();
-		this.faqNo = faqNo;
-		this.faqTitle = faqTitle;
-		this.faqContent = faqContent;
-		this.faqHit = faqHit;
-		this.faqDate = faqDate;
-	}
 	public Faq() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	public Faq(int faq_no, String faq_title, String faq_content, int faq_hit, String faq_date) {
+		super();
+		this.faq_no = faq_no;
+		this.faq_title = faq_title;
+		this.faq_content = faq_content;
+		this.faq_hit = faq_hit;
+		this.faq_date = faq_date;
+	}
+
+	public int getFaq_no() {
+		return faq_no;
+	}
+
+	public void setFaq_no(int faq_no) {
+		this.faq_no = faq_no;
+	}
+
+	public String getFaq_title() {
+		return faq_title;
+	}
+
+	public void setFaq_title(String faq_title) {
+		this.faq_title = faq_title;
+	}
+
+	public String getFaq_content() {
+		return faq_content;
+	}
+
+	public void setFaq_content(String faq_content) {
+		this.faq_content = faq_content;
+	}
+
+	public int getFaq_hit() {
+		return faq_hit;
+	}
+
+	public void setFaq_hit(int faq_hit) {
+		this.faq_hit = faq_hit;
+	}
+
+	public String getFaq_date() {
+		return faq_date;
+	}
+
+	public void setFaq_date(String faq_date) {
+		this.faq_date = faq_date;
+	}
+	
+	
 	
 
 }

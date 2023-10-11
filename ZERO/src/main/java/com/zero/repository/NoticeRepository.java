@@ -5,29 +5,36 @@ import java.util.List;
 import com.zero.domain.Faq;
 import com.zero.domain.Notice;
 
-/* 상속받아 구현하기 위해서 interface 클래스 인 BookRepository 를 생성하고
- * getAllBookList() 추상메서드를 생성합니다. */
+
 public interface NoticeRepository {
-	public List<Notice> getNoticeList();
 	
-	public List<Faq> getFaqList();
+	List<Notice> noticeList();
 	
-	public Notice getByNotNo(int notNo);
+	List<Faq> faqList();
 	
-	public Faq getByFaqNo(int faqNo);
+	Notice getNotice(int notice_no);
 	
-	public void setNewNotice(Notice notice);
+	Faq getFaq(int faq_no);
 	
-	public void setNewFaq(Faq faq);
+	void updateNotice(Notice notice); 
 	
-	public void updateNotice(int notNo);
+	void updateFaq(Faq faq);
 	
-	public void updateFaq(int faqNo);
+	void deleteNotice(int notice_no);
 	
-	public void deleteNotice(int notNo);
+	void deleteFaq(int faq_no);
 	
-	public void deleteFaq(int faqNo);
-
+	void addNotice(Notice notice);
 	
-
+	void addFaq(Faq faq);
+	
+	void countNoticeHit(int notice_no);
+	
+	void countFaqHit(int faq_no);
+	
+	List<Notice> noticePrevNext(int notice_no);
+	
+	List<Faq> faqPrevNext(int faq_no);
+	
+	List<Notice> titleSerchNotice(String keyword);
 }

@@ -7,27 +7,33 @@ import com.zero.domain.Notice;
 
 public interface NoticeService {
 	
-	public List<Notice> getNoticeList();
+	List<Notice> noticeList();
 	
-	public List<Faq> getFaqList();
-	
-	public Notice getByNotNo(int notNo);
-	
-	public Faq getByFaqNo(int faqNo);
-	
-	public void setNewNotice(Notice notice);
-	
-	public void setNewFaq(Faq faq);
-	
-	public void updateNotice(int notNo);
-	
-	public void updateFaq(int faqNo);
-	
-	public void deleteNotice(int notNo);
-	
-	public void deleteFaq(int faqNo);
+	List<Faq> faqList();
 
+	Notice getNotice(int notice_no);
 	
-
+	Faq getFaq(int faq_no);
+	
+	void updateNotice(Notice notice);
+	
+	void updateFaq(Faq faq);
+	 
+	void deleteNotice(int notice_no);
+	
+	void deleteFaq(int faq_no);
+	
+	void addNotice(Notice notice);
+	
+	void addFaq(Faq faq);
+	
+	void countNoticeHit(int notice_no);
+	
+	void countFaqHit(int faq_no);
+	
+	List<Notice> noticePrevNext(int notice_no);
+	
+	List<Faq> faqPrevNext(int faq_no);
+	
+	List<Notice> titleSerchNotice(String keyword);
 }
- 
