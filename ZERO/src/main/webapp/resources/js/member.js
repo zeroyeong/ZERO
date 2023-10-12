@@ -33,7 +33,7 @@ function frmSubmit(){
   self.location.href = "join";
 } 
 
-//중복확인 버튼 클릭했을 때
+// 중복확인 버튼 클릭했을 때
 function idCheck(id){
 	const frm = document.joinFrm;
 	if(id == ""){
@@ -48,7 +48,25 @@ function idCheck(id){
 	}	  
 }
 
-//회원가입 버튼 클릭했을 때
+// 중복확인
+function useId(){
+	opener.joinFrm.mem_id.value="${mem_id}";
+	opener.joinFrm.checkId.value=true;
+	opener.joinFrm.mem_pw.focus();
+	window.close();
+}
+
+function idFrmSubmit(id){
+	if(id.indexOf("@") == -1 || id.indexOf(".com") == -1){
+		console.log(id);
+		alert("이메일 형식이 잘못됐습니다. 확인해주세요!");
+	} else{
+		document.idFrm.action = "idCheck?id="+id;
+		document.idFrm.submit();
+	}
+}
+
+// 회원가입 버튼 클릭했을 때
 function joinFrmSubmit(){
 console.log("click함");
 	const id = document.getElementById("user_id").value;
@@ -83,42 +101,7 @@ console.log("click함");
 	}
 }
 
-/*____________________________________________________________________________________________*/
-
-/*______로그인______*/
-//아이디찾기
-function findId(){
-	window.open("findId","findId", "width=670, height=500");
-}
-
-//비밀번호 찾기
-function findPw(){
-	window.open("findPw","findId", "width=670, height=560");
-}
-
-/*______네이버 로그인______*/
-
-//var naver_id_login = new naver_id_login("ftP2BpWPuD8yQyXqmdlO", "http://localhost:8080/zero/navercallback");
-//var state = naver_id_login.getUniqState();
-//naver_id_login.setButton("green", 15,70);
-//naver_id_login.setDomain("http://localhost:8080/zero");
-//naver_id_login.setState(state);
-//naver_id_login.setPopup();
-//naver_id_login.init_naver_id_login();
-	  
-/*____________________________________________________________________________________________*/
-
-/*______마이페이지______*/
-
-function updateMember(){
-	const pw = document.getElementById("mem_pw");
-	const pwCheck = document.getElementById("mem_pw2");
-	
-	if(pw.value != pwCheck.value){ alert("비밀번호를 확인해주세요."); }
-	
-	document.updateMember.submit();
-}
-
+// 메인인증
 function emailcheck(emailCode){
 	var emailConfirm = document.getElementById("emailConfirm");
 	console.log("emailCode = " + emailCode);
@@ -135,4 +118,106 @@ function emailSand(){
 		var joinFrm = document.getElementById("joinFrm");
 		joinFrm.action="email";
 		joinFrm.submit();
+}
+
+/*____________________________________________________________________________________________*/
+
+/*______로그인______*/
+// 아이디찾기
+function findId(){
+	window.open("findId","findId", "width=670, height=500");
+}
+
+// 비밀번호 찾기
+function findPw(){
+	window.open("findPw","findId", "width=670, height=560");
+}
+
+// 아이디 저장
+$(document).ready(function () {
+    var key = getCookie("idChk");
+    if (key != "") {
+        $("#userId").val(key);
+    }
+
+    if ($("#userId").val() != "") {
+        $("#saveId").attr("checked", true);
+    }
+
+    $("#saveId").change(function () {
+        if ($("#saveId").is(":checked")) {
+            setCookie("idChk", $("#userId").val(), 7);
+        } else {
+            deleteCookie("idChk");
+        }
+    });
+
+    $("#userId").keyup(function () {
+        if ($("#saveId").is(":checked")) {
+            setCookie("idChk", $("#logId").val(), 7);
+        }
+    });
+});
+
+function setCookie(cookieName, value, exdays) {
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var cookieValue = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toGMTString());
+    document.cookie = cookieName + "=" + cookieValue;
+}
+
+function deleteCookie(cookieName) {
+    var expireDate = new Date();
+    expireDate.setDate(expireDate.getDate() - 1);
+    document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+}
+
+function getCookie(cookieName) {
+    cookieName = cookieName + '=';
+    var cookieData = document.cookie;
+    var start = cookieData.indexOf(cookieName);
+    var cookieValue = '';
+    if (start != -1) {
+        start += cookieName.length;
+        var end = cookieData.indexOf(';', start);
+        if (end == -1) end = cookieData.length;
+        cookieValue = cookieData.substring(start, end);
+    }
+    return unescape(cookieValue);
+}
+
+// 로그인 실패 알럿
+$(function(){
+	var login_result = "${login_result}";
+	if(login_result == "fail"){
+		alert("로그인실패 \n 아이디와 비밀번호를 확인해주세요.");
+	}
+})
+	  
+/*____________________________________________________________________________________________*/
+
+/*______마이페이지______*/
+
+/*function updateMember(){
+	const pw = document.getElementById("mem_pw");
+	const pwCheck = document.getElementById("mem_pw2");
+	
+	if(pw.value != pwCheck.value){ alert("비밀번호를 확인해주세요."); }
+	
+	document.updateMember.submit();
+}*/
+
+// 정보수정
+function updateCheck(){
+	let mem_pw = document.updateMember.mem_pw.value;
+	let mem_pw2 = document.updateMember.mem_pw2.value;
+	
+	if(mem_pw == ""){
+		alert("비밀번호를 입력해주세요.");
+	} else if(mem_pw != mem_pw2){
+		alert("비밀번호 재확인을 해주세요.")
+	} else{
+		alert("정보변경이 완료되었습니다.")
+		document.updateMember.submit();
+	}
 }

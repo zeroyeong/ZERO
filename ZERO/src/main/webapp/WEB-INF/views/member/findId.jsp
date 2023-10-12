@@ -9,23 +9,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- css 연결 -->
+	<!-- css 연결 -->
    <link rel="stylesheet" href="<c:url value="/resources/css/login.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/member.js?b" />" defer></script>
-    
-    
-    <style>
-      label[for='findId'] {
-        cursor: pointer;
-      }
-      
-      section.findId,
-	  section.findPw{
-	  display:block;
-	  }
-    </style>
+   <script src="<c:url value="/resources/js/member.js" />" defer></script>
 </head>
 <body>
     <section class="findId">

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
@@ -8,15 +7,13 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta path="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>회원가입</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZEROFUTSAL</title>
 	<!-- css 연결 -->
     <link rel="stylesheet" href="<c:url value="/resources/css/join.css" />" />
     
    	<!-- js 연결 -->
     <script src="<c:url value="/resources/js/member.js?ver1" />" defer></script>
-    
   </head>
   <body>
     <section class="container">
@@ -62,8 +59,6 @@
         
         <!-- [중복확인] 버튼을 눌렀나 확인하는 hidden input -->
          <input type="hidden" name="checkId" id="checkId">
-         <!-- [메일인증] 버튼을 눌렀나 확인하는 hidden input -->
-         <input type="hidden" name="checkMail" id="checkMail">
         
       </form:form>
 

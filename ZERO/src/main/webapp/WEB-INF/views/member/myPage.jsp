@@ -8,19 +8,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>myPage</title>
-
+<title>ZEROFUTSAL</title>
    <!-- css 연결 -->
    <link rel="stylesheet" href="<c:url value="/resources/css/myPage.css" />" />
-
+   
    <!-- js 연결 -->
    <script src="<c:url value = "/resources/js/member.js?dd" />"></script>
-   
-   <style>
-   	h1{
-        cursor: pointer;
-   	}
-   </style>
 </head>
 <body>
 	<section class="container">
@@ -57,22 +50,6 @@
           </li>
          </form>
         </ul>
-        <script>
-        	function updateCheck(){
-        		let mem_pw = document.updateMember.mem_pw.value;
-        		let mem_pw2 = document.updateMember.mem_pw2.value;
-        		
-        		if(mem_pw == ""){
-        			alert("비밀번호를 입력해주세요.");
-        		} else if(mem_pw != mem_pw2){
-        			alert("비밀번호 재확인을 해주세요.")
-        		} else{
-        			alert("정보변경이 완료되었습니다.")
-        			document.updateMember.submit();
-        		}
-        	}
-        </script>
-
 
       <div class="footer">
         <h3 class="logo">zero futsal</h3>

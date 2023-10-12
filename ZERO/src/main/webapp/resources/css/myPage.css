@@ -101,6 +101,7 @@ section.container h1.logo {
   text-align: center;
   font-family: var(--logoFontfamlily);
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 section.container ul {

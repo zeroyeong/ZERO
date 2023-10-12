@@ -14,18 +14,6 @@
 
     <!-- js 연결 -->
     <script src="<c:url value="/resources/js/member.js?b" />" defer></script>
-    
-    
-    <style>
-      label[for='findId'] {
-        cursor: pointer;
-      }
-            
-      section.findId,
-	  section.findPw{
-	  display:block;
-	  }
-    </style>
 </head>
 <body>
     <section class="findPw">

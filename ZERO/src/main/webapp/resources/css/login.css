@@ -283,6 +283,16 @@ section.container div.snsLogin button.faceBook {
   color: #fff;
 }
 
+section.container div.snsLogin button.google{
+	background-color:#fff;
+	color:#888;
+}
+
+section.container div.snsLogin button.google span img{
+	width:50px;
+	margin:0 10px;
+}
+
 section.container div.snsLogin button.kakao span {
   margin-right: 05px;
 }
@@ -297,7 +307,8 @@ section.container div.snsLogin button::before {
   right: 0;
 }
 
-section.container div.snsLogin button.kakao::before {
+section.container div.snsLogin button.kakao::before,
+section.container div.snsLogin button.google::before {
   background: url('../images/kakaologin.png');
 }
 
@@ -354,6 +365,15 @@ section.findPw label.closeBtn {
   color: #000;
 }
 
+label[for='findId'] {
+  cursor: pointer;
+}
+   
+section.findId,
+section.findPw{
+  display:block;
+}
+
 section.findId h3,
 section.findPw h3 {
   text-align: center;
@@ -393,22 +413,6 @@ section.findPw button {
   font-size: 1.3rem;
   width: 200px;
   height: var(--loginHeight);
-}
-
-input[id='findId']:checked ~ section.findId {
-  display: block;
-}
-
-input[id='findId']:checked + label[for='findId'] {
-  display: block;
-}
-
-input[id='findPw']:checked ~ section.findPw {
-  display: block;
-}
-
-input[id='findPw']:checked + label[for='findPw'] {
-  display: block;
 }
 
 body > input {

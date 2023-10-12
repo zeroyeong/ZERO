@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.zero.domain.Member;
 import com.zero.oauth.SNSLogin;
@@ -83,12 +84,48 @@ public class MemberController {
 		return "member/idCheck";
 	}
 	
-
+	/*________ 이메일 인증 ________*/	
 	@PostMapping("/member")
 	public String addMember(@ModelAttribute("NewMember") Member member) {
 		memberService.addMember(member);
 		return "member/login";
 	}
+	
+    @PostMapping("/email")
+    public String verifyEmail(Model model,
+    		@ModelAttribute("NewMember") Member member,
+		    @RequestParam("mem_id") String mem_id,
+    	    @RequestParam("mem_pw") String mem_pw,
+    	    @RequestParam("user_pwd_check") String mem_pw2,
+    	    @RequestParam("mem_phone") String mem_phone )
+    	    		throws MessagingException {
+    	
+    	String subject = "ZEROFUTSAL 회원가입 인증코드";
+    	
+		String generatedString = RandomStringUtils.randomAlphanumeric(5);
+    	String body = generatedString;
+    	
+    try {
+    	 MimeMessage message = javaMailSender.createMimeMessage();
+         MimeMessageHelper helper = new MimeMessageHelper(message, true);
+         helper.setFrom("yj_9812@naver.com");
+         helper.setTo(mem_id);
+         helper.setSubject(subject);
+         helper.setText(body);
+
+         javaMailSender.send(message);
+    	} catch (MessagingException e) {
+         e.printStackTrace();
+        }
+        String emailcheck = generatedString;
+        model.addAttribute("mem_id", mem_id);
+        model.addAttribute("mem_pw", mem_pw);
+        model.addAttribute("mem_pw2", mem_pw2);
+        model.addAttribute("mem_phone", mem_phone);
+        model.addAttribute("emailcheck", emailcheck);
+        
+		return "member/joinInput";
+    }
 	
 	/*________ 로그인 ________*/	
 	@GetMapping("/login")
@@ -108,7 +145,7 @@ public class MemberController {
 		
 	@PostMapping("/login")
 	public String login(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
-			Member member, HttpSession session, Model model) {
+			Member member, HttpSession session, RedirectAttributes rttr) {
 		
 		member.setMem_id(mem_id);
 		member.setMem_pw(mem_pw);
@@ -117,25 +154,23 @@ public class MemberController {
 		System.out.println("Controller mem_name: "+mem_name);
 		
 		if(mem_name == null) {//로그인 실패
-			model.addAttribute("mem_name", mem_name);
-			model.addAttribute("result", "33");
+			rttr.addFlashAttribute("login_result", "fail");
 			return "redirect:/login";
 		}else {			
-			//session.setAttribute("mem_name", mem_name);
-			//session.setAttribute("mem_id", mem_id);	
-			model.addAttribute("mem_name", mem_name);
-			model.addAttribute("mem_id", mem_id);
-			model.addAttribute("result", "33");
+			session.setAttribute("mem_name", mem_name);
+			session.setAttribute("mem_id", mem_id);	
 		}
 		
 		return "redirect:/login";
 	}
 	
+	/*________ 소셜로그인 콜백 ________*/	
 	@RequestMapping("/auth/{snsService}/callback")
-	public String snsLoginCallback(@PathVariable String snsService,
-			Model model, @RequestParam String code, HttpSession session) throws Exception {
+	public String snsLoginCallback(HttpSession session, Model model, 
+			@PathVariable String snsService,
+			@RequestParam String code) throws Exception {
+		
 		logger.info("snsLoginCallback: service={}", snsService);
-		logger.info(" code={}", code);
 		
 		SnsValue sns = null;
 		SNSLogin snsLogin = null;
@@ -162,13 +197,10 @@ public class MemberController {
 			snsType="google";
 		}
 
-		
 		Member member = memberService.getBySns(snsId, emailId, snsType);
 		
 		if(member == null) {
-			
 			return "redirect:/join_agree";
-			//미존재시 가입페이지로 가게끔 해야함
 		} else {		
 			session.setAttribute("mem_name", member.getMem_name());
 			session.setAttribute("mem_id", member.getMem_id());
@@ -186,9 +218,9 @@ public class MemberController {
 	}
 	
 	@PostMapping("/findId")
-	public String findMemberId(@RequestParam("mem_name") String mem_name, 
-			@RequestParam("mem_phone") String mem_phone,
-			Member member, Model model) {		
+	public String findMemberId(Member member, Model model,
+			@RequestParam("mem_name") String mem_name, 
+			@RequestParam("mem_phone") String mem_phone) {		
 		
 		member.setMem_name(mem_name);
 		member.setMem_phone(mem_phone);
@@ -196,6 +228,7 @@ public class MemberController {
 		String mem_id = memberService.findMemberId(member);
 		
 		model.addAttribute("mem_id", mem_id);
+		
 		return "member/findIdResult";
 	}
 	
@@ -206,13 +239,10 @@ public class MemberController {
 	}
 	
 	@PostMapping("/findPw")
-	public String findMemberPw(
+	public String findMemberPw(Member member, Model model,
 			@RequestParam("mem_name") String mem_name,
 			@RequestParam("mem_id") String mem_id,
-			@RequestParam("mem_phone") String mem_phone,
-			Member member, Model model) {
-		
-		System.out.println("Controller > "+mem_name+" / "+mem_phone+" / "+mem_id);		
+			@RequestParam("mem_phone") String mem_phone) {		
 		
 		member.setMem_id(mem_id);
 		member.setMem_name(mem_name);
@@ -222,7 +252,6 @@ public class MemberController {
 		
 		model.addAttribute("mem_pw", mem_pw);
 		
-		System.out.println("controller> "+mem_pw);
 		return "member/findPwResult";
 	}
 	
@@ -282,37 +311,5 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
-		
-    @PostMapping("/email")
-    public String verifyEmail(@ModelAttribute("NewMember") Member member,
-    						   @RequestParam("mem_id") String mem_id,
-					    	   @RequestParam("mem_pw") String mem_pw,
-					    	   @RequestParam("user_pwd_check") String mem_pw2,
-					    	   @RequestParam("mem_phone") String mem_phone, Model model) throws MessagingException {
-    	String subject = "Zero 인증 코드";
-    	
-		String generatedString = RandomStringUtils.randomAlphanumeric(5);
-    	String body = generatedString;
-    	
-    try {
-    	 MimeMessage message = javaMailSender.createMimeMessage();
-         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-         helper.setFrom("yj_9812@naver.com");
-         helper.setTo(mem_id);
-         helper.setSubject(subject);
-         helper.setText(body);
-
-         javaMailSender.send(message);
-    	} catch (MessagingException e) {
-         e.printStackTrace();
-        }
-        String emailcheck = generatedString;
-        model.addAttribute("mem_id", mem_id);
-        model.addAttribute("mem_pw", mem_pw);
-        model.addAttribute("mem_pw2", mem_pw2);
-        model.addAttribute("mem_phone", mem_phone);
-        model.addAttribute("emailcheck", emailcheck);
-		return "member/joinInput";
-    }
 	
 }
