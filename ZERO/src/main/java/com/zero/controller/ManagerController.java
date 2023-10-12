@@ -88,8 +88,8 @@ public class ManagerController {
 		return "redirect:/manager";
 	}
 	
-	@GetMapping("/manager/scheduleDelete")
-	public String scheduleDelete(@RequestParam("schedule_no") int schedule_no) {
+	@GetMapping("/manager/deleteSchedule")
+	public String deleteSchedule(@RequestParam("schedule_no") int schedule_no) {
 		
 		cupService.deleteSchedule(schedule_no);		
 		return "redirect:/manager";

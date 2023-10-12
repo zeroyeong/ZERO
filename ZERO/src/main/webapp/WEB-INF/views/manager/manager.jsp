@@ -148,7 +148,7 @@
                                 <a class="schBtn" onclick="openSchPopup('${cupSchedule.schedule_no}')">수정</a>
                             </li>
                             <li class="button">
-                                <a class="schDelBtn" onclick="scheduleDelete(${cupSchedule.schedule_no})">삭제</a>
+                                <a class="schDelBtn" onclick="deleteSchedule(${cupSchedule.schedule_no})">삭제</a>
                             </li>
                         </ul>
                     </c:forEach>
