@@ -74,7 +74,7 @@ public class MemberController {
 	
 	/*________ ·Î±×ÀÎ ________*/	
 	@GetMapping("/login")
-	public void login(Model model) throws Exception {
+	public String login(Model model) throws Exception {
 		
 		SNSLogin snsLogin = new SNSLogin(naverSns);
 		model.addAttribute("naver_url", snsLogin.getNaverAuthUrl());
@@ -84,6 +84,8 @@ public class MemberController {
 		String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
 
 		model.addAttribute("google_url", url);
+		
+		return "member/login";
 	}
 		
 	@PostMapping("/login")
