@@ -67,6 +67,9 @@
     <delete id="deleteMember">
     	delete from member where mem_id = #{mem_id}
     </delete> 
-          
+        
+    <update id="updateSetPlayerNo" parameterType="Member">
+    	update member set player_no = #{player_no} where mem_id = #{mem_id}
+    </update>      
 </mapper>
 
