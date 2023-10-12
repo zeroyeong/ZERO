@@ -44,15 +44,21 @@ main .container section table td a {
 
 main .container section table thead {
   border-top: 1px solid var(--pointColor);
+  border-bottom: 1px solid var(--pointColor) !important;
   color: var(--pointColor);
 }
 
 main .container section table thead .no {
-  width: 10%;
+  width: 13%;
 }
 
 main .container section table thead .date {
-  width: 15%;
+  width: 26%;
+}
+
+main .container section table thead .title {
+  text-align: left;
+  padding-left: 11%;
 }
 
 main .container section table thead .show {
@@ -64,13 +70,13 @@ main .container section table tbody tr:hover {
 }
 
 main .container section table tbody td {
-  border-top: 1px solid var(--beforeColor);
   border-bottom: 1px solid var(--beforeColor);
   text-align: center;
 }
 
 main .container section table tbody td:nth-child(2) {
   text-align: left;
+  padding-left: 10%;
 }
 
 /* CONTAINER - SECTION - FORM */

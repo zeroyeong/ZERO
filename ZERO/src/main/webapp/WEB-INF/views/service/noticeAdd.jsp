@@ -55,9 +55,7 @@
                     <tr>
                         <th class="title" colspan="4">이미지</th>
                         <td>
-                            <input class="fileName"/>
                             <form:input type="file" id="fileInput" path="notice_imagefile" />
-                            <label for="fileInput">이미지 찾기</label>
                         </td>
                     </tr>
                 </tbody>

@@ -68,7 +68,7 @@
         <div class="addButtons">
         <button type="submit" class="notAddBtns" formaction="notice_${notice.notice_no}/update" formmethod="get">수정</button>
         <button type="submit" class="notAddBtns" formaction="notice_${notice.notice_no}/delete" formmethod="post">삭제</button>
-        <button type="button" class="notAddBtns" onclick="location.href='${pageContext.request.contextPath}/service'">목록으로</button>
+        <button type="button" class="notAddBtns" onclick="location.href='${pageContext.request.contextPath}/service'">목록</button>
         </div>
         </form>
 
