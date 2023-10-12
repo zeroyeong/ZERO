@@ -12,7 +12,7 @@
     <title>NOTICE</title>
 
     <!-- css 연결 -->
-    <link rel="stylesheet" href="<c:url value="/resources/css/post.css?q" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/post.css?qqqqq" />" />
     
 </head>
 
@@ -28,7 +28,6 @@
 	         </video>
 	     </div>
 	
-
       <ul class="harlfButton">
         <li class="active"><a href="service">공지사항</a></li>
         <li><a href="service">FAQ</a></li>
@@ -39,8 +38,9 @@
 		<form>
         <table class="post">
           <thead>
-            <tr> 
-              <th class="title" colspan="4">${notice.notice_title}</th>
+            <tr>
+              <th class="title">제목</th> 
+              <th class="title">${notice.notice_title}</th>
               <th class="date">작성일</th>
               <th class="dateInput">${notice.notice_date}</th>
               <th class="show">조회</th>
@@ -50,7 +50,7 @@
           <tbody>
          	 <tr>
           	  <th>내용</th>
-				<td class="content" colspan="2">
+				<td class="content">
 				    <c:choose>
 				        <c:when test="${notice.notice_imagename != null}">
 				            <img src="<c:url value='/resources/images/${notice.notice_imagename}'/>" alt="">

@@ -13,7 +13,7 @@
     <title>FAQ</title>
 
     <!-- css 연결 -->
-    <link rel="stylesheet" href="<c:url value="/resources/css/post.css?q" />" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/post.css?qqqqqq" />" />
     
 </head>
   
@@ -40,7 +40,8 @@
         <table class="post">
           <thead>
             <tr>
-              <th class="title" colspan="4">${faq.faq_title}</th>
+              <th class="title">제목</th>
+              <th class="title">${faq.faq_title}</th>
               <th class="date">작성일</th>
               <th class="dateInput">${faq.faq_date}</th>
               <th class="show">조회</th>
@@ -50,7 +51,7 @@
           <tbody>
           	<tr>
           	  <th>내용</th> 
-          	  <td colspan="2">${faq.faq_content}</td>
+          	  <td class="content">${faq.faq_content}</td>
             </tr>
           </tbody>
         </table>
