@@ -78,10 +78,10 @@
 		        </c:when>
 		        <c:otherwise>
 		          <c:forEach var="data" items="${list}">
-		            <c:if test="${data.notice_no < notice.notice_no}">
-		              <a href="../service/notice_${data.notice_no}">${data.notice_title}</a>
+		            <c:if test="${data.faq_no < faq.faq_no}">
+		              <a href="../service/faq_${data.faq_no}">${data.faq_title}</a>
 		            </c:if>
-		            <c:if test="${fn:length(list) == 1 and data.notice_no >= notice.notice_no}">
+		            <c:if test="${fn:length(list) == 1 and data.faq_no >= faq.faq_no}">
 		              이전글이 없습니다.
 		            </c:if>
 		          </c:forEach>
@@ -103,10 +103,10 @@
 		        </c:when>
 		        <c:otherwise>
 		          <c:forEach var="data" items="${list}">
-		            <c:if test="${data.notice_no > notice.notice_no}">
-		              <a href="../service/notice_${data.notice_no}">${data.notice_title}</a>
+		            <c:if test="${data.faq_no > faq.faq_no}">
+		              <a href="../service/faq_${data.faq_no}">${data.faq_title}</a>
 		            </c:if>
-		            <c:if test="${fn:length(list) == 1 and data.notice_no <= notice.notice_no}">
+		            <c:if test="${fn:length(list) == 1 and data.faq_no <= faq.faq_no}">
 		              다음글이 없습니다.
 		            </c:if>
 		          </c:forEach>

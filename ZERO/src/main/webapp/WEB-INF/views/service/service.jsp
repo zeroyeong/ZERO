@@ -12,7 +12,10 @@
   <title>ZERO FUTSAL</title>
 
   <!-- css 연결 -->
-  <link rel="stylesheet" href="<c:url value="/resources/css/service.css"/>">
+  <link rel="stylesheet" href="<c:url value="/resources/css/service.css?1s	"/>">
+  
+  <!-- 페이지네이션 -->
+  <script src="<c:url value='/resources/js/pagenation.js?123222' />" defer></script>
   
 </head>
 
@@ -41,7 +44,7 @@
 	 
 	      <section class="notice">
 	        <a href="${pageContext.request.contextPath}/service/noticeAdd"><input type="button" value="공지사항 작성" class="addBtn"></a>
-	        <table>
+	        <table class="notice-table">
 	          <thead>
 	            <tr>
 	              <th class="no">No.</th>
@@ -76,15 +79,14 @@
 	          </button>
 	        </form>
 	
-	        <ul class="pagination">
-	          <li>1</li>
-	          <li>2</li>
+	        <ul class="pagination" id="notice-pagination">
+
 	        </ul>
 	      </section>
 	
 	      <section class="faq">
 	        <a href="${pageContext.request.contextPath}/service/faqAdd"><input type="button" value="FAQ 작성" class="addBtn"></a>
-	        <table>
+	        <table class="faq-table">
 	          <thead>
 	            <tr>
 	              <th class="no">No.</th>
@@ -119,9 +121,8 @@
 	          </button>
 	        </form>
 	
-	        <ul class="pagination">
-	          <li>1</li>
-	          <li>2</li>
+	        <ul class="pagination" id="faq-pagination"></ul>
+
 	        </ul>
 	      </section>
 	    </div>

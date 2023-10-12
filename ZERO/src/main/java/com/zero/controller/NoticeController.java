@@ -3,6 +3,10 @@ package com.zero.controller;
 import java.io.File;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,26 +40,60 @@ public class NoticeController {
 	}
 	
 	@GetMapping("/service/notice_{notice_no}")
-	public String getNotice(@PathVariable int notice_no, Model model) {
-		Notice notice = noticeService.getNotice(notice_no);
-		noticeService.countNoticeHit(notice_no);
+	public String getNotice(@PathVariable int notice_no, Model model, HttpServletRequest request, HttpServletResponse response) {
 		
-		model.addAttribute("notice", notice);
-		
-		List<Notice> list = noticeService.noticePrevNext(notice_no);
-		model.addAttribute("list", list);
-		return "service/noticeView";
+	    Cookie[] cookies = request.getCookies();
+	    boolean cookchk = false;
+	    
+	    if (cookies != null) {
+	        for (Cookie cookie : cookies) {
+	            if (cookie.getName().equals("noticehit_" + notice_no)) {
+	                cookchk = true;
+	                break;
+	            }
+	        }
+	    }
+	    if (!cookchk) {
+	        noticeService.countNoticeHit(notice_no);      
+	        Cookie hitCookie = new Cookie("noticehit_" + notice_no, "true");
+	        hitCookie.setMaxAge(24 * 60 * 60);
+	        response.addCookie(hitCookie);
+	    }	    
+        Notice notice = noticeService.getNotice(notice_no);
+        model.addAttribute("notice", notice);
+        
+        List<Notice> list = noticeService.noticePrevNext(notice_no);
+        model.addAttribute("list", list);
+        
+	    return "service/noticeView";
 	}
 	
 	@GetMapping("/service/faq_{faq_no}")
-	public String getFaq(@PathVariable int faq_no, Model model) {
-		Faq faq = noticeService.getFaq(faq_no);
-		noticeService.countFaqHit(faq_no);
+	public String getFaq(@PathVariable int faq_no, Model model, HttpServletRequest request, HttpServletResponse response) {
 		
+	    Cookie[] cookies = request.getCookies();
+	    boolean cookchk = false;
+	    
+	    if (cookies != null) {
+	        for (Cookie cookie : cookies) {
+	            if (cookie.getName().equals("faqhit_" + faq_no)) {
+	                cookchk = true;
+	                break;
+	            }
+	        }
+	    }
+	    if (!cookchk) {
+	    	noticeService.countFaqHit(faq_no);     
+	        Cookie hitCookie = new Cookie("faqhit_" + faq_no, "true");
+	        hitCookie.setMaxAge(24 * 60 * 60);
+	        response.addCookie(hitCookie);
+	    }		
+		Faq faq = noticeService.getFaq(faq_no);
 		model.addAttribute("faq", faq);
 		
 		List<Faq> list = noticeService.faqPrevNext(faq_no);
 		model.addAttribute("list", list);
+		
 		return "service/faqView";
 	}
 	@GetMapping("/service/notice_{notice_no}/update")
@@ -84,8 +122,19 @@ public class NoticeController {
 	}
 	@PostMapping("/service/notice_{notice_no}/delete")
 	public String deleteNotice(@RequestParam("notice_no") int notice_no) {
+		Notice notice = noticeService.getNotice(notice_no);
+		String fileName = notice.getNotice_imagename();
+		
 		noticeService.deleteNotice(notice_no);
 		
+	    if (fileName != null) {
+	        String filePath = "C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images\\" + fileName;
+
+	        File file = new File(filePath);
+	        if (file.exists()) {
+	            file.delete();
+	        }
+	    }
 		return "redirect:/service";
 	}
 	@PostMapping("/service/faq_{faq_no}/delete")
@@ -105,7 +154,7 @@ public class NoticeController {
             return "service/service";
         } 
 
-   	MultipartFile notice_image = notice.getNotice_imagefile();  
+    	MultipartFile notice_image = notice.getNotice_imagefile();  
 
        String saveName = notice_image.getOriginalFilename();  
        File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
@@ -115,7 +164,7 @@ public class NoticeController {
         	   notice_image.transferTo(saveFile);  
            	notice.setNotice_imagename(saveName);
            } catch (Exception e) {
-               throw new RuntimeException("도서 이미지 업로드가 실패하였습니다", e);
+               throw new RuntimeException("이미지 업로드가 실패하였습니다", e);
            }
        }
    	

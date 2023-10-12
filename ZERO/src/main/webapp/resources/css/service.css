@@ -135,6 +135,10 @@ main .container section form .searchButton i {
   justify-content: center;
 }
 
+.container .pagination button {
+  background: white;
+}
+
 .container .pagination li {
   cursor: pointer;
   width: 45px;
@@ -149,10 +153,13 @@ main .container section form .searchButton i {
   background-color: var(--pointColor);
   color: #fff;
 }
+.container .pagination li.active a {
+  color: #fff;
+}
 
 .container .pagination li:hover {
   border-color: var(--pointColor);
-  color: var(--pointColor);
+  color: #AFAFAF;
 }
 
 main .container section .addBtn {
