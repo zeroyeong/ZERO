@@ -11,10 +11,10 @@
 <title>ZERO FUTSAL</title>
 
 <!-- CSS 연결 -->
-<link rel="stylesheet" href="<c:url value='/resources/css/manager.css?qq' />" />
+<link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
 <!-- JS 연결 -->
-<script src="<c:url value='/resources/js/manager.js?qdd' />" defer></script>
+<script src="<c:url value='/resources/js/manager.js' />" defer></script>
 
 </head>
 

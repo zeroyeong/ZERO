@@ -60,9 +60,9 @@ main .container section table td a {
 }
 
 main .container section table thead {
-    border-top: 1px solid var(--pointColor);
+    border-top: 2px solid var(--pointColor);
     color: var(--pointColor);
-    border-bottom: 1px solid var(--pointColor);
+    border-bottom: 2px solid var(--pointColor);
 }
 
 main .container section table thead .no {
@@ -83,7 +83,7 @@ main .container section table tbody tr:hover {
 }
 
 main .container section table tbody td {
-    border-top: 1px solid var(--beforeColor);
+    border-bottom: 1px solid var(--beforeColor);
     text-align: center;
 }
 

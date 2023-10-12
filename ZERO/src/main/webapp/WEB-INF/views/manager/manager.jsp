@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
     <!-- JS 연결 -->
-    <script src="<c:url value='/resources/js/manager.js?jdddd' />" defer></script>
+    <script src="<c:url value='/resources/js/manager.js' />" defer></script>
 
 </head>
 

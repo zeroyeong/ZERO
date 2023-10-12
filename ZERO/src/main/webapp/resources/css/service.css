@@ -35,7 +35,7 @@ main .container section table {
 
 main .container section table th,
 main .container section table td {
-  padding: 13px;
+  padding: 10px;
 }
 
 main .container section table td a {
@@ -43,8 +43,8 @@ main .container section table td a {
 }
 
 main .container section table thead {
-  border-top: 1px solid var(--pointColor);
-  border-bottom: 1px solid var(--pointColor) !important;
+  border-top: 2px solid var(--pointColor);
+  border-bottom: 2px solid var(--pointColor) !important;
   color: var(--pointColor);
 }
 
