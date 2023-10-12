@@ -30,8 +30,8 @@
 	     </div>
 
         <ul class="harlfButton">
-            <li><a href="service">공지사항</a></li>
-            <li class="active"><a href="service">FAQ</a></li>
+            <li><a href="${pageContext.request.contextPath}/service">공지사항</a></li>
+            <li class="active"><a href="${pageContext.request.contextPath}/service">FAQ</a></li>
         </ul>
 
         <div class="container">

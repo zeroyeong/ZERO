@@ -31,8 +31,8 @@
 	
 
         <ul class="harlfButton">
-            <li class="active"><a href="service">공지사항</a></li>
-            <li><a href="service">FAQ</a></li>
+            <li class="active"><a href="${pageContext.request.contextPath}/service">공지사항</a></li>
+            <li><a href="${pageContext.request.contextPath}/service">FAQ</a></li>
         </ul>
 		
         <div class="container">

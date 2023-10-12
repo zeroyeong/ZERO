@@ -40,7 +40,7 @@
 	      <h1 class="pageTitle faq">FAQ</h1>
 	 
 	      <section class="notice">
-	        <a href="service/noticeAdd"><input type="button" value="공지사항 작성" class="addBtn"></a>
+	        <a href="${pageContext.request.contextPath}/service/noticeAdd"><input type="button" value="공지사항 작성" class="addBtn"></a>
 	        <table>
 	          <thead>
 	            <tr>
@@ -66,7 +66,7 @@
 	          </tbody>
 	        </table>
 	
-	        <form action="service/noticesearch" method="get">
+	        <form action="${pageContext.request.contextPath}/service/noticesearch" method="get">
 	          <select>
 	            <option>제목</option>
 	          </select>
@@ -83,7 +83,7 @@
 	      </section>
 	
 	      <section class="faq">
-	        <a href="service/faqAdd"><input type="button" value="FAQ 작성" class="addBtn"></a>
+	        <a href="${pageContext.request.contextPath}/service/faqAdd"><input type="button" value="FAQ 작성" class="addBtn"></a>
 	        <table>
 	          <thead>
 	            <tr>
@@ -109,7 +109,7 @@
 	          </tbody>
 	        </table>
 	
-	        <form action="service/faqsearch" method="get">
+	        <form action="${pageContext.request.contextPath}/service/faqsearch" method="get">
 	          <select>
 	            <option>제목</option>
 	          </select>

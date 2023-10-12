@@ -29,8 +29,8 @@
 	     </div>
 	
       <ul class="harlfButton">
-        <li class="active"><a href="service">공지사항</a></li>
-        <li><a href="service">FAQ</a></li>
+        <li class="active"><a href="${pageContext.request.contextPath}/service">공지사항</a></li>
+        <li><a href="${pageContext.request.contextPath}/service">FAQ</a></li>
       </ul>
 
       <div class="container">
@@ -68,7 +68,7 @@
         <div class="addButtons">
         <button type="submit" class="notAddBtns" formaction="notice_${notice.notice_no}/update" formmethod="get">수정</button>
         <button type="submit" class="notAddBtns" formaction="notice_${notice.notice_no}/delete" formmethod="post">삭제</button>
-          <button type="button" class="notAddBtns">목록으로</button>
+        <button type="button" class="notAddBtns" onclick="location.href='${pageContext.request.contextPath}/service'">목록으로</button>
         </div>
         </form>
 
@@ -81,14 +81,21 @@
 		      </span>
 		    </td>
 		    <td>
-		      <c:forEach var="data" items="${list}">
-		        <c:if test="${data.notice_no < notice.notice_no}">
-		          <a href="../service/notice_${data.notice_no}">${data.notice_title}</a>
-		        </c:if>
-		        <c:if test="${fn:length(list) == 1 and data.notice_no >= notice.notice_no}">
+		      <c:choose>
+		        <c:when test="${empty list}">
 		          이전글이 없습니다.
-		        </c:if>
-		      </c:forEach>
+		        </c:when>
+		        <c:otherwise>
+		          <c:forEach var="data" items="${list}">
+		            <c:if test="${data.notice_no < notice.notice_no}">
+		              <a href="../service/notice_${data.notice_no}">${data.notice_title}</a>
+		            </c:if>
+		            <c:if test="${fn:length(list) == 1 and data.notice_no >= notice.notice_no}">
+		              이전글이 없습니다.
+		            </c:if>
+		          </c:forEach>
+		        </c:otherwise>
+		      </c:choose>
 		    </td>
 		  </tr>
 		  <tr>
@@ -99,14 +106,21 @@
 		      </span>
 		    </td>
 		    <td>
-		      <c:forEach var="data" items="${list}">
-		        <c:if test="${data.notice_no > notice.notice_no}">
-		          <a href="../service/notice_${data.notice_no}">${data.notice_title}</a>
-		        </c:if>
-		        <c:if test="${fn:length(list) == 1 and data.notice_no <= notice.notice_no}">
+		      <c:choose>
+		        <c:when test="${empty list}">
 		          다음글이 없습니다.
-		        </c:if>
-		      </c:forEach>
+		        </c:when>
+		        <c:otherwise>
+		          <c:forEach var="data" items="${list}">
+		            <c:if test="${data.notice_no > notice.notice_no}">
+		              <a href="../service/notice_${data.notice_no}">${data.notice_title}</a>
+		            </c:if>
+		            <c:if test="${fn:length(list) == 1 and data.notice_no <= notice.notice_no}">
+		              다음글이 없습니다.
+		            </c:if>
+		          </c:forEach>
+		        </c:otherwise>
+		      </c:choose>
 		    </td>
 		  </tr>
 		</table>
