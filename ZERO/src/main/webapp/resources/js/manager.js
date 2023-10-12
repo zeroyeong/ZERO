@@ -180,11 +180,11 @@ function cancelBtnPop(popupId, num) {
 }
 
 //schedule 
-function scheduleDelete(schedule_no){
+function deleteSchedule(schedule_no){
 	const response = confirm("삭제 하시겠습니까?");
 
 	if(response){
-		location.href = 'manager/scheduleDelete?schedule_no=' + schedule_no;
+		location.href = 'manager/deleteSchedule?schedule_no=' + schedule_no;
 	}	
 }
 
