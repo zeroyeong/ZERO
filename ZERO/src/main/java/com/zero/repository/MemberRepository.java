@@ -10,7 +10,7 @@ public interface MemberRepository {
 	
 	/*______로그인______*/
 	String login(Member member); //로그인
-	Member getBySns(Member snsMember);
+	Member getBySns(String snsId, String emailId, String snsType);
 	
 	/*______계정찾기______*/
 	String findMemberId(Member member); //아이디 찾기
@@ -22,4 +22,6 @@ public interface MemberRepository {
 
 	/*______탈퇴______*/
 	void deleteMember(String mem_id);
+	
+	void selectMember(int mem_no);
 }

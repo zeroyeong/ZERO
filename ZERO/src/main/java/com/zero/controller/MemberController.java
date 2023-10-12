@@ -118,41 +118,63 @@ public class MemberController {
 		
 		if(mem_name == null) {//로그인 실패
 			model.addAttribute("mem_name", mem_name);
+			model.addAttribute("result", "33");
 			return "redirect:/login";
+		}else {			
+			//session.setAttribute("mem_name", mem_name);
+			//session.setAttribute("mem_id", mem_id);	
+			model.addAttribute("mem_name", mem_name);
+			model.addAttribute("mem_id", mem_id);
+			model.addAttribute("result", "33");
 		}
 		
-		session.setAttribute("mem_name", mem_name);
-		session.setAttribute("mem_id", mem_id);
-		return "redirect:/";
+		return "redirect:/login";
 	}
 	
-	@RequestMapping("/auth/{service}/callback")
+	@RequestMapping("/auth/{snsService}/callback")
 	public String snsLoginCallback(@PathVariable String snsService,
 			Model model, @RequestParam String code, HttpSession session) throws Exception {
 		logger.info("snsLoginCallback: service={}", snsService);
+		logger.info(" code={}", code);
+		
 		SnsValue sns = null;
-		if(StringUtils.equals("naver", snsService))
+		SNSLogin snsLogin = null;
+		Member snsMember = null;	
+		
+		String snsId = "";
+		String emailId = "";
+		String snsType = "";
+		
+		if(StringUtils.equals("naver", snsService)) {
 			sns = naverSns;
-		else if (StringUtils.equals("google", snsService))
+			snsLogin = new SNSLogin(naverSns);
+			snsMember = snsLogin.getUserProfile(code);
+			snsId = snsMember.getNaverId();
+			emailId = snsMember.getEmail();
+			snsType="naver";
+		}
+		else if (StringUtils.equals("google", snsService)) {
 			sns = googleSns;
-		
-		SNSLogin snsLogin = new SNSLogin(googleSns);
-		Member snsMember = snsLogin.getUserProfile(code);
-		System.out.println("Profile>>" + snsMember);
-		
-		Member member = memberService.getBySns(snsMember);
-		if(member == null) {
-			model.addAttribute("result", "존재하지 않는 사용자입니다. 가입해 주세요.");
+			snsLogin = new SNSLogin(googleSns);		
+			snsMember = snsLogin.getUserProfile(code);
+			snsId = snsMember.getGoogleId();
+			emailId = snsMember.getEmail();
+			snsType="google";
+		}
 
-			//미존재시 가입페이지로 가게끔 해야함
-		} else {
-			model.addAttribute("result", member.getMem_name() + "님, 반갑습니다.");
+		
+		Member member = memberService.getBySns(snsId, emailId, snsType);
+		
+		if(member == null) {
 			
-			//sns로그인했을 때 아이디가 존재하면 로그인되도록
+			return "redirect:/join_agree";
+			//미존재시 가입페이지로 가게끔 해야함
+		} else {		
 			session.setAttribute("mem_name", member.getMem_name());
+			session.setAttribute("mem_id", member.getMem_id());
 		}
 		
-		return "member/loginResult";
+		return "redirect:/";
 	}
 	
 	

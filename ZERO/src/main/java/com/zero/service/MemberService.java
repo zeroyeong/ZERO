@@ -9,7 +9,7 @@ public interface MemberService {
 	
 	/*________ 로그인 ________*/
 	String login(Member member);
-	Member getBySns(Member snsMember);
+	Member getBySns(String snsId, String emailId, String snsType);
 	
 	/*______계정찾기______*/
 	String findMemberId(Member member); //아이디 찾기
@@ -21,4 +21,6 @@ public interface MemberService {
 	
 	/*______탈퇴______*/
 	void withdraw(String mem_id);
+	
+	void selectMember(int mem_no);
 }

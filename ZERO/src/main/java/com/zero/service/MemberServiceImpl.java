@@ -30,8 +30,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public Member getBySns(Member snsMember) {
-		return memberRepository.getBySns(snsMember);
+	public Member getBySns(String snsId, String emailId, String snsType) {
+		return memberRepository.getBySns(snsId, emailId, snsType);
 	}
 	
 	/*______계정찾기______*/
@@ -63,4 +63,10 @@ public class MemberServiceImpl implements MemberService {
 	public void withdraw(String mem_id) {
 		memberRepository.deleteMember(mem_id);
 	}
+
+	@Override
+	public void selectMember(int mem_no) {
+		memberRepository.selectMember(mem_no);	
+	}
+	
 }

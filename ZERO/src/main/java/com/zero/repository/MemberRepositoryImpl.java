@@ -33,11 +33,12 @@ public class MemberRepositoryImpl implements MemberRepository {
 	}
 
 	@Override
-	public Member getBySns(Member snsMember) {
-		if(StringUtils.isNotEmpty(snsMember.getNaverId())) {
-			return sql.selectOne("Member.getBySnsNaver", snsMember);
+	public Member getBySns(String snsId, String emailId, String snsType) {
+				
+		if(snsType.equals("naver")) {		
+			return sql.selectOne("Member.getBySnsNaver", emailId);
 		} else {
-			return sql.selectOne("Member.getBySnsGoogle", snsMember);
+			return sql.selectOne("Member.getBySnsGoogle", emailId);
 		}
 	}
 	
@@ -70,5 +71,10 @@ public class MemberRepositoryImpl implements MemberRepository {
 	@Override
 	public void deleteMember(String mem_id) {
 		sql.delete("Member.deleteMember", mem_id);
+	}
+	
+	@Override
+	public void selectMember(int mem_no) {
+		sql.selectOne("Member.memberRead", mem_no);
 	}
 }

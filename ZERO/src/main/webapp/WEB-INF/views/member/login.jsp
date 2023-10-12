@@ -29,6 +29,9 @@
   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
+	<!-- 구글 로그인 -->
+	<meta name ="google-signin-client_id" content="330363450460-a3bqtl9hpsrjn282co74ilv1avtjj3up.apps.googleusercontent.com">
+	
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
 </head> 
@@ -37,10 +40,6 @@
     <section class="container">
       <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
       <form name="loginFrm" method="post" action="login" onsubmit="return frm_check();">
-      
-      <!--<c:if test="${mem_name == null }">
-      	<p style="color:red; text-align:center;">로그인에 실패했습니다.</p>
-      </c:if>-->
       
         <dl>
           <dt>
@@ -56,6 +55,9 @@
             <input type="password" name="mem_pw" id="userPw" placeholder="비밀번호" required />
           </dd>
         </dl>
+     <c:if test="${result == 33}">
+		number1은 200이다.<br>
+	 </c:if>
 
 
         <label for="saveId" class="remId">
@@ -64,6 +66,11 @@
           아이디 저장
         </label>
         <button type="submit">로그인</button>
+        <button type="submit">${result}</button>
+         <button type="submit">${mem_name}</button>
+            <input type="text"  value ="${result}" />
+                     <input type="text"  value ="${mem_name}" />         
+                     <input type="text"  value ="${mem_id}" />
       </form>
 
       <ul class="acBtn">
