@@ -31,6 +31,10 @@ public class SNSLogin {
 		return this.oauthService.getAuthorizationUrl();
 	}
 	
+	public String getKakaoAuthUrl() {
+		return this.oauthService.getAuthorizationUrl();
+	}
+	
 	public Member getUserProfile(String code) throws Exception {
 		OAuth2AccessToken accessToken = oauthService.getAccessToken(code);
 		OAuthRequest request = new OAuthRequest(Verb.GET, this.sns.getProfileUrl());
@@ -55,13 +59,11 @@ public class SNSLogin {
 			if(sns.isGoogle())
 				member.setGoogleId(id);
 			
-			//member.setNickname(rootNode.get("displayName").asText());
-			JsonNode nameNode = rootNode.path("id");
-			//String name = nameNode.get("familyName").asText() + nameNode.get("givenName").asText();
-			//member.setMem_name(name);
+			//JsonNode nameNode = rootNode.path("id");
 					
 			member.setEmail(rootNode.get("email").asText());
 			Iterator<JsonNode> iterEmails = rootNode.path("emails").elements();
+			
 			while(iterEmails.hasNext()) {
 				JsonNode emailNode = iterEmails.next();
 				String type = emailNode.get("type").asText();
@@ -74,6 +76,11 @@ public class SNSLogin {
 		} else if (this.sns.isNaver()) {
 			JsonNode resNode = rootNode.get("response");
 			member.setNaverId(resNode.get("id").asText());
+			member.setNickname(resNode.get("nickname").asText());
+			member.setEmail(resNode.get("email").asText());
+		} else if (this.sns.isKakao()) {
+			JsonNode resNode = rootNode.get("response");
+			member.setKakaoId(resNode.get("id").asText());
 			member.setNickname(resNode.get("nickname").asText());
 			member.setEmail(resNode.get("email").asText());
 		}

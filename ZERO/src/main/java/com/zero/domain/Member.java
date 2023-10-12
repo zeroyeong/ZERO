@@ -1,8 +1,5 @@
 package com.zero.domain;
 
-import lombok.Data;
-
-@Data
 public class Member {
 	private int mem_no;      	//회원 순서 PK
 	private String mem_id;   	//회원 Id
@@ -12,9 +9,9 @@ public class Member {
 	
 	private String googleId; 	//구글 아이디
 	private String naverId;  	//네이버 아이디
+	private String kakaoId;		//카카오 아이디
 	private String email;		//이메일 
 	private String nickname;	//닉네임
-	//구글/네이버/이메일/닉네임 칼럼추가
 	private String player_no; 
 	
 	public Member() {
@@ -23,7 +20,7 @@ public class Member {
 	}
 
 	public Member(int mem_no, String mem_id, String mem_pw, String mem_name, String mem_phone, String googleId,
-			String naverId, String email, String nickname, String player_no) {
+			String naverId, String kakaoId, String email, String nickname, String player_no) {
 		super();
 		this.mem_no = mem_no;
 		this.mem_id = mem_id;
@@ -32,6 +29,7 @@ public class Member {
 		this.mem_phone = mem_phone;
 		this.googleId = googleId;
 		this.naverId = naverId;
+		this.kakaoId = kakaoId;
 		this.email = email;
 		this.nickname = nickname;
 		this.player_no = player_no;
@@ -91,6 +89,14 @@ public class Member {
 
 	public void setNaverId(String naverId) {
 		this.naverId = naverId;
+	}
+
+	public String getKakaoId() {
+		return kakaoId;
+	}
+
+	public void setKakaoId(String kakaoId) {
+		this.kakaoId = kakaoId;
 	}
 
 	public String getEmail() {

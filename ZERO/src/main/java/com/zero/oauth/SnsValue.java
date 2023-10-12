@@ -18,6 +18,7 @@ public class SnsValue implements SnsUrls {
 	
 	private boolean isNaver;
 	private boolean isGoogle;
+	private boolean isKakao;
 
 	public SnsValue(String service, String clientId, String clientSecret, String redirectUrl) {
 		this.service = service;
@@ -27,6 +28,7 @@ public class SnsValue implements SnsUrls {
 		
 		this.isNaver = StringUtils.equalsIgnoreCase("naver", this.service);
 		this.isGoogle = StringUtils.equalsIgnoreCase("google", this.service);
+		this.isKakao = StringUtils.equalsIgnoreCase("kakao", this.service);
 		
 		if(isNaver) {
 			this.api20Instance = NaverAPI20.instance();
@@ -35,6 +37,9 @@ public class SnsValue implements SnsUrls {
 		} else if(isGoogle) {
 			this.api20Instance = GoogleApi20.instance();
 			this.profileUrl = GOOGLE_PROFILE_URL;
+		} else if(isKakao) {
+			this.api20Instance = KakaoAPI20.instance();
+			this.profileUrl = KAKAO_PROFILE_URL;
 		}
 	}
 
@@ -44,7 +49,7 @@ public class SnsValue implements SnsUrls {
 	}
 
 	public SnsValue(String service, String clientId, String clientSecret, String redirectUrl,
-			DefaultApi20 api20Instance, String profileUrl, boolean isNaver, boolean isGoogle) {
+			DefaultApi20 api20Instance, String profileUrl, boolean isNaver, boolean isGoogle, boolean isKakao) {
 		super();
 		this.service = service;
 		this.clientId = clientId;
@@ -54,6 +59,7 @@ public class SnsValue implements SnsUrls {
 		this.profileUrl = profileUrl;
 		this.isNaver = isNaver;
 		this.isGoogle = isGoogle;
+		this.isKakao = isKakao;
 	}
 
 	public String getService() {
@@ -120,5 +126,11 @@ public class SnsValue implements SnsUrls {
 		this.isGoogle = isGoogle;
 	}
 	
-	
+	public boolean isKakao() {
+		return isKakao;
+	}
+
+	public void setKakao(boolean isKakao) {
+		this.isKakao = isKakao;
+	}
 }

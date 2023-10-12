@@ -77,5 +77,23 @@
 	        <beans:property name="redirectUri" ref="googleRedirectUrl" />
 	</beans:bean>
 	<!-- 구글 종료 -->
+	<!-- 카카오 -->
+	<beans:bean id="kakaoClientID" class="java.lang.String">
+	        <beans:constructor-arg value="25024f8312dac8b31c5a26b08e1fcaa0" />
+	</beans:bean>
+	<beans:bean id="kakaoClientSecret" class="java.lang.String">
+	        <beans:constructor-arg value="cvZiVczKDsG82j0Pl88xldn4OuqNlnAu" />
+	</beans:bean>
+	<beans:bean id="kakaoRedirectUrl" class="java.lang.String">
+	        <beans:constructor-arg value="http://localhost:8080/zero/auth/kakao/callback" />
+	</beans:bean>
+	    
+	<beans:bean id="kakaoSns" class="com.zero.oauth.SnsValue">
+	        <beans:constructor-arg value="kakao" />
+	        <beans:constructor-arg ref="kakaoClientID" />
+	        <beans:constructor-arg ref="kakaoClientSecret" />
+	        <beans:constructor-arg ref="kakaoRedirectUrl" />
+	</beans:bean>
+	<!-- 카카오 종료 -->
     
 </beans:beans>

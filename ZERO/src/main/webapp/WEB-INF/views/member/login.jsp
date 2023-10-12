@@ -81,7 +81,7 @@
           네이버 계정으로 로그인
         </button>
         
-        <button type="button" class="kakao" onClick="location.href='kakaocallback'">
+        <button type="button" class="kakao" onClick="location.href='${kakao_url}'">
           <span>
             <img src="<c:url value="/resources/images/kakao.png" />" alt="" />
           </span>

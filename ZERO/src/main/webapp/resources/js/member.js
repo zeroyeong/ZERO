@@ -102,6 +102,21 @@ console.log("click함");
 }
 
 // 메인인증
+function emailSand(){
+  	let mailInput = document.getElementById("user_id");
+  	let mailCheck = document.getElementById("checkId");
+  	let joinFrm = document.getElementById("joinFrm");
+  		
+  	if(mailInput.value == null || mailInput.value == ""){
+  		alert("이메일을 입력하세요!");
+  	} else If(mailCheck.value == null || mailCheck.value == ""){
+  		alert("이메일 인증을 해주세요!");
+  	} else{
+ 		joinFrm.action="email";
+  		joinFrm.submit();
+  	}
+}
+
 function emailcheck(emailCode){
 	var emailConfirm = document.getElementById("emailConfirm");
 	console.log("emailCode = " + emailCode);
@@ -112,12 +127,6 @@ function emailcheck(emailCode){
 		console.log("인증번호가 확인");
 		alert('인증번호가 확인되었습니다');
 	}
-}
-
-function emailSand(){
-		var joinFrm = document.getElementById("joinFrm");
-		joinFrm.action="email";
-		joinFrm.submit();
 }
 
 /*____________________________________________________________________________________________*/

@@ -202,6 +202,21 @@
 		    <artifactId>spring-social-google</artifactId>
 		    <version>1.0.0.RELEASE</version>
 		</dependency>	
+		
+		<!-- Jackson -->
+		<dependency> 
+			<groupId>org.codehaus.jackson</groupId> 
+			<artifactId>jackson-mapper-asl</artifactId> 
+			<version>1.9.13</version> 
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
+		
 		<!-- 소셜로그인 라이브러리 종료 -->
 		
 		<!-- lombok 라이브러리 -->

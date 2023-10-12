@@ -18,9 +18,8 @@ public interface MemberService {
 	/*______¸¶ÀÌÆäÀÌÁö______*/
 	Member getMemberInfo(String mem_id);
 	void modifyInfo(Member member);
+	void selectMember(int mem_no);
 	
 	/*______Å»Åğ______*/
 	void withdraw(String mem_id);
-	
-	void selectMember(int mem_no);
 }

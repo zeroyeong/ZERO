@@ -50,6 +50,9 @@ public class MemberController {
 	private SnsValue googleSns;
 	
 	@Inject
+	private SnsValue kakaoSns;
+	
+	@Inject
 	private GoogleConnectionFactory googleConnectionFactory;
 	
 	@Inject
@@ -131,14 +134,18 @@ public class MemberController {
 	@GetMapping("/login")
 	public String login(Model model) throws Exception {
 		
-		SNSLogin snsLogin = new SNSLogin(naverSns);
-		model.addAttribute("naver_url", snsLogin.getNaverAuthUrl());
+		SNSLogin naverLogin = new SNSLogin(naverSns);
+		model.addAttribute("naver_url", naverLogin.getNaverAuthUrl());
 		
 		/* 구글code 발행을 위한 URL 생성 */
 		OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
 		String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
 
 		model.addAttribute("google_url", url);
+		
+		/* 카카오 code 발행을 위한 URL 생성 */
+		SNSLogin kakaoLogin = new SNSLogin(kakaoSns);
+		model.addAttribute("kakao_url", kakaoLogin.getKakaoAuthUrl());
 		
 		return "member/login";
 	}
@@ -151,7 +158,6 @@ public class MemberController {
 		member.setMem_pw(mem_pw);
 		
 		String mem_name = memberService.login(member);
-		System.out.println("Controller mem_name: "+mem_name);
 		
 		if(mem_name == null) {//로그인 실패
 			rttr.addFlashAttribute("login_result", "fail");
@@ -195,6 +201,13 @@ public class MemberController {
 			snsId = snsMember.getGoogleId();
 			emailId = snsMember.getEmail();
 			snsType="google";
+		} else if(StringUtils.equals("kakao", snsService)) {
+			sns = kakaoSns;
+			snsLogin = new SNSLogin(kakaoSns);
+			snsMember = snsLogin.getUserProfile(code);
+			snsId = snsMember.getNaverId();
+			emailId = snsMember.getEmail();
+			snsType="kakao";
 		}
 
 		Member member = memberService.getBySns(snsId, emailId, snsType);
@@ -274,7 +287,6 @@ public class MemberController {
 			
 			return "member/myPage";
 		}
-		
 		return "redirect:/login";
 	}
 	
@@ -297,7 +309,6 @@ public class MemberController {
 			
 			return "member/mypage_reservation";
 		}
-		
 		return "redirect:/login";
 	}
 	

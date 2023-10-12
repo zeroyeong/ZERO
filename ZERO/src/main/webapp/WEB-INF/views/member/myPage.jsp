@@ -46,7 +46,8 @@
           </li>
           <li><button class="button" type="button" onclick="location.href='reservation'">예약확인 바로가기</button></li>
           <li class="btns">
-          	<button type="button" onClick="updateCheck()">정보수정</button> <button type="reset">취소하기</button>
+          	<button type="button" onClick="updateCheck()">정보수정</button>
+          	<button type="reset" onClick="history.go(-1)">취소하기</button>
           </li>
          </form>
         </ul>

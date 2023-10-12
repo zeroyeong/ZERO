@@ -57,16 +57,15 @@ public class MemberServiceImpl implements MemberService {
 	public void modifyInfo(Member member) {
 		memberRepository.updateMember(member);
 	}
-	
-	/*______Ε»Επ______*/
-	@Override
-	public void withdraw(String mem_id) {
-		memberRepository.deleteMember(mem_id);
-	}
 
 	@Override
 	public void selectMember(int mem_no) {
 		memberRepository.selectMember(mem_no);	
 	}
 	
+	/*______Ε»Επ______*/
+	@Override
+	public void withdraw(String mem_id) {
+		memberRepository.deleteMember(mem_id);
+	}
 }
