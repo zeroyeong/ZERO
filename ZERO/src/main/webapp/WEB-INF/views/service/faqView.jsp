@@ -91,7 +91,7 @@
 		  </tr>
 		  <tr>
 		    <td>
-		      다음 글
+		      다음 글 
 		      <span>
 		        <i class="fa-solid fa-caret-down"></i>
 		      </span>

@@ -168,7 +168,7 @@ public class NoticeController {
            }
        }
    	
-       noticeService.addNotice(notice);  
+       noticeService.addNotice(notice);   
        return "redirect:/service";  
     } 
 	

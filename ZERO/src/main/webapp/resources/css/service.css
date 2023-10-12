@@ -139,7 +139,7 @@ main .container section form .searchButton i {
   background: white;
 }
 
-.container .pagination li {
+.container .pagination li { 
   cursor: pointer;
   width: 45px;
   padding: 10px 15px;

@@ -62,7 +62,7 @@
 	                    <a href="<c:url value="/service/notice_${notice.notice_no}" />">${notice.notice_title}</a>
 	                  </div>
 	                </td>
-	                <td>${notice.notice_date}</td>
+	                <td>${notice.notice_date}</td> 
 	                <td>${notice.notice_hit}</td>
 	              </tr>
 	            </c:forEach>

@@ -32,7 +32,7 @@ class Pagination {
         row.style.display = "none";
       }
     });
-
+ 
     this.updatePageButtons(page);
   }
 

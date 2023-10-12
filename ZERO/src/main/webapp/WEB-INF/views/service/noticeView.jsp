@@ -98,7 +98,7 @@
 		      </c:choose>
 		    </td>
 		  </tr>
-		  <tr>
+		  <tr> 
 		    <td>
 		      다음 글
 		      <span>
