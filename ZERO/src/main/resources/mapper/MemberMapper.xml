@@ -52,7 +52,7 @@
     
     <!-- ________________________________________________________ -->
     
-    <!-- 마이페이지 -->    
+    <!-- 마이페이지 -->     
     <select id="getMemberLoginInfo" parameterType="String" resultType="Member">
     	select * from member where mem_id = #{mem_id}
     </select>
