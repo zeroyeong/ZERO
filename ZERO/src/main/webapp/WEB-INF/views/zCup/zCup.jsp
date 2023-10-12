@@ -208,7 +208,7 @@
                 <div class="bothSide">
                   <div>
                     <label>팀관리자</label>
-                    <form:input type="text" path="team_leader"/>
+                    <form:input type="text" path="team_leader" value="${sessionScope.mem_name}" readonly="true"/>
                   </div>
                   <div>
                     <label>연락처</label>
@@ -290,7 +290,7 @@
                 </div>
                 <div>
                   <label>선수명</label>
-                  <form:input type="text" path="player_name" />
+                  <form:input type="text" path="player_name" value="${sessionScope.mem_name}" readonly="true"/>
                 </div>
                 <div>
                   <label>선수사진</label>

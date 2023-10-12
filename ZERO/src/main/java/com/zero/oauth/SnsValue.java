@@ -37,4 +37,88 @@ public class SnsValue implements SnsUrls {
 			this.profileUrl = GOOGLE_PROFILE_URL;
 		}
 	}
+
+	public SnsValue() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public SnsValue(String service, String clientId, String clientSecret, String redirectUrl,
+			DefaultApi20 api20Instance, String profileUrl, boolean isNaver, boolean isGoogle) {
+		super();
+		this.service = service;
+		this.clientId = clientId;
+		this.clientSecret = clientSecret;
+		this.redirectUrl = redirectUrl;
+		this.api20Instance = api20Instance;
+		this.profileUrl = profileUrl;
+		this.isNaver = isNaver;
+		this.isGoogle = isGoogle;
+	}
+
+	public String getService() {
+		return service;
+	}
+
+	public void setService(String service) {
+		this.service = service;
+	}
+
+	public String getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(String clientId) {
+		this.clientId = clientId;
+	}
+
+	public String getClientSecret() {
+		return clientSecret;
+	}
+
+	public void setClientSecret(String clientSecret) {
+		this.clientSecret = clientSecret;
+	}
+
+	public String getRedirectUrl() {
+		return redirectUrl;
+	}
+
+	public void setRedirectUrl(String redirectUrl) {
+		this.redirectUrl = redirectUrl;
+	}
+
+	public DefaultApi20 getApi20Instance() {
+		return api20Instance;
+	}
+
+	public void setApi20Instance(DefaultApi20 api20Instance) {
+		this.api20Instance = api20Instance;
+	}
+
+	public String getProfileUrl() {
+		return profileUrl;
+	}
+
+	public void setProfileUrl(String profileUrl) {
+		this.profileUrl = profileUrl;
+	}
+
+	public boolean isNaver() {
+		return isNaver;
+	}
+
+	public void setNaver(boolean isNaver) {
+		this.isNaver = isNaver;
+	}
+
+	public boolean isGoogle() {
+		return isGoogle;
+	}
+
+	public void setGoogle(boolean isGoogle) {
+		this.isGoogle = isGoogle;
+	}
+	
+	
 }

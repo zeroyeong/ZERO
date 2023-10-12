@@ -1,12 +1,17 @@
 package com.zero.controller;
 
 import javax.inject.Inject;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.social.google.connect.GoogleConnectionFactory;
 import org.springframework.social.oauth2.GrantType;
 import org.springframework.social.oauth2.OAuth2Operations;
@@ -34,6 +39,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+    @Autowired
+    private JavaMailSender javaMailSender;
+	
 	@Inject
 	private SnsValue naverSns;
 	
@@ -53,7 +61,17 @@ public class MemberController {
 	}
 
 	@GetMapping("/join")
-	public String JoinInput(@ModelAttribute("NewMember") Member member) {		
+	public String JoinInput(@ModelAttribute("NewMember") Member member, Model model) {
+		
+		String mem_id ="";
+		String mem_pw ="";
+		String mem_pw2 ="";
+		String mem_phone ="";
+			
+		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("mem_pw", mem_pw);
+		model.addAttribute("mem_pw2", mem_pw2);
+		model.addAttribute("mem_phone", mem_phone);
 		return "member/joinInput";
 	}
 
@@ -242,4 +260,37 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
+		
+    @PostMapping("/email")
+    public String verifyEmail(@ModelAttribute("NewMember") Member member,
+    						   @RequestParam("mem_id") String mem_id,
+					    	   @RequestParam("mem_pw") String mem_pw,
+					    	   @RequestParam("user_pwd_check") String mem_pw2,
+					    	   @RequestParam("mem_phone") String mem_phone, Model model) throws MessagingException {
+    	String subject = "Zero 인증 코드";
+    	
+		String generatedString = RandomStringUtils.randomAlphanumeric(5);
+    	String body = generatedString;
+    	
+    try {
+    	 MimeMessage message = javaMailSender.createMimeMessage();
+         MimeMessageHelper helper = new MimeMessageHelper(message, true);
+         helper.setFrom("yj_9812@naver.com");
+         helper.setTo(mem_id);
+         helper.setSubject(subject);
+         helper.setText(body);
+
+         javaMailSender.send(message);
+    	} catch (MessagingException e) {
+         e.printStackTrace();
+        }
+        String emailcheck = generatedString;
+        model.addAttribute("mem_id", mem_id);
+        model.addAttribute("mem_pw", mem_pw);
+        model.addAttribute("mem_pw2", mem_pw2);
+        model.addAttribute("mem_phone", mem_phone);
+        model.addAttribute("emailcheck", emailcheck);
+		return "member/joinInput";
+    }
+	
 }

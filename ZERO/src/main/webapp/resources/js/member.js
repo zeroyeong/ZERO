@@ -118,3 +118,21 @@ function updateMember(){
 	
 	document.updateMember.submit();
 }
+
+function emailcheck(emailCode){
+	var emailConfirm = document.getElementById("emailConfirm");
+	console.log("emailCode = " + emailCode);
+	if(emailConfirm.value != emailCode){
+		console.log("인증번호가 다르다");
+		alert('인증번호를 다시 확인해주세요.');
+	}else{
+		console.log("인증번호가 확인");
+		alert('인증번호가 확인되었습니다');
+	}
+}
+
+function emailSand(){
+		var joinFrm = document.getElementById("joinFrm");
+		joinFrm.action="email";
+		joinFrm.submit();
+}
