@@ -17,7 +17,7 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/zCup.js?x" />" defer></script>
+   <script src="<c:url value="/resources/js/zCup.js?xddd" />" defer></script>
    <script src="<c:url value="/resources/js/zCupURL.js?dbc" />" defer></script>
 
    <!-- Font Awesome -->
@@ -41,7 +41,7 @@
       </div>
       <!-- subMenu include -->
  	  <jsp:include page="../include/zCupScheduleList.jsp" />
-      
+      <input type="hidden" id="loginCheck" value="${sessionScope.mem_name}"/>
       <div class="container">
         <h1 id="zCupTitle">Z-CUP 전체 현황</h1>
 

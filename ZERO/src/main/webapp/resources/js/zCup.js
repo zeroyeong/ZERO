@@ -66,6 +66,14 @@ function showDetail() {
 }
 
 function teamAdd() {
+  var loginCheck = document.getElementById('loginCheck');
+  
+  if(loginCheck.value == ""){
+    alert('회원 전용 서비스 입니다. 로그인후 이용해 주세요');
+    location.href = 'zCup';
+    return;
+  }
+  
   var teamForm = document.getElementById('teamForm');
   var pwd1 = document.getElementById('pwd1');
   var pwd2 = document.getElementById('pwd2');	
@@ -80,6 +88,14 @@ function teamAdd() {
 }
 
 function playerAdd() {
+  var loginCheck = document.getElementById('loginCheck');
+  
+  if(loginCheck.value == ""){
+    alert('회원 전용 서비스 입니다. 로그인후 이용해 주세요');
+    location.href = 'zCup';
+    return;
+  }
+  
   var playerForm = document.getElementById('playerForm');
   var team_pwd = document.getElementById('team_pwd');
   var player_team_pwd = document.getElementById('player_team_pwd');
