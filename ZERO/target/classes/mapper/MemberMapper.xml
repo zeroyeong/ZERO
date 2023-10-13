@@ -15,8 +15,8 @@
     
     <!-- 회원가입 -->
     <insert id="insertMember" parameterType="Member">
-        insert into member(mem_id, mem_pw, mem_name, mem_phone)
-        values(#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_phone})
+        insert into member(mem_id, mem_pw, mem_name, mem_phone, ac_type)
+        values(#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_phone}, #{ac_type})
     </insert>
     
     <select id="idCheck" parameterType="Member" resultType="int">
@@ -26,8 +26,8 @@
     <!-- ________________________________________________________ -->
     
     <!-- 로그인 -->
-    <select id="login" parameterType="Member" resultType="String">
-    	select mem_name from member where mem_id = #{mem_id} and mem_pw = #{mem_pw}
+    <select id="login" parameterType="Member" resultType="Member">
+    	select * from member where mem_id = #{mem_id} and mem_pw = #{mem_pw}
     </select>
     
     <!-- 네이버 아이디로 로그인하는 사람 확인 -->

@@ -167,15 +167,20 @@ public class MemberController {
 		member.setMem_id(mem_id);
 		member.setMem_pw(mem_pw);
 		
-		String mem_name = memberService.login(member);
+		Member mem = memberService.login(member);
+
 		
-		if(mem_name == null) {//로그인 실패
+		if(mem == null) {//로그인 실패
 			rttr.addFlashAttribute("login_result", "fail");
 			System.out.println("로그인 실패");
 			return "redirect:/login";
-		}else {			
-			session.setAttribute("mem_name", mem_name);
+		}else {		
+			String mem_name = mem.getMem_name();
+			int mem_ac = mem.getAc_type();
+			
 			session.setAttribute("mem_id", mem_id);	
+			session.setAttribute("mem_name", mem_name);
+			session.setAttribute("mem_ac", mem_ac);
 		}
 		return "redirect:/";
 	}

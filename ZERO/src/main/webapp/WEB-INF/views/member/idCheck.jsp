@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/join.css?3" />" />
     
    	<!-- js 연결 -->
-    <script src="<c:url value="/resources/js/join.js?12" />" defer></script>
+    <script src="<c:url value="/resources/js/join.js?1d2" />" defer></script>
   </head>
   
   <body>
@@ -51,4 +51,24 @@
       </form>
     </div>
   </body>
+  <script>
+//중복확인
+  function useId(){
+  	opener.joinFrm.mem_id.value="${mem_id}";
+  	opener.joinFrm.checkId.value=true;
+  	opener.joinFrm.mem_pw.focus();
+  	window.close();
+  }
+
+  function idFrmSubmit(id){
+  	if(id.indexOf("@") == -1 || id.indexOf(".com") == -1){
+  		console.log(id);
+  		alert("이메일 형식이 잘못됐습니다. 확인해주세요!");
+  	} else{
+  		document.idFrm.action = "idCheck?id="+id;
+  		document.idFrm.submit();
+  	}
+  }
+  
+  </script>
 </html>

@@ -10,7 +10,7 @@ public interface MemberRepository {
 	int checkId(String mem_id); //아이디 중복확인
 	
 	/*______로그인______*/
-	String login(Member member); //로그인
+	Member login(Member member); //로그인
 	Member getBySns(String snsId, String emailId, String snsType); //소셜로그인
 	
 	/*______계정찾기______*/

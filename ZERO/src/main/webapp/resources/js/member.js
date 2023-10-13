@@ -48,23 +48,7 @@ function idCheck(id){
 	}	  
 }
 
-// 중복확인
-function useId(){
-	opener.joinFrm.mem_id.value="${mem_id}";
-	opener.joinFrm.checkId.value=true;
-	opener.joinFrm.mem_pw.focus();
-	window.close();
-}
 
-function idFrmSubmit(id){
-	if(id.indexOf("@") == -1 || id.indexOf(".com") == -1){
-		console.log(id);
-		alert("이메일 형식이 잘못됐습니다. 확인해주세요!");
-	} else{
-		document.idFrm.action = "idCheck?id="+id;
-		document.idFrm.submit();
-	}
-}
 
 // 회원가입 버튼 클릭했을 때
 function joinFrmSubmit(){

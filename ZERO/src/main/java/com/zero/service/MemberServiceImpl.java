@@ -27,7 +27,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	/*______·Î±×ÀÎ______*/
 	@Override
-	public String login(Member member) {
+	public Member login(Member member) {
 		return memberRepository.login(member);
 	}
 

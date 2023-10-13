@@ -12,7 +12,7 @@ public class Member {
 	private String kakaoId;		//카카오 아이디
 	private String email;		//이메일 
 	private String nickname;	//닉네임
-	private String player_no; 
+	private int ac_type; 
 	
 	public Member() {
 		super();
@@ -20,7 +20,7 @@ public class Member {
 	}
 
 	public Member(int mem_no, String mem_id, String mem_pw, String mem_name, String mem_phone, String googleId,
-			String naverId, String kakaoId, String email, String nickname, String player_no) {
+			String naverId, String kakaoId, String email, String nickname, int ac_type) {
 		super();
 		this.mem_no = mem_no;
 		this.mem_id = mem_id;
@@ -32,7 +32,7 @@ public class Member {
 		this.kakaoId = kakaoId;
 		this.email = email;
 		this.nickname = nickname;
-		this.player_no = player_no;
+		this.ac_type = ac_type;
 	}
 
 	public int getMem_no() {
@@ -115,12 +115,11 @@ public class Member {
 		this.nickname = nickname;
 	}
 
-	public String getPlayer_no() {
-		return player_no;
+	public int getAc_type() {
+		return ac_type;
 	}
 
-	public void setPlayer_no(String player_no) {
-		this.player_no = player_no;
+	public void setAc_type(int ac_type) {
+		this.ac_type = ac_type;
 	}
-
 }

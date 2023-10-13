@@ -18,7 +18,8 @@ public class MemberRepositoryImpl implements MemberRepository {
 	
 	 /*______회원가입______*/
 	@Override
-	public void addMember(Member member) {		
+	public void addMember(Member member) {
+		member.setAc_type(0);
 		sql.insert("Member.insertMember", member);
 	}
 	
@@ -30,7 +31,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 	
 	/*______로그인______*/
 	@Override
-	public String login(Member member) {
+	public Member login(Member member) {
 		return sql.selectOne("Member.login", member);
 	}
 

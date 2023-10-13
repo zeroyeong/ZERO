@@ -800,7 +800,7 @@ input[id='addPlayer']:checked ~ section.addPlayer {
   top: 25%;
 }
 
-.logo {
+.zCuplogo {
   font-size: 2rem;
   margin: 30px;
   text-align: center;

@@ -10,7 +10,7 @@ public interface MemberService {
 	int checkId(String mem_id);
 	
 	/*________ 로그인 ________*/
-	String login(Member member);
+	Member login(Member member);
 	Member getBySns(String snsId, String emailId, String snsType);
 	
 	/*______계정찾기______*/

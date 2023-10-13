@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/join.css" />" />
     
    	<!-- js 연결 -->
-    <script src="<c:url value="/resources/js/member.js?ver1" />" defer></script>
+    <script src="<c:url value="/resources/js/member.js?ver12" />" defer></script>
   </head>
   <body>
     <section class="container">
       <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
-      <form:form modelAttribute = "NewMember" id="joinFrm" name="joinFrm" method="post">   
+      <form:form modelAttribute = "NewMember" id="joinFrm" name="joinFrm" method="post" action="member">   
         <ul>
           <li>
             <label for="user_id">아이디(이메일)<span class="essential">(필수)</span></label>
