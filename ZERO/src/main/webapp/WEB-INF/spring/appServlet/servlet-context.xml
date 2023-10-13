@@ -79,10 +79,10 @@
 	<!-- 구글 종료 -->
 	<!-- 카카오 -->
 	<beans:bean id="kakaoClientID" class="java.lang.String">
-	        <beans:constructor-arg value="25024f8312dac8b31c5a26b08e1fcaa0" />
+	        <beans:constructor-arg value="fa9fd2a0fa3c4ee2e000fb956a3bf195" />
 	</beans:bean>
 	<beans:bean id="kakaoClientSecret" class="java.lang.String">
-	        <beans:constructor-arg value="cvZiVczKDsG82j0Pl88xldn4OuqNlnAu" />
+	        <beans:constructor-arg value="NfzfB8wrHhMeHmcan9JxMOw8tCS5h8Wl" />
 	</beans:bean>
 	<beans:bean id="kakaoRedirectUrl" class="java.lang.String">
 	        <beans:constructor-arg value="http://localhost:8080/zero/auth/kakao/callback" />

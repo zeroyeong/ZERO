@@ -152,6 +152,8 @@ public class MemberController {
 		
 		/* 카카오 code 발행을 위한 URL 생성 */
 		SNSLogin kakaoLogin = new SNSLogin(kakaoSns);
+		logger.info("kakaoLogin={}", kakaoLogin.getKakaoAuthUrl());
+
 		model.addAttribute("kakao_url", kakaoLogin.getKakaoAuthUrl());
 			
 		return "member/login";
@@ -212,7 +214,9 @@ public class MemberController {
 		} else if(StringUtils.equals("kakao", snsService)) {
 			sns = kakaoSns;
 			snsLogin = new SNSLogin(kakaoSns);
-			snsMember = snsLogin.getUserProfile(code);
+			System.out.println("ddd");
+			snsMember = snsLogin.test(code);
+			System.out.println("qqq");
 			snsId = snsMember.getNaverId();
 			emailId = snsMember.getEmail();
 			snsType="kakao";
