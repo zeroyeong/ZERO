@@ -44,14 +44,17 @@ public class CupController {
 	@PostMapping("/zCup/cupTeam")
 	public String setCupTeam(@ModelAttribute("NewTeam") CupTeam cup_team,
 							 @RequestParam("leader_photo") MultipartFile leader_photo) {
-		
+
 		cupService.setNewCupTeam(cup_team);
 		int cupTeam_no = cupService.getCupTeamByCupTeamNo(cup_team.getTeam_name());
 
 		CupPlayer cup_player = new CupPlayer();
 		cup_player.setTeam_no(cupTeam_no);
 		cup_player.setPlayer_name(cup_team.getTeam_leader());
-		cup_player.setPhoto_file(leader_photo);
+		
+		if(leader_photo != null) {
+			cup_player.setPhoto_file(leader_photo);			
+		}
 		
 		cupService.setNewCupPlayer(cup_player);
 		return "redirect:/zCup";

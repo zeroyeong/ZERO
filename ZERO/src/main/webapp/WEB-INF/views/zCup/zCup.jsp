@@ -200,23 +200,23 @@
                   </div>
                   <div>
                     <label>팀명</label>
-                    <form:input path="team_name"/>
+                    <form:input path="team_name" autocomplete="off"/>
                   </div>
                 </div>
 
                 <div class="bothSide">
                   <div>
                     <label>팀관리자</label>
-                    <form:input type="text" path="team_leader" value="${sessionScope.mem_name}" readonly="true"/>
+                    <form:input type="text" path="team_leader" value="${sessionScope.mem_name}" readonly="true" autocomplete="off"/>
                   </div>
                   <div>
                     <label>연락처</label>
-                      <form:input type="text" path="team_phone"/>
+                      <form:input type="text" path="team_phone" autocomplete="off"/>
                   </div>
                 </div>
                 <div>
                   <label>이메일</label>
-                  <form:input type="text" path="team_mail" />
+                  <form:input type="text" path="team_mail" autocomplete="off"/>
                 </div>
                 <div>
                   <label>선수 사진</label>
@@ -230,13 +230,13 @@
                   <div>
                     <label>유니폼(홈)</label>
                     <div class="harlfInput">
-                      <form:input type="text" path="team_uniform_home" placeholder="유니폼 색" />
+                      <form:input type="text" path="team_uniform_home" placeholder="유니폼 색" autocomplete="off"/>
                     </div>
                   </div>
                   <div>
                     <label>유니폼(어웨이)</label>
                     <div class="harlfInput">
-                      <form:input type="text" path="team_uniform_away" placeholder="유니폼 색" />
+                      <form:input type="text" path="team_uniform_away" placeholder="유니폼 색" autocomplete="off"/>
                     </div>
                   </div>
                 </div>
@@ -274,7 +274,7 @@
                   <div>
                     <label>팀코드 입력</label>
                     <div class="inpuBtn">
-                      <input type="text" id="teamCodeInput"/>
+                      <input type="text" id="teamCodeInput" autocomplete="off"/>
                       <button type="button" onclick="okReser()">코드확인</button>
                     </div>
                   </div>
@@ -297,7 +297,7 @@
                 </div>
                 <div>
                   <label>선수명</label>
-                  <form:input type="text" path="player_name" value="${sessionScope.mem_name}" readonly="true"/>
+                  <form:input type="text" path="player_name" value="${sessionScope.mem_name}" readonly="true" autocomplete="off"/>
                 </div>
                 <div>
                   <label>선수사진</label>

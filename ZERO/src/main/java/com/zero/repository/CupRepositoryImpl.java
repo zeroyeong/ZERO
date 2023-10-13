@@ -60,7 +60,7 @@ public class CupRepositoryImpl implements CupRepository {
          
 		cup_team.setTeam_member_cnt("1");
 		cup_team.setTeam_reg_year(formattedDate);
-				
+	
 		if(cup_team.getEmblem_file() != null) {
 	    	
 	       MultipartFile image = cup_team.getEmblem_file();  
