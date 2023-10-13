@@ -11,3 +11,4 @@ public interface SnsUrls {
 	static final String KAKAO_PROFILE_URL = "https://kapi.kakao.com/v2/user/me";
 }
 
+ 
