@@ -119,6 +119,7 @@ public class ManagerController {
 	@GetMapping("/manager/playerDelete")
 	public String playerDelete(@RequestParam("player_no") int player_no, @RequestParam("team_no") int team_no) {
 		cupService.deletePlayer(player_no);
+		cupService.updateCupTeamMemberCntDown(team_no);
 		return "redirect:/manager/mgrPlayerList?team_no=" + team_no;
 	}
 	

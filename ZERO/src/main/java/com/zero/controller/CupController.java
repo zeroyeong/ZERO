@@ -127,17 +127,5 @@ public class CupController {
 		cupService.updateCupTeamMemberCntDown(team_no);
 		return "redirect:editorTeam?team_no="+team_no;
 	}
-	
-	@GetMapping("/zCup/home")
-	public String homeTest(@ModelAttribute("NewSchedule") CupSchedule cup_schedule, Model model) {
-		
-		List<CupSchedule> cup_schedule_list = cupService.getCupScheduleList();
-		model.addAttribute("cup_schedule_list", cup_schedule_list);
-		model.addAttribute("cup_schedule_list", cup_schedule);
-		return "home";
-	}
-
-
-	
 }
  
