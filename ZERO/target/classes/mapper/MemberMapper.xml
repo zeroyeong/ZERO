@@ -36,12 +36,12 @@
     </select>
     
     <!-- 구글 아이디로 로그인하는 사람 확인 -->
-    <select id="getBySnsGoogle" parameterType="Member" resultType="Member">
+    <select id="getBySnsGoogle" parameterType="String" resultType="Member">
     	select * from member where googleId = #{emailId}
     </select>
     
     <!-- 카카오 아이디로 로그인하는 사람 확인 -->
-    <select id="getBySnsGoogle" parameterType="Member" resultType="Member">
+    <select id="getBySnsKakao" parameterType="String" resultType="Member">
     	select * from member where KakaoId = #{emailId}
     </select>
     

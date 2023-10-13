@@ -109,7 +109,7 @@ function emailSand(){
   		
   	if(mailInput.value == null || mailInput.value == ""){
   		alert("이메일을 입력하세요!");
-  	} else If(mailCheck.value == null || mailCheck.value == ""){
+  	} else if(mailCheck.value == null || mailCheck.value == ""){
   		alert("이메일 인증을 해주세요!");
   	} else{
  		joinFrm.action="email";
