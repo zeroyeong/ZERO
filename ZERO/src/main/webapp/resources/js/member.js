@@ -101,7 +101,7 @@ console.log("click함");
 	}
 }
 
-// 메인인증
+// 메일인증
 function emailSand(){
   	let mailInput = document.getElementById("user_id");
   	let mailCheck = document.getElementById("checkId");

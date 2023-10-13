@@ -32,7 +32,6 @@
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
 </head> 
  <body>
- 
     <section class="container">
       <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
       <form name="loginFrm" method="post" action="login" onsubmit="return frm_check();">

@@ -3,6 +3,8 @@ package com.zero.controller;
 import javax.inject.Inject;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -132,7 +134,12 @@ public class MemberController {
 	
 	/*________ 로그인 ________*/	
 	@GetMapping("/login")
-	public String login(Model model) throws Exception {
+	public String login(Member member, Model model, HttpSession session) throws Exception {
+		
+		String id = (String) session.getAttribute("mem_name");
+		if(id != null) {
+			return "redirect:/";
+		}
 		
 		SNSLogin naverLogin = new SNSLogin(naverSns);
 		model.addAttribute("naver_url", naverLogin.getNaverAuthUrl());
@@ -146,13 +153,14 @@ public class MemberController {
 		/* 카카오 code 발행을 위한 URL 생성 */
 		SNSLogin kakaoLogin = new SNSLogin(kakaoSns);
 		model.addAttribute("kakao_url", kakaoLogin.getKakaoAuthUrl());
-		
+			
 		return "member/login";
 	}
 		
 	@PostMapping("/login")
 	public String login(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
-			Member member, HttpSession session, RedirectAttributes rttr) {
+			Member member, HttpSession session, RedirectAttributes rttr,
+			HttpServletResponse response, HttpServletRequest request) {
 		
 		member.setMem_id(mem_id);
 		member.setMem_pw(mem_pw);
@@ -161,13 +169,12 @@ public class MemberController {
 		
 		if(mem_name == null) {//로그인 실패
 			rttr.addFlashAttribute("login_result", "fail");
-			System.out.println("asdf");
+			System.out.println("로그인 실패");
 			return "redirect:/login";
 		}else {			
 			session.setAttribute("mem_name", mem_name);
 			session.setAttribute("mem_id", mem_id);	
 		}
-		
 		return "redirect:/";
 	}
 	
