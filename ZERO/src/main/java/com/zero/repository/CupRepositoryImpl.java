@@ -61,7 +61,7 @@ public class CupRepositoryImpl implements CupRepository {
 		cup_team.setTeam_member_cnt("1");
 		cup_team.setTeam_reg_year(formattedDate);
 				
-		if(cup_team.getEmblem_file() != null && cup_team.getTeam_emblem() != null) {
+		if(cup_team.getEmblem_file() != null) {
 	    	
 	       MultipartFile image = cup_team.getEmblem_file();  
 	       String saveName = image.getOriginalFilename();  
@@ -81,6 +81,11 @@ public class CupRepositoryImpl implements CupRepository {
 	}
 	
 	@Override
+	public int getCupTeamByCupTeamNo(String cupTeam_name) {
+		return sql.selectOne("Cup.selectTeamByTeamName", cupTeam_name);
+	}
+	
+	@Override
 	public void setNewCupPlayer(CupPlayer cupPlayer) {
 		
 		cupPlayer.setPlayer_games(0);
@@ -88,7 +93,7 @@ public class CupRepositoryImpl implements CupRepository {
 		cupPlayer.setPlayer_yellow_card(0);
 		cupPlayer.setPlayer_red_card(0);
 		
-		if(cupPlayer.getPhoto_file() != null && cupPlayer.getPlayer_photo() != null) {
+		if(cupPlayer.getPhoto_file() != null) {
 	    	
 		       MultipartFile image = cupPlayer.getPhoto_file();  
 		       String saveName = image.getOriginalFilename();

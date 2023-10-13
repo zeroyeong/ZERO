@@ -15,6 +15,10 @@
     <select id="selectOneTeam" parameterType="int" resultType="CupTeam">
         select * from CUP_TEAM  WHERE team_no = #{team_no}
     </select>
+    
+    <select id="selectTeamByTeamName" parameterType="String" resultType="int">
+        select * from CUP_TEAM TEAM_NO WHERE team_name = #{cupTeam_name}
+    </select>
      
     <insert id="insertPlayer" parameterType="CupPlayer">
         insert into Cup_Player(PLAYER_NAME, PLAYER_PHOTO, PLAYER_GAMES, PLAYER_GOAL, PLAYER_YELLOW_CARD, PLAYER_RED_CARD, TEAM_NO)

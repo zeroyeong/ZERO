@@ -20,6 +20,8 @@ public interface CupService {
 	
 	void setNewCupTeam(CupTeam cupTeam); 
 	
+	int getCupTeamByCupTeamNo(String cupTeam_name);
+	
 	void setNewCupPlayer(CupPlayer cupPlayer);
 	
 	List<CupPlayer> getPlayerWithTeamList();

@@ -50,6 +50,16 @@ upload_file2.addEventListener('input', () => {
   }
 });
 
+const upload_file3 = document.querySelector('#fileInput3');
+const upload_name3 = document.querySelector('.fileName3');
+
+upload_file3.addEventListener('input', () => {
+  if (isImage(upload_file3.files[0])) {
+    changeVal(upload_name2, upload_file3.files[0].name);
+  }
+});
+
+
 // 변수 file의 type이 image(png, jpg 등)인지 구분한다.
 function isImage(file) {
   return file.type.indexOf('image') >= 0;

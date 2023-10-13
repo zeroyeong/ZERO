@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.zero.domain.Branch;
 import com.zero.domain.CupPlayer;
@@ -41,10 +42,18 @@ public class CupController {
 	}
 	
 	@PostMapping("/zCup/cupTeam")
-	public String setCupTeam(@ModelAttribute("NewTeam") CupTeam cup_team) {
- 
-		cupService.setNewCupTeam(cup_team);
+	public String setCupTeam(@ModelAttribute("NewTeam") CupTeam cup_team,
+							 @RequestParam("leader_photo") MultipartFile leader_photo) {
 		
+		cupService.setNewCupTeam(cup_team);
+		int cupTeam_no = cupService.getCupTeamByCupTeamNo(cup_team.getTeam_name());
+
+		CupPlayer cup_player = new CupPlayer();
+		cup_player.setTeam_no(cupTeam_no);
+		cup_player.setPlayer_name(cup_team.getTeam_leader());
+		cup_player.setPhoto_file(leader_photo);
+		
+		cupService.setNewCupPlayer(cup_player);
 		return "redirect:/zCup";
 	}
 	

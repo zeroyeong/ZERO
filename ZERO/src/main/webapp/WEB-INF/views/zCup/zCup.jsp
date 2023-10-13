@@ -219,6 +219,14 @@
                   <label>이메일</label>
                   <form:input type="text" path="team_mail" />
                 </div>
+                <div>
+                  <label>선수 사진</label>
+                  <div class="search">
+                    <input type="text" class="fileName" placeholder="이미지를 업로드 하세요" readonly>
+                    <input type="file" id="fileInput" name="leader_photo" />
+                    <label for="fileInput">찾아보기</label>
+                  </div>
+                </div>
                 <div class="bothSide">
                   <div>
                     <label>유니폼(홈)</label>
@@ -236,9 +244,9 @@
                 <div>
                   <label>팀엠블럼</label>
                   <div class="search">
-                    <input type="text" class="fileName" placeholder="이미지를 업로드 하세요" readonly>
-                    <form:input type="file" id="fileInput" path="emblem_file" />
-                    <label for="fileInput">찾아보기</label>
+                    <input type="text" class="fileName2" placeholder="이미지를 업로드 하세요" readonly>
+                    <form:input type="file" id="fileInput2" path="emblem_file" />
+                    <label for="fileInput2">찾아보기</label>
                   </div>
                 </div>
                 <div class="bothSide">
@@ -295,9 +303,9 @@
                 <div>
                   <label>선수사진</label>
                   <div class="search">
-                    <input type="text" class="fileName2"  placeholder="이미지를 업로드 하세요" readonly>
-                    <form:input type="file" id="fileInput2" path="photo_file"/>
-                    <label for="fileInput2">찾아보기</label>
+                    <input type="text" class="fileName3"  placeholder="이미지를 업로드 하세요" readonly>
+                    <form:input type="file" id="fileInput3" path="photo_file"/>
+                    <label for="fileInput3">찾아보기</label>
                   </div>
                 </div>
               </div>
