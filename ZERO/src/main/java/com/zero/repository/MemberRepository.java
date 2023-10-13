@@ -1,5 +1,7 @@
 package com.zero.repository;
 
+import java.util.List;
+
 import com.zero.domain.Member; 
 
 public interface MemberRepository {
@@ -22,4 +24,7 @@ public interface MemberRepository {
 
 	/*______Å»Åð______*/
 	void deleteMember(String mem_id);
+	
+	/*»ç¿ëÀÚ°ü¸® ¸â¹ö °¡Á®¿À±â*/
+	List<Member> memberList();
 }

@@ -15,10 +15,12 @@ import com.zero.domain.CupMatchDetail;
 import com.zero.domain.CupPlayer;
 import com.zero.domain.CupSchedule;
 import com.zero.domain.CupTeam;
+import com.zero.domain.Member;
 import com.zero.domain.Reservation;
 import com.zero.service.BranchService;
 import com.zero.service.CupService;
 import com.zero.service.ManagerService;
+import com.zero.service.MemberService;
 
 @Controller
 public class ManagerController {
@@ -31,6 +33,9 @@ public class ManagerController {
 	
 	@Autowired
 	private BranchService branchService;
+	
+	@Autowired
+	private MemberService memberService;
 
 	@GetMapping("/manager")
 	public String manager(@ModelAttribute("NewSchedule") CupSchedule cup_schedule,
@@ -41,14 +46,14 @@ public class ManagerController {
 		List<CupTeam> cup_team_list = cupService.getCupTeamList();
 		List<CupSchedule> cup_schedule_list = cupService.getCupScheduleList();
 		List<Branch> branch_List = cupService.getBranchList();
-		
+		List<Member> memberList = memberService.memberList();
 		List<Reservation> rlist = branchService.ReservationList();
+		
 		model.addAttribute("ReservationList", rlist);
-		
-		model.addAttribute("cup_schedule_list", cup_schedule_list);
-		
+		model.addAttribute("cup_schedule_list", cup_schedule_list);	
 		model.addAttribute("cupTeamList", cup_team_list);
 		model.addAttribute("branch_List", branch_List); 
+		model.addAttribute("memberList", memberList); 
 		return "manager/manager"; 
 	}
 	

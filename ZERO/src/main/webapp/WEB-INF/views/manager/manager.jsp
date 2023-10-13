@@ -157,7 +157,7 @@
 
             <section id="mgrUserContent" class="mgrPage">
                 <div class="mgrUserTableTop">
-                    전체 사용자 수 : 01
+                    전체 사용자 수 : <c:out value="${memberList.size()}" />
                 </div>
                 <table>
                     <thead>
@@ -171,14 +171,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${cupTeamList}" var="cupTeam">
+                       <c:forEach items="${memberList}" var="member">
                             <tr>
-                                <td>1</td>
-                                <td>사용자1</td>
-                                <td>010-0101-0101</td>
-                                <td>id123</td>
-                                <td>pw123</td>
-                                <td><a class="userBtn" onclick="openUserPopup('${cupTeam.team_no}')">수정</a></td>
+                                <td>${member.mem_no}</td>
+                                <td>${member.mem_name}</td>
+                                <td>${member.mem_phone}</td>
+                                <td>${member.mem_id}</td>
+                                <td>${member.mem_pw}</td>
+                                <td><a class="userBtn" onclick="openUserPopup('${member.mem_no}')">수정</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

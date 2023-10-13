@@ -1,5 +1,7 @@
 package com.zero.service;
 
+import java.util.List;
+
 import com.zero.domain.Member;
 
 public interface MemberService { 
@@ -22,4 +24,7 @@ public interface MemberService {
 	
 	/*______Å»Åð______*/
 	void withdraw(String mem_id);
+	
+	/*»ç¿ëÀÚ°ü¸® ¸â¹ö °¡Á®¿À±â*/
+	List<Member> memberList();
 }

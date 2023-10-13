@@ -1,5 +1,7 @@
 package com.zero.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,5 +69,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void withdraw(String mem_id) {
 		memberRepository.deleteMember(mem_id);
+	}
+	
+	/*사용자관리 멤버 가져오기*/
+	@Override
+	public List<Member> memberList() {
+		return memberRepository.memberList();
 	}
 }

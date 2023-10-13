@@ -1,5 +1,7 @@
 package com.zero.repository; 
 
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,5 +79,11 @@ public class MemberRepositoryImpl implements MemberRepository {
 	@Override
 	public void deleteMember(String mem_id) {
 		sql.delete("Member.deleteMember", mem_id);
+	}
+	
+	/*사용자관리 멤버 가져오기*/
+	@Override
+	public List<Member> memberList() {
+		return sql.selectList("Member.allMemberRead");
 	}
 }
