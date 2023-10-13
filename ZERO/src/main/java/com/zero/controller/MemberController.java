@@ -161,13 +161,14 @@ public class MemberController {
 		
 		if(mem_name == null) {//로그인 실패
 			rttr.addFlashAttribute("login_result", "fail");
+			System.out.println("asdf");
 			return "redirect:/login";
 		}else {			
 			session.setAttribute("mem_name", mem_name);
 			session.setAttribute("mem_id", mem_id);	
 		}
 		
-		return "redirect:/login";
+		return "redirect:/";
 	}
 	
 	/*________ 소셜로그인 콜백 ________*/	
