@@ -55,7 +55,7 @@
                     <tr>
                         <th class="title" colspan="4">이미지</th>
                         <td>
-                            <form:input type="file" id="fileInput" path="notice_imagefile" />
+                            <form:input type="file" id="fileInput" path="notice_imagefile" accept="image/*"/>
                         </td>
                     </tr>
                 </tbody>

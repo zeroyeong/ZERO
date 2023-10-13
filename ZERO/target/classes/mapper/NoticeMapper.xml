@@ -25,7 +25,8 @@
 <update id="updateNotice">
 	UPDATE NOTICE
 	SET NOTICE_TITLE = #{notice_title},
-	NOTICE_CONTENT = #{notice_content}
+	NOTICE_CONTENT = #{notice_content},
+	NOTICE_IMAGENAME = #{notice_imagename}
 	WHERE NOTICE_NO = #{notice_no}
 </update>
 

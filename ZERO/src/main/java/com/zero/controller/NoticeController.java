@@ -105,6 +105,20 @@ public class NoticeController {
 	}
 	@PostMapping("/service/notice_{notice_no}/update")
 	public String postNoticeUpdate(@ModelAttribute("notice") Notice notice) {
+		
+    	MultipartFile notice_image = notice.getNotice_imagefile();  
+
+        String saveName = notice_image.getOriginalFilename();  
+        File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
+        
+        if (notice_image != null && !notice_image.isEmpty()) {
+            try {
+         	   notice_image.transferTo(saveFile);  
+            	notice.setNotice_imagename(saveName);
+            } catch (Exception e) {
+                throw new RuntimeException("이미지 업로드가 실패하였습니다", e);
+            }
+        }	      
 		noticeService.updateNotice(notice);
 		return "redirect:/service";
 	}
