@@ -23,7 +23,11 @@ public interface CupRepository {
 	int getCupTeamByCupTeamNo(String cupTeam_name);
 	
 	void setNewCupPlayer(CupPlayer cupPlayer);
-	 
+	
+	void updateCupTeamMemberCntUp(int team_no);
+	
+	void updateCupTeamMemberCntDown(int team_no);
+	
 	List<CupPlayer> getPlayerWithTeamList();
 	
 	List<CupPlayer> getTeamDetail(int team_no);

@@ -24,6 +24,10 @@ public interface CupService {
 	
 	void setNewCupPlayer(CupPlayer cupPlayer);
 	
+	void updateCupTeamMemberCntUp(int team_no);
+	
+	void updateCupTeamMemberCntDown(int team_no);
+	
 	List<CupPlayer> getPlayerWithTeamList();
 	
 	List<CupPlayer> getTeamDetail(int team_no);

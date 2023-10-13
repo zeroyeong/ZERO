@@ -61,7 +61,7 @@ public class CupController {
 	public String setCupPlayer(@ModelAttribute("NewPlayer") CupPlayer cup_player) {
 		
 		cupService.setNewCupPlayer(cup_player);
-		
+		cupService.updateCupTeamMemberCntUp(cup_player.getTeam_no());
 		return "redirect:/zCup";
 	}
 	
@@ -123,7 +123,8 @@ public class CupController {
 	@GetMapping("/zCup/playerDelete")
 	public String deletePlayer(@RequestParam("player_no") int player_no, @RequestParam("team_no") int team_no) {
 		
-		cupService.deletePlayer(player_no);		
+		cupService.deletePlayer(player_no);
+		cupService.updateCupTeamMemberCntDown(team_no);
 		return "redirect:editorTeam?team_no="+team_no;
 	}
 	

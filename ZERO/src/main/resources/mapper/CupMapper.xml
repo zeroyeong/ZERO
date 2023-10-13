@@ -257,6 +257,14 @@
     	 	where TEAM_NO = #{team_no}
     </update> 
     
+    <update id="updateMemberCntUp" parameterType="int">
+		 update CUP_TEAM SET TEAM_MEMBER_CNT = cup_team.TEAM_MEMBER_CNT + 1 WHERE TEAM_NO = #{team_no}
+    </update>
+    
+    <update id="updateMemberCntDown" parameterType="int">
+		 update CUP_TEAM SET TEAM_MEMBER_CNT = cup_team.TEAM_MEMBER_CNT - 1 WHERE TEAM_NO = #{team_no}
+    </update>
+    
     <delete id="deleteTeam" parameterType="int">
         DELETE FROM CUP_TEAM WHERE TEAM_NO = #{team_no} 
     </delete>

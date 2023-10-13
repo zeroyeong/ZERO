@@ -55,7 +55,7 @@ const upload_name3 = document.querySelector('.fileName3');
 
 upload_file3.addEventListener('input', () => {
   if (isImage(upload_file3.files[0])) {
-    changeVal(upload_name2, upload_file3.files[0].name);
+    changeVal(upload_name3, upload_file3.files[0].name);
   }
 });
 
