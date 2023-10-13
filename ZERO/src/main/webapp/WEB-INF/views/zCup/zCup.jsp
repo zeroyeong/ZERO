@@ -12,7 +12,7 @@
    <title>Z-CUP</title>
 
    <!-- css 연결 -->
-   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css?dddd" />" />
+   <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css?adfsd" />" />
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
@@ -394,7 +394,7 @@
               <div class="bigLine bigLine1">
                 <span></span>
               </div>
-              <div class="zCuplogo">zero Futsal</div>
+              <div class="logo">zero Futsal</div>
               <div class="bigLine bigLine2">
                 <span></span>
               </div>

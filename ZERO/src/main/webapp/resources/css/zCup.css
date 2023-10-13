@@ -281,7 +281,8 @@ section#teamAdd section form .formDiv > div {
   padding: 10px 0;
 }
 
-section#teamAdd section form .formDiv label {
+section#teamAdd section form .formDiv .bothSide > label,
+section#teamAdd section form .formDiv > div> label {
   font-weight: 600;
   font-size: 1.1em;
   color: #383838;
@@ -800,7 +801,7 @@ input[id='addPlayer']:checked ~ section.addPlayer {
   top: 25%;
 }
 
-.zCuplogo {
+.tonerment .logo {
   font-size: 2rem;
   margin: 30px;
   text-align: center;
