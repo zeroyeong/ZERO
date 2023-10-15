@@ -60,12 +60,14 @@ public class CupRepositoryImpl implements CupRepository {
          
 		cup_team.setTeam_member_cnt("1");
 		cup_team.setTeam_reg_year(formattedDate);
-	
-		if(cup_team.getEmblem_file() != null) {
-	    	
-	       MultipartFile image = cup_team.getEmblem_file();  
-	       String saveName = image.getOriginalFilename();  
-	       File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
+
+	   	MultipartFile image = cup_team.getEmblem_file();  
+	   	String saveName = image.getOriginalFilename();  //C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images
+	   	
+	   	System.out.println("saveName = " + saveName);
+		if(saveName != "") {   
+			
+	       File saveFile = new File("C:\\Users\\wmun5\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
 	    try {
 	    		image.transferTo(saveFile);
 	    		cup_team.setTeam_emblem(saveName);
@@ -93,16 +95,11 @@ public class CupRepositoryImpl implements CupRepository {
 		cupPlayer.setPlayer_yellow_card(0);
 		cupPlayer.setPlayer_red_card(0);
 		
-		if(cupPlayer.getPhoto_file() != null) {
-	    	
-		       MultipartFile image = cupPlayer.getPhoto_file();  
-		       String saveName = image.getOriginalFilename();
-		       
-		       if(saveName == "") {
-		    	   return;
-		       }
-		       
-		       File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
+		MultipartFile image = cupPlayer.getPhoto_file();  
+		String saveName = image.getOriginalFilename();
+		if(saveName != "") {    
+			
+		       File saveFile = new File("C:\\Users\\wmun5\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
 		    try {
 		    		image.transferTo(saveFile);
 		    		cupPlayer.setPlayer_photo(saveName);
@@ -155,15 +152,11 @@ public class CupRepositoryImpl implements CupRepository {
 	@Override
 	public void updateCupTeam(CupTeam cup_team) {
 		
-		if(cup_team.getEmblem_file() != null) {    	
-		       MultipartFile image = cup_team.getEmblem_file();  
-		       String saveName = image.getOriginalFilename(); 
-
-		       if(saveName == "") {
-		    	   return;
-		       }
-		       
-		       File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
+		MultipartFile image = cup_team.getEmblem_file();  
+		String saveName = image.getOriginalFilename(); 
+		
+	       if(saveName != "") {
+		       File saveFile = new File("C:\\Users\\wmun5\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
 		    try {
 		    		image.transferTo(saveFile);
 		    		cup_team.setTeam_emblem(saveName);
@@ -215,6 +208,7 @@ public class CupRepositoryImpl implements CupRepository {
 	@Override
 	public void deleteSchedule(int schedule_no) {
 		sql.delete("Cup.deleteSchedule", schedule_no);
+		sql.delete("Cup.deleteScheduleDetail", schedule_no);
 	}
 	
 	@Override

@@ -298,6 +298,10 @@
         DELETE FROM cup_match_schedule WHERE SCHEDULE_NO = #{schedule_no} 
     </delete>
     
+    <delete id="deleteScheduleDetail" parameterType="int">
+        DELETE FROM cup_match_detail WHERE DETAIL_NO = #{schedule_no} 
+    </delete>
+    
     <update id="updateScheduleDetail" parameterType="CupMatchDetail">
     	 update cup_match_detail set 
     	 	DETAIL_TEAM_HOME_GOAL = #{detail_home_goal}, 

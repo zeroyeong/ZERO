@@ -123,7 +123,7 @@
                 <div class="mgrSch">
                     <c:forEach items="${cup_schedule_list}" var="cupSchedule">
                         <ul>
-                            <li class="place">시흥점</li>
+                            <li class="place">${cupSchedule.branch.branch_name}</li>
                             <li class="playInfo">
                                 <div class="schInfoDiv">
                                     <span>${cupSchedule.schedule_date}</span>

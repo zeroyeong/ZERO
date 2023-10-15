@@ -98,38 +98,13 @@
               </li>
             </ul>
             <ul class="teamList">
+              <c:forEach var="cupTeamList" items="${cupTeamList}" varStatus="cnt" begin="0" end="7">   
+              	<c:set var="groupCnt" value="${groupCnt + 1}" />
               <li>
-                <img src="images/í2.jpg" alt="" />
-                <span class="teamName">팀 이름 1</span>
+				<img src="${pageContext.request.contextPath}/resources/images/${cupTeamList.team_emblem}" alt=""/>
+                <a href="">${cupTeamList.team_name}</a>
               </li>
-              <li>
-                <img src="images/í2.jpg" alt="" />
-                <span class="teamName">팀 이름 2</span>
-              </li>
-              <li>
-                <img src="images/í2.jpg" alt="" />
-                <span class="teamName">팀 이름 3</span>
-              </li>
-              <li>
-                <img src="images/í2.jpg" alt="" />
-                <span class="teamName">팀 이름 4</span>
-              </li>
-              <li>
-                <img src="images/í2.jpg" alt="" />
-                <span class="teamName">팀 이름 5</span>
-              </li>
-              <li>
-                <img src="images/í2.jpg" alt="" />
-                <span class="teamName">팀 이름 6</span>
-              </li>
-              <li>
-                <img src="images/í2.jpg" alt="" />
-                <span class="teamName">팀 이름 7</span>
-              </li>
-              <li>
-                <img src="images/í2.jpg" alt="" />
-                <span class="teamName">팀 이름 8</span>
-              </li>
+              </c:forEach>     
             </ul>
           </div>
         
@@ -181,7 +156,7 @@
             <c:forEach items="${cupScheduleList}" var="cupSchedule">
             <c:set var="listNum" value="${listNum + 1}" />
                 <ul>
-                  <li class="place">시흥점</li>
+                  <li class="place">${cupSchedule.branch.branch_name}</li>
                   <li class="playInfo">
                     <div>
                     <span>${cupSchedule.schedule_date}</span>
@@ -248,11 +223,7 @@
                     <tr>
                       <td>${cupSchedule.detail.detail_home_goal}</td>
                       <th>득점현황</th>
-                      <td>
-                        ${cupSchedule.detail.detail_away_goal}
-                        <br />
-                        주영웅 (2쿼터/6')
-                      </td>
+                      <td>${cupSchedule.detail.detail_away_goal}</td>
                     </tr>
                     <tr>
 	                    <td>${cupSchedule.detail.detail_home_yellow_card}</td>

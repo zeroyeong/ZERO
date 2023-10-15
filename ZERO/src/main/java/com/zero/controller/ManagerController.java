@@ -87,9 +87,9 @@ public class ManagerController {
 	}
 	
 	@PostMapping("/manager/scheduleDetail")
-	public String updateSchedule(@ModelAttribute("detail") CupMatchDetail cup_detail) {
+	public String updateScheduleDetail(@ModelAttribute("detail") CupMatchDetail cup_detail) {
 
-		cupService.updateScheduleDetail(cup_detail);			
+		cupService.updateScheduleDetail(cup_detail);
 		return "redirect:/manager";
 	}
 	
