@@ -48,19 +48,20 @@ function idCheck(id){
 	}	  
 }
 
-
-
 // 회원가입 버튼 클릭했을 때
 function joinFrmSubmit(){
-console.log("click함");
-	const id = document.getElementById("user_id").value;
-	const pwd1 = document.getElementById("user_pwd").value;
-	const pwd2 = document.getElementById("user_pwd_check").value;
-	const name = document.getElementById("user_name").value;
-	const idCheck = document.getElementById("checkId").value;
+	let id = document.getElementById("user_id").value;
+	let pwd1 = document.getElementById("user_pwd").value;
+	let pwd2 = document.getElementById("user_pwd_check").value;
+	let name = document.getElementById("user_name").value;
+	let idCheck = document.getElementById("checkId").value;
+	let phone = document.getElementById("user_phone").value;
+	let emailConfirm = document.getElementyById("emailConfirm").value;
+	let emailCheck = document.getElementyById("emailCheck").value;
 	
 	if(id == "" || checkId != "true" || name == "" || 
-		pwd1 == "" || pwd2 == "" || pwd1 != pwd2){
+		pwd1 == "" || pwd2 == "" || pwd1 != pwd2 ||
+		phone == "" || emailConfirm != emailCheck){
 		if(id == ""){
 			alert("아이디(이메일)를 입력해 주세요.");
 			document.joinFrm.mem_id.focus();
@@ -77,8 +78,13 @@ console.log("click함");
 			document.joinFrm.mem_name.focus();
 		}else if(pwd1 != pwd2){
 			alert("입력한 비밀번호가 일치하지 않습니다. 확인해주세요!");
-		}
-		else{
+		}else if(phone == ""){
+			alert("휴대폰 번호를 입력해 주세요.");
+			document.joinFrm.mem_phone.focus();
+		}else if(emailConfirm != emailCheck){
+			alert("이메일 인증번호가 일치하지 않습니다. 확인해 주세요.");
+			document.emailConfirm.mem_phone.focus();
+		} else{
 			alert("환영합니다. 회원가입이 완료되었습니다.");
 			document.joinFrm.submit();	
 		}

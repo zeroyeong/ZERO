@@ -40,7 +40,7 @@
             <form:input type="text" path="mem_name" id="user_name" value="${mem_name}" />
           </li>
           <li>
-            <label for="user_phone">휴대전화</label>
+            <label for="user_phone">휴대전화<span class="essential">(필수)</span></label>
             <form:input type="text" path="mem_phone" id="user_phone" placeholder="-포함해서 입력" value="${mem_phone}" />
           </li>
           <li class="confirmMail">
@@ -59,6 +59,7 @@
         
         <!-- [중복확인] 버튼을 눌렀나 확인하는 hidden input -->
          <input type="hidden" name="checkId" id="checkId">
+         <input type="hidden" name="emailCheck" id="emailCheck" value="${emailcheck}">
         
       </form:form>
 
