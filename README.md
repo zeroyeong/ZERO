@@ -18,7 +18,7 @@
 - <img src="https://img.shields.io/badge/Google Chrome-4285F4?style=flat&logo=Google Chrome&logoColor=white"/>
 - <img src="https://img.shields.io/badge/java11-222324?style=flat&logoColor=white"/>
 - server: <img src="https://img.shields.io/badge/apache tomcat-9.0-2C2255?style=flat&logo=Apache Tomcat&logoColor=white"/>
-- Framework: <img src="https://img.shields.io/badge/SpringFramework-4479A1?style=flat&logo=SpringFramework&logoColor=white"/>
+- Framework: <img src="https://img.shields.io/badge/Spring Framework-green?style=flat&logo=Spring Framework&logoColor=white"/>
 - Database: <img src="https://img.shields.io/badge/MySQL 8.0.33-4479A1?style=flat&logo=MySQL&logoColor=white"/> <img src="https://img.shields.io/badge/HeidiSQL-1B72BE?style=flat&logoColor=white"/>
 - 협업툴: <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/>
 
