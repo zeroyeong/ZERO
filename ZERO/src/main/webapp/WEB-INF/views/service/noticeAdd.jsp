@@ -14,6 +14,9 @@
     
 	<!-- css 연결 -->
 	<link rel="stylesheet" href="<c:url value="/resources/css/post.css"/>">
+	
+	<!-- js -->
+    <script src="<c:url value='/resources/js/service.js' />" defer></script>
     
 </head>
 
@@ -38,19 +41,19 @@
         <div class="container">
             <h1 class="pageTitle notice">공지사항</h1>
             
-         	<form:form modelAttribute = "notice" method="post" action="../service/noticeAdd" enctype="multipart/form-data">
+         	<form:form modelAttribute = "notice" method="post" action="../service/noticeAdd" enctype="multipart/form-data" onsubmit="return noticeForm()">
             <table class="postAdd">
                 <thead>
                  
                     <tr>
                         <th class="title" colspan="4">제목</th>
-                        <td><form:input type="text" class="titleInput" placeholder="제목내용" path="notice_title" /></td>
+                        <td><form:input type="text" class="titleInput" placeholder="제목을 입력해주세요" path="notice_title" /></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th class="title" colspan="4">본문</th>
-                        <td><form:textarea class="contentInput" placeholder="본문" path="notice_content" /></td>
+                        <td><form:textarea class="contentInput" placeholder="내용을 입력해주세요" path="notice_content" /></td>
                     </tr>
                     <tr>
                         <th class="title" colspan="4">이미지</th>

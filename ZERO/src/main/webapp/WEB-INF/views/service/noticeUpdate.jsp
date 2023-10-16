@@ -15,6 +15,9 @@
     <!-- css 연결 -->
     <link rel="stylesheet" href="<c:url value="/resources/css/post.css" />" />
     
+    <!-- js -->
+    <script src="<c:url value='/resources/js/service.js' />" defer></script>
+    
 </head>
 
 <body>
@@ -63,8 +66,8 @@
             </table>
             <form:hidden path="notice_no" value="${notice.notice_no}" />
 		    <div class="addButtons">
-                <button type="submit" class="notAddBtns" formaction="../notice_${notice.notice_no}/update" formmethod="post">수정</button>
-                <button type="submit" class="notAddBtns" formaction="../notice_${notice.notice_no}/delete" formmethod="post">삭제</button>
+                <button type="submit" class="notAddBtns" formaction="../notice_${notice.notice_no}/update" formmethod="post" onclick="updateAlert()">수정</button>
+                <button type="submit" class="notAddBtns" formaction="../notice_${notice.notice_no}/delete" formmethod="post" onclick="deleteAlert()">삭제</button>
             </div>
             </form:form>
         </div>

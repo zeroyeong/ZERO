@@ -15,6 +15,9 @@
     <!-- css 연결 -->
     <link rel="stylesheet" href="<c:url value="/resources/css/post.css" />" />
     
+    <!-- js -->
+    <script src="<c:url value='/resources/js/service.js' />" defer></script>
+    
 </head>
 
 <body>
@@ -37,7 +40,7 @@
         <div class="container">
             <h1 class="pageTitle notice">FAQ</h1>
             
-		<form:form modelAttribute ="faq" enctype="multipart/form-data">
+		<form:form modelAttribute ="faq">
             <table class="postAdd">
                 <thead> 
                     <tr>
@@ -54,8 +57,8 @@
             </table>
 			<form:hidden path="faq_no" value="${faq.faq_no}" />
             <div class="addButtons">
-                <button type="submit" class="notAddBtns" formaction="../faq_${faq.faq_no}/update" formmethod="post">수정</button>
-                <button type="submit" class="notAddBtns" formaction="../faq_${faq.faq_no}/delete" formmethod="post">삭제</button>
+                <button type="submit" class="notAddBtns" formaction="../faq_${faq.faq_no}/update" formmethod="post" onclick="updateAlert()">수정</button>
+                <button type="submit" class="notAddBtns" formaction="../faq_${faq.faq_no}/delete" formmethod="post" onclick="deleteAlert()">삭제</button>
             </div>
        </form:form>
         </div>

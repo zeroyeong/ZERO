@@ -14,6 +14,9 @@
 
     <!-- css 연결 -->
     <link rel="stylesheet" href="<c:url value="/resources/css/post.css" />" />
+    
+    <!-- js -->
+    <script src="<c:url value='/resources/js/service.js' />" defer></script>
 
 </head> 
 
@@ -37,18 +40,18 @@
         <div class="container">
             <h1 class="pageTitle notice">FAQ</h1>
 
-		<form:form modelAttribute = "faq" method="post" action="../service/faqAdd">
+		<form:form modelAttribute = "faq" method="post" action="../service/faqAdd" onsubmit="return faqForm()">
             <table class="postAdd">
                 <thead>
                     <tr>
                         <th class="title" colspan="4">제목</th>
-                        <td><form:input type="text" class="titleInput" placeholder="제목내용" path="faq_title"/></td>
+                        <td><form:input type="text" class="titleInput" placeholder="제목을 입력해주세요" path="faq_title"/></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th class="title" colspan="4">본문</th>
-                        <td><form:textarea class="contentInput" placeholder="본문" path="faq_content" /></td>
+                        <td><form:textarea class="contentInput" placeholder="내용을 입력해주세요" path="faq_content" /></td>
                     </tr>
                 </tbody>
             </table>

@@ -15,6 +15,9 @@
     <!-- css 연결 -->
     <link rel="stylesheet" href="<c:url value="/resources/css/post.css" />" />
     
+    <!-- js -->
+    <script src="<c:url value='/resources/js/service.js' />" defer></script>
+    
 </head>
   
 <body>
@@ -59,7 +62,7 @@
         <div class="addButtons">
       	  <c:if test="${mem_ac == '1'}">
 		  <button type="submit" class="notAddBtns" formaction="faq_${faq.faq_no}/update" formmethod="get">수정</button>
-    	  <button type="submit" class="notAddBtns" formaction="faq_${faq.faq_no}/delete" formmethod="post">삭제</button> 
+    	  <button type="submit" class="notAddBtns" formaction="faq_${faq.faq_no}/delete" formmethod="post" onclick="deleteAlert()">삭제</button> 
     	  </c:if>
           <button type="button" class="notAddBtns" onclick="location.href='${pageContext.request.contextPath}/service'">목록</button>
         </div>
