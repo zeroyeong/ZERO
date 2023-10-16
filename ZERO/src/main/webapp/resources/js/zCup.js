@@ -80,18 +80,57 @@ function teamAdd() {
   
   if(loginCheck.value == ""){
     alert('회원 전용 서비스 입니다. 로그인후 이용해 주세요');
-    location.href = 'zCup';
     return;
+  }
+  
+  var team_name = document.getElementById('team_name');
+  if(team_name.value == ""){
+  	alert('팀명을 입력해주세요');
+  	return;
+  }
+  
+  var team_phone = document.getElementById('team_phone');
+  if(team_phone.value == ""){
+  	alert('연락처를 입력해주세요');
+  	return;
+  }
+  
+  var team_mail = document.getElementById('team_mail');
+  if(team_mail.value == ""){
+  	alert('이메일을 입력해주세요');
+  	return;
+  }
+  
+  var team_uniform_home = document.getElementById('team_uniform_home');
+  if(team_uniform_home.value == ""){
+  	alert('유니폼(홈)을 입력해주세요');
+  	return;
+  }
+  
+  var team_uniform_away = document.getElementById('team_uniform_away');
+  if(team_uniform_away.value == ""){
+  	alert('유니폼(어웨이)을 입력해주세요');
+  	return;
   }
   
   var teamForm = document.getElementById('teamForm');
   var pwd1 = document.getElementById('pwd1');
   var pwd2 = document.getElementById('pwd2');	
   
+  if(pwd1.value == ""){
+  	alert('팀비밀번호를 입력해주세요');
+  	return;
+  }
+  
+  if(pwd2.value == ""){
+  	alert('팀비밀번호 확인을 입력해주세요');
+  	return;
+  }
+  
   if(pwd1.value != pwd2.value){
   	    alert('비밀번호가 일치하지 않습니다');
   }else{
-	  alert('정상적으로 팀 등록이 완료 되었습니다.');
+	  alert("정상적으로 팀 등록이 완료 되었습니다.\n팀코드는 팀리스트 > 팀관리 에서 확인 가능합니다.");
 	  teamForm.submit();  
   }
 
@@ -102,8 +141,13 @@ function playerAdd() {
   
   if(loginCheck.value == ""){
     alert('회원 전용 서비스 입니다. 로그인후 이용해 주세요');
-    location.href = 'zCup';
     return;
+  }
+  
+  var teamCodeOk = document.getElementById("teamCodeOk");
+  if(teamCodeOk.value == "noCheck"){
+  	 alert('팀코드를 확인해주세요');
+     return;
   }
   
   var playerForm = document.getElementById('playerForm');
@@ -116,34 +160,6 @@ function playerAdd() {
     alert('정상적으로 선수 등록이 완료 되었습니다.');
     playerForm.submit();
   } 
-}
-
-function teamEditPassword(team_no) {
-  var password = document.getElementById('password');
-  var team_password = document.getElementById('team_password');
-
-  if (team_password.value === password.value) {
-    alert('인증되었습니다.');
-    location.href = 'editorTeam?team_no=' + team_no;
-  } else {
-    alert('비밀번호를 다시 확인해주세요.');
-  }
-}
-
-function enter(team_no) {
-    if(document.getElementById("enterBtn") != null){ 
-	    // keyCode 13은 엔터이다.
-	    if(event.keyCode === 13) {
-	       teamEditPassword(team_no)
-	      return false;
-	    }
-	    return true;
-    }
-}
-
-function teamEdit(team_no) {
-   var teamForm = document.getElementById('teamForm');
-   teamForm.submit();
 }
 
 function deletePlayer(player_no, team_no) {
@@ -179,15 +195,3 @@ function showPlayInfo(label) {
 }
 
 
-//EDITOR TEMA
-function readImage(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      document.getElementById('newTeamImage').src = e.target.result;
-    };
-    reader.readAsDataURL(input.files[0]);
-  } else {
-    document.getElementById('newTeamImage').src = '';
-  }
-}

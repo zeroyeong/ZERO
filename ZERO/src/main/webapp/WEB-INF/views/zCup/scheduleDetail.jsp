@@ -15,7 +15,6 @@
     <!--  <link rel="stylesheet" href="<c:url value="/resources/css/zCup.css" />" /> -->
 
     <!-- js 연결 -->
-    <script src="<c:url value="/resources/js/zCup.js" />" defer></script>
     <script src="<c:url value="/resources/js/zCupURL.js?d" />" defer></script>
 
     <!-- Font Awesome -->

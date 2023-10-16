@@ -14,7 +14,7 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/editorTeam.css?s1" />" />
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css?123" />" />
     <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/zCup.js?addd" />" defer></script>
+   <script src="<c:url value="/resources/js/zCupURL.js?dd" />" defer></script>
 
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
@@ -48,6 +48,7 @@
 		<form:input type="hidden" path="team_no" value="${team_detail_list[0].cup_team.team_no}"/>         
           <div class="teamImage">
             <!--팀 사진-->
+            <input type="hidden" id="emblemChanged" name="emblemChanged" value="${team_detail_list[0].cup_team.team_emblem}"/>
             <input type="checkbox" id="teamImage" class="checkBotInput">
             <div class="origin image">
               <img src="${pageContext.request.contextPath}/resources/images/${team_detail_list[0].cup_team.team_emblem}" alt="" /> 

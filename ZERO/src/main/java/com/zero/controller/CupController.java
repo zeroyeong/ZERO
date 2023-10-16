@@ -82,10 +82,12 @@ public class CupController {
     @GetMapping("/zCup/teamDetail") 
     public String getTeamDetail(@RequestParam("team_no") int team_no, Model model) {  
     	
+    	List<CupTeam> cup_team_list = cupService.getCupTeamList();
     	List<CupPlayer> team_detail_list = cupService.getTeamDetail(team_no);
     	List<CupSchedule> cup_schedule_list = cupService.getTeamSchedule(team_no);
 		List<CupPlayer> player_rank_list = cupService.getPlayerRanking();
 		
+		model.addAttribute("cupTeamList", cup_team_list);
 		model.addAttribute("player_rank_list", player_rank_list);
     	model.addAttribute("team_detail_list", team_detail_list);
     	model.addAttribute("cup_schedule_list", cup_schedule_list);
@@ -95,9 +97,12 @@ public class CupController {
 	
 	@GetMapping("/zCup/teamSetting")
 	public String teamSetting(@RequestParam("team_no") int team_no, Model model) {
+		List<CupTeam> cup_team_list = cupService.getCupTeamList();
 		
 		CupTeam team = cupService.getCupTeamOne(team_no);
 		List<CupPlayer> player_rank_list = cupService.getPlayerRanking();
+		
+		model.addAttribute("cupTeamList", cup_team_list);
 		model.addAttribute("player_rank_list", player_rank_list);
 		model.addAttribute("team",team);		
 		return "zCup/teamSetting";
@@ -105,11 +110,14 @@ public class CupController {
     
 	
 	@GetMapping("/zCup/editorTeam")
-	public String editorTeam(@ModelAttribute("editTeam") CupTeam cup_team, @RequestParam("team_no") int team_no, Model model) {
-		
+	public String editorTeam(@ModelAttribute("editTeam") CupTeam cup_team, 
+							 @RequestParam("team_no") int team_no, Model model) {
+		List<CupTeam> cup_team_list = cupService.getCupTeamList();
 		List<CupPlayer> team_detail_list = cupService.getTeamDetail(team_no);
 		List<Branch> branch_List = cupService.getBranchList();
 		List<CupPlayer> player_rank_list = cupService.getPlayerRanking();
+		
+		model.addAttribute("cupTeamList", cup_team_list);
 		model.addAttribute("player_rank_list", player_rank_list);
 		model.addAttribute("team_detail_list", team_detail_list);
 		model.addAttribute("branch_List", branch_List);
@@ -117,8 +125,14 @@ public class CupController {
 	}
     
 	@PostMapping("/zCup/cupTeamEdit")
-	public String updateTeam(@ModelAttribute("editTeam") CupTeam cup_team) {
+	public String updateTeam(@ModelAttribute("editTeam") CupTeam cup_team, @RequestParam("emblemChanged") String emblemChanged) {
+		System.out.println("get emblemChanged > " +emblemChanged);
 		
+		if(!emblemChanged.equals("basic")) {
+			cup_team.setTeam_emblem(emblemChanged);		
+		}
+		System.out.println("get Image > " +cup_team.getTeam_emblem());
+		System.out.println("get emble > " +cup_team.getEmblem_file());
 		cupService.updateCupTeam(cup_team);		
 		return "redirect:editorTeam?team_no="+cup_team.getTeam_no();
 	}

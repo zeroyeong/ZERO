@@ -16,8 +16,8 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/zCup.js?xddd" />" defer></script>
-   <script src="<c:url value="/resources/js/zCupURL.js?dbc" />" defer></script>
+   <script src="<c:url value="/resources/js/zCup.js?xdwdd" />" defer></script>
+   <script src="<c:url value="/resources/js/zCupURL.js" />" defer></script>
 
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>
@@ -200,7 +200,7 @@
                   </div>
                   <div>
                     <label>팀명</label>
-                    <form:input path="team_name" autocomplete="off"/>
+                    <form:input id="team_name" path="team_name" autocomplete="off"/>
                   </div>
                 </div>
 
@@ -211,12 +211,12 @@
                   </div>
                   <div>
                     <label>연락처</label>
-                      <form:input type="text" path="team_phone" autocomplete="off"/>
+                      <form:input id="team_phone" type="text" path="team_phone" autocomplete="off"/>
                   </div>
                 </div>
                 <div>
                   <label>이메일</label>
-                  <form:input type="text" path="team_mail" autocomplete="off"/>
+                  <form:input id="team_mail" type="text" path="team_mail" autocomplete="off"/>
                 </div>
                 <div>
                   <label>선수 사진</label>
@@ -230,13 +230,13 @@
                   <div>
                     <label>유니폼(홈)</label>
                     <div class="harlfInput">
-                      <form:input type="text" path="team_uniform_home" placeholder="유니폼 색" autocomplete="off"/>
+                      <form:input id="team_uniform_home" type="text" path="team_uniform_home" placeholder="유니폼 색" autocomplete="off"/>
                     </div>
                   </div>
                   <div>
                     <label>유니폼(어웨이)</label>
                     <div class="harlfInput">
-                      <form:input type="text" path="team_uniform_away" placeholder="유니폼 색" autocomplete="off"/>
+                      <form:input id="team_uniform_away" type="text" path="team_uniform_away" placeholder="유니폼 색" autocomplete="off"/>
                     </div>
                   </div>
                 </div>
@@ -275,6 +275,7 @@
                     <label>팀코드 입력</label>
                     <div class="inpuBtn">
                       <input type="text" id="teamCodeInput" autocomplete="off"/>
+                      <input type="hidden" id="teamCodeOk" value="noCheck">
                       <button type="button" onclick="okReser()">코드확인</button>
                     </div>
                   </div>
@@ -572,6 +573,7 @@
 	var player_branch_name = document.getElementById("player_branch_name");
 	var player_team_no = document.getElementById("player_team_no");
 	var player_team_pwd = document.getElementById("player_team_pwd");
+	var teamCodeOk = document.getElementById("teamCodeOk");
 	
     <c:forEach items="${cupTeamList}" var="cupTeam">    	
     	cupTeamNo.push("${cupTeam.team_no}");
@@ -603,9 +605,11 @@
     			player_branch_name.value = cupBranch[teamNum];	
     			player_team_pwd.value = cupTeamPwd[teamNum];
     			refreshSection('addTeam');
+    			teamCodeOk.value = "check";
         		//alert(message);
     		}else{
     			message ="등록된 팀코드가 아닙니다. 다시 확인 바랍니다.";
+    			teamCodeOk.value = "noCheck";
         		alert(message);
     		}
     	}       

@@ -62,12 +62,11 @@ public class CupRepositoryImpl implements CupRepository {
 		cup_team.setTeam_reg_year(formattedDate);
 
 	   	MultipartFile image = cup_team.getEmblem_file();  
-	   	String saveName = image.getOriginalFilename();  //C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images
+	   	String saveName = image.getOriginalFilename();  
 	   	
-	   	System.out.println("saveName = " + saveName);
 		if(saveName != "") {   
 			
-	       File saveFile = new File("C:\\Users\\wmun5\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
+	       File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
 	    try {
 	    		image.transferTo(saveFile);
 	    		cup_team.setTeam_emblem(saveName);
@@ -99,7 +98,7 @@ public class CupRepositoryImpl implements CupRepository {
 		String saveName = image.getOriginalFilename();
 		if(saveName != "") {    
 			
-		       File saveFile = new File("C:\\Users\\wmun5\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
+		       File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
 		    try {
 		    		image.transferTo(saveFile);
 		    		cupPlayer.setPlayer_photo(saveName);
@@ -156,7 +155,7 @@ public class CupRepositoryImpl implements CupRepository {
 		String saveName = image.getOriginalFilename(); 
 		
 	       if(saveName != "") {
-		       File saveFile = new File("C:\\Users\\wmun5\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
+		       File saveFile = new File("C:\\Users\\Administrator\\git\\ZERO\\ZERO\\src\\main\\webapp\\resources\\images", saveName); 
 		    try {
 		    		image.transferTo(saveFile);
 		    		cup_team.setTeam_emblem(saveName);
@@ -165,7 +164,9 @@ public class CupRepositoryImpl implements CupRepository {
 	            }
 		    	cup_team.setTeam_emblem(saveName);
 		    }else {
-		    	cup_team.setTeam_emblem("basic.PNG");
+		    	if(cup_team.getTeam_emblem().equals("basic")) {
+		    		cup_team.setTeam_emblem("basic.PNG");		    				    		
+		    	}
 		    }				
 		sql.update("Cup.updateTeam", cup_team);
 	}
