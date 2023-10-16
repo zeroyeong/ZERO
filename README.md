@@ -6,14 +6,14 @@
 # 개발기간
 2023.09.01 ~ 2023.10.
 
-#멤버구성
+# 멤버구성
 - 김대영: 
 - 박재영: 
 - 이대건: 
 - 장원: 
 - 최윤지: 화면 구성 담당, 회원가입 및 로그인 페이지 담당
 
-#개발환경
+# 개발환경
 - window10
 - Chrom
 - Java 11
@@ -21,3 +21,5 @@
 - Framework: springframework
 - Database: MySQL8.0.33, HeidiSQL
 - 협업툴: GitHub, googlesheet
+
+# 주요기능
