@@ -1,7 +1,7 @@
 # ZEROFUTSAL
-클론사이트: HM FUTSAL PARK(https://www.hmfutsalpark.com/)
-풋살장 예약 및 리그접수를 할 수 있는 사이트인 HM FUTSAL PARK를 클론코딩했습니다.
-기존 사이트에서 일부 페이지를 구현했습니다.
+- 클론사이트: HM FUTSAL PARK(https://www.hmfutsalpark.com/)
+- 풋살장 예약 및 리그접수를 할 수 있는 사이트인 HM FUTSAL PARK를 클론코딩했습니다.
+- 기존 사이트에서 일부 페이지를 구현했습니다.
 
 ## 개발기간
 2023.09.01 ~ 2023.10.
