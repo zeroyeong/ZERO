@@ -11,7 +11,7 @@ public interface MemberService {
 	
 	/*________ 로그인 ________*/
 	Member login(Member member);
-	Member getBySns(String snsId, String emailId, String snsType);
+	Member getBySns(String emailId, String snsType);
 	
 	/*______계정찾기______*/
 	String findMemberId(Member member); //아이디 찾기

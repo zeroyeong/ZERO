@@ -197,7 +197,6 @@ public class MemberController {
 		SNSLogin snsLogin = null;
 		Member snsMember = null;	
 		
-		String snsId = "";
 		String emailId = "";
 		String snsType = "";
 		
@@ -205,7 +204,6 @@ public class MemberController {
 			sns = naverSns;
 			snsLogin = new SNSLogin(naverSns);
 			snsMember = snsLogin.getUserProfile(code);
-			snsId = snsMember.getNaverId();
 			emailId = snsMember.getEmail();
 			snsType="naver";
 		}
@@ -213,21 +211,17 @@ public class MemberController {
 			sns = googleSns;
 			snsLogin = new SNSLogin(googleSns);		
 			snsMember = snsLogin.getUserProfile(code);
-			snsId = snsMember.getGoogleId();
 			emailId = snsMember.getEmail();
 			snsType="google";
 		} else if(StringUtils.equals("kakao", snsService)) {
 			sns = kakaoSns;
 			snsLogin = new SNSLogin(kakaoSns);
-			System.out.println("ddd");
 			snsMember = snsLogin.test(code);
-			System.out.println("qqq");
-			snsId = snsMember.getNaverId();
 			emailId = snsMember.getEmail();
 			snsType="kakao";
 		}
 
-		Member member = memberService.getBySns(snsId, emailId, snsType);
+		Member member = memberService.getBySns(emailId, snsType);
 		
 		if(member == null) {
 			return "redirect:/join_agree";

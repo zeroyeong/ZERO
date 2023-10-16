@@ -32,8 +32,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public Member getBySns(String snsId, String emailId, String snsType) {
-		return memberRepository.getBySns(snsId, emailId, snsType);
+	public Member getBySns(String emailId, String snsType) {
+		return memberRepository.getBySns(emailId, snsType);
 	}
 	
 	/*______계정찾기______*/

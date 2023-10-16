@@ -11,7 +11,7 @@ public interface MemberRepository {
 	
 	/*______로그인______*/
 	Member login(Member member); //로그인
-	Member getBySns(String snsId, String emailId, String snsType); //소셜로그인
+	Member getBySns(String emailId, String snsType); //소셜로그인
 	
 	/*______계정찾기______*/
 	String findMemberId(Member member); //아이디 찾기

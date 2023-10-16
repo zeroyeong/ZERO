@@ -36,7 +36,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 	}
 
 	@Override
-	public Member getBySns(String snsId, String emailId, String snsType) {		
+	public Member getBySns(String emailId, String snsType) {		
 		if(snsType.equals("naver")) {		
 			return sql.selectOne("Member.getBySnsNaver", emailId);
 		} else if(snsType.equals("google")) {
