@@ -204,20 +204,20 @@ public class MemberController {
 			sns = naverSns;
 			snsLogin = new SNSLogin(naverSns);
 			snsMember = snsLogin.getUserProfile(code);
-			emailId = snsMember.getEmail();
+			emailId = snsMember.getMem_id();
 			snsType="naver";
 		}
 		else if (StringUtils.equals("google", snsService)) {
 			sns = googleSns;
 			snsLogin = new SNSLogin(googleSns);		
 			snsMember = snsLogin.getUserProfile(code);
-			emailId = snsMember.getEmail();
+			emailId = snsMember.getMem_id();
 			snsType="google";
 		} else if(StringUtils.equals("kakao", snsService)) {
 			sns = kakaoSns;
 			snsLogin = new SNSLogin(kakaoSns);
 			snsMember = snsLogin.test(code);
-			emailId = snsMember.getEmail();
+			emailId = snsMember.getMem_id();
 			snsType="kakao";
 		}
 

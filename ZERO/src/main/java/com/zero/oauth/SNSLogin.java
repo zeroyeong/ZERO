@@ -32,7 +32,6 @@ public class SNSLogin {
 				.apiSecret(sns.getClientSecret())
 				.callback(sns.getRedirectUrl())
 				.build(sns.getApi20Instance());
-		System.out.println("ss = " + sns.getClientSecret());
 		this.sns = sns;
 	}
 	
@@ -100,16 +99,11 @@ public class SNSLogin {
 
         responseBody = response.getBody();
         jsonNode = objectMapper.readTree(responseBody);
-        Long id = jsonNode.get("id").asLong();
-        String nickname = jsonNode.get("properties")
-                .get("nickname").asText();
         String email = jsonNode.get("kakao_account")
                 .get("email").asText();
 
         Member member = new Member();
-    	member.setKakaoId(email);
-		member.setNickname(nickname);
-        member.setEmail(email);
+    	member.setMem_id(email);
         
     	return member;
 	}
@@ -123,11 +117,9 @@ public class SNSLogin {
 		JsonNode rootNode = mapper.readTree(body);
 
 		if(this.sns.isGoogle()) {
-			String id = rootNode.get("id").asText();
 			if(sns.isGoogle())
-				member.setGoogleId(id);
 					
-			member.setEmail(rootNode.get("email").asText());
+			member.setMem_id(rootNode.get("email").asText());
 			Iterator<JsonNode> iterEmails = rootNode.path("emails").elements();
 			
 			while(iterEmails.hasNext()) {
@@ -141,9 +133,7 @@ public class SNSLogin {
 			}
 		} else if (this.sns.isNaver()) {
 			JsonNode resNode = rootNode.get("response");
-			member.setNaverId(resNode.get("id").asText());
-			member.setNickname(resNode.get("nickname").asText());
-			member.setEmail(resNode.get("email").asText());
+			member.setMem_id(resNode.get("email").asText());
 		}
 			
 		return member;
