@@ -6,14 +6,14 @@
 ## 📆 개발기간
 2023.09.01 ~ 2023.10.
 
-## 멤버구성
+## 👨‍👩‍👧 멤버구성
 - 김대영: 
 - 박재영: 
 - 이대건: 
 - 장원: 
 - 최윤지: 화면 구성 담당, 회원가입 및 로그인 페이지 담당
 
-## 개발환경
+## 🛠 개발환경
 - <img src="https://img.shields.io/badge/windows 10-0078D6?style=flat&logo=Windows Chrome&logoColor=white"/>
 - <img src="https://img.shields.io/badge/Google Chrome-4285F4?style=flat&logo=Google Chrome&logoColor=white"/>
 - <img src="https://img.shields.io/badge/java11-222324?style=flat&logoColor=white"/>
