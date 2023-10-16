@@ -36,6 +36,10 @@
       <h1 class="logo" onclick="document.location.href='/zero';">zero futsal</h1>
       <form name="loginFrm" method="post" action="login" onsubmit="return frm_check();">
         <dl>
+        <c:if test="${login_result == 'fail'}">
+		 <dd style="color:red; text-align:center;"> 아이디 또는 비밀번호가 일치하지 않습니다.
+		 </dd>
+		</c:if>
           <dt>
             <label for="userId">아이디</label>
           </dt>

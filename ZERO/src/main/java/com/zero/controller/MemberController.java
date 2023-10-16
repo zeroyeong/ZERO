@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.zero.domain.Member;
@@ -133,6 +134,7 @@ public class MemberController {
     }
 	
 	/*________ 로그인 ________*/	
+    
 	@GetMapping("/login")
 	public String login(Member member, Model model, HttpSession session) throws Exception {
 		
@@ -158,7 +160,7 @@ public class MemberController {
 			
 		return "member/login";
 	}
-		
+
 	@PostMapping("/login")
 	public String login(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
 			Member member, HttpSession session, RedirectAttributes rttr,
@@ -172,9 +174,9 @@ public class MemberController {
 		
 		if(mem == null) {//로그인 실패
 			rttr.addFlashAttribute("login_result", "fail");
-			System.out.println("로그인 실패");
+			
 			return "redirect:/login";
-		}else {		
+		}else {//로그인 성공시
 			String mem_name = mem.getMem_name();
 			int mem_ac = mem.getAc_type();
 			
