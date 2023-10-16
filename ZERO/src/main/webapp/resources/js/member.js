@@ -48,49 +48,6 @@ function idCheck(id){
 	}	  
 }
 
-// 회원가입 버튼 클릭했을 때
-function joinFrmSubmit(){
-	let id = document.getElementById("user_id").value;
-	let pwd1 = document.getElementById("user_pwd").value;
-	let pwd2 = document.getElementById("user_pwd_check").value;
-	let name = document.getElementById("user_name").value;
-	let idCheck = document.getElementById("checkId").value;
-	let phone = document.getElementById("user_phone").value;
-	let emailConfirm = document.getElementyById("emailConfirm").value;
-	let emailCheck = document.getElementyById("emailCheck").value;
-	
-	if(id == "" || checkId != "true" || name == "" || 
-		pwd1 == "" || pwd2 == "" || pwd1 != pwd2 ||
-		phone == "" || emailConfirm != emailCheck){
-		if(id == ""){
-			alert("아이디(이메일)를 입력해 주세요.");
-			document.joinFrm.mem_id.focus();
-		}else if(idCheck != "true"){
-			alert("아이디(이메일) 중복확인을 해주세요.");
-		}else if(pwd1 == ""){
-			 alert("비밀번호를 입력해 주세요.");
-			 document.joinFrm.mem_pw.focus();
-		}else if(pwd2 == ""){
-			alert("비밀번호를 확인해 주세요.");
-			document.joinFrm.user_pwd_check.focus();
-		} else if(name == ""){
-			alert("이름을 입력해 주세요.");
-			document.joinFrm.mem_name.focus();
-		}else if(pwd1 != pwd2){
-			alert("입력한 비밀번호가 일치하지 않습니다. 확인해주세요!");
-		}else if(phone == ""){
-			alert("휴대폰 번호를 입력해 주세요.");
-			document.joinFrm.mem_phone.focus();
-		}else if(emailConfirm != emailCheck){
-			alert("이메일 인증번호가 일치하지 않습니다. 확인해 주세요.");
-			document.emailConfirm.mem_phone.focus();
-		} else{
-			alert("환영합니다. 회원가입이 완료되었습니다.");
-			document.joinFrm.submit();	
-		}
-	}
-}
-
 // 메일인증
 function emailSand(){
   	let mailInput = document.getElementById("user_id");
@@ -117,6 +74,76 @@ function emailcheck(emailCode){
 		console.log("인증번호가 확인");
 		alert('인증번호가 확인되었습니다');
 	}
+}
+
+// 회원가입 버튼 클릭했을 때
+function joinFrmSubmit() {
+  //1. 아이디를 입력해라
+  let id = document.getElementById('user_id').value;
+
+  //2. 비밀번호를 입력해라
+  let pwd1 = document.getElementById('user_pwd').value;
+
+  //3. 비밀번호 재확인 입력해라
+  let pwd2 = document.getElementById('user_pwd_check').value;
+
+  //4. 이름을 입력해라
+  let name = document.getElementById('user_name').value;
+
+  //5. 휴대전화 입력해라
+  let phone = document.getElementById('user_phone').value;
+
+  //6. 아이디 중복확인 해라
+  let idCheck = document.getElementById('checkId').value;
+
+  //7. 이메일 인증 해라
+  let emailCheck = document.getElementById('emailCheck').value;
+
+  //8. 인증번호 확인해라
+  let emailConfirm = document.getElementById('emailConfirm').value;
+
+  if (id == '') {
+    alert('아이디(이메일)을 입력해주세요.');
+    document.joinFrm.mem_id.focus();
+    
+  } else if (pwd1 == '') {
+    alert('비밀번호를 입력해주세요.');
+    document.joinFrm.mem_pw.focus();
+    
+  } else if (pwd2 == '') {
+    alert('비밀번호 재확인을 입력해주세요.');
+    document.joinFrm.user_pwd_check.focus();
+    
+  } else if (name == '') {
+    alert('이름을 입력해주세요.');
+    document.joinFrm.mem_name.focus();
+    
+  } else if (phone == '') {
+    alert('휴대전화 번호를 입력해주세요.');
+    document.joinFrm.mem_phone.focus();
+    
+  } else if (idCheck == '') {
+    alert('아이디(이메일) 중복확인을 해주세요.');
+    
+  } else if (emailCheck == '' || emailCheck == null) {
+    alert('이메일 인증번호를 전송해주세요.');
+    
+  } else if (emailConfirm == '') {
+    alert('이메일 인증번호를 입력해주세요.');
+    document.joinFrm.emailCode.focus();
+    
+  } else if (pwd1 != pwd2) {
+    alert('비밀번호와 비밀번호 재확인이 일치하지 않습니다.');
+    document.joinFrm.mem_pw.focus();
+    
+  } else if (emailCheck != emailConfirm) {
+    alert('이메일 인증번호가 일치하지 않습니다.');
+    document.joinFrm.emailCode.focus();
+    
+  } else {
+    alert('환영합니다. 회원가입이 완료되었습니다.');
+    document.joinFrm.submit();
+  }
 }
 
 /*____________________________________________________________________________________________*/

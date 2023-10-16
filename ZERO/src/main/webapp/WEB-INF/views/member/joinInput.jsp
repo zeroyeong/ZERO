@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/join.css" />" />
     
    	<!-- js 연결 -->
-    <script src="<c:url value="/resources/js/member.js?ver12" />" defer></script>
+    <script src="<c:url value="/resources/js/member.js?ver13" />" defer></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
   </head>
   <body>
     <section class="container">
