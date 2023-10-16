@@ -24,9 +24,10 @@ FROM TIME T
 WHERE T.TIME_NO NOT IN (
     SELECT R.RE_TIME
     FROM RESERVATION R
-    WHERE R.RE_BRANCH = #{re_branch} 
-    AND R.RE_DATE = #{re_date}
-    AND R.RE_STADIUM = #{re_stadium})
+    WHERE (R.RE_BRANCH = #{re_branch} 
+           AND R.RE_DATE = #{re_date}
+           AND R.RE_STADIUM = #{re_stadium}
+           AND R.RE_PAYMENT = '결제완료'))
 </select>
 
 <select id="rList" resultType="Reservation">

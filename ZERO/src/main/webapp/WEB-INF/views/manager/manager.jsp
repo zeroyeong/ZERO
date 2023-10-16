@@ -10,10 +10,12 @@
     <title>ZERO FUTSAL</title>
 
     <!-- CSS 연결 -->
-    <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
+    <link rel="stylesheet" href="<c:url value='/resources/css/manager.css?123' />" />
 
     <!-- JS 연결 -->
     <script src="<c:url value='/resources/js/manager.js' />" defer></script>
+    <!-- 페이지 네이션 -->
+    <script src="<c:url value='/resources/js/pagenation.js?123' />" defer></script>
 
 </head>
 
@@ -45,7 +47,7 @@
 
         <div class="container">
             <section id="mgrReserContent" class="mgrPage">
-                <table>
+                <table class="reservation-table">
                     <thead>
                         <tr>
                             <th class="no">번호</th>
@@ -65,10 +67,9 @@
                     </c:forEach>
                     </tbody>
                 </table>
-            	<ul class="pagination">
-                    <li>1</li>
-                    <li>2</li>
-                </ul>
+		        <ul class="pagination" id="reservation-pagination">
+	
+		        </ul>
             </section>
 
             <section id="mgrTeamContent" class="mgrPage">
@@ -159,7 +160,7 @@
                 <div class="mgrUserTableTop">
                     전체 사용자 수 : <c:out value="${memberList.size()}" />
                 </div>
-                <table>
+                <table class="member-table">
                     <thead>
                         <tr>
                             <th class="no">번호</th>
@@ -183,10 +184,9 @@
                         </c:forEach>
                     </tbody>
                 </table>
-                <ul class="pagination">
-                    <li>1</li>
-                    <li>2</li>
-                </ul>
+		        <ul class="pagination" id="member-pagination">
+	
+		        </ul>
             </section>
         </div>
     </main>

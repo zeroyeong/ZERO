@@ -48,6 +48,23 @@ class Pagination {
   }
 }
 
-new Pagination(".faq-table", "#faq-pagination");
+document.addEventListener("DOMContentLoaded", function () {
+    const faqPagination = document.querySelector("#faq-pagination");
+    if (faqPagination) {
+        new Pagination(".faq-table", "#faq-pagination");
+    }
 
-new Pagination(".notice-table", "#notice-pagination");
+    const noticePagination = document.querySelector("#notice-pagination");
+    if (noticePagination) {
+        new Pagination(".notice-table", "#notice-pagination");
+    }
+    
+    const reservationPagination = document.querySelector("#reservation-pagination");
+    if (reservationPagination) {
+        new Pagination(".reservation-table", "#reservation-pagination");
+    }
+    const memberPagination = document.querySelector("#member-pagination");
+    if (memberPagination) {
+        new Pagination(".member-table", "#member-pagination");
+    }
+});

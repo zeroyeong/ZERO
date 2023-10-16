@@ -66,8 +66,10 @@
         </table>
 		<input type="hidden" name="notice_no" value="${notice.notice_no }" >
         <div class="addButtons">
+        <c:if test="${mem_ac == '1'}">
         <button type="submit" class="notAddBtns" formaction="notice_${notice.notice_no}/update" formmethod="get">수정</button>
         <button type="submit" class="notAddBtns" formaction="notice_${notice.notice_no}/delete" formmethod="post">삭제</button>
+        </c:if>
         <button type="button" class="notAddBtns" onclick="location.href='${pageContext.request.contextPath}/service'">목록</button>
         </div>
         </form>

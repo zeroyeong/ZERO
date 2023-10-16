@@ -93,30 +93,35 @@ main .container section table tbody tr:last-child {
 
 /* CONTAINER - SECTION - PAGINATION */
 .container .pagination {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-.container .pagination li {
-    cursor: pointer;
-    width: 45px;
-    padding: 10px 15px;
-    position: relative;
-    bottom: 0px;
-    text-align: center;
-    margin: 5px;
-    border: 1px solid var(--beforeColor);
-    color: var(--beforeColor);
+.container .pagination button {
+  background: white;
+}
+
+.container .pagination li { 
+  cursor: pointer;
+  width: 45px;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 5px;
+  border: 1px solid var(--beforeColor);
+  color: var(--beforeColor);
 }
 
 .container .pagination li.active {
-    background-color: var(--pointColor);
-    color: #fff;
+  background-color: var(--pointColor);
+  color: #fff;
+}
+.container .pagination li.active a {
+  color: #fff;
 }
 
 .container .pagination li:hover {
-    border-color: var(--pointColor);
-    color: var(--pointColor);
+  border-color: var(--pointColor);
+  color: #AFAFAF;
 }
 
 /*mgrPopUp*/

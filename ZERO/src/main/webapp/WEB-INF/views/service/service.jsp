@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="<c:url value="/resources/css/service.css?1s	"/>">
   
   <!-- 페이지네이션 -->
-  <script src="<c:url value='/resources/js/pagenation.js?123222' />" defer></script>
+  <script src="<c:url value='/resources/js/pagenation.js' />" defer></script>
   
 </head>
 
@@ -43,7 +43,9 @@
 	      <h1 class="pageTitle faq">FAQ</h1>
 	 
 	      <section class="notice">
+	      <c:if test="${mem_ac == '1'}">
 	        <a href="${pageContext.request.contextPath}/service/noticeAdd"><input type="button" value="공지사항 작성" class="addBtn"></a>
+	      </c:if>
 	        <table class="notice-table">
 	          <thead>
 	            <tr>
@@ -85,7 +87,9 @@
 	      </section>
 	
 	      <section class="faq">
+	      <c:if test="${mem_ac == '1'}">
 	        <a href="${pageContext.request.contextPath}/service/faqAdd"><input type="button" value="FAQ 작성" class="addBtn"></a>
+	      </c:if>
 	        <table class="faq-table">
 	          <thead>
 	            <tr>
