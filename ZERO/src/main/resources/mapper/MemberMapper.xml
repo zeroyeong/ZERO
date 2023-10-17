@@ -54,7 +54,7 @@
     <select id="findMemberPw" parameterType="Member" resultType="String">
     	select mem_pw from member where mem_name = #{mem_name} and mem_id = #{mem_id} and mem_phone = #{mem_phone}
     </select>
-    
+     
     <!-- ________________________________________________________ -->
     
     <!-- 마이페이지 -->     

@@ -349,7 +349,7 @@
                         <td>
                             <form:input path="detail_away_goal" class="schSelect" type="text" value="${cupSchedule.detail.detail_away_goal}"/>
                         </td>
-                    </tr>
+                    </tr> 
                     <tr>
                         <td><form:input path="detail_home_yellow_card" class="schSelect" type="text" value="${cupSchedule.detail.detail_home_yellow_card}"/></td>
                         <th>경고</th>

@@ -105,7 +105,7 @@ public class ManagerController {
 	public String mgrPlayerList(@ModelAttribute("playerUpdate") CupPlayer cup_player,
 								@RequestParam("team_no") int team_no, Model model) {
 		List<CupPlayer> player_list = cupService.getCupTeamByPlayerList(team_no);
-		
+		 
 		model.addAttribute("player_list", player_list);
 		model.addAttribute("team_no", team_no);
 		return "manager/mgrPlayerList";

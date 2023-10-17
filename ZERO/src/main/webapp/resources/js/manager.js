@@ -104,7 +104,7 @@ function okBtnPop(popupId, num) {
   			scheduleGoalForm.submit(); 
             closeSchPopup(num);
             refreshSection('mgrSchContent');
-            break;
+            break; 
         case 'schDetailPopup':
             message = "경기 일정 수정 처리 되었습니다.";
             var scheduleDetailForm = document.getElementById(`scheduleDetailForm${num}`);

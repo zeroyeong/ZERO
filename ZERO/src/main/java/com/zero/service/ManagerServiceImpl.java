@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.zero.domain.Member;
 import com.zero.repository.ManagerRepository;
-
+ 
 @Service
 public class ManagerServiceImpl implements ManagerService {
 
