@@ -94,7 +94,7 @@
               <br />
               <span class="highright">팀등록</span>이 선행되어야 합니다<br />
               <br />
-              아래 참가신청방법을 다운로드 후 안내에 따라 등록 부탁드립니다<br />
+              아래 참가신청방법은 안내에 따라 등록 부탁드립니다<br />
               <br />
               ※작년(2022년) H-CUP 참가팀들의 경우 별도의 팀등록은 필요없습니다
               <br />
@@ -152,21 +152,6 @@
                 시흥점
               </span>
             </p>
-
-            <div class="download">
-              <div class="down1">
-                <p>대회 모집개요 다운로드</p>
-                <span class="highright">대회 모집개요 DOWN</span>
-              </div>
-              <div class="down2">
-                <p>대회 모집개요 다운로드</p>
-                <span class="highright">대회 규정집 DOWN</span>
-              </div>
-              <div class="down3">
-                <p>대회 참가신청방법 다운로드</p>
-                <span class="highright">대회 참가신청방법 DOWN</span>
-              </div>
-            </div>
           </div>
         </section>
         <section id="teamAdd">		 	
