@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
     <!-- JS 연결 -->
-    <script src="<c:url value='/resources/js/manager.js?123' />" defer></script>
+    <script src="<c:url value='/resources/js/manager.js' />" defer></script>
 
 </head>
 
@@ -123,7 +123,7 @@
                 <div class="mgrSch">
                     <c:forEach items="${cup_schedule_list}" var="cupSchedule">
                         <ul>
-                            <li class="place">시흥점</li>
+                            <li class="place">${cupSchedule.branch.branch_name}</li>
                             <li class="playInfo">
                                 <div class="schInfoDiv">
                                     <span>${cupSchedule.schedule_date}</span>
@@ -376,7 +376,7 @@
     <form:form id="updateMgrMember${member.mem_no}" modelAttribute="member" method="post" action="manager/updateMgrMember">
         <div class="userPopup" id="userPopup${member.mem_no}">
             <section class="userInfo">
-                <span class="closeBtn" onclick="closePopup('userPopup${member.mem_no}')">x</span>
+                <span class="closeBtn" onclick="closePopup(userPopup${member.mem_no})">x</span>
                 <h2>사용자 정보</h2>
                 <table class="mgrUserInfo">
                     <tr>
