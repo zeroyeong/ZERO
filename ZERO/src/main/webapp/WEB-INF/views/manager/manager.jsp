@@ -87,9 +87,10 @@
                         </tr>
                     </thead>
                     <c:forEach items="${cupTeamList}" var="cupTeam">
+                    <c:set var="teamCnt" value="${teamCnt + 1}" />
                         <tbody>
                             <tr>
-                                <td>${cupTeam.team_no}</td>
+                                <td>${teamCnt}</td>
                                 <td>${cupTeam.branch.branch_name}</td>
                                 <td>
                                     <div class="teamName">
