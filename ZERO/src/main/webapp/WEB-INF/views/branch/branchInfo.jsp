@@ -250,10 +250,16 @@ $('#kakaopay').click(function () {
     var reTel3 = $("#re_tel3").val();
     var rePwd = $("#re_pwd").val();
     var totalPay = $("#re_totalpay").val();
+    var checkbox = document.getElementById("chk01");
 
     if (!reName || !reTel1 || !reTel2 || !reTel3 || !rePwd) {
         alert('대관 예약자정보를 모두 입력해주세요.');
         return;
+    }
+    
+    if (!checkbox.checked) {
+        alert('약관에 동의해야 합니다.');
+        return; 
     }
 
     console.log(totalPay);
