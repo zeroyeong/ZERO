@@ -75,7 +75,7 @@
                 </div>
             </section>
             
-		<form:form action="${pageContext.request.contextPath}/reservation/reservationInfo" method="post">
+		<form:form action="${pageContext.request.contextPath}/reservation/reservationInfo" method="get">
             <section class="reserCheck">
                 <div class="reserFrameBox">
                     <p><i class="fa-solid fa-location-dot"></i>예약 시 입력하신 정보를 입력해주십시오</p>

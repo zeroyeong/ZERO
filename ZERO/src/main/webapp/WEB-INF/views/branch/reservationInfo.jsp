@@ -16,6 +16,9 @@
 
     <!--아이콘-->
     <script src="https://kit.fontawesome.com/a923b8b28f.js" crossorigin="anonymous"></script>
+    
+    <!-- js 연결-->
+    <script src="<c:url value="/resources/js/resInfo.js?123"/>" defer></script>
 </head>
 
 <body>
@@ -47,7 +50,7 @@
     </c:when>
         <c:otherwise>
 		<c:forEach items="${reservationList}" var="reservation">
-		<form id="cancelForm" action="${pageContext.request.contextPath}/reservation/cancel" method="post">
+		<form id="cancelForm${reservation.re_no}" action="${pageContext.request.contextPath}/reservation/cancel" method="post">
             <div class="reserInfoTable">
                 <table>
                     <colgroup>
@@ -94,15 +97,16 @@
                         <tr>
                             <th scope="row">예약취소확인</th>
                             <td class="infoLeft">
-                                <input type="password" placeholder="예약비밀번호" name="re_pwd" />
+                                <input type="password" placeholder="예약비밀번호" name="re_pwd" id="repwd_${reservation.re_no }"/>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <input type="hidden" name="re_no" value="${reservation.re_no }">
+            <input type="hidden" id="pwd_${reservation.re_no }" value="${reservation.re_pwd }"> 
             <div class="btnWrap">
-                <button type="button" class="btnCancel" onclick="cancel();">예약취소하기</button>
+                <button type="button" class="btnCancel" onclick="cancel(${reservation.re_no});">예약취소하기</button>
             </div>	
             </form>
           </c:forEach>
@@ -117,13 +121,3 @@
 </body>
 
 </html>
-<script>
-function cancel() {
-    if (confirm("예약을 취소하시겠습니까?")) {
-        document.getElementById("cancelForm").submit();
-    	alert("예약취소신청이 완료되었습니다.");
-    } else {
-    	alert("취소되었습니다.");
-    }
-}
-</script>

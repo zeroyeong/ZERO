@@ -14,6 +14,9 @@
 
     <!-- JS 연결 -->
     <script src="<c:url value='/resources/js/manager.js' />" defer></script>
+    
+    <!-- 페이지네이션 -->
+    <script src="<c:url value='/resources/js/pagenation.js' />" defer></script>
 
 </head>
 
@@ -45,7 +48,7 @@
 
         <div class="container">
             <section id="mgrReserContent" class="mgrPage">
-                <table>
+                <table class="reservation-table">
                     <thead>
                         <tr>
                             <th class="no">번호</th>
@@ -65,9 +68,7 @@
                     </c:forEach>
                     </tbody>
                 </table>
-            	<ul class="pagination">
-                    <li>1</li>
-                    <li>2</li>
+            	<ul class="pagination" id="reservation-pagination">
                 </ul>
             </section>
 
@@ -160,7 +161,7 @@
                 <div class="mgrUserTableTop">
                     전체 사용자 수 : <c:out value="${memberList.size()}" />
                 </div>
-                <table>
+                <table class="member-table">
                     <thead>
                         <tr>
                             <th class="no">번호</th>
@@ -184,9 +185,8 @@
                         </c:forEach>
                     </tbody>
                 </table>
-                <ul class="pagination">
-                    <li>1</li>
-                    <li>2</li>
+                <ul class="pagination" id="member-pagination">
+
                 </ul>
             </section>
         </div>

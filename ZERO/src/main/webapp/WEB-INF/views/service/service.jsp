@@ -87,9 +87,7 @@
 	      </section>
 	
 	      <section class="faq">
-	      <c:if test="${mem_ac == '1'}">
 	        <a href="${pageContext.request.contextPath}/service/faqAdd"><input type="button" value="FAQ 작성" class="addBtn"></a>
-	      </c:if>
 	        <table class="faq-table">
 	          <thead>
 	            <tr>

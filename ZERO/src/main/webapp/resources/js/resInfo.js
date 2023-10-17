@@ -198,3 +198,20 @@ function updateTotalPay() {
     totalPriceSpan.textContent = totalPay.toLocaleString();
     reTotalPayInput.value = totalPay.toLocaleString(); // re_totalpay 요소에 값 추가
 };
+function cancel(num) {
+	 var rePwd = document.getElementById('repwd_' + num);
+	 var reservationPwd = document.getElementById('pwd_' + num);
+
+	if (rePwd.value === null || rePwd.value === "") {
+	    alert("비밀번호를 입력해주세요.");
+	} else if (rePwd.value != reservationPwd.value) {
+	    alert("비밀번호가 틀렸습니다.");
+	} else {
+	    if (confirm("예약을 취소하시겠습니까?")) {
+	    	document.getElementById("cancelForm" + num).submit();
+	        alert("예약 취소 신청이 완료되었습니다.");
+	    } else {
+	        alert("취소되었습니다.");
+	    }
+	}
+}

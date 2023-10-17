@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -95,7 +97,7 @@ public class BranchController {
 	    return returnURL;
 	}
 	
-	@PostMapping("/reservation/reservationInfo")
+	@RequestMapping("/reservation/reservationInfo")
 	public String reservationList(@RequestParam("re_name") String re_name, 
 								  @RequestParam("re_pwd") String re_pwd , Model model) {
 	    List<Reservation> list = branchService.reservationList(re_name, re_pwd);
@@ -104,9 +106,13 @@ public class BranchController {
 	}
 	@PostMapping("/reservation/cancel")
 	public String deleteReservation(@RequestParam("re_no") int re_no,
-									@RequestParam("re_pwd") String re_pwd) {
+									@RequestParam("re_pwd") String re_pwd,
+									HttpServletRequest request) {
 		branchService.deleteReservation(re_no, re_pwd);
-		return "redirect:/reservation";
+		
+		String referrer = request.getHeader("referer");
+		
+		return "redirect:" + referrer;
 		
 	}
 }
