@@ -16,8 +16,8 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
    <!-- js 연결 -->
-   <script src="<c:url value="/resources/js/zCup.js?xdwdd" />" defer></script>
-   <script src="<c:url value="/resources/js/zCupURL.js" />" defer></script>
+   <script src="<c:url value="/resources/js/zCup.js?dwd" />" defer></script>
+   <script src="<c:url value="/resources/js/zCupURL.js?ds" />" defer></script>
 
    <!-- Font Awesome -->
    <script src="https://kit.fontawesome.com/1a03dd2ba1.js" crossorigin="anonymous"></script>

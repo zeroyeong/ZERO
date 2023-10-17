@@ -1,5 +1,5 @@
 function showDetail(){
-    location.href="scheduleDetail";
+    location.href="zCup/scheduleDetail";
 }
 
 function teamSetting(team_no){
@@ -60,4 +60,15 @@ function readImage(input) {
   } else {
     document.getElementById('newTeamImage').src = '';
   }
+}
+
+
+function deletePlayer(player_no, team_no) {
+	
+	const response = confirm("퇴출 하시겠습니까?");
+
+	if(response){
+		var playerForm = document.getElementById('playerForm');
+   		location.href = 'playerDelete?player_no=' + player_no +'&team_no=' + team_no;
+	}	
 }

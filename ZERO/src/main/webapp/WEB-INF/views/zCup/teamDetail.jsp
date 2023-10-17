@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/tournament.css" />" />
 
     <!-- js 연결 -->
-
-    <script src="<c:url value="/resources/js/detail.js?ass" />" defer></script>
+    <script src="<c:url value="/resources/js/detail.js?adss" />" defer></script>
 
     <!-- Font Awesome -->
     <script
