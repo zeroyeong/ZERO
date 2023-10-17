@@ -7,7 +7,6 @@ import com.github.scribejava.core.builder.api.DefaultApi20;
 
 import lombok.Data;
 
-@Data
 public class SnsValue implements SnsUrls {
 	private String service;
 	private String clientId;

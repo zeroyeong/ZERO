@@ -41,8 +41,6 @@ function teamEdit() {
    var teamForm = document.getElementById('teamForm');
    
    var fileInput = document.getElementById("fileInput");
-   console.log("fileInput > " + fileInput);
-   console.log("fileInput.value > " + fileInput.value);
    
    if(fileInput.value != ""){
    	  var emblemChanged = document.getElementById("emblemChanged");
