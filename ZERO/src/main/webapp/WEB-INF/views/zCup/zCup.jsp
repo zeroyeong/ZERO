@@ -421,7 +421,7 @@
               <c:forEach items="${cupScheduleList}" var="cupSchedule">
               <c:set var="listNum" value="${listNum + 1}" />
               <ul>
-                <li class="place">시흥점</li>
+                <li class="place">${cupSchedule.branch.branch_name}</li>
                 <li class="playInfo">
                   <div>
                  	<span>${cupSchedule.schedule_date}</span>
