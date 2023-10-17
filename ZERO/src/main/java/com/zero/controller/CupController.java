@@ -131,8 +131,7 @@ public class CupController {
 		if(!emblemChanged.equals("basic")) {
 			cup_team.setTeam_emblem(emblemChanged);		
 		}
-		System.out.println("get Image > " +cup_team.getTeam_emblem());
-		System.out.println("get emble > " +cup_team.getEmblem_file());
+
 		cupService.updateCupTeam(cup_team);		
 		return "redirect:editorTeam?team_no="+cup_team.getTeam_no();
 	}
