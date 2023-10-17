@@ -109,7 +109,7 @@ public class SNSLogin {
 	}
 	
 	private Member parseJson(String body) throws Exception {
-		System.out.println("==================\n" + body + "====================");
+		//System.out.println("==================\n" + body + "====================");
 		
 		Member member = new Member();
 			
