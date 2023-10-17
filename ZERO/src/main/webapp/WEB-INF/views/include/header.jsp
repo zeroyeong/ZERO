@@ -39,8 +39,6 @@
 					<li id="manager"><a>Manager<span class="nav-bar hover-bar"></span></a>
 					</li>
 				</c:if>
-				<!-- <li id="manager"><a>Manager<span class="nav-bar hover-bar"></span></a> -->
-				</li>	
 			</ul>
 
 			<ul class="rightMenu">
@@ -54,7 +52,7 @@
 						 <i class="fa-brands fa-instagram"></i>
 					</a>
 				</li>
-				<c:if test="${sessionScope.mem_id==null}">
+				<c:if test="${sessionScope.mem_id == null}">
 				<li class="loginMenu">
 					<a href="<c:url value="/login"/>">
 						memberLogin<i class="fa-solid fa-user"></i>
@@ -62,7 +60,7 @@
 				</li>
 				</c:if>
 				
-				<c:if test="${sessionScope.mem_id!=null}">
+				<c:if test="${sessionScope.mem_id != null}">
 				<li class="loginMenu">
 					<a href="<c:url value="/mypage"/>">
 						my page<i class="fa-solid fa-user"></i>
@@ -85,7 +83,7 @@
 		
 		<nav class="slideMenu">
 		
-			<c:if test="${sessionScope.mem_id==null}">
+			<c:if test="${sessionScope.mem_id == null}">
 			<button type="button" class="memberLogin">
 				<a href="<c:url value="/login"/>">
 					MEMBER LOGIN <i class="fa-solid fa-user"></i>
@@ -93,7 +91,7 @@
 			</button>
 			</c:if>
 			
-			<c:if test="${sessionScope.mem_id!=null}">
+			<c:if test="${sessionScope.mem_id != null}">
 			<button type="button" class="memberLogin">
 				<a href="<c:url value="/mypage"/>">
 					MYPAGE <i class="fa-solid fa-user"></i>
@@ -114,12 +112,11 @@
 				</li>
 				<li id="service"><a>고객센터<span class="nav-bar hover-bar"></span></a>
 				</li>
-				<!-- <li id="manager"><a>Manager<span class="nav-bar hover-bar"></span></a> -->
-				<c:if test="${sessionScope.mem_ac == 1}">
+				<c:if test="${sessionScope.mem_ac != 1}">
 					<li id="manager"><a>Manager<span class="nav-bar hover-bar"></span></a>
 					</li>
 				</c:if>
-				</li>
+
 			</ul>
 			<ul class="snsMenu">
 				<li>

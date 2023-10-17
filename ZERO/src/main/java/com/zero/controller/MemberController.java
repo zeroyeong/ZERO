@@ -170,7 +170,6 @@ public class MemberController {
 		member.setMem_pw(mem_pw);
 		
 		Member mem = memberService.login(member);
-
 		
 		if(mem == null) {//로그인 실패
 			rttr.addFlashAttribute("login_result", "fail");
