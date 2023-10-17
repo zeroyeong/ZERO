@@ -10,12 +10,10 @@
     <title>ZERO FUTSAL</title>
 
     <!-- CSS 연결 -->
-    <link rel="stylesheet" href="<c:url value='/resources/css/manager.css?123' />" />
+    <link rel="stylesheet" href="<c:url value='/resources/css/manager.css' />" />
 
     <!-- JS 연결 -->
-    <script src="<c:url value='/resources/js/manager.js' />" defer></script>
-    <!-- 페이지 네이션 -->
-    <script src="<c:url value='/resources/js/pagenation.js?123' />" defer></script>
+    <script src="<c:url value='/resources/js/manager.js?123' />" defer></script>
 
 </head>
 
@@ -47,7 +45,7 @@
 
         <div class="container">
             <section id="mgrReserContent" class="mgrPage">
-                <table class="reservation-table">
+                <table>
                     <thead>
                         <tr>
                             <th class="no">번호</th>
@@ -67,9 +65,10 @@
                     </c:forEach>
                     </tbody>
                 </table>
-		        <ul class="pagination" id="reservation-pagination">
-	
-		        </ul>
+            	<ul class="pagination">
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
             </section>
 
             <section id="mgrTeamContent" class="mgrPage">
@@ -124,7 +123,7 @@
                 <div class="mgrSch">
                     <c:forEach items="${cup_schedule_list}" var="cupSchedule">
                         <ul>
-                            <li class="place">${cupSchedule.branch.branch_name}</li>
+                            <li class="place">시흥점</li>
                             <li class="playInfo">
                                 <div class="schInfoDiv">
                                     <span>${cupSchedule.schedule_date}</span>
@@ -160,7 +159,7 @@
                 <div class="mgrUserTableTop">
                     전체 사용자 수 : <c:out value="${memberList.size()}" />
                 </div>
-                <table class="member-table">
+                <table>
                     <thead>
                         <tr>
                             <th class="no">번호</th>
@@ -184,9 +183,10 @@
                         </c:forEach>
                     </tbody>
                 </table>
-		        <ul class="pagination" id="member-pagination">
-	
-		        </ul>
+                <ul class="pagination">
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
             </section>
         </div>
     </main>
@@ -369,40 +369,42 @@
                 </div>
             </section>
         </div>
-	
     </c:forEach>
+    
     <!--사용자 팝업-->
-    <c:forEach items="${cupTeamList}" var="cupTeam">
-        <div class="userPopup" id="userPopup${cupTeam.team_no}">
+	<c:forEach items="${memberList}" var="member">
+    <form:form id="updateMgrMember${member.mem_no}" modelAttribute="member" method="post" action="manager/updateMgrMember">
+        <div class="userPopup" id="userPopup${member.mem_no}">
             <section class="userInfo">
-                <span class="closeBtn" onclick="closePopup(userPopup${cupTeam.team_no})">x</span>
+                <span class="closeBtn" onclick="closePopup('userPopup${member.mem_no}')">x</span>
                 <h2>사용자 정보</h2>
                 <table class="mgrUserInfo">
                     <tr>
-                        <th>이름${cupTeam.team_no}</th>
-                        <td><input class="schSelect" type="text" value="사용자1"></td>
+                        <th>이름</th>
+                        <td><form:input class="schSelect" type="text" value="${member.mem_name}" path="mem_name"/></td>
                     </tr>
                     <tr>
                         <th>전화번호</th>
-                        <td><input class="schSelect" type="text" value="010-0101-0101"></td>
+                        <td><form:input class="schSelect" type="text" value="${member.mem_phone}" path="mem_phone"/></td>
                     </tr>
                     <tr>
                         <th>ID</th>
-                        <td><input class="schSelect" type="text" value="id123"></td>
+                        <td><form:input class="schSelect" type="text" value="${member.mem_id}" path="mem_id"/></td>
                     </tr>
                     <tr>
                         <th>PW</th>
-                        <td><input class="schSelect" type="text" value="pw123"></td>
+                        <td><form:input class="schSelect" type="text" value="${member.mem_pw}" path="mem_pw"/></td>
                     </tr>
                 </table>
-
+				<form:hidden path="mem_no" value="${member.mem_no}" />
                 <div class="mgrBtn">
-                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('userPopup', ${cupTeam.team_no})">
-                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('userPopup', ${cupTeam.team_no})">
+                    <input type="button" class="okBtnPop" value="확인" onclick="okBtnPop('userPopup', ${member.mem_no})">
+                    <input type="button" class="cancelBtnPop" value="취소" onclick="cancelBtnPop('userPopup', ${member.mem_no})">
                 </div>
 
             </section>
         </div>
+    </form:form>
     </c:forEach>
 
     <!--경기일정추가 팝업-->

@@ -114,6 +114,8 @@ function okBtnPop(popupId, num) {
             break;    
         case 'userPopup':
             message = "사용자 정보 수정 처리 되었습니다.";
+            var updateMgrMember = document.getElementById(`updateMgrMember${num}`);
+  			updateMgrMember.submit();  
             closeUserPopup(num);
             refreshSection('mgrUserContent');
             break;

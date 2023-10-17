@@ -41,7 +41,8 @@ public class ManagerController {
 	public String manager(@ModelAttribute("NewSchedule") CupSchedule cup_schedule,
 						  @ModelAttribute("updateSchedule") CupSchedule cup_schedule2,
 						  @ModelAttribute("detail") CupMatchDetail cup_detail,
-						  @ModelAttribute("updateTeam") CupTeam cup_team, Model model) {
+						  @ModelAttribute("updateTeam") CupTeam cup_team,
+						  @ModelAttribute("member") Member member, Model model){
 		
 		List<CupTeam> cup_team_list = cupService.getCupTeamList();
 		List<CupSchedule> cup_schedule_list = cupService.getCupScheduleList();
@@ -87,9 +88,9 @@ public class ManagerController {
 	}
 	
 	@PostMapping("/manager/scheduleDetail")
-	public String updateScheduleDetail(@ModelAttribute("detail") CupMatchDetail cup_detail) {
+	public String updateSchedule(@ModelAttribute("detail") CupMatchDetail cup_detail) {
 
-		cupService.updateScheduleDetail(cup_detail);
+		cupService.updateScheduleDetail(cup_detail);			
 		return "redirect:/manager";
 	}
 	
@@ -119,7 +120,6 @@ public class ManagerController {
 	@GetMapping("/manager/playerDelete")
 	public String playerDelete(@RequestParam("player_no") int player_no, @RequestParam("team_no") int team_no) {
 		cupService.deletePlayer(player_no);
-		cupService.updateCupTeamMemberCntDown(team_no);
 		return "redirect:/manager/mgrPlayerList?team_no=" + team_no;
 	}
 	
@@ -128,5 +128,10 @@ public class ManagerController {
 		managerService.cancleReservation(re_no);
 		return "redirect:/manager";
 	}
+
+	@PostMapping("/manager/updateMgrMember")
+	public String updateMgrMember(@ModelAttribute("member") Member member) {
+		managerService.updateMgrMember(member);
+	    return "redirect:/manager";
+	}
 }
- 
