@@ -112,7 +112,7 @@
 				</li>
 				<li id="service"><a>고객센터<span class="nav-bar hover-bar"></span></a>
 				</li>
-				<c:if test="${sessionScope.mem_ac != 1}">
+				<c:if test="${sessionScope.mem_ac == 1}">
 					<li id="manager"><a>Manager<span class="nav-bar hover-bar"></span></a>
 					</li>
 				</c:if>
