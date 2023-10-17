@@ -1528,7 +1528,7 @@ header .webNav .rightMenu .loginMenu a i {
   background-color: rgba(0, 0, 0, 0.8);
 
   position: fixed;
-  top: 135px;
+  top: 85px;
   right: -50%;
 
   display: flex;

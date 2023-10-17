@@ -704,7 +704,9 @@ section#mgrSchContent a.schDelBtn:hover {
     }
 
     section#mgrUserContent table thead th:first-child,
-    section#mgrUserContent table tbody td:first-child {
+    section#mgrUserContent table tbody td:first-child, 
+    section#mgrUserContent table thead th:nth-child(3),
+    section#mgrUserContent table tbody td:nth-child(3) {
         display: none;
     }
 
