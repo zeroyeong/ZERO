@@ -778,3 +778,7 @@ section#mgrSchContent a.schDelBtn:hover {
         width: 35%;
     }
 }
+
+.slideMenu {
+	top: 85px !important;
+}
