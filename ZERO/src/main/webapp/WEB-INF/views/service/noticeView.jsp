@@ -56,7 +56,7 @@
 				<td class="content">
 				    <c:choose>
 				        <c:when test="${notice.notice_imagename != null}">
-				            <img src="<c:url value='/resources/images/${notice.notice_imagename}'/>" alt="">
+				            <img src="<c:url value='/resources/images/${notice.notice_imagename}'/>" alt=""><br>
 				        </c:when>
 				        <c:otherwise>
 				            <!-- 이미지가 없을 때 -->

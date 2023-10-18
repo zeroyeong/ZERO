@@ -102,3 +102,16 @@
 </body>
 
 </html>
+<script>
+    window.addEventListener('load', function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var setDefault = urlParams.get('setDefault');
+
+        if (setDefault === 'reserCheck') {
+            var reserCheckRadioButton = document.getElementById('reserCheck');
+            if (reserCheckRadioButton) {
+                reserCheckRadioButton.checked = true;
+            }
+        }
+    });
+</script>

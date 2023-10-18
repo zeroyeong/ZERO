@@ -39,7 +39,7 @@
         <input type="radio" id="reser" checked />
         <ul class="harlfButton">
             <li><label for="reser">예약</label></li>
-            <li><label><a href="<c:url value="../reservation"/>">예약확인</a></label></li>
+            <li><label><a href="<c:url value="../reservation?setDefault=reserCheck"/>">예약확인</a></label></li>
         </ul>
         <div class="container">
             <h1>예약</h1>

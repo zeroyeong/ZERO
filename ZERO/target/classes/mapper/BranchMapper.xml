@@ -27,7 +27,7 @@ WHERE T.TIME_NO NOT IN (
     WHERE (R.RE_BRANCH = #{re_branch} 
            AND R.RE_DATE = #{re_date}
            AND R.RE_STADIUM = #{re_stadium}
-           AND R.RE_PAYMENT = '결제완료'))
+		   AND (R.RE_PAYMENT = '결제완료' OR R.RE_PAYMENT = '취소요청')))
 </select>
 
 <select id="rList" resultType="Reservation">
