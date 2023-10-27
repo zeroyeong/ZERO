@@ -44,3 +44,8 @@
 -  관리자 - 팀관리: 전체 팀 정보 조회 및 수정, 팀별 스코어 입력 및 팀원 퇴출기능
 -  관리자 - 경기일정: Z-CUP 경기일정 정보 등록(스코어, 날짜 등), 일정별 경기 스코어 입력 및 수정, 일정삭제
 -  관리자 - 사용자관리: 사이트 사용자 정보 조회 및 정보 수정
+
+## 🙌 포트폴리오
+- 프로젝트명세서: https://docs.google.com/spreadsheets/d/10dY6y2ITntUUWdxBA1znpsvUk3buXzI7ZuIUbASZ4io/edit#gid=0
+- 시연영상: https://youtu.be/dzpA8BBIXC8
+
